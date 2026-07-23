@@ -4,18 +4,22 @@ function App() {
   return (
     <div className="app">
       <aside className="left-sidebar">
-        <h1>DU1080 HW4 API</h1>
+        <div className="brand">
+          <div className="brand-title">DU1080 HW4 API</div>
+        </div>
 
         <input
+          className="search-box"
           type="search"
           placeholder="Search"
-          aria-label="Search through documentation"
         />
+
+      <nav> className="table-of-contents"
         <h2>Table of Contents</h2>
-        <nav>
+
           <a href="#welcome">Welcome</a>
 
-          <p>Instruments</p>
+          <div className="toc-section">Instruments</div>
 
           <a href="#agm-test-box">AGMTestBox</a>
           <a href="#chroma2238">Chroma2238</a>
@@ -25,7 +29,6 @@ function App() {
       </aside>
 
       <main className="content">
-        <section id="welcome">
           <h1>Welcome</h1>
 
           <p>
@@ -35,17 +38,13 @@ function App() {
           <p>
             This documentation provides API reference for all supported ATP instruments. 
           </p>
-        </section>
       </main>
 
       <aside className="right-sidebar">
         <h2>Overview</h2>
-        
-        <nav>
-          <a href="#welcome">Welcome</a>
-        </nav>
-       </aside>
-      </div>
+        <a href="#welcome">Welcome</a>
+      </aside>
+    </div>
   )
 }
 
