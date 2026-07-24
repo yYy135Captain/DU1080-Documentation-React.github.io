@@ -1,7 +1,6 @@
 import { useState } from 'react'
 
 import Header from './components/Header'
-import AGMTestBox from "./pages/Instrument/AGMTestBox.mdx"
 
 import './styles/App.css'
 import './styles/Header.css'
@@ -10,14 +9,9 @@ import "./styles/Content.css"
 
 function App() {
   const [isDarkMode, setIsDarkMode] = useState(false)
-  const [searchValue, setSearchValue] = useState('')
 
   const handleThemeToggle = () => {
     setIsDarkMode((currentMode) => !currentMode)
-  }
-  
-  const handleSearchChange = (event) => {
-    setSearchValue(event.target.value)
   }
 
   const handleMenuClick = () => {
@@ -42,15 +36,6 @@ function App() {
             <div className="brand-title">DU1080 HW4 API</div>
           </div>
 
-        <input
-          className="search-box"
-          type="search"
-          placeholder="Search"
-          value={searchValue}
-          onChange={handleSearchChange}
-          aria-label="Search documentation"
-        />
-
         <nav
           className="table-of-contents"
           aria-label="Documentation pages"
@@ -60,48 +45,124 @@ function App() {
 
           <div className="toc-section">Instruments</div>
 
-          <a
-          className="active-page-link"
-          href="#agm-test-box"
+          <NavLink to="/instruments/agm-test-box"
+            className={({isActive})=>
+              isActive ? "active-page-link":""
+          }
           >
             AGMTestBox
-          </a>
+          </NavLink>
 
-          <a href="#chroma2238">Chroma2238</a>
-          <a href="#daq">DAQ</a>
-          <a href="#dmm">DMM</a>
-          <a href="#graphic-discrete-io">GraphicsDiscreteIO</a>
-          <a href="#interface-box">InterfaceBox</a>
-          <a href="#mux">MUX</a>
-          <a href="#mx-foundation">MxFoundation</a>
-          <a href="#photometer">Photometer</a>
-          <a href="#pickering-relay">PickeringRelay</a>
-          <a href="#power-supply">PowerSupply</a>
-          <a href="#relay">Relay</a>
-          <a href="#serial-uart">SerialUART</a>
+          <NavLink to="/instruments/chroma2238"
+            className={({isActive})=>
+              isActive ? "active-page-link":""
+          }
+          >
+            Chroma2238
+          </NavLink>
 
-          <div className="toc-section">DEOSProgramming</div>
-          <div className="toc-section">DU-1080-4</div>
-          <div className="toc-section">HBIT_Com_DU-1080-4</div>
-          <div className="toc-section">MARAMDataProgramming</div>
-          <div className="toc-section">SignalManager</div>
-          <div className="toc-section">StationConfig</div>
-          <div className="toc-section">TestEngine</div>
-          <div className="toc-section">Utilities_DU-1080-4</div>
+          <NavLink to="/instruments/daq"
+            className={({isActive})=>
+              isActive ? "active-page-link":""
+          }
+          >
+            DAQ
+          </NavLink>
 
-        </nav>
-        </aside>
+          <NavLink to="/instruments/dmm"
+            className={({isActive})=>
+              isActive ? "active-page-link":""
+          }
+          >
+            DMM
+          </NavLink>
 
-        <main 
-          id="agm-test-box"
-          className="content">
-            <AGMTestBox/>
+          <NavLink to="/instruments/graphics-discrete-io"
+            className={({isActive})=>
+              isActive ? "active-page-link":""
+          }
+          >
+            GramphicsDiscreteIO
+          </NavLink>
+
+          <NavLink to="/instruments/interface-box"
+            className={({isActive})=>
+              isActive ? "active-page-link":""
+          }
+          >
+            InterfaceBox
+          </NavLink>
+
+          <NavLink to="/instruments/mux"
+            className={({isActive})=>
+              isActive ? "active-page-link":""
+          }
+          >
+            MUX
+          </NavLink>
+
+          <NavLink to="/instruments/mx-foundation"
+            className={({isActive})=>
+              isActive ? "active-page-link":""
+          }
+          >
+            MxFoundation
+          </NavLink>
+
+          <NavLink to="/instruments/photometer"
+            className={({isActive})=>
+              isActive ? "active-page-link":""
+          }
+          >
+           Photometer 
+          </NavLink>
+
+          <NavLink to="/instruments/pickering-relay"
+            className={({isActive})=>
+              isActive ? "active-page-link":""
+          }
+          >
+            PickeringRelay
+          </NavLink>
+
+          <NavLink to="/instruments/power-supply"
+            className={({isActive})=>
+              isActive ? "active-page-link":""
+          }
+          >
+            PowerSupply
+          </NavLink>
+
+          <NavLink to="/instruments/relay"
+            className={({isActive})=>
+              isActive ? "active-page-link":""
+          }
+          >
+            Relay
+          </NavLink>
+
+          <NavLink to="/instruments/serial-uart"
+            className={({isActive})=>
+              isActive ? "active-page-link":""
+          }
+          >
+            SerialUART
+          </NavLink>
+
+          <div className="toc-section">DEOSProgramming
+          </div>
+         </nav>
+         </aside>
+          
+
+        <main className="content">
+            <AppRoutes />
         </main>
 
         <aside className="right-sidebar">
           <h2>Overview</h2>
 
-          <a href="#send-agm-packet">SendAGMPacket</a>
+          <a href="#send-agm-packet"></a>
           <a href="#c-syntax">C Syntax</a>
           <a href="#purpose">Purpose</a>
           <a href="#parameters">Parameters</a>
@@ -111,5 +172,7 @@ function App() {
       </div>
   )
 }
+  
+
 
 export default App 
