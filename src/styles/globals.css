@@ -3,7 +3,7 @@
         Inter,
         Arial,
         Helvetica,
-        san-serif;
+        sans-serif;
 
     color-scheme: light;
 
@@ -121,8 +121,8 @@ svg {
  }
 
 ::selection {
-    color: 0.65rem;
-    height: 0.65rem;
+    color: #ffffff;
+    background: var(--color-primary);
 }
 
 ::-webkit-scrollbar {

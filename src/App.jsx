@@ -6,12 +6,18 @@ import './styles/App.css'
 import './styles/Header.css'
 import "./styles/Sidebar.css"
 import "./styles/Content.css"
+import AGMTestBox from "./pages/Instrument/AGMTestBox.mdx"
 
 function App() {
   const [isDarkMode, setIsDarkMode] = useState(false)
+  const [searchValue, setSearchValue] = useState("")
 
   const handleThemeToggle = () => {
     setIsDarkMode((currentMode) => !currentMode)
+  }
+
+  const handleSearchChange = (event) => {
+    setSearchValue(event.target.value)
   }
 
   const handleMenuClick = () => {
@@ -45,118 +51,31 @@ function App() {
 
           <div className="toc-section">Instruments</div>
 
-          <NavLink to="/instruments/agm-test-box"
-            className={({isActive})=>
-              isActive ? "active-page-link":""
-          }
-          >
-            AGMTestBox
-          </NavLink>
+          <a className="active-page-link"
+          href="#agm-test-box"
+          >AGMTestBox</a>
 
-          <NavLink to="/instruments/chroma2238"
-            className={({isActive})=>
-              isActive ? "active-page-link":""
-          }
-          >
-            Chroma2238
-          </NavLink>
+          <a href="#chroma2238">Chroma2238</a>
+          <a href="#daq">DAQ</a>
+          <a href="#dmm">DMM</a>
+          <a href="#graphics-discrete-io">GraphicsDiscreteIO</a>
+          <a href="#interface-box">InterfaceBox</a>
+          <a href="#mux">MUX</a>
+          <a href="#mx-foundation">MxFoundation</a>
+          <a href="#photometer">Photometer</a>
+          <a href="#pickering-relay">PickeringRealy</a>
+          <a href="#power-supply">PowerSupply</a>
+          <a href="#relay">Relay</a>
+          <a href="#serial-uart">SerialUART</a>
 
-          <NavLink to="/instruments/daq"
-            className={({isActive})=>
-              isActive ? "active-page-link":""
-          }
-          >
-            DAQ
-          </NavLink>
-
-          <NavLink to="/instruments/dmm"
-            className={({isActive})=>
-              isActive ? "active-page-link":""
-          }
-          >
-            DMM
-          </NavLink>
-
-          <NavLink to="/instruments/graphics-discrete-io"
-            className={({isActive})=>
-              isActive ? "active-page-link":""
-          }
-          >
-            GramphicsDiscreteIO
-          </NavLink>
-
-          <NavLink to="/instruments/interface-box"
-            className={({isActive})=>
-              isActive ? "active-page-link":""
-          }
-          >
-            InterfaceBox
-          </NavLink>
-
-          <NavLink to="/instruments/mux"
-            className={({isActive})=>
-              isActive ? "active-page-link":""
-          }
-          >
-            MUX
-          </NavLink>
-
-          <NavLink to="/instruments/mx-foundation"
-            className={({isActive})=>
-              isActive ? "active-page-link":""
-          }
-          >
-            MxFoundation
-          </NavLink>
-
-          <NavLink to="/instruments/photometer"
-            className={({isActive})=>
-              isActive ? "active-page-link":""
-          }
-          >
-           Photometer 
-          </NavLink>
-
-          <NavLink to="/instruments/pickering-relay"
-            className={({isActive})=>
-              isActive ? "active-page-link":""
-          }
-          >
-            PickeringRelay
-          </NavLink>
-
-          <NavLink to="/instruments/power-supply"
-            className={({isActive})=>
-              isActive ? "active-page-link":""
-          }
-          >
-            PowerSupply
-          </NavLink>
-
-          <NavLink to="/instruments/relay"
-            className={({isActive})=>
-              isActive ? "active-page-link":""
-          }
-          >
-            Relay
-          </NavLink>
-
-          <NavLink to="/instruments/serial-uart"
-            className={({isActive})=>
-              isActive ? "active-page-link":""
-          }
-          >
-            SerialUART
-          </NavLink>
-
-          <div className="toc-section">DEOSProgramming
-          </div>
+          
          </nav>
-         </aside>
+        </aside>
           
 
-        <main className="content">
-            <AppRoutes />
+        <main id="agm-test-box"
+        className="content">
+            <AGMTestBox />
         </main>
 
         <aside className="right-sidebar">
