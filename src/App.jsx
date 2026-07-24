@@ -1,7 +1,12 @@
 import { useState } from 'react'
+
 import Header from './components/Header'
+import AGMTestBox from "./pages/Instrument/AGMTestBox.mdx"
+
 import './styles/App.css'
 import './styles/Header.css'
+import "./styles/Sidebar.css"
+import "./styles/Content.css"
 
 function App() {
   const [isDarkMode, setIsDarkMode] = useState(false)
@@ -10,14 +15,19 @@ function App() {
   const handleThemeToggle = () => {
     setIsDarkMode((currentMode) => !currentMode)
   }
+  
   const handleSearchChange = (event) => {
     setSearchValue(event.target.value)
   }
+
   const handleMenuClick = () => {
+    console.log("Menu button clicked")
   }
 
   return (
-    <div className={`site-shell ${isDarkMode ? 'dark' : 'light'} `}>
+    <div className={`site-shell ${isDarkMode ? "dark" : "light"} `}
+    >
+
       <Header
         isDarkMode={isDarkMode}
         onThemeToggle={handleThemeToggle}
@@ -29,7 +39,7 @@ function App() {
       <div className='app'>
         <aside className="left-sidebar">
           <div className="brand">
-          <div className="brand-title">DU1080 HW4 API</div>
+            <div className="brand-title">DU1080 HW4 API</div>
           </div>
 
         <input
@@ -41,39 +51,62 @@ function App() {
           aria-label="Search documentation"
         />
 
-        <nav> className="table-of-contents"
-        <h2>Table of Contents</h2>
+        <nav
+          className="table-of-contents"
+          aria-label="Documentation pages"
+        >
 
-          <a href="#welcome">Welcome</a>
+          <h2>Table of Contents</h2>
 
           <div className="toc-section">Instruments</div>
 
-          <a href="#agm-test-box">AGMTestBox</a>
+          <a
+          className="active-page-link"
+          href="#agm-test-box"
+          >
+            AGMTestBox
+          </a>
+
           <a href="#chroma2238">Chroma2238</a>
           <a href="#daq">DAQ</a>
           <a href="#dmm">DMM</a>
+          <a href="#graphic-discrete-io">GraphicsDiscreteIO</a>
+          <a href="#interface-box">InterfaceBox</a>
+          <a href="#mux">MUX</a>
+          <a href="#mx-foundation">MxFoundation</a>
+          <a href="#photometer">Photometer</a>
+          <a href="#pickering-relay">PickeringRelay</a>
+          <a href="#power-supply">PowerSupply</a>
+          <a href="#relay">Relay</a>
+          <a href="#serial-uart">SerialUART</a>
+
+          <div className="toc-section">DEOSProgramming</div>
+          <div className="toc-section">DU-1080-4</div>
+          <div className="toc-section">HBIT_Com_DU-1080-4</div>
+          <div className="toc-section">MARAMDataProgramming</div>
+          <div className="toc-section">SignalManager</div>
+          <div className="toc-section">StationConfig</div>
+          <div className="toc-section">TestEngine</div>
+          <div className="toc-section">Utilities_DU-1080-4</div>
+
         </nav>
         </aside>
 
-        <main className="content">
-          <section id="welcome">
-            <h1>Welcome</h1>
-
-            <p>
-            Welcome to the DU-1080-HW4 ATP Function Documentation.
-            </p>
-            <p>
-            This documentation provides API reference for all supported ATP instruments. 
-            </p>
-          </section>
+        <main 
+          id="agm-test-box"
+          className="content">
+            <AGMTestBox/>
         </main>
 
         <aside className="right-sidebar">
-        <h2>Overview</h2>
+          <h2>Overview</h2>
 
-        <a href="#welcome">Welcome</a>
+          <a href="#send-agm-packet">SendAGMPacket</a>
+          <a href="#c-syntax">C Syntax</a>
+          <a href="#purpose">Purpose</a>
+          <a href="#parameters">Parameters</a>
+          <a href="#return-values">Return Values</a>
         </aside>
-
         </div>
       </div>
   )
