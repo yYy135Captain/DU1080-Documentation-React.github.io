@@ -86,6 +86,238 @@
       "level": 3
     }
   ],
+  "/instrument/chroma2238": [
+    {
+      "label": "Chroma2238.c",
+      "id": "chroma2238c",
+      "level": 1
+    },
+    {
+      "label": "Overview",
+      "id": "overview",
+      "level": 2
+    },
+    {
+      "label": "Header",
+      "id": "header",
+      "level": 3
+    },
+    {
+      "label": "Purpose",
+      "id": "purpose",
+      "level": 3
+    },
+    {
+      "label": "Parameters",
+      "id": "parameters",
+      "level": 3
+    },
+    {
+      "label": "Return Values",
+      "id": "return-values",
+      "level": 3
+    },
+    {
+      "label": "Chroma2238Command",
+      "id": "chroma2238command",
+      "level": 2
+    },
+    {
+      "label": "Header",
+      "id": "header-1",
+      "level": 3
+    },
+    {
+      "label": "Purpose",
+      "id": "purpose-1",
+      "level": 3
+    },
+    {
+      "label": "Parameters",
+      "id": "parameters-1",
+      "level": 3
+    },
+    {
+      "label": "Return Values",
+      "id": "return-values-1",
+      "level": 3
+    },
+    {
+      "label": "Chroma2238LoadTimingSetting",
+      "id": "chroma2238loadtimingsetting",
+      "level": 2
+    },
+    {
+      "label": "Header",
+      "id": "header-2",
+      "level": 3
+    },
+    {
+      "label": "Purpose",
+      "id": "purpose-2",
+      "level": 3
+    },
+    {
+      "label": "Parameters",
+      "id": "parameters-2",
+      "level": 3
+    },
+    {
+      "label": "Return Values",
+      "id": "return-values-2",
+      "level": 3
+    },
+    {
+      "label": "Chroma2238LoadPatternSetting",
+      "id": "chroma2238loadpatternsetting",
+      "level": 2
+    },
+    {
+      "label": "Header",
+      "id": "header-3",
+      "level": 3
+    },
+    {
+      "label": "Purpose",
+      "id": "purpose-3",
+      "level": 3
+    },
+    {
+      "label": "Parameters",
+      "id": "parameters-3",
+      "level": 3
+    },
+    {
+      "label": "Return Values",
+      "id": "return-values-3",
+      "level": 3
+    },
+    {
+      "label": "Chroma2238Run",
+      "id": "chroma2238run",
+      "level": 2
+    },
+    {
+      "label": "Header",
+      "id": "header-4",
+      "level": 3
+    },
+    {
+      "label": "Purpose",
+      "id": "purpose-4",
+      "level": 3
+    },
+    {
+      "label": "Parameters",
+      "id": "parameters-4",
+      "level": 3
+    },
+    {
+      "label": "Return Values",
+      "id": "return-values-4",
+      "level": 3
+    },
+    {
+      "label": "Chroma2238Disable",
+      "id": "chroma2238disable",
+      "level": 2
+    },
+    {
+      "label": "Header",
+      "id": "header-5",
+      "level": 3
+    },
+    {
+      "label": "Purpose",
+      "id": "purpose-5",
+      "level": 3
+    },
+    {
+      "label": "Parameters",
+      "id": "parameters-5",
+      "level": 3
+    },
+    {
+      "label": "Return Values",
+      "id": "return-values-5",
+      "level": 3
+    },
+    {
+      "label": "Chroma2238Close",
+      "id": "chroma2238close",
+      "level": 2
+    },
+    {
+      "label": "Header",
+      "id": "header-6",
+      "level": 3
+    },
+    {
+      "label": "Purpose",
+      "id": "purpose-6",
+      "level": 3
+    },
+    {
+      "label": "Parameters",
+      "id": "parameters-6",
+      "level": 3
+    },
+    {
+      "label": "Return Values",
+      "id": "return-values-6",
+      "level": 3
+    },
+    {
+      "label": "VISAInitialize",
+      "id": "visainitialize",
+      "level": 2
+    },
+    {
+      "label": "Header",
+      "id": "header-7",
+      "level": 3
+    },
+    {
+      "label": "Purpose",
+      "id": "purpose-7",
+      "level": 3
+    },
+    {
+      "label": "Parameters",
+      "id": "parameters-7",
+      "level": 3
+    },
+    {
+      "label": "Return Values",
+      "id": "return-values-7",
+      "level": 3
+    },
+    {
+      "label": "Chroma2238PortToVisaName",
+      "id": "chroma2238porttovisaname",
+      "level": 2
+    },
+    {
+      "label": "Header",
+      "id": "header-8",
+      "level": 3
+    },
+    {
+      "label": "Purpose",
+      "id": "purpose-8",
+      "level": 3
+    },
+    {
+      "label": "Parameters",
+      "id": "parameters-8",
+      "level": 3
+    },
+    {
+      "label": "Return Values",
+      "id": "return-values-8",
+      "level": 3
+    }
+  ],
   "/instrument/daq": [
     {
       "label": "DAQ",
@@ -270,6 +502,93 @@
     {
       "label": "Return Value",
       "id": "return-value-6",
+      "level": 3
+    }
+  ],
+  "/instrument/dmm": [
+    {
+      "label": "DMM.c",
+      "id": "dmmc",
+      "level": 1
+    },
+    {
+      "label": "Overview",
+      "id": "overview",
+      "level": 2
+    },
+    {
+      "label": "DMMInitialize",
+      "id": "dmminitialize",
+      "level": 2
+    },
+    {
+      "label": "Header",
+      "id": "header",
+      "level": 3
+    },
+    {
+      "label": "Purpose",
+      "id": "purpose",
+      "level": 3
+    },
+    {
+      "label": "Parameters",
+      "id": "parameters",
+      "level": 3
+    },
+    {
+      "label": "Return Values",
+      "id": "return-values",
+      "level": 3
+    },
+    {
+      "label": "DMMClose",
+      "id": "dmmclose",
+      "level": 2
+    },
+    {
+      "label": "Header",
+      "id": "header-1",
+      "level": 3
+    },
+    {
+      "label": "Purpose",
+      "id": "purpose-1",
+      "level": 3
+    },
+    {
+      "label": "Parameters",
+      "id": "parameters-1",
+      "level": 3
+    },
+    {
+      "label": "Return Values",
+      "id": "return-values-1",
+      "level": 3
+    },
+    {
+      "label": "DMMMeasure",
+      "id": "dmmmeasure",
+      "level": 2
+    },
+    {
+      "label": "Header",
+      "id": "header-2",
+      "level": 3
+    },
+    {
+      "label": "Purpose",
+      "id": "purpose-2",
+      "level": 3
+    },
+    {
+      "label": "Parameters",
+      "id": "parameters-2",
+      "level": 3
+    },
+    {
+      "label": "Return Values",
+      "id": "return-values-2",
       "level": 3
     }
   ],
@@ -482,6 +801,343 @@
     {
       "label": "Return Value",
       "id": "return-value-7",
+      "level": 3
+    }
+  ],
+  "/instrument/interface-box": [
+    {
+      "label": "InterfaceBox.c",
+      "id": "interfaceboxc",
+      "level": 1
+    },
+    {
+      "label": "Overview",
+      "id": "overview",
+      "level": 2
+    },
+    {
+      "label": "InterfaceBoxSlot1HDLCWrapBack",
+      "id": "interfaceboxslot1hdlcwrapback",
+      "level": 2
+    },
+    {
+      "label": "Header",
+      "id": "header",
+      "level": 3
+    },
+    {
+      "label": "Purpose",
+      "id": "purpose",
+      "level": 3
+    },
+    {
+      "label": "Parameters",
+      "id": "parameters",
+      "level": 3
+    },
+    {
+      "label": "Return Values",
+      "id": "return-values",
+      "level": 3
+    },
+    {
+      "label": "InterfaceBoxSlot2HDLCWrapBack",
+      "id": "interfaceboxslot2hdlcwrapback",
+      "level": 2
+    },
+    {
+      "label": "Header",
+      "id": "header-1",
+      "level": 3
+    },
+    {
+      "label": "Purpose",
+      "id": "purpose-1",
+      "level": 3
+    },
+    {
+      "label": "Parameters",
+      "id": "parameters-1",
+      "level": 3
+    },
+    {
+      "label": "Return Values",
+      "id": "return-values-1",
+      "level": 3
+    },
+    {
+      "label": "InterfaceBoxAnalogVideoSet",
+      "id": "interfaceboxanalogvideoset",
+      "level": 2
+    },
+    {
+      "label": "Header",
+      "id": "header-2",
+      "level": 3
+    },
+    {
+      "label": "Purpose",
+      "id": "purpose-2",
+      "level": 3
+    },
+    {
+      "label": "Parameters",
+      "id": "parameters-2",
+      "level": 3
+    },
+    {
+      "label": "Return Values",
+      "id": "return-values-2",
+      "level": 3
+    },
+    {
+      "label": "InterfaceBoxCommandTest",
+      "id": "interfaceboxcommandtest",
+      "level": 2
+    },
+    {
+      "label": "Header",
+      "id": "header-3",
+      "level": 3
+    },
+    {
+      "label": "Purpose",
+      "id": "purpose-3",
+      "level": 3
+    },
+    {
+      "label": "Parameters",
+      "id": "parameters-3",
+      "level": 3
+    },
+    {
+      "label": "Return Values",
+      "id": "return-values-3",
+      "level": 3
+    },
+    {
+      "label": "InterfaceBoxFirmwareVersion",
+      "id": "interfaceboxfirmwareversion",
+      "level": 2
+    },
+    {
+      "label": "Header",
+      "id": "header-4",
+      "level": 3
+    },
+    {
+      "label": "Purpose",
+      "id": "purpose-4",
+      "level": 3
+    },
+    {
+      "label": "Parameters",
+      "id": "parameters-4",
+      "level": 3
+    },
+    {
+      "label": "Return Values",
+      "id": "return-values-4",
+      "level": 3
+    },
+    {
+      "label": "InterfaceBoxInitialize",
+      "id": "interfaceboxinitialize",
+      "level": 2
+    },
+    {
+      "label": "Header",
+      "id": "header-5",
+      "level": 3
+    },
+    {
+      "label": "Purpose",
+      "id": "purpose-5",
+      "level": 3
+    },
+    {
+      "label": "Parameters",
+      "id": "parameters-5",
+      "level": 3
+    },
+    {
+      "label": "Return Values",
+      "id": "return-values-5",
+      "level": 3
+    },
+    {
+      "label": "InterfaceBoxWrite",
+      "id": "interfaceboxwrite",
+      "level": 2
+    },
+    {
+      "label": "Header",
+      "id": "header-6",
+      "level": 3
+    },
+    {
+      "label": "Purpose",
+      "id": "purpose-6",
+      "level": 3
+    },
+    {
+      "label": "Parameters",
+      "id": "parameters-6",
+      "level": 3
+    },
+    {
+      "label": "Return Values",
+      "id": "return-values-6",
+      "level": 3
+    },
+    {
+      "label": "InterfaceBoxRead",
+      "id": "interfaceboxread",
+      "level": 2
+    },
+    {
+      "label": "Header",
+      "id": "header-7",
+      "level": 3
+    },
+    {
+      "label": "Purpose",
+      "id": "purpose-7",
+      "level": 3
+    },
+    {
+      "label": "Parameters",
+      "id": "parameters-7",
+      "level": 3
+    },
+    {
+      "label": "Return Values",
+      "id": "return-values-7",
+      "level": 3
+    },
+    {
+      "label": "SetCVBSMode",
+      "id": "setcvbsmode",
+      "level": 2
+    },
+    {
+      "label": "Header",
+      "id": "header-8",
+      "level": 3
+    },
+    {
+      "label": "Purpose",
+      "id": "purpose-8",
+      "level": 3
+    },
+    {
+      "label": "Parameters",
+      "id": "parameters-8",
+      "level": 3
+    },
+    {
+      "label": "Return Values",
+      "id": "return-values-8",
+      "level": 3
+    },
+    {
+      "label": "SetComponentVideoMode",
+      "id": "setcomponentvideomode",
+      "level": 2
+    },
+    {
+      "label": "Header",
+      "id": "header-9",
+      "level": 3
+    },
+    {
+      "label": "Purpose",
+      "id": "purpose-9",
+      "level": 3
+    },
+    {
+      "label": "Parameters",
+      "id": "parameters-9",
+      "level": 3
+    },
+    {
+      "label": "Return Values",
+      "id": "return-values-9",
+      "level": 3
+    },
+    {
+      "label": "SetSVideoYCMode",
+      "id": "setsvideoycmode",
+      "level": 2
+    },
+    {
+      "label": "Header",
+      "id": "header-10",
+      "level": 3
+    },
+    {
+      "label": "Purpose",
+      "id": "purpose-10",
+      "level": 3
+    },
+    {
+      "label": "Parameters",
+      "id": "parameters-10",
+      "level": 3
+    },
+    {
+      "label": "Return Values",
+      "id": "return-values-10",
+      "level": 3
+    },
+    {
+      "label": "SetRGBMode",
+      "id": "setrgbmode",
+      "level": 2
+    },
+    {
+      "label": "Header",
+      "id": "header-11",
+      "level": 3
+    },
+    {
+      "label": "Purpose",
+      "id": "purpose-11",
+      "level": 3
+    },
+    {
+      "label": "Parameters",
+      "id": "parameters-11",
+      "level": 3
+    },
+    {
+      "label": "Return Values",
+      "id": "return-values-11",
+      "level": 3
+    },
+    {
+      "label": "CloseDUInterfaceBox",
+      "id": "closeduinterfacebox",
+      "level": 2
+    },
+    {
+      "label": "Header",
+      "id": "header-12",
+      "level": 3
+    },
+    {
+      "label": "Purpose",
+      "id": "purpose-12",
+      "level": 3
+    },
+    {
+      "label": "Parameters",
+      "id": "parameters-12",
+      "level": 3
+    },
+    {
+      "label": "Return Values",
+      "id": "return-values-12",
       "level": 3
     }
   ],
@@ -1054,6 +1710,63 @@
       "level": 3
     }
   ],
+  "/instrument/photometer": [
+    {
+      "label": "Photometer",
+      "id": "photometer",
+      "level": 1
+    },
+    {
+      "label": "PhotometerMeasure",
+      "id": "photometermeasure",
+      "level": 2
+    },
+    {
+      "label": "Header",
+      "id": "header",
+      "level": 3
+    },
+    {
+      "label": "Purpose",
+      "id": "purpose",
+      "level": 3
+    },
+    {
+      "label": "Parameters",
+      "id": "parameters",
+      "level": 3
+    },
+    {
+      "label": "Return Value",
+      "id": "return-value",
+      "level": 3
+    },
+    {
+      "label": "PhotometerInitialize",
+      "id": "photometerinitialize",
+      "level": 2
+    },
+    {
+      "label": "Header",
+      "id": "header-1",
+      "level": 3
+    },
+    {
+      "label": "Purpose",
+      "id": "purpose-1",
+      "level": 3
+    },
+    {
+      "label": "Parameters",
+      "id": "parameters-1",
+      "level": 3
+    },
+    {
+      "label": "Return Value",
+      "id": "return-value-1",
+      "level": 3
+    }
+  ],
   "/instrument/pickering-relay": [
     {
       "label": "PickeringRelay",
@@ -1138,6 +1851,213 @@
     {
       "label": "Return Value",
       "id": "return-value-2",
+      "level": 3
+    }
+  ],
+  "/instrument/power-supply": [
+    {
+      "label": "PowerSupply",
+      "id": "powersupply",
+      "level": 1
+    },
+    {
+      "label": "PowerSupplyInitialize",
+      "id": "powersupplyinitialize",
+      "level": 2
+    },
+    {
+      "label": "Header",
+      "id": "header",
+      "level": 3
+    },
+    {
+      "label": "Purpose",
+      "id": "purpose",
+      "level": 3
+    },
+    {
+      "label": "Parameters",
+      "id": "parameters",
+      "level": 3
+    },
+    {
+      "label": "Return Value",
+      "id": "return-value",
+      "level": 3
+    },
+    {
+      "label": "PowerSupplyOutputState",
+      "id": "powersupplyoutputstate",
+      "level": 2
+    },
+    {
+      "label": "Header",
+      "id": "header-1",
+      "level": 3
+    },
+    {
+      "label": "Purpose",
+      "id": "purpose-1",
+      "level": 3
+    },
+    {
+      "label": "Parameters",
+      "id": "parameters-1",
+      "level": 3
+    },
+    {
+      "label": "Return Value",
+      "id": "return-value-1",
+      "level": 3
+    },
+    {
+      "label": "PowerSupplySetVoltageCurrent",
+      "id": "powersupplysetvoltagecurrent",
+      "level": 2
+    },
+    {
+      "label": "Header",
+      "id": "header-2",
+      "level": 3
+    },
+    {
+      "label": "Purpose",
+      "id": "purpose-2",
+      "level": 3
+    },
+    {
+      "label": "Parameters",
+      "id": "parameters-2",
+      "level": 3
+    },
+    {
+      "label": "Return Value",
+      "id": "return-value-2",
+      "level": 3
+    },
+    {
+      "label": "PowerSupplyPowerOff",
+      "id": "powersupplypoweroff",
+      "level": 2
+    },
+    {
+      "label": "Header",
+      "id": "header-3",
+      "level": 3
+    },
+    {
+      "label": "Purpose",
+      "id": "purpose-3",
+      "level": 3
+    },
+    {
+      "label": "Parameters",
+      "id": "parameters-3",
+      "level": 3
+    },
+    {
+      "label": "Return Value",
+      "id": "return-value-3",
+      "level": 3
+    },
+    {
+      "label": "PowerSupplyShutDown",
+      "id": "powersupplyshutdown",
+      "level": 2
+    },
+    {
+      "label": "Header",
+      "id": "header-4",
+      "level": 3
+    },
+    {
+      "label": "Purpose",
+      "id": "purpose-4",
+      "level": 3
+    },
+    {
+      "label": "Parameters",
+      "id": "parameters-4",
+      "level": 3
+    },
+    {
+      "label": "Return Value",
+      "id": "return-value-4",
+      "level": 3
+    },
+    {
+      "label": "PowerSupplyMeasureVoltage",
+      "id": "powersupplymeasurevoltage",
+      "level": 2
+    },
+    {
+      "label": "Header",
+      "id": "header-5",
+      "level": 3
+    },
+    {
+      "label": "Purpose",
+      "id": "purpose-5",
+      "level": 3
+    },
+    {
+      "label": "Parameters",
+      "id": "parameters-5",
+      "level": 3
+    },
+    {
+      "label": "Return Value",
+      "id": "return-value-5",
+      "level": 3
+    },
+    {
+      "label": "PowerSupplyMeasureCurrent",
+      "id": "powersupplymeasurecurrent",
+      "level": 2
+    },
+    {
+      "label": "Header",
+      "id": "header-6",
+      "level": 3
+    },
+    {
+      "label": "Purpose",
+      "id": "purpose-6",
+      "level": 3
+    },
+    {
+      "label": "Parameters",
+      "id": "parameters-6",
+      "level": 3
+    },
+    {
+      "label": "Return Value",
+      "id": "return-value-6",
+      "level": 3
+    },
+    {
+      "label": "PowerSupplyInitializeVoltageCurrent",
+      "id": "powersupplyinitializevoltagecurrent",
+      "level": 2
+    },
+    {
+      "label": "Header",
+      "id": "header-7",
+      "level": 3
+    },
+    {
+      "label": "Purpose",
+      "id": "purpose-7",
+      "level": 3
+    },
+    {
+      "label": "Parameters",
+      "id": "parameters-7",
+      "level": 3
+    },
+    {
+      "label": "Return Value",
+      "id": "return-value-7",
       "level": 3
     }
   ],
@@ -1350,6 +2270,248 @@
     {
       "label": "Return Value",
       "id": "return-value-7",
+      "level": 3
+    }
+  ],
+  "/instrument/serial-uart": [
+    {
+      "label": "SerialUART",
+      "id": "serialuart",
+      "level": 1
+    },
+    {
+      "label": "Overview",
+      "id": "overview",
+      "level": 2
+    },
+    {
+      "label": "InitializeUART",
+      "id": "initializeuart",
+      "level": 2
+    },
+    {
+      "label": "Header",
+      "id": "header",
+      "level": 3
+    },
+    {
+      "label": "Purpose",
+      "id": "purpose",
+      "level": 3
+    },
+    {
+      "label": "Parameters",
+      "id": "parameters",
+      "level": 3
+    },
+    {
+      "label": "Return Value",
+      "id": "return-value",
+      "level": 3
+    },
+    {
+      "label": "UARTSetting",
+      "id": "uartsetting",
+      "level": 2
+    },
+    {
+      "label": "Header",
+      "id": "header-1",
+      "level": 3
+    },
+    {
+      "label": "Purpose",
+      "id": "purpose-1",
+      "level": 3
+    },
+    {
+      "label": "Parameters",
+      "id": "parameters-1",
+      "level": 3
+    },
+    {
+      "label": "Return Value",
+      "id": "return-value-1",
+      "level": 3
+    },
+    {
+      "label": "ReadUART",
+      "id": "readuart",
+      "level": 2
+    },
+    {
+      "label": "Header",
+      "id": "header-2",
+      "level": 3
+    },
+    {
+      "label": "Purpose",
+      "id": "purpose-2",
+      "level": 3
+    },
+    {
+      "label": "Parameters",
+      "id": "parameters-2",
+      "level": 3
+    },
+    {
+      "label": "Return Value",
+      "id": "return-value-2",
+      "level": 3
+    },
+    {
+      "label": "ReplyUART",
+      "id": "replyuart",
+      "level": 2
+    },
+    {
+      "label": "Header",
+      "id": "header-3",
+      "level": 3
+    },
+    {
+      "label": "Purpose",
+      "id": "purpose-3",
+      "level": 3
+    },
+    {
+      "label": "Parameters",
+      "id": "parameters-3",
+      "level": 3
+    },
+    {
+      "label": "Return Value",
+      "id": "return-value-3",
+      "level": 3
+    },
+    {
+      "label": "Example",
+      "id": "example",
+      "level": 3
+    },
+    {
+      "label": "CloseUART",
+      "id": "closeuart",
+      "level": 2
+    },
+    {
+      "label": "Header",
+      "id": "header-4",
+      "level": 3
+    },
+    {
+      "label": "Purpose",
+      "id": "purpose-4",
+      "level": 3
+    },
+    {
+      "label": "Parameters",
+      "id": "parameters-4",
+      "level": 3
+    },
+    {
+      "label": "Return Value",
+      "id": "return-value-4",
+      "level": 3
+    },
+    {
+      "label": "SerialVISAInit",
+      "id": "serialvisainit",
+      "level": 2
+    },
+    {
+      "label": "Header",
+      "id": "header-5",
+      "level": 3
+    },
+    {
+      "label": "Purpose",
+      "id": "purpose-5",
+      "level": 3
+    },
+    {
+      "label": "Parameters",
+      "id": "parameters-5",
+      "level": 3
+    },
+    {
+      "label": "Return Value",
+      "id": "return-value-5",
+      "level": 3
+    },
+    {
+      "label": "SerialVISAWrite",
+      "id": "serialvisawrite",
+      "level": 2
+    },
+    {
+      "label": "Header",
+      "id": "header-6",
+      "level": 3
+    },
+    {
+      "label": "Purpose",
+      "id": "purpose-6",
+      "level": 3
+    },
+    {
+      "label": "Parameters",
+      "id": "parameters-6",
+      "level": 3
+    },
+    {
+      "label": "Return Value",
+      "id": "return-value-6",
+      "level": 3
+    },
+    {
+      "label": "SerialVISARead",
+      "id": "serialvisaread",
+      "level": 2
+    },
+    {
+      "label": "Header",
+      "id": "header-7",
+      "level": 3
+    },
+    {
+      "label": "Purpose",
+      "id": "purpose-7",
+      "level": 3
+    },
+    {
+      "label": "Parameters",
+      "id": "parameters-7",
+      "level": 3
+    },
+    {
+      "label": "Return Value",
+      "id": "return-value-7",
+      "level": 3
+    },
+    {
+      "label": "SerialVISACleanup",
+      "id": "serialvisacleanup",
+      "level": 2
+    },
+    {
+      "label": "Header",
+      "id": "header-8",
+      "level": 3
+    },
+    {
+      "label": "Purpose",
+      "id": "purpose-8",
+      "level": 3
+    },
+    {
+      "label": "Parameters",
+      "id": "parameters-8",
+      "level": 3
+    },
+    {
+      "label": "Return Value",
+      "id": "return-value-8",
       "level": 3
     }
   ]

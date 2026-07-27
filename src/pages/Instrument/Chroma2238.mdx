@@ -1,0 +1,205 @@
+# Chroma2238.c
+
+## Overview
+### Header
+
+`int DLLEXPORT __stdcall Chroma2238Initialize(char *port_name, long baud_rate, ViBoolean *test_result, char *status_message)`
+
+### Purpose
+
+Initialize a VISA session on Chroma2238.
+
+### Parameters
+
+| Name             | Type          | Purpose                         |
+|------------------|---------------|---------------------------------|
+| `port_name`      | `char *`      | string resource name            |
+| `baud_rate`      | `long`        | rate of bit transmission (long) |
+| `test_result`    | `ViBoolean *` | either VI_TRUE or VI_FALSE      |
+| `status_message` | `char *`      | string error message            |
+
+### Return Values
+
+| Error Code | Error Description                    |
+|------------|--------------------------------------|
+| `0`        | Initialization was successful        |
+| `-1`       | Chroma2238 VISA failed to initialize |
+| \`-2       | Chroma2238 failed to initialize      |
+
+## Chroma2238Command
+### Header
+
+`int DLLEXPORT __stdcall Chroma2238Command(char *command, char *status_message)`
+
+### Purpose
+
+Writes a command to a device in a session and checks that it was the correct command.
+
+### Parameters
+
+| Name             | Type     | Purpose                           |
+|------------------|----------|-----------------------------------|
+| `command`        | `char *` | String VISA command to be written |
+| `status_message` | `char *` | string error message              |
+
+### Return Values
+
+| Error Code | Error Description             |
+|------------|-------------------------------|
+| `0`        | Command writing was a success |
+| `-1`       | Command failed                |
+
+## Chroma2238LoadTimingSetting
+### Header
+
+`int DLLEXPORT __stdcall Chroma2238LoadTimingSetting(int timing_setting, char *status_message)`
+
+### Purpose
+
+Send timing setting command to the chroma.
+
+### Parameters
+
+| Name             | Type     | Purpose              |
+|------------------|----------|----------------------|
+| `timing_setting` | `int`    | timing setting (int) |
+| `status_message` | `char *` | string error message |
+
+### Return Values
+
+| Error Code | Error Description                         |
+|------------|-------------------------------------------|
+| `0`        | Load timing setting command was a success |
+| `-1`       | Command failed                            |
+
+## Chroma2238LoadPatternSetting
+### Header
+
+`int DLLEXPORT __stdcall Chroma2238LoadPatternSetting(int pattern_setting, char *status_message)`
+
+### Purpose
+
+Send pattern setting command to Chroma.
+
+### Parameters
+
+| Name              | Type     | Purpose               |
+|-------------------|----------|-----------------------|
+| `pattern_setting` | `int`    | pattern setting (int) |
+| `status_message`  | `char *` | string error message  |
+
+### Return Values
+
+| Error Code | Error Description                          |
+|------------|--------------------------------------------|
+| `0`        | Load pattern setting command was a success |
+| `-1`       | Command failed                             |
+
+## Chroma2238Run
+### Header
+
+`int DLLEXPORT __stdcall Chroma2238Run(char *status_message)`
+
+### Purpose
+
+Send run command to Chroma.
+
+### Parameters
+
+| Name             | Type     | Purpose              |
+|------------------|----------|----------------------|
+| `status_message` | `char *` | string error message |
+
+### Return Values
+
+| Error Code | Error Description         |
+|------------|---------------------------|
+| `0`        | Run command was a success |
+| `-1`       | Command failed            |
+
+## Chroma2238Disable
+### Header
+
+`int DLLEXPORT __stdcall Chroma2238Disable(char *status_message)`
+
+### Purpose
+
+Send disable command to Chroma.
+
+### Parameters
+
+| Name             | Type     | Purpose              |
+|------------------|----------|----------------------|
+| `status_message` | `char *` | string error message |
+
+### Return Values
+
+| Error Code | Error Description             |
+|------------|-------------------------------|
+| `0`        | Disable command was a success |
+| `-1`       | Command failed                |
+
+## Chroma2238Close
+### Header
+
+`int DLLEXPORT __stdcall Chroma2238Close()`
+
+### Purpose
+
+Close vi session.
+
+### Parameters
+
+Void
+
+### Return Values
+
+| Error Code | Error Description              |
+|------------|--------------------------------|
+| `0`        | Vi session closed successfully |
+
+## VISAInitialize
+### Header
+
+`int VISAInitialize(char *visa_name, long baud_rate)`
+
+### Purpose
+
+Initializes visa session with baud rate.
+
+### Parameters
+
+| Name        | Type     | Purpose                         |
+|-------------|----------|---------------------------------|
+| `visa_name` | `char *` | string resource name            |
+| `baud_rate` | `long`   | rate of bit transmission (long) |
+
+### Return Values
+
+| Error Code | Error Description             |
+|------------|-------------------------------|
+| `0`        | Initialization was successful |
+| `-1`       | viOpen was a fail             |
+| \`-2       | viSetAttribute was a fail     |
+
+## Chroma2238PortToVisaName
+### Header
+
+`int Chroma2238PortToVisaName(char *port_name, char *visa_name)`
+
+### Purpose
+
+Converts port to VISA name.
+
+### Parameters
+
+| Name        | Type     | Purpose                   |
+|-------------|----------|---------------------------|
+| `port_name` | `char *` | port name to be converted |
+| `visa_name` | `char *` | string resource name      |
+
+### Return Values
+
+| Error Code | Error Description         |
+|------------|---------------------------|
+| `0`        | Conversion was successful |

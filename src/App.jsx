@@ -1,4 +1,4 @@
-import { useState } from 'react' 
+import {Children, useEffect, useMemo, useState } from 'react' 
 import {Navigate, NavLink, Route, Routes, useLocation, } from "react-router-dom" 
 
 
@@ -6,12 +6,18 @@ import Header from './components/Header'
 import Home from "./pages/Home.jsx"
 
 import AGMTestBox from "./pages/Instrument/AGMTestBox.mdx"
+import Chroma2238 from "./pages/Instrument/Chroma2238.mdx"
 import DAQ from "./pages/Instrument/DAQ.mdx"
+import DMM from "./pages/Instrument/DMM.mdx"
 import GraphicsDiscreteIO from "./pages/Instrument/GraphicsDiscreteIO.mdx"
+import InterfaceBox from "./pages/Instrument/InterfaceBox.mdx"
 import MUX from "./pages/Instrument/MUX.mdx"
 import MxFoundation from "./pages/Instrument/MxFoundation.mdx"
+import Photometer from "./pages/Instrument/Photometer.mdx"
 import PickeringRelay from "./pages/Instrument/PickeringRelay.mdx"
+import PowerSupply from "./pages/Instrument/PowerSupply.mdx"
 import Relay from "./pages/Instrument/Relay.mdx"
+import SerialUART from "./pages/Instrument/SerialUART.mdx"
 
 import pageOutlines from "./data/pageOutlines.json"
 
@@ -26,12 +32,92 @@ function App() {
 
   const location = useLocation()
   const currentOutline = pageOutlines[location.pathname] ?? []
+  const [activeHeadingId, setActiveHeadingId] = useState("")
 
   const handleThemeToggle = () => {setIsDarkMode((currentMode) => !currentMode)  }
 
   const handleSearchChange = (event) => {setSearchValue(event.target.value)  }
 
   const handleMenuClick = () => {console.log("Menu button clicked")  }
+
+  const outlineSections = useMemo(() => {
+    const sections = []
+    let currentSection = null
+
+    currentOutline.forEach((item) => {
+      if (item.level === 1) {
+        return
+      }
+      if (item.level === 2) {
+        currentSection = {
+          ...item,
+          children: [],
+        }
+        sections.push(currentSection)
+        return
+      }
+      if (item.level === 3 && currentSection) {
+        currentSection.children.push(item)
+      }
+    })
+    return sections
+  }, [currentOutline])
+
+  const activeSectionId = useMemo(() => {
+    for (const section of outlineSections) {
+      if (section.id === activeHeadingId) {
+        return section.id
+      }
+      const containActiveChild = section.children.some(
+        (child) => child.id === activeHeadingId,
+      )
+      if (containActiveChild) {
+        return section.id
+      }
+    }
+    return outlineSection[0]?.id ?? ""
+  }, [activeHeadingId, outlineSections])
+
+  useEffect(() => {setActiveHeadingId("")
+
+  const timer = window.setTimeout(() => {
+  const headings = currentOutline
+    .filter((item) => item.level === 2 || item.level === 3)
+    .map((item) => document.getElementById(item.id))
+    .filter(Boolean)
+
+  if (headings.length === 0) {return}
+
+  setActiveHeadingId(headings[0].id)
+
+  const observer = new IntersectionObserver( (entries) => {
+    const visibleEntries = entries
+      .filter((entry) => entry.isIntersecting)
+      .sort(
+        (firstEntry, secondEntry) => firstEntry.boundingClientRect.top - secondEntry.boundingClientRect.top, )
+
+    if (visibleEntries.length > 0) {setActiveHeadingId(visibleEntries[0].target.id)} },
+  {
+    root: null,
+    rootMargin: "-18% 0px -68% 0px",
+    threshold: 0,
+  },)
+
+  headings.forEach((heading) => {observer.observe(heading) })
+
+  window.documentationHeadingObserver = observer
+}, 0)
+
+  return () => {
+    window.clearTimeout(timer)
+
+    if (window.documentationHeadingObserver) {
+      window.documentationHeadingObserver.disconnect()
+      window.documentationHeadingObserver = null
+}
+}
+}, [location.pathname, currentOutline])
+
 
   return (
     <div className={`site-shell ${isDarkMode ? "dark" : "light"} `}
@@ -65,7 +151,7 @@ function App() {
 
           <div className="toc-items">
 
-            <NavLink to="/instrument/agm-test=box" className={({ isActive }) => isActive ? "active-page-link" : ""} >AGMTestBox</NavLink>
+            <NavLink to="/instrument/agm-test-box" className={({ isActive }) => isActive ? "active-page-link" : ""} >AGMTestBox</NavLink>
 
             <NavLink to="/instrument/chroma2238" className={({ isActive }) => isActive ? "active-page-link" : ""} >Chroma2238</NavLink>
 
@@ -83,7 +169,7 @@ function App() {
 
             <NavLink to="/instrument/photometer" className={({ isActive }) => isActive ? "active-page-link" : ""} >Photometer</NavLink>
 
-            <NavLink to="/instrument/pickering-relay" className={({ isActive }) => isActive ? "active-page-link" : ""} >PickeringRealy</NavLink>
+            <NavLink to="/instrument/pickering-relay" className={({ isActive }) => isActive ? "active-page-link" : ""} >PickeringRelay</NavLink>
 
             <NavLink to="/instrument/power-supply" className={({ isActive }) => isActive ? "active-page-link" : ""} >PowerSupply</NavLink>
 
@@ -103,37 +189,75 @@ function App() {
             <Route path="/" element={<Home />}  />
 
             <Route path="/instrument/agm-test-box" element={<AGMTestBox />}  />
+            <Route path="/instrument/chroma2238" element={<Chroma2238 />} />
             <Route path="/instrument/daq" element={<DAQ />} />
+            <Route path="/instrument/dmm" element={<DMM />} />
             <Route path="/instrument/graphics-discrete-io" element={<GraphicsDiscreteIO />} />
+            <Route path="/instrument/interface-box" element={<InterfaceBox />} />
             <Route path="/instrument/mux" element={<MUX />} />
-            <Route path="/instrument/mx-foundation" element={<Mx-Foundation />} />
-            <Route path="/instrument/pickering-relay" element={<Pickering-Relay />} />
+            <Route path="/instrument/mx-foundation" element={<MxFoundation />} />
+            <Route path="/instrument/photometer" element={<Photometer />} />
+            <Route path="/instrument/pickering-relay" element={<PickeringRelay />} />
+            <Route path="/instrument/power-supply" element={<PowerSupply />} />
             <Route path="/instrument/relay" element={<Relay />} />
+            <Route path="/instrument/serial-uart" element={<SerialUART />} />
            
           </Routes>          
         </main>
 
         <aside className="right-sidebar">
-          {currentOutline.length > 0 && (
+          {outlineSections.length > 0 && (
             <>
-              <h2>Overview</h2>
-              <nav className="page-outline"
+              <h2>On this page</h2>
+
+              <nav
+                className="page-outline"
                 aria-label="On this page"
               >
-              {currentOutline.map((item) => (
-                <a 
-                  key={`$item.id}-${item.level}`}
-                  href={`#${item.id}`}
-                  className={`outline-level-${item.level}`}
-                >
-                  {item.label}
-                </a>
-              ))}
+                {outlineSections.map((section) => {
+                  const isSectionActive =
+                    section.id === activeSectionId
+
+                  return (
+                    <div
+                      key={section.id}
+                      className={`outline-section ${isSectionActive ? "outline-section-active" : "" }`}
+                  >
+                    <a
+                      href={`#${section.id}`}
+                      className="outline-section-link"
+                      onClick={() => {
+                        setActiveHeadingId(section.id)
+                      }}
+                    >
+                      {section.label}
+                    </a>
+
+                    {isSectionActive && section.children.length > 0 && (
+                      <div className="outline-children">
+                        {section.children.map((child) => (
+                          <a
+                            key={child.id}
+                            href={`#${child.id}`}
+                            className={`outline-child-link ${
+                              activeHeadingId === child.id ? "active" : "" }`}
+                            onClick={() => {
+                              setActiveHeadingId(child.id)
+                            }}
+                          >
+                            {child.label}
+                          </a>
+                        ))}
+                      </div>
+                    )}
+                  </div>
+                )
+              })}
             </nav>
-           </> 
-          )}
-       
-        </aside>
+        </>
+      )}
+    </aside>
+
         </div>
       </div>
   )
