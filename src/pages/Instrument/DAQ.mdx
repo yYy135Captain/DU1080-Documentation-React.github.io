@@ -1,10 +1,7 @@
 # DAQ
 
 ## Overview
-The **DAQ** module provides interfaces for controlling the NI DATA
-Acquisition device used by the DU1080 HW4 ATP software. It supports
-analog voltage output, counter pulse generation, pulse configuration,
-task control, and device cleanup through the NI-DAQmx library.
+The **DAQ** module provides interfaces for controlling the NI DATA Acquisition device used by the DU1080 HW4 ATP software. It supports analog voltage output, counter pulse generation, pulse configuration, task control, and device cleanup through the NI-DAQmx library.
 
 ## DAQInitialize
 ### Header
@@ -13,8 +10,7 @@ task control, and device cleanup through the NI-DAQmx library.
 
 ### Purpose
 
-Initializes a DAQ analog output channel and writes an initial voltage
-value to verify that the DAQ Resource is available.
+Initializes a DAQ analog output channel and writes an initial voltage value to verify that the DAQ Resource is available.
 
 ### Parameter
 
@@ -60,8 +56,7 @@ Sets the specified analog output voltage on a DAQ channel.
 
 ### Purpose
 
-Closes the DAQ analog output channel by writing a zero voltage to the
-specified resource and releasing the associated DAQ task.
+Closes the DAQ analog output channel by writing a zero voltage to the specified resource and releasing the associated DAQ task.
 
 ### Parameter
 
@@ -83,8 +78,7 @@ specified resource and releasing the associated DAQ task.
 
 ### Purpose
 
-Generates a finite counter pulse using the specified initial delay, ON
-time, and OFF time.
+Generates a finite counter pulse using the specified initial delay, ON time, and OFF time.
 
 ### Parameter
 
@@ -109,10 +103,7 @@ time, and OFF time.
 
 ### Purpose
 
-Creates and starts a continuous counter pulse output task using the
-specified frequency, duty cycle, initial delay, and output idle state.
-The created task handle is returned so that pulse generation can
-continue until it is explicitly stopped.
+Creates and starts a continuous counter pulse output task using the specified frequency, duty cycle, initial delay, and output idle state. The created task handle is returned so that pulse generation can continue until it is explicitly stopped.
 
 ### Parameter
 
@@ -161,8 +152,7 @@ Clear off pulse count for daq_task_handle.
 
 ### Purpose
 
-Generates a counter output with a specified default idle state after an
-initial delay.
+Generates a counter output with a specified default idle state after an initial delay.
 
 ### Parameter
 

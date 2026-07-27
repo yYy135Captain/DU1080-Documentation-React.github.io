@@ -1,5 +1,6 @@
-import { useState } from 'react'
-import {Navigate, NavLink, Route, Routes, useLocation, } from "react-router-dom"
+import { useState } from 'react' 
+import {Navigate, NavLink, Route, Routes, useLocation, } from "react-router-dom" 
+
 
 import Header from './components/Header'
 import Home from "./pages/Home.jsx"
@@ -12,28 +13,25 @@ import MxFoundation from "./pages/Instrument/MxFoundation.mdx"
 import PickeringRelay from "./pages/Instrument/PickeringRelay.mdx"
 import Relay from "./pages/Instrument/Relay.mdx"
 
+import pageOutlines from "./data/pageOutlines.json"
+
 import './styles/App.css'
 import './styles/Header.css'
 import "./styles/Sidebar.css"
-import "./styles/Content.css"
+import "./styles/Content.css" 
 
 function App() {
   const [isDarkMode, setIsDarkMode] = useState(false)
   const [searchValue, setSearchValue] = useState("")
 
   const location = useLocation()
+  const currentOutline = pageOutlines[location.pathname] ?? []
 
-  const handleThemeToggle = () => {
-    setIsDarkMode((currentMode) => !currentMode)
-  }
+  const handleThemeToggle = () => {setIsDarkMode((currentMode) => !currentMode)  }
 
-  const handleSearchChange = (event) => {
-    setSearchValue(event.target.value)
-  }
+  const handleSearchChange = (event) => {setSearchValue(event.target.value)  }
 
-  const handleMenuClick = () => {
-    console.log("Menu button clicked")
-  }
+  const handleMenuClick = () => {console.log("Menu button clicked")  }
 
   return (
     <div className={`site-shell ${isDarkMode ? "dark" : "light"} `}
@@ -106,6 +104,11 @@ function App() {
 
             <Route path="/instrument/agm-test-box" element={<AGMTestBox />}  />
             <Route path="/instrument/daq" element={<DAQ />} />
+            <Route path="/instrument/graphics-discrete-io" element={<GraphicsDiscreteIO />} />
+            <Route path="/instrument/mux" element={<MUX />} />
+            <Route path="/instrument/mx-foundation" element={<Mx-Foundation />} />
+            <Route path="/instrument/pickering-relay" element={<Pickering-Relay />} />
+            <Route path="/instrument/relay" element={<Relay />} />
            
           </Routes>          
         </main>
@@ -115,12 +118,13 @@ function App() {
             <>
               <h2>Overview</h2>
               <nav className="page-outline"
-              aria-label="On this page"
+                aria-label="On this page"
               >
               {currentOutline.map((item) => (
                 <a 
-                  key={item.id}
+                  key={`$item.id}-${item.level}`}
                   href={`#${item.id}`}
+                  className={`outline-level-${item.level}`}
                 >
                   {item.label}
                 </a>
@@ -133,6 +137,7 @@ function App() {
         </div>
       </div>
   )
-}
+} 
+
 
 export default App 

@@ -1,11 +1,7 @@
 # GraphicsDiscreteIO
 
 ## Overview
-The **GraphicsDiscreteIO** module provides interfaces for reading and
-testing discrete input signals used by the DU1080 HW4 ATP software. It
-supports discrete status checks through external interfaces, including
-graphic-related discrete inputs, NIC discrete inputs, and digital signal
-logic verification.
+The **GraphicsDiscreteIO** module provides interfaces for reading and testing discrete input signals used by the DU1080 HW4 ATP software. It supports discrete status checks through external interfaces, including graphic-related discrete inputs, NIC discrete inputs, and digital signal logic verification.
 
 ## GraphicsExternalDSIStatus
 ### Header
@@ -14,8 +10,7 @@ logic verification.
 
 ### Purpose
 
-Read the status of a graphics processor discrete input using the
-specified virtual pin name.
+Read the status of a graphics processor discrete input using the specified virtual pin name.
 
 ### Parameter
 
@@ -38,8 +33,7 @@ specified virtual pin name.
 
 ### Purpose
 
-Performs the analog reset logic verification by controlling the AV reset
-signal and checking the corresponding discrete input and output states.
+Performs the analog reset logic verification by controlling the AV reset signal and checking the corresponding discrete input and output states.
 
 ### Parameter
 
@@ -62,8 +56,7 @@ signal and checking the corresponding discrete input and output states.
 
 ### Purpose
 
-Reads the status of a NIC discrete input using the specified virtual pin
-name.
+Reads the status of a NIC discrete input using the specified virtual pin name.
 
 ### Parameter
 
@@ -86,9 +79,7 @@ name.
 
 ### Purpose
 
-Converts a virtual pin name into its corresponding pin index. The
-function validates the input string format before extracting the numeric
-portion.
+Converts a virtual pin name into its corresponding pin index. The function validates the input string format before extracting the numeric portion.
 
 ### Parameter
 
@@ -115,8 +106,7 @@ portion.
 
 ### Purpose
 
-Applies a bit mask to the input data and converts the result into a
-binary discrete value.
+Applies a bit mask to the input data and converts the result into a binary discrete value.
 
 ### Parameter
 
@@ -139,8 +129,7 @@ binary discrete value.
 
 ### Purpose
 
-Writes bit-masked discrete data to the specified device register and
-verifies that the write operation completed successfully.
+Writes bit-masked discrete data to the specified device register and verifies that the write operation completed successfully.
 
 ### Parameter
 
@@ -165,8 +154,7 @@ verifies that the write operation completed successfully.
 
 ### Purpose
 
-Reads discrete register data from the specified address and applies a
-bit mask before returning the result.
+Reads discrete register data from the specified address and applies a bit mask before returning the result.
 
 ### Parameter
 
@@ -191,9 +179,7 @@ bit mask before returning the result.
 
 ### Purpose
 
-Reads discrete data from the Network Interface Card (NIC), extracts the
-returned register value from the HBIT response, applies the specified
-bit mask, and stores the masked result.
+Reads discrete data from the Network Interface Card (NIC), extracts the returned register value from the HBIT response, applies the specified bit mask, and stores the masked result.
 
 ### Parameter
 

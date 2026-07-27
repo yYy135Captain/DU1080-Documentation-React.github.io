@@ -8,11 +8,12 @@
     "build": "vite build",
     "lint": "eslint .",
     "preview": "vite preview",
-    "convert": "node scripts/convert-rmd.mjs"
+    "convert:rmd": "node scripts/convert-rmd.mjs"
   },
   "dependencies": {
     "@mdx-js/react": "^3.1.1",
     "@mdx-js/rollup": "^3.1.1",
+    "github-slugger": "^2.0.0",
     "react": "^19.2.7",
     "react-dom": "^19.2.7",
     "react-router-dom": "^7.18.1",

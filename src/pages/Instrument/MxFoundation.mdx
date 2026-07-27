@@ -1,8 +1,7 @@
 # MxFoundation
 
 ## Overview
-This module is designed to drive ARINC429 and ARINC708 functions in MaxT
-FM429 Device.
+This module is designed to drive ARINC429 and ARINC708 functions in MaxT FM429 Device.
 
 `{r} # MxFoundation Functions`
 
@@ -13,9 +12,7 @@ FM429 Device.
 
 ### Purpose
 
-Initializes the MxFoundation system, obtains the device handle,
-configures the system time base, and initializes the ARINC 429 and ARINC
-708 Channels.
+Initializes the MxFoundation system, obtains the device handle, configures the system time base, and initializes the ARINC 429 and ARINC 708 Channels.
 
 ### Parameter
 
@@ -39,8 +36,7 @@ This function has no parameters.
 
 ### Purpose
 
-Terminates the MxFoundation system connection disconnects from the
-server, and resets the initialization status.
+Terminates the MxFoundation system connection disconnects from the server, and resets the initialization status.
 
 ### Parameter
 
@@ -63,10 +59,7 @@ This function does not return a value.
 
 ### Purpose
 
-Initializes all ARINC 429 transmit and receive channels on the
-MxFoundation device. The function obtains the module handles, configures
-module attributes, retrieves channel handles, and prepares the channels
-for subsequent ARINC 429 transmit and receive operations.
+Initializes all ARINC 429 transmit and receive channels on the MxFoundation device. The function obtains the module handles, configures module attributes, retrieves channel handles, and prepares the channels for subsequent ARINC 429 transmit and receive operations.
 
 ### Parameter
 
@@ -86,9 +79,7 @@ This function has no parameter.
 
 ### Purpose
 
-Configures an ARINC 429 receive channel by setting the receive speed and
-parity, allocating the receive buffer, and starting the receive
-acquisition process.
+Configures an ARINC 429 receive channel by setting the receive speed and parity, allocating the receive buffer, and starting the receive acquisition process.
 
 ### Parameter
 
@@ -114,8 +105,7 @@ acquisition process.
 
 ### Purpose
 
-Configures an ARINC 429 transmit channel and sends data using a periodic
-transmission schedule.
+Configures an ARINC 429 transmit channel and sends data using a periodic transmission schedule.
 
 ### Parameter
 
@@ -144,8 +134,7 @@ transmission schedule.
 
 ### Purpose
 
-Reads ARINC 429 records from a receive a acquisition buffer and returns
-the data word from the first received record.
+Reads ARINC 429 records from a receive a acquisition buffer and returns the data word from the first received record.
 
 ### Parameter
 
@@ -177,8 +166,7 @@ arinc429_error = Arinc429SetupReceiveData(receive_channel, 0, 0, 1, &receive_buf
 
 ### Purpose
 
-Releases the ARINC 429 periodic transmission schedule and transmit
-buffer. It also stops and closes the receive acquisition buffer.
+Releases the ARINC 429 periodic transmission schedule and transmit buffer. It also stops and closes the receive acquisition buffer.
 
 ### Parameter
 
@@ -205,9 +193,7 @@ Arinc429FreeBuffers(transmit_buffer, receive_buffer, schedule_buffer);
 
 ### Purpose
 
-Performs an ARINC 429 loopback self-test by transmitting a data word,
-receiving it on the specified channel, and releasing the allocated
-communication resources.
+Performs an ARINC 429 loopback self-test by transmitting a data word, receiving it on the specified channel, and releasing the allocated communication resources.
 
 ### Parameter
 
@@ -224,7 +210,7 @@ communication resources.
 | `0` | The ARINC 429 self-test completed successfully. |
 | Non-Zero | One or more ARINC 429 data word transmitted during the self-test. |
 
-`{r}  # ARINC708 Functions`
+## ARINC708 Functions
 
 ## ARINC708ChannelInitialize
 ### Header
@@ -233,8 +219,7 @@ communication resources.
 
 ### Purpose
 
-Initializes the ARINC 708 modules and retrieves the transmit and receive
-handles required for ARINC 708 communication.
+Initializes the ARINC 708 modules and retrieves the transmit and receive handles required for ARINC 708 communication.
 
 ### Parameter
 
@@ -260,8 +245,7 @@ error = ARINC708ChannelInitialize();
 
 ### Purpose
 
-Configures and ARINC 708 receive channel by allocating a receive
-acquisition buffer and starting the receive acquisition process.
+Configures and ARINC 708 receive channel by allocating a receive acquisition buffer and starting the receive acquisition process.
 
 ### Parameter
 
@@ -291,9 +275,7 @@ arinc708_error = Arinc708SetupReceiveData(receive_channel, &receive_buffer);
 
 ### Purpose
 
-Configures an ARINC 708 transmit channel, creates a periodic
-transmission schedule, prepares the transmit records, and states
-periodic data transmission.
+Configures an ARINC 708 transmit channel, creates a periodic transmission schedule, prepares the transmit records, and states periodic data transmission.
 
 ### Parameter
 
@@ -319,8 +301,7 @@ periodic data transmission.
 
 ### Purpose
 
-Reads ARINC 708 records from a receive acquisition buffer and returns a
-data value from the first received record.
+Reads ARINC 708 records from a receive acquisition buffer and returns a data value from the first received record.
 
 ### Parameter
 
@@ -344,8 +325,7 @@ data value from the first received record.
 
 ### Purpose
 
-Releases the ARINC 708 periodic transmission schedule and transmit
-buffer. It also stops and closes the receive acquisition buffer.
+Releases the ARINC 708 periodic transmission schedule and transmit buffer. It also stops and closes the receive acquisition buffer.
 
 ### Parameter
 
@@ -387,11 +367,12 @@ This function does not return a value.
 
 ### Purpose
 
-Displays the contents of one or more ARINC 708 data records for
-debugging and verification. \### Parameter \| Parameter \| Type \|
-Description \| \|——————\|————-\|————-\| \| `record_number` \| `uint64`
-\| Number of ARINC 708 records to display.\| \| `rec` \|
-`MXF_A708_DATAREC *` \| Pointer to the first ARINC 708 data record.\|
+Displays the contents of one or more ARINC 708 data records for debugging and verification.
+
+| Parameter | Type | Description |
+|----|----|----|
+| `record_number` | `uint64` | Number of ARINC 708 records to display.|
+| `rec`| `MXF_A708_DATAREC *` | Pointer to the first ARINC 708 data record.|
 
 ### Return Value
 
@@ -406,8 +387,7 @@ This function doesn’t return a value.
 
 ### Purpose
 
-Calculates and sets the Most Significant Bit (MSB) parity bit for a
-32-bit ARINC 429 word based on the selected parity mode.
+Calculates and sets the Most Significant Bit (MSB) parity bit for a 32-bit ARINC 429 word based on the selected parity mode.
 
 ### Parameter
 

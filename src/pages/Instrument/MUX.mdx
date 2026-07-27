@@ -1,11 +1,7 @@
 # MUX
 
 ## Overview
-The **MUX** module controls the NI Switch hardware used in DU1080 HW4
-ATP system. It manages switch initialization, relay control, signal
-routing, and session cleanup. The module provides a software interface
-for connecting and disconnecting signal paths required during automated
-testing.
+The **MUX** module controls the NI Switch hardware used in DU1080 HW4 ATP system. It manages switch initialization, relay control, signal routing, and session cleanup. The module provides a software interface for connecting and disconnecting signal paths required during automated testing.
 
 ## MUXInitialize
 ### Header
@@ -14,10 +10,7 @@ testing.
 
 ### Purpose
 
-Initializes a NI Switch MUX device using the specified resource name and
-topology. The function returns the initialized switch session, reports
-whether initialization succeeded, and generates a status message
-describing the result.
+Initializes a NI Switch MUX device using the specified resource name and topology. The function returns the initialized switch session, reports whether initialization succeeded, and generates a status message describing the result.
 
 ### Parameter
 
@@ -42,12 +35,15 @@ describing the result.
 
 ### Purpose
 
-This function controls the open or close state of the switch. \###
-Parameter \| Parameter \| Type \| Description \|
-\|——————\|————-\|————-\| \| `session` \| `ViSession` \| NI Switch
-session\| \| `*channel_1` \| `char` \|First channel\| \| `*channel_2` \|
-`char` \|Second channel\| \| `operation` \| `int` \|operation in
-execution\|
+This function controls the open or close state of the switch. 
+
+### Parameter
+|    Parameter     |     Type    | Description |
+|------------------|-------------|-------------|
+|    `session`     | `ViSession` | NI Switch session|
+| `*channel_1`     |    `char`   |First channel|
+| `*channel_2`     |    `char`   |Second channel|
+|   `operation`    |    `int`    |operation in execution|
 
 ### Return Value
 
@@ -107,8 +103,7 @@ Open all relays on the NI Switch module and resets the switch.
 
 ### Purpose
 
-Searches the signal list for the specified signal and executes the
-corresponding MUX switching operation.
+Searches the signal list for the specified signal and executes the corresponding MUX switching operation.
 
 ### Parameter
 

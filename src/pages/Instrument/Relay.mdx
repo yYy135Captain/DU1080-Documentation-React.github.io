@@ -1,11 +1,9 @@
 # Relay
 
 ## Overview
-The Relay library provides functions for controlling NI switch hardware
-used in the DU1080 HW4 ATP system.
+The Relay library provides functions for controlling NI switch hardware used in the DU1080 HW4 ATP system.
 
-It supports initialization, relay switching, signal routing, and discuss
-signal control.
+It supports initialization, relay switching, signal routing, and discuss signal control.
 
 ## RelayInitialize
 ### Header
@@ -55,7 +53,7 @@ Changes the state of a specified relay channel.
 | Error | Description                       |
 |-------|-----------------------------------|
 | 0     | Relay state changed successfully. |
-| \<0   | NI Switch API error.              |
+| \&lt;0   | NI Switch API error.              |
 
 ## RelayClose
 ### Header
@@ -78,7 +76,7 @@ Resets the switch module and closes the active session.
 | Error | Description                           |
 |-------|---------------------------------------|
 | 0     | Session closed successfully.          |
-| \<0   | Failed to reset or close the session. |
+| \&lt;0   | Failed to reset or close the session. |
 
 ## ReplayOpenAll
 ### Header
@@ -100,7 +98,7 @@ Disconnects all relay paths on the active switch module.
 | Error | Description                     |
 |-------|---------------------------------|
 | 0     | All relays opened successfully. |
-| \<0   | Failed to open all relays.      |
+| \&lt;0   | Failed to open all relays.      |
 
 ## RelaySignalSet
 ### Header
@@ -151,7 +149,7 @@ Configures relay settings for NIC ID.
 | Error | Description                                |
 |-------|--------------------------------------------|
 | 0     | NIC discrete configured successfully.      |
-| \<0   | Failed to configure NIC discrete settings. |
+| \&lt;0   | Failed to configure NIC discrete settings. |
 
 ## SetNICDiscreteByData
 ### Header
@@ -175,7 +173,7 @@ Sets the NIC discrete signals based on the input data.
 | Error | Description                                   |
 |-------|-----------------------------------------------|
 | 0     | NIC discrete signals configured successfully. |
-| \<0   | Failed to configure NIC discrete signals.     |
+| \&lt;0   | Failed to configure NIC discrete signals.     |
 
 ## SetProcDiscreteByData
 ### Header
@@ -200,4 +198,4 @@ Configures PROC discrete signals using the input data.
 | Error | Description                                    |
 |-------|------------------------------------------------|
 | 0     | PROC discrete signals configured successfully. |
-| \<0   | Failed to configure PROC discrete signals.     |
+| \&lt;0   | Failed to configure PROC discrete signals.     |
