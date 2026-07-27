@@ -19,7 +19,8 @@
 .content h2 {
     margin-top: 3rem;
     margin-bottom: 1rem;
-    padding-bottom: 0.5rem;
+    padding-bottom: 0.35rem;
+    width: fit-content;
     border-bottom: 2px solid var(--color-primary);
     font-size: 2rem;
     font-weight: 600;
