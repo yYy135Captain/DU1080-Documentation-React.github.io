@@ -42,6 +42,20 @@
     font-style: normal;
 }
 
+@font-face {
+    font-family: 'Telegraf-light';
+    src: url('../fonts/Telegraf-Font-Family/PPTelegraf-Ultralight.otf') format('opentype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Telegraf-bold';
+    src: url('../fonts/Telegraf-Font-Family/PPTelegraf-Ultrabold.otf') format('opentype');
+    font-weight: normal;
+    font-style: normal;
+}
+
 html {
     margin: 0;
     padding: 0;
@@ -84,6 +98,30 @@ button {
 }
 
 h1 {
+    font-size: 1.2rem;
+    font-family: 'Telegraf-light', serif;
+}
+
+/*
+For Overview, Table of Contents, 
+*/
+h2 {
+    font-size: 2rem;
+    font-family: 'Telegraf-light', serif;
+}
+
+h3 {
+    margin-top: 1.5rem;
+    font-family: 'Telegraf-bold', serif;
+    font-size: 1rem;
+    color: var(--color-text);
+    display: flex;
+    margin-bottom: 0.2rem;
+    font-weight: 700;
+    font-size: 1.4rem;
+}
+
+h4 {
     
 }
 
