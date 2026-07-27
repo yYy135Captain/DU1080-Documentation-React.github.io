@@ -330,3 +330,10 @@
   width: 1.5rem;
   height: 1.5rem;
 }
+
+.toc_items {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
