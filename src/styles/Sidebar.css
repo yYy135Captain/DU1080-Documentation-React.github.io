@@ -42,7 +42,7 @@
         box-shadow 0.15s ease;
 }
 
-.search-box:foxus {
+.search-box:focus {
     outline: none;
     border-color: var(--color-primary);
     box-shadow:
