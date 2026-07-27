@@ -1,9 +1,13 @@
+# (PART\*) Instruments
+
 # AGMTestBox
 
-## Overview
+## **Overview**
+
 Controls communication with the AGM DU Test Box.
 
-## SendAGMPacket
+## **SendAGMPacket**
+
 ### Header
 
 `int DLLEXPORT __stdcall SendAGMPacket(char *port, int baud, char *command, int command_size, char *status_message)`
@@ -33,7 +37,8 @@ reads the response from the device.
 | `AGM_ERR_TIMEOUT` | No response was received before timeout. |
 | `AGM_ERR_READ_FAILURE` | The response could not be read from the COM port. |
 
-## RIBVideoControl
+## **RIBVideoControl**
+
 ### Header
 
 `int DLLEXPORT __stdcall RIBVideoControl(int enable, char *port, int baud, char *status_message)`
@@ -59,7 +64,8 @@ the appropriate control command the COM port.
 | `AGM_SUCCESS` | Video control command completed successfully. |
 | `AGM_ERR_INVALID_PARAMETER` | The `enable` value is not `0` or `1`, or another parameter is invalid. |
 
-## AGMPowerControl
+## **AGMPowerControl**
+
 ### Header
 
 `int DLLEXPORT __stdcall AGMPowerControl(char* state, int plug, char* IP_address, char *status_message)`

@@ -1,0 +1,230 @@
+<h1 id="part-instruments">(PART*) Instruments</h1>
+<h1 class="unnumbered" id="agmtestbox">AGMTestBox</h1>
+<h2 class="unnumbered" id="overview"><strong>Overview</strong></h2>
+<p>Controls communication with the AGM DU Test Box.</p>
+<h2 class="unnumbered"
+id="sendagmpacket"><strong>SendAGMPacket</strong></h2>
+<h3 class="unnumbered" id="header">Header</h3>
+<p><code>int DLLEXPORT __stdcall SendAGMPacket(char *port, int baud, char *command, int command_size, char *status_message)</code></p>
+<h3 class="unnumbered" id="purpose">Purpose</h3>
+<p>Send a control packet to the AGM Test Box through an RS-232 COM port
+and reads the response from the device.</p>
+<h3 class="unnumbered" id="parameters">Parameters</h3>
+<table>
+<colgroup>
+<col style="width: 40%" />
+<col style="width: 29%" />
+<col style="width: 29%" />
+</colgroup>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>* port</code></td>
+<td><code>char</code></td>
+<td>COM port name.</td>
+</tr>
+<tr>
+<td><code>baud</code></td>
+<td><code>int</code></td>
+<td>Communicating baud rate.</td>
+</tr>
+<tr>
+<td><code>*command</code></td>
+<td><code>char *</code></td>
+<td>Command sent to the AGM Test Box.</td>
+</tr>
+<tr>
+<td><code>command_size</code></td>
+<td><code>int</code></td>
+<td>Number of bytes in the command.</td>
+</tr>
+<tr>
+<td><code>*status_message</code></td>
+<td><code>char *</code></td>
+<td>Stores the device response or error message.</td>
+</tr>
+</tbody>
+</table>
+<h3 class="unnumbered" id="return-value">Return Value</h3>
+<table>
+<colgroup>
+<col style="width: 36%" />
+<col style="width: 63%" />
+</colgroup>
+<thead>
+<tr>
+<th>Error</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>AGM_SUCCESS</code></td>
+<td>command completed successfully.</td>
+</tr>
+<tr>
+<td><code>AGM_ERR_INVALID_PARAMETER</code></td>
+<td>A parameter is invalid or missing.</td>
+</tr>
+<tr>
+<td><code>AGM_ERR_OPEN_PORT</code></td>
+<td>The COM port could not be opened.</td>
+</tr>
+<tr>
+<td><code>AGM_ERR_TIMEOUT</code></td>
+<td>No response was received before timeout.</td>
+</tr>
+<tr>
+<td><code>AGM_ERR_READ_FAILURE</code></td>
+<td>The response could not be read from the COM port.</td>
+</tr>
+</tbody>
+</table>
+<h2 class="unnumbered"
+id="ribvideocontrol"><strong>RIBVideoControl</strong></h2>
+<h3 class="unnumbered" id="header-1">Header</h3>
+<p><code>int DLLEXPORT __stdcall RIBVideoControl(int enable, char *port, int baud, char *status_message)</code></p>
+<h3 class="unnumbered" id="purpose-1">Purpose</h3>
+<p>Enables or disables the RIB video output on the AGM Test Box by
+sending the appropriate control command the COM port.</p>
+<h3 class="unnumbered" id="parameters-1">Parameters</h3>
+<table>
+<colgroup>
+<col style="width: 18%" />
+<col style="width: 11%" />
+<col style="width: 70%" />
+</colgroup>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>enable</code></td>
+<td><code>int</code></td>
+<td>Selects the video output state: <code>1</code> enables and
+<code>0</code> disables.</td>
+</tr>
+<tr>
+<td><code>port</code></td>
+<td><code>char *</code></td>
+<td>COM port name used to communicate with AGM Test Box.</td>
+</tr>
+<tr>
+<td><code>baud</code></td>
+<td><code>int</code></td>
+<td>Communication baud rate.</td>
+</tr>
+<tr>
+<td><code>status_message</code></td>
+<td><code>char *</code></td>
+<td>Stores the device response or error message.</td>
+</tr>
+</tbody>
+</table>
+<h3 class="unnumbered" id="return-value-1">Return Value</h3>
+<table>
+<colgroup>
+<col style="width: 28%" />
+<col style="width: 71%" />
+</colgroup>
+<thead>
+<tr>
+<th>Error</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>AGM_SUCCESS</code></td>
+<td>Video control command completed successfully.</td>
+</tr>
+<tr>
+<td><code>AGM_ERR_INVALID_PARAMETER</code></td>
+<td>The <code>enable</code> value is not <code>0</code> or
+<code>1</code>, or another parameter is invalid.</td>
+</tr>
+</tbody>
+</table>
+<h2 class="unnumbered"
+id="agmpowercontrol"><strong>AGMPowerControl</strong></h2>
+<h3 class="unnumbered" id="header-2">Header</h3>
+<p><code>int DLLEXPORT __stdcall AGMPowerControl(char* state, int plug, char* IP_address, char *status_message)</code></p>
+<h3 class="unnumbered" id="purpose-2">Purpose</h3>
+<p>Controls the power state of the AGM Test Box through the WTI Power
+Plug using an HTTP command.</p>
+<h3 class="unnumbered" id="parameters-2">Parameters</h3>
+<table>
+<colgroup>
+<col style="width: 18%" />
+<col style="width: 10%" />
+<col style="width: 70%" />
+</colgroup>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>state</code></td>
+<td><code>char*</code></td>
+<td>Power state. Valid values are <code>"ON"</code>, <code>"OFF"</code>,
+or <code>"BOOT"</code>.</td>
+</tr>
+<tr>
+<td><code>plug</code></td>
+<td><code>int</code></td>
+<td>Plug number. Valid values are ‘3’ (Top AGM) or <code>4</code>
+(Bottom AGM).</td>
+</tr>
+<tr>
+<td><code>IP_address</code></td>
+<td><code>char *</code></td>
+<td>IP address of the WTI Power Plug.</td>
+</tr>
+<tr>
+<td><code>status_message</code></td>
+<td><code>char *</code></td>
+<td>Stores the operation status or error message.</td>
+</tr>
+</tbody>
+</table>
+<h3 class="unnumbered" id="return-value-2">Return Value</h3>
+<table>
+<thead>
+<tr>
+<th>Error</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>0</code></td>
+<td>Power command completed successfully.</td>
+</tr>
+<tr>
+<td><code>1</code></td>
+<td>Invalid power state.</td>
+</tr>
+<tr>
+<td><code>2</code></td>
+<td>Invalid plug number.</td>
+</tr>
+<tr>
+<td><code>3</code></td>
+<td>Invalid IP address.</td>
+</tr>
+</tbody>
+</table>
