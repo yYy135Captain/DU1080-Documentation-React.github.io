@@ -1,12 +1,15 @@
 import { useState } from 'react'
+import {Navigate, NavLink, Route, Routes, } from "react-router-dom"
 
 import Header from './components/Header'
+
+import AGMTestBox from "./pages/Instrument/AGMTestBox.mdx";
+import DAQ from "./pages/Instrument/DAQ.mdx";
 
 import './styles/App.css'
 import './styles/Header.css'
 import "./styles/Sidebar.css"
 import "./styles/Content.css"
-import AGMTestBox from "./pages/Instrument/AGMTestBox.mdx"
 
 function App() {
   const [isDarkMode, setIsDarkMode] = useState(false)
@@ -51,22 +54,20 @@ function App() {
 
           <div className="toc-section">Instruments</div>
 
-          <div class = "toc_items">
-            <a className="active-page-link"
-            href="#agm-test-box"
-            >AGMTestBox</a>
-            <a className = "item", href="#chroma2238">Chroma2238</a>
-            <a href="#daq">DAQ</a>
-            <a href="#dmm">DMM</a>
-            <a href="#graphics-discrete-io">GraphicsDiscreteIO</a>
-            <a href="#interface-box">InterfaceBox</a>
-            <a href="#mux">MUX</a>
-            <a href="#mx-foundation">MxFoundation</a>
-            <a href="#photometer">Photometer</a>
-            <a href="#pickering-relay">PickeringRealy</a>
-            <a href="#power-supply">PowerSupply</a>
-            <a href="#relay">Relay</a>
-            <a href="#serial-uart">SerialUART</a>
+          <div className = "toc_items">
+            <NavLink to="/instrument/agm-test=box">AGMTestBox</NavLink>
+            <NavLink to="/instrument/chroma2238">Chroma2238</NavLink>
+            <NavLink to="/instrument/daq">DAQ</NavLink>
+            <NavLink to="/instrument/dmm">DMM</NavLink>
+            <NavLink to="/instrument/graphics-discrete-io">GraphicsDiscreteIO</NavLink>
+            <NavLink to="/instrument/interface-box">InterfaceBox</NavLink>
+            <NavLink to="/instrument/mux">MUX</NavLink>
+            <NavLink to="/instrument/mx-foundation">MxFoundation</NavLink>
+            <NavLink to="/instrument/photometer">Photometer</NavLink>
+            <NavLink to="/instrument/pickering-relay">PickeringRealy</NavLink>
+            <NavLink to="/instrument/power-supply">PowerSupply</NavLink>
+            <NavLink to="/instrument/relay">Relay</NavLink>
+            <NavLink to="/instrument/serial-uart">SerialUART</NavLink>
 
             <div class = "slider-line"></div>
           </div>
@@ -75,9 +76,14 @@ function App() {
         </aside>
           
 
-        <main id="agm-test-box"
-        className="content">
-            <AGMTestBox />
+        <main className="content">
+          <Routes>
+            <Route path="/" element={<AGMTestBox />}  />
+
+            <Route path="/instrument/agm-test-box" element={<AGMTestBox />}  />
+            <Route path="/instrument/daq" element={<DAQ />} />
+           
+          </Routes>          
         </main>
 
         <aside className="right-sidebar">

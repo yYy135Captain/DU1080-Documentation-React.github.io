@@ -1,0 +1,128 @@
+# MUX
+
+## Overview
+The **MUX** module controls the NI Switch hardware used in DU1080 HW4
+ATP system. It manages switch initialization, relay control, signal
+routing, and session cleanup. The module provides a software interface
+for connecting and disconnecting signal paths required during automated
+testing.
+
+## MUXInitialize
+### Header
+
+`int DLLEXPORT __stdcall MUXInitialize(char *resource_name, char *topology, ViSession *session, ViBoolean *test_result, char *status_message);`
+
+### Purpose
+
+Initializes a NI Switch MUX device using the specified resource name and
+topology. The function returns the initialized switch session, reports
+whether initialization succeeded, and generates a status message
+describing the result.
+
+### Parameter
+
+| Parameter        | Type          | Description                          |
+|------------------|---------------|--------------------------------------|
+| `resource_name`  | `char *`      | resource name.                       |
+| `topology`       | `char *`      | topology to be set in switch module. |
+| `session`        | `ViSession *` | session.                             |
+| `test_result`    | `ViBoolean *` | test result.                         |
+| `status_message` | `char *`      | status of task message.              |
+
+### Return Value
+
+| Error        | Description               |
+|--------------|---------------------------|
+| `VI_SUCCESS` | initialized successfully. |
+
+## MUXSet
+### Header
+
+`int DLLEXPORT __stdcall MUXSet(ViSession session, char *channel_1, char *channel_2, int operation);`
+
+### Purpose
+
+This function controls the open or close state of the switch. \###
+Parameter \| Parameter \| Type \| Description \|
+\|——————\|————-\|————-\| \| `session` \| `ViSession` \| NI Switch
+session\| \| `*channel_1` \| `char` \|First channel\| \| `*channel_2` \|
+`char` \|Second channel\| \| `operation` \| `int` \|operation in
+execution\|
+
+### Return Value
+
+| Error | Description |
+|-------|-------------|
+| `-0`  | Open        |
+| `-1`  | Close       |
+
+## MUXClose
+### Header
+
+`int DLLEXPORT __stdcall MUXClose(ViSession session, char *status_message);`
+
+### Purpose
+
+Resets the NI Switch device and closes the switch session.
+
+### Parameter
+
+| Parameter        | Type        | Description           |
+|------------------|-------------|-----------------------|
+| `session`        | `ViSession` | NI Switch Session     |
+| `status_message` | `char *`    | Status message buffer |
+
+### Return Value
+
+| Error        | Description                  |
+|--------------|------------------------------|
+| `VI_SUCCESS` | session closed successfully. |
+
+## MUXOpenAllRelays
+### Header
+
+`int DLLEXPORT __stdcall MUXOpenAllRelays(ViSession session);`
+
+### Purpose
+
+Open all relays on the NI Switch module and resets the switch.
+
+### Parameter
+
+| Parameter | Type        | Description       |
+|-----------|-------------|-------------------|
+| `session` | `ViSession` | NI Switch Session |
+
+### Return Value
+
+| Error        | Description                       |
+|--------------|-----------------------------------|
+| `VI_SUCCESS` | Operation completed successfully. |
+| Other value  | NI Switch error code.             |
+
+## MUXSignalSet
+### Header
+
+`int DLLEXPORT __stdcall MUXSignalSet(ViSession session, char *signal_name, void **signal_list, char *status_message);`
+
+### Purpose
+
+Searches the signal list for the specified signal and executes the
+corresponding MUX switching operation.
+
+### Parameter
+
+| Parameter | Type | Description |
+|----|----|----|
+| `session` | `ViSession` | NI Switch session |
+| `signal_name    |`char \*`| Signal to execute | |`signal_list`|`void \*\*`| Signal list | |`status_message`|`char \*\` | Status message buffer. |  |
+
+### Return Value
+
+| Error | Description                               |
+|-------|-------------------------------------------|
+| `0`   | Signal executed successfully              |
+| `-1`  | Signal list is not loaded                 |
+| `-2`  | Invalid signal action                     |
+| `-3`  | Signal not found or MUX operation failed. |
+| `-4`  | Invalid channel number                    |

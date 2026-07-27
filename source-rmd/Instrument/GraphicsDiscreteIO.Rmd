@@ -1,0 +1,165 @@
+# GraphicsDiscreteIO {-}
+## **Overview** {-}
+The **GraphicsDiscreteIO** module provides interfaces for reading and testing discrete input signals used by the DU1080 HW4 ATP software. It supports discrete status checks through external interfaces, including graphic-related discrete inputs, NIC discrete inputs, and digital signal logic verification.
+
+## **GraphicsExternalDSIStatus** {-}
+### Header {-}
+`int DLLEXPORT __stdcall GraphicsExternalDSIStatus(int telnet_handle, char *pin, int *data_out);`
+
+### Purpose {-}
+Read  the status of a graphics processor discrete input using the specified virtual pin name.
+
+### Parameter {-}
+|    Parameter     |     Type    | Description |
+|------------------|-------------|-------------|
+| `telnet_handle`  |    `int`    | Telnet connection handle. |
+|     `pin`        |  `char *`   | Virtual pin name. |
+|    `data_out`    |   `int *`   | Stores the discrete input value. |
+
+### Return Value {-}
+| Error | Description |
+|-------|-------------|
+| `int` | Error code returned by the read operation. |
+
+## **DSIAnalogResetLogicTest** {-}
+### Header {-}
+```
+int DLLEXPORT __stdcall DSIAnalogResetLogicTest(int telnet_handle, ViBoolean *bit_pass, char *status_message);
+```
+### Purpose {-}
+Performs the analog reset logic verification by controlling the AV reset signal and checking the corresponding discrete input and output states.
+
+### Parameter {-}
+|    Parameter     |     Type    | Description |
+|------------------|-------------|-------------|
+| `telnet_handle`  |    `int`    | Telnet connection handle. |
+|   `vi_result`    |`ViBoolean *`| Stores the overall test result.|
+| `status_message` |    `char *` | Stores detailed test messages. |
+
+### Return Value {-}
+| Error | Description |
+|--------------|-------------|
+| `int` | Error code generated during the test.|
+
+## **NICExternalDSIStatus** {-}
+### Header {-}
+`int DLLEXPORT __stdcall NICExternalDSIStatus(int telnet_handle, char *pin, int *data_out);`
+
+### Purpose {-}
+Reads the status of a NIC discrete input using the specified virtual pin name.
+
+### Parameter {-}
+|    Parameter     |     Type    | Description |
+|------------------|-------------|-------------|
+| `telnet_handle`  |    `int`    | Telnet connection handle. |
+|     `pin`        |    `char *` | Virtual pin name. |
+|   `data_out`     |  `int *`    | Stores the discrete input value. |
+
+### Return Value {-}
+| Error | Description |
+|--------------|-------------|
+| `int` | Error code returned by the read operation. |
+
+## **PinStringToPinIndex** {-}
+### Header {-}
+`int PinStringToPinIndex(char *pin_string);`
+
+### Purpose {-}
+Converts a virtual pin name into its corresponding pin index. The function validates the input string format before extracting the numeric portion.
+
+### Parameter {-}
+|    Parameter     |     Type    | Description |
+|------------------|-------------|-------------|
+|   `pin_string`   |  `char *`   | Virtual pin name. |
+
+### Return Value {-}
+| Error| Description |
+|------|-------------|
+| `0`  | Parsed pin index.|
+| `-1` | NULL pointer. |
+| `-2` | Invalid string length. |
+| `-3` | Missing `"DIN` prefix. |
+| `-4` | Invalid numeric characters. |
+| `-5` | Invalid numeric format. |
+| `-6` | Parsed value exceeds integer range. |
+
+## **RetrieveData** {-}
+### Header {-}
+`int RetrieveData(int data, int bit_mask, int *final_data);`
+
+### Purpose {-}
+Applies a bit mask to the input data and converts the result into a binary discrete value.
+
+### Parameter {-}
+| Parameter  |     Type    | Description |
+|------------|-------------|-------------|
+|   `data`   |    `int`    | Input register value. |
+| `bit_mask` |    `int`    | Bit mask used to evaluate the input. |
+`final_data` |    `int *`  | Stores the resulting discrete value (0 or 1). |
+### Return Value {-}
+| Error | Description |
+|-------|-------------|
+|   `0` | Function completed successfully. |
+
+## **WriteDiscreteData** {-}
+### Header {-}
+`int WriteDiscreteData(int telnet_handle, unsigned long address, uint32_t data, unsigned int bit_mask);`
+
+### Purpose {-}
+Writes bit-masked discrete data to the specified device register and verifies that the write operation completed successfully.
+
+### Parameter {-}
+|    Parameter     |     Type    | Description |
+|------------------|-------------|-------------|
+| `telnet_handle`  |    `int`    | Telnet connection handle. |
+|   `address`      |`unsigned long`| Register address to write. |
+|     `data`       |  `uint32_t` | Data to be written.|
+|   `bit_mask`     |`unsigned int`| Bit mask indicating which bits will be updated. |
+
+### Return Value {-}
+| Error | Description |
+|-------|-------------|
+| `0`   | Write completed successfully. |
+| `1`   | Verification failed after writing. |
+
+## **ReadDiscreteData** {-}
+### Header {-}
+`int ReadDiscreteData(int telnet_handle, unsigned long address, uint32_t *final_data, int bit_mask);`
+
+### Purpose {-}
+Reads discrete register data from the specified address and applies a bit mask before returning the result.
+
+### Parameter {-}
+|    Parameter     |     Type    | Description |
+|------------------|-------------|-------------|
+| `telnet_handle`  |    `int`    | Telnet connection handle. |
+|   `address`      |`unsigned long`| Register address to write. |
+|  `final_data`    | `uint32_t *`| Stores the masked register value.|
+|  `bit_mask`      |    `int`    | Mask spplied to the returned data. |
+
+### Return Value {-}
+| Error | Description |
+|-------|-------------|
+| `0`   | Read completed successfully. |
+| `1`   | Read operation failed. |
+
+## **ReadNICDiscreteData** {-}
+### Header {-}
+`int ReadNICDiscreteData(int telnet_handle, unsigned long address, uint32_t *final_data, int bit_mask);`
+
+### Purpose {-}
+Reads discrete data from the Network Interface Card (NIC), extracts the returned register value from the HBIT response, applies the specified bit mask, and stores the masked result.
+
+### Parameter {-}
+|    Parameter     |     Type    | Description |
+|------------------|-------------|-------------|
+| `telnet_handle`  |    `int`    | Telnet connection handle. |
+|   `address`      |`unsigned long`| NIC register address to read. |
+|  `final_data`    | `uint32_t *`| Pointer used to stores the masked register value.|
+|  `bit_mask`      |    `int`    | Bit mask applied to the returned register value. |
+
+### Return Value {-}
+| Error | Description |
+|--------------|-------------|
+|   `0`     | Read completed successfully. |
+|   `-1`    | Failed to retrieve valid data from the HBIT response. |

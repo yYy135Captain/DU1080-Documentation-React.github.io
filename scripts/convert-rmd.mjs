@@ -1,4 +1,4 @@
-import { mkdirSync, readFileSync, writeFileSync, } from "node:fs"
+import { mkdirSync, readFileSync, readdirSync, rmSync, writeFileSync, } from "node:fs"
 
 import { execFileSync } from "node:child_process"
 import path from "node:path"
@@ -6,50 +6,80 @@ import path from "node:path"
 const pandocPath = 
     "C:\\Program Files\\RStudio\\resources\\app\\bin\\quarto\\bin\\tools\\pandoc.exe"
 
-const inputFile = path.resolve("source-rmd", "Instrument", "AGMTestBox.Rmd", )
-const temporaryFile = path.resolve("source-rmd", "Instrument", "AGMTestBox-temp.md", )
+const inputDirectory = path.resolve("source-rmd", "Instrument",)
 const outputDirectory = path.resolve("src", "pages", "Instrument",)
-const outputFile = path.join(outputDirectory, "AGMTestBox.mdx", )
+const temporaryDirectory = path.resolve("temp-convertd-markdown", )
 
-mkdirSync(outputDirectory, {
-    recursive: true,
-})
+function cleanMarkdown(content) {
+    let cleanedContent = content
 
-execFileSync(
+    /* Normalize windows line endings. */
+    cleanedContent = cleanedContent.replace(/\r\n/g, "\n",)
+    /* Remove the bookdown part heading. */
+    cleanedContent = cleanedContent.replace(/^# \(PART\*\).*$/gm, "")
+
+    /* Remove Bookdwon heading attributes. ex: {-}, {#overview} */
+    cleanedContent = cleanedContent.replace(/\s*{\-\}/g, "")
+    cleanedContent = cleanedContent.replace(/\s*{#[^]+\}/g, "")
+
+    /* change ## **Overview** into ## Overview */
+    cleanedContent = cleanedContent.replace(/^(#{1,6})\s+\*\*(.+?)\*\*\s*$/gm, "$1 $2", )
+
+    /* limit excessive blank lines, but preserve normal paragraph spacing*/
+    cleanedContent = cleanedContent.replace(/\r\n/g, "n")
+    cleanedContent = cleanedContent.replace(/\n{3,}/g, "\n\n")
+    return cleanedContent.trim() + "\n"
+}
+
+function convertFile(fileName) {
+    const fileBaseName = path.basename(
+        fileName,
+        path.extname(fileName),
+    )
+
+    const inputFile = path.join(inputDirectory, fileName,)
+    const temporaryFile = path.join(temporaryDirectory, `${fileBaseName}.md`,)
+    const outputFile = path.join(outputDirectory, `${fileBaseName}.mdx`,)
+
+    console.log("")
+    console.log(`Converting ${fileName}...`)
+
+    execFileSync(
     pandocPath,
     [inputFile, "--from=markdown", "--to=gfm", "--output", temporaryFile,],
     { stdio: "inherit", },
-)
+    )
 
-let content = readFileSync(
-    temporaryFile,
-    "utf8",
-)
+    const markdownContent = readFileSync(temporaryFile, "utf8",)
+    const cleanedContent = cleanMarkdown(markdownContent, )
 
-/* convert windows line endings to normal line endings. this does not delete the line breaks/ */
-content = content.replace(/\r\n/g, "\n")
+    writeFileSync(outputFile, cleanedContent, "utf8", )
 
-/* Remove the bookdown part heading. */
-content = content.replace(/^# \(PART\*\).*$/gm, "")
+    console.log(`Created ${path.relative(process.cwd(), outputFile,)}`, )
+}
 
-/* Remove Bookdwon heading attributes. ex: {-}, {#overview} */
-content = content.replace(/\s*{\-\}/g, "")
-content = content.replace(/\s*{#[^]+\}/g, "")
+    const rmdFiles = readdirSync(inputDirectory,).filter((fileName)=> fileName.toLowerCase().endsWith(".rmd"),)
+    if (rmdFiles.length === 0) {
+        console.log("No Rmd files were found in source-rmd/Instrument.",)
+        process.exit(0)
+    }
 
-/* change ## **Overview** into ## Overview */
-content = content.replace(/^(#{1,6})\s+\*\*(.+?)\*\*\s*$/gm, "$1 $2", )
+    console.log(`Found ${rmdFiles.length} Rmd file(s).` ,)
 
-/* limit excessive blank lines, but preserve normal paragraph spacing*/
-content = content.replace(/\r\n/g, "n")
-content = content.replace(/\n{3,}/g, "\n\n")
-content = content.trim()
+    for (const fileName of rmdFiles) {
+        try {
+            convertFile(fileName)
+        } catch (error) {
+            console.error("")
+            console.error(
+                `Failed to convert ${fileName}.`, 
+            )
+            console.error(error.message)
+            process.exitCode = 1
+        }
+    }
 
-writeFileSync(
-    outputFile,
-    content + "\n",
-    "utf8",
-)
+    rmSync(temporaryDirectory, {recursive: true, force: true,} ,)
 
 console.log("")
-console.log("Converted successfully:")
-console.log(outputFile)
+console.log("Conversion process finished.")
