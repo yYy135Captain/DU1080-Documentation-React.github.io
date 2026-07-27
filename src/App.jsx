@@ -75,7 +75,7 @@ function App() {
         return section.id
       }
     }
-    return outlineSection[0]?.id ?? ""
+    return outlineSections[0]?.id ?? ""
   }, [activeHeadingId, outlineSections])
 
   useEffect(() => {setActiveHeadingId("")
