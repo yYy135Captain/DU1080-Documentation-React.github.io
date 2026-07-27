@@ -1,0 +1,69 @@
+# DMM.c {-} 
+
+## **Overview** {-}
+
+## **DMMInitialize**
+
+### Header {-}
+`int DLLEXPORT __stdcall DMMInitialize(char *resource_name, ViSession *dmm_handle, ViBoolean *test_result, char *status_message)`
+
+### Purpose {-}
+Initializes the digital multimeter.
+
+### Parameters{-}
+| Name | Type | Purpose |
+|------|------|-----|
+|`resource_name`|`char *`|resource name|
+|`dmm_handle`|`ViSession *`|address of dmm session|
+|`test_result`|`ViBoolean *`|either VI_TRUE or VI_FALSE|
+|`status_message`|`char *`|string error message|
+
+### Return Values{-}
+|Error Code|Error Description|
+|----------|-----------------|
+|`VI_SUCCESS`|niDMM initialized successfully|
+|`!= VI_SUCCESS`|Error when calling InitWithOptions() or ConfigurePowerLineFrequency() 
+
+## **DMMClose**
+
+### Header {-}
+`int DLLEXPORT __stdcall DMMClose(ViSession dmm_handle, char *status_message)`
+
+### Purpose {-}
+Closes digital multimeter.
+
+### Parameters{-}
+| Name | Type | Purpose |
+|------|------|-----|
+|`dmm_handle`|`ViSession`|address of dmm device|
+|`status_message`|`char *`|string error message|
+
+### Return Values{-}
+|Error Code|Error Description|
+|----------|-----------------|
+|`VI_SUCCESS`|DMM closed successfully|
+|`!= VI_SUCCESS`|DMM failed to close|
+
+
+## **DMMMeasure**
+
+### Header {-}
+`int DLLEXPORT __stdcall DMMMeasure(ViSession dmm_handle, MeasurementType measurement_type, ViReal64 range, ViReal64 *reading, char *status_message)`
+
+### Purpose {-}
+Reads the DC Voltage at the given UUT pins with DMM and stores read value in Reading.
+
+### Parameters{-}
+| Name | Type | Purpose |
+|------|------|-----|
+|`dmm_handle`|`ViSession`|address of dmm device|
+|`measurement_type`|`MeasurementType`|enum that specifies measurement type|
+|`range`|`ViReal64`|specifies minimum measurement val (frequency) or max measurement val (all other functions)|
+|`reading`|`ViReal64 *`|measurement reading of dmm|
+|`status_message`|`char *`|string error message|
+
+### Return Values{-}
+|Error Code|Error Description|
+|----------|-----------------|
+|`VI_SUCCESS`|DMM was measured successfully|
+|`!= VI_SUCCESS`|DMM failed to measure|
