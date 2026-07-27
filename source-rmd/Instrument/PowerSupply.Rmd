@@ -1,0 +1,221 @@
+# PowerSupply {.unnumbered}
+
+## PowerSupplyInitialize
+
+### Header
+
+```         
+int DLLEXPORT _stdcall PowerSupplyInitialize(char *resource_name, double voltage_ovp, ViSession *power_supply_handle, ViBoolean *test_result, char *status_message)
+```
+
+### Purpose
+
+Initializes the DC Power Supply
+
+### Parameters
+
+| Parameter             | Type         | Purpose                 |
+|-----------------------|--------------|-------------------------|
+| `resource_name`       | char \*      | resource name           |
+| `voltage_ovp`         | double       | over voltage protection |
+| `power_supply_handle` | ViSession \* | power supply handle     |
+| `test_result`         | ViBoolean \* | test result             |
+| `status_message`      | char \*      | status message          |
+
+### Return Value
+
+| Error Code | Error                     |
+|------------|---------------------------|
+| `0`        | Success                   |
+| `!=0`      | Couldn't send the command |
+
+## PowerSupplyOutputState
+
+### Header
+
+```         
+int DLLEXPORT _stdcall PowerSupplyOutputState(ViSession *power_supply_handle, int power_supply_output_state, char *status_message)
+```
+
+### Purpose
+
+This function enable/disable the DC Power Supply output based on power_supply_output_state parameter value.
+
+### Parameters
+
+| Parameter                 | Type         | Purpose                   |
+|---------------------------|--------------|---------------------------|
+| power_supply_handle       | ViSession \* | power supply address      |
+| power_supply_output_state | int          | power supply output state |
+| status_message            | char \*      | error message             |
+
+### Return Value
+
+| Error Code | Error                     |
+|------------|---------------------------|
+| `0`        | Success                   |
+| `!=0`      | Error in viWrite function |
+
+## PowerSupplySetVoltageCurrent
+
+### Header
+
+```         
+int DLLEXPORT _stdcall PowerSupplySetVoltageCurrent(ViSession *power_supply_handle, double voltage, double current, char *status_message)
+```
+
+### Purpose
+
+Configures voltage and current value as supplied in respective parameters.
+
+### Parameters
+
+| Parameter             | Type                | Purpose              |
+|-----------------------|---------------------|----------------------|
+| `power_supply_handle` | power supply handle | power supply handle  |
+| `voltage`             | voltage             | voltage to be set    |
+| `current`             | current             | current to be set    |
+| `status_message`      | status message      | error status message |
+
+### Return Value
+
+| Error Code | Error                     |
+|------------|---------------------------|
+| `0`        | Success                   |
+| `!=0`      | Error in viWrite function |
+
+## PowerSupplyPowerOff
+
+### Header
+
+```         
+int DLLEXPORT _stdcall PowerSupplyPowerOff(ViSession *power_supply_handle, char *status_message)
+```
+
+### Purpose
+
+Disable the supply output and reset handle.
+
+### Parameters
+
+| Parameter             | Type         | Purpose                        |
+|-----------------------|--------------|--------------------------------|
+| `power_supply_handle` | ViSession \* | power supply handle            |
+| `status_message`      | char \*      | status message of power supply |
+
+### Return Value
+
+| Error Code | Error                     |
+|------------|---------------------------|
+| `0`        | Success                   |
+| `!=0`      | Error in viWrite function |
+
+## PowerSupplyShutDown
+
+### Header
+
+```         
+int DLLEXPORT _stdcall PowerSupplyShutDown(ViSession *power_supply_handle, char *status_message)
+```
+
+### Purpose
+
+Shuts down the power supply.
+
+### Parameters
+
+| Parameter             | Type                | Purpose             |
+|-----------------------|---------------------|---------------------|
+| `power_supply_handle` | power supply handle | power supply handle |
+| `status_message`      | status message      | status message      |
+
+### Return Value
+
+| Error Code | Error                                         |
+|------------|-----------------------------------------------|
+| `0`        | Success                                       |
+| `!=0`      | Error in viClose function or viWrite function |
+
+## PowerSupplyMeasureVoltage
+
+### Header
+
+```         
+int DLLEXPORT _stdcall PowerSupplyMeasureVoltage(ViSession *power_supply_handle, double *voltage, char *status_message)
+```
+
+### Purpose
+
+Measures the power supply voltage value
+
+### Parameters
+
+| Parameter             | Type         | Purpose               |
+|-----------------------|--------------|-----------------------|
+| `power_supply_handle` | ViSession \* | power supply handle   |
+| `voltage`             | double \*    | voltage that was read |
+| `status_message`      | char \*      | status message        |
+
+### Return Value
+
+| Error Code | Error                             |
+|------------|-----------------------------------|
+| `0`        | Success                           |
+| `!=0`      | Error in viRead/viWrite functions |
+
+## PowerSupplyMeasureCurrent
+
+### Header
+
+```         
+int DLLEXPORT _stdcall PowerSupplyMeasureVoltage(ViSession *power_supply_handle, double *voltage, char *status_message)
+```
+
+### Purpose
+
+Measures the power supply voltage value.
+
+### Parameters
+
+| Parameter             | Type         | Purpose                     |
+|-----------------------|--------------|-----------------------------|
+| `power_supply_handle` | ViSession \* | power supply handle         |
+| `current`             | double \*    | buffer to put current value |
+| `status_message`      | char \*      | status message              |
+
+### Return Value
+
+| Error Code | Error                               |
+|------------|-------------------------------------|
+| `0`        | Success                             |
+| `!=0`      | Error in viRead or viWrite function |
+
+## PowerSupplyInitializeVoltageCurrent
+
+### Header
+
+```         
+int DLLEXPORT _stdcall PowerSupplyInitializeVoltageCurrent(char *resource_name, double voltage, double current, ViSession *power_supply_handle, char *status_message)
+```
+
+### Purpose
+
+Initializes and set voltage & current value to the power supply
+
+### Parameters
+
+| Parameter             | Type         | Purpose                   |
+|-----------------------|--------------|---------------------------|
+| `resource_name`       | char \*      | resource name             |
+| `voltage`             | double       | voltage to be initialized |
+| `current`             | double       | current to be initialized |
+| `power_supply_handle` | ViSession \* | power supply handle       |
+| `status_message`      | char \*      | status message            |
+
+### Return Value
+
+| Error Code | Error                                |
+|------------|--------------------------------------|
+| `0`        | Success                              |
+| `!=0`      | Error in one of the called functions |
+

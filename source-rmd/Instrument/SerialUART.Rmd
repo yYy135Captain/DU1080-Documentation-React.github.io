@@ -1,0 +1,247 @@
+# SerialUART {.unnumbered}
+
+## **Overview** {.unnumbered}
+
+## InitializeUART
+
+### Header
+
+```         
+int DLLEXPORT __stdcall InitializeUART(ViSession *session_handle, const char *resource_handle, ViBoolean *test_result, char *status_message);
+```
+
+### Purpose
+
+Initializes SerialUART communication between two serial ports that transmit data (TX) and receive data (RX). Handles RS-232 and RS-422 serial protocols.
+
+### Parameters
+
+| Parameter         | Type          | Purpose                                 |
+|------------------------|------------------------|------------------------|
+| `session_handle`  | ViSession \*  | session handle                          |
+| `resource_handle` | const char \* | resource handle                         |
+| `test_result`     | ViBoolean \*  | test result                             |
+| `status_message`  | char \*       | status message of VISA port and manager |
+
+### Return Value
+
+| Error Code | Error                                    |
+|------------|------------------------------------------|
+| `0`        | Success                                  |
+| `-1`       | VISA cannot open resource handle manager |
+| `-2`       | VISA cannot open port                    |
+
+## UARTSetting
+
+### Header
+
+```         
+int DLLEXPORT __stdcall UARTSetting(ViSession *session_handle, ViUInt32 baud_rate, char *status_message)
+```
+
+### Purpose
+
+This function configures the port settings of a serial port given a session handle and baud rate.
+
+### Parameters
+
+| Parameter        | Type         | Purpose                             |
+|------------------|--------------|-------------------------------------|
+| `session_handle` | ViSession \* | unique session handle               |
+| `baud_rate`      | ViUInt32     | baud rate transmission              |
+| `status_message` | char \*      | status of serial port configuration |
+
+### Return Value
+
+| Error | Error Code                 |
+|-------|----------------------------|
+| `0`   | Success                    |
+| `-1`  | Serial port setting failed |
+
+## ReadUART
+
+### Header
+
+```         
+int DLLEXPORT __stdcall ReadUART(ViSession *session_handle, char *status_message)
+```
+
+### Purpose
+
+Read UART data from session handle
+
+### Parameters
+
+| Parameter        | Type         | Purpose               |
+|------------------|--------------|-----------------------|
+| `session_handle` | ViSession \* | unique session handle |
+| `status_message` | char \*      | VISA read status      |
+
+### Return Value
+
+| Error | Error Code     |
+|-------|----------------|
+| `0`   | Success        |
+| `-1`  | VISA read fail |
+
+## ReplyUART
+
+### Header
+
+```         
+int DLLEXPORT __stdcall ReplyUART(ViSession *session_handle, char *status_message, int time_out, int number_bytes)
+```
+
+### Purpose
+
+Read/write data until the amount is equal to number_bytes
+
+### Parameters
+
+| Parameter | Type | Purpose |
+|------------------------|------------------------|------------------------|
+| `session_handle` | ViSession \* | unique session handle |
+| `status_message` | char \* | status of VISA |
+| `time_out` | int | amount of time (in seconds) the program waits for a return value before breaking out |
+| `number_bytes` | int | total number of bytes to read |
+
+### Return Value
+
+| Error | Error Code        |
+|-------|-------------------|
+| `0`   | Success           |
+| `-1`  | VISA write failed |
+
+### Example
+
+## CloseUART
+
+### Header
+
+```         
+int DLLEXPORT __stdcall CloseUART(ViSession *session_handle)
+```
+
+### Purpose
+
+Close UART through session handle
+
+### Parameters
+
+| Parameter        | Type         | Purpose               |
+|------------------|--------------|-----------------------|
+| `session_handle` | ViSession \* | unique session handle |
+
+### Return Value
+
+| Error | Error Code |
+|-------|------------|
+| `0`   | Success    |
+
+## SerialVISAInit
+
+### Header
+
+```         
+int DLLEXPORT __stdcall SerialVISAInit(const char *port_name, int baud_rate, int data_bits, int parity, int stop_bits, int flow_control, int time_out)
+```
+
+### Purpose
+
+RS-232 and RS-422 send and read verification based on user configured serial settings.
+
+### Parameters
+
+| Parameter      | Type    | Purpose                   |
+|----------------|---------|---------------------------|
+| `port_name`    | char \* | port name                 |
+| `baud_rate`    | int     | rate of byte transmission |
+| `data_bits`    | int     | data bits                 |
+| `parity`       | int     | parity                    |
+| `stop_bits`    | int     | stop bits                 |
+| `flow_control` | int     | flow control              |
+| `time_out`     | int     | time out in seconds       |
+
+### Return Value
+
+| Error | Error Code                                  |
+|-------|---------------------------------------------|
+| `0`   | Success                                     |
+| `-1`  | Could not open VISA resource_handle manager |
+| `-2`  | Could not open VISA port                    |
+
+## SerialVISAWrite
+
+### Header
+
+```         
+int DLLEXPORT __stdcall SerialVISAWrite(const char *test_data)
+```
+
+### Purpose
+
+Write test_data into serial port
+
+### Parameters
+
+| Parameter   | Type          | Purpose            |
+|-------------|---------------|--------------------|
+| `test_data` | const char \* | Data to be written |
+
+### Return Value
+
+| Error | Error Code                                          |
+|-------|-----------------------------------------------------|
+| `0`   | Success                                             |
+| `-1`  | RS 232 is not initialized                           |
+| `-3`  | If test_data was not written to the serial properly |
+
+## SerialVISARead
+
+### Header
+```
+int DLLEXPORT __stdcall SerialVISARead(char *receive_buffer, int buffer_size, int *bytes_received)
+```
+
+### Purpose
+Read from receive_buffer
+
+### Parameters
+
+| Parameter | Type | Purpose |
+|------------------------|------------------------|------------------------|
+| `receive_buffer` | char \* | Buffer to receive |
+| `buffer_size` | int | Size of buffer |
+| `bytes_received` | int \* | How many bytes actually received by receive_buffer |
+
+### Return Value
+
+| Error | Error Code                                     |
+|-------|------------------------------------------------|
+| `0`   | Success                                        |
+| `-1`  | Rs232 did not initialize                       |
+| `-2`  | Chceks if the parameters have an invalid value |
+
+## SerialVISACleanup
+
+### Header
+
+```         
+int DLLEXPORT __stdcall SerialVISACleanup(void)
+```
+
+### Purpose
+
+Restart VISA serial port
+
+### Parameters
+
+Void
+
+### Return Value
+
+| Error Code | Error                                     |
+|------------|-------------------------------------------|
+| `0`        | Success                                   |
+| `-1`       | RS232 port did not initialize             |
+| `-2`       | RS232 resource manager did not initialize |

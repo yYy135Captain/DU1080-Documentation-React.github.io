@@ -1,0 +1,53 @@
+# Photometer
+
+## PhotometerMeasure
+
+### Header
+
+    int DLLEXPORT __stdcall PhotometerMeasure(unsigned int com_port, double *luminance, double *chromaticity_x, double *chromaticity_y, double *u_prime, double *v_prime)
+
+### Purpose
+
+Measure luminance, chromaticity x&y, u/v prime and display on photometer.
+
+### Parameters
+
+| Parameter        | Type         | Purpose                         |
+|------------------|--------------|---------------------------------|
+| `com_part`       | unsigned int | port to measure from            |
+| `luminance`      | double \*    | luminance value (Lv)            |
+| `chromaticity_x` | double \*    | chromaticity x coordinate       |
+| `chromaticity_y` | double \*    | chromaticity y coordinate       |
+| `u_prime`        | double \*    | scaled factor of chromaticity_x |
+| `v_prime`        | double \*    | scaled factor of chromaticity_y |
+
+### Return Value
+
+| Error Code | Error   |
+|------------|---------|
+| `0`        | Success |
+| `!=0`      | Error   |
+
+## PhotometerInitialize
+
+### Header
+
+    int DLLEXPORT __stdcall PhotometerInitialize(unsigned int com_port, ViBoolean *test_result, char *status_message)
+
+### Purpose
+
+Initialize photometer with parameter values
+
+### Parameters
+
+| Parameter        | Type         | Purpose            |
+|------------------|--------------|--------------------|
+| `com_part`       | unsigned int | Communication port |
+| `test_result`    | ViBoolean \* | test result        |
+| `status_message` | char \*      | status message     |
+
+### Return Value
+
+| Error Code | Error   |
+|------------|---------|
+| `0`        | Success |

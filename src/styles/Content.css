@@ -114,6 +114,12 @@
     background: var(--color-surface-soft);
 }
 
+.content h1,
+.content h2,
+.content h3 {
+    scroll-margin-top: calc(var(--header-height) + 1.5rem);
+}
+
 /*Responsive*/
 @media (max-width: 48rem) {
     .content {

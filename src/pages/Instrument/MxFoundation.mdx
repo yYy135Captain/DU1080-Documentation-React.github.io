@@ -210,7 +210,7 @@ Performs an ARINC 429 loopback self-test by transmitting a data word, receiving 
 | `0` | The ARINC 429 self-test completed successfully. |
 | Non-Zero | One or more ARINC 429 data word transmitted during the self-test. |
 
-## ARINC708 Functions
+`{r}  # ARINC708 Functions`
 
 ## ARINC708ChannelInitialize
 ### Header
@@ -367,12 +367,13 @@ This function does not return a value.
 
 ### Purpose
 
-Displays the contents of one or more ARINC 708 data records for debugging and verification.
+Displays the contents of one or more ARINC 708 data records for debugging and verification. 
 
-| Parameter | Type | Description |
-|----|----|----|
-| `record_number` | `uint64` | Number of ARINC 708 records to display.|
-| `rec`| `MXF_A708_DATAREC *` | Pointer to the first ARINC 708 data record.|
+### Parameter
+|     Parameter     |     Type    | Description |
+|------------------|-------------|-------------|
+| `record_number`  |  `uint64`   | Number of ARINC 708 records to display.|
+|     `rec`        | `MXF_A708_DATAREC *` | Pointer to the first ARINC 708 data record.|
 
 ### Return Value
 
