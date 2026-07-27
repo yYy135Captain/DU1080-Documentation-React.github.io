@@ -55,7 +55,7 @@ function App() {
             <a className="active-page-link"
             href="#agm-test-box"
             >AGMTestBox</a>
-            <a className = "item", href="#chroma2238">Chroma2238</a>
+            <a href="#chroma2238">Chroma2238</a>
             <a href="#daq">DAQ</a>
             <a href="#dmm">DMM</a>
             <a href="#graphics-discrete-io">GraphicsDiscreteIO</a>
@@ -63,7 +63,7 @@ function App() {
             <a href="#mux">MUX</a>
             <a href="#mx-foundation">MxFoundation</a>
             <a href="#photometer">Photometer</a>
-            <a href="#pickering-relay">PickeringRealy</a>
+            <a href="#pickering-relay">PickeringRelay</a>
             <a href="#power-supply">PowerSupply</a>
             <a href="#relay">Relay</a>
             <a href="#serial-uart">SerialUART</a>
@@ -74,7 +74,6 @@ function App() {
          </nav>
         </aside>
           
-
         <main id="agm-test-box"
         className="content">
             <AGMTestBox />
@@ -82,12 +81,13 @@ function App() {
 
         <aside className="right-sidebar">
           <h2>Overview</h2>
-
+        
           <a href="#send-agm-packet"></a>
           <a href="#c-syntax">C Syntax</a>
           <a href="#purpose">Purpose</a>
           <a href="#parameters">Parameters</a>
           <a href="#return-values">Return Values</a>
+
         </aside>
         </div>
       </div>

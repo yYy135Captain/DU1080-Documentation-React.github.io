@@ -11,6 +11,7 @@
     background: var(--color-surface);
 
     border-right: 1px solid var(--color-border);
+
 }
 
 .brand {
@@ -60,7 +61,6 @@
 
 /*TOC LINKS*/
 .table-of-contents a{
-    color: var(--color-text);
     text-decoration: none;
     font-size: 1rem;
     transition:color 0.15s;
@@ -103,11 +103,24 @@
     border-bottom: 2px solid var(--color-primary);
 }
 
+/*
+for table of content items
+*/
+.right-sidebar h4 {
+    line-height: 1.4;
+}
+
+/*
+Headers inside the center content area (ex: c syntax, purpose, etc)
+*/
+.right-sidebar h5 {
+    font-weight: 700;
+}
+
 /*Right Sidebar Link */
 .right-sidebar a{
     display: block;
     margin-bottom: 0.75rem;
-    color: var(--color-text);
     text-decoration: none;
     transition: color 0.15s;
 }

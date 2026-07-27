@@ -1,6 +1,6 @@
 :root {
     font-family:
-        Inter,
+        Telegraf,
         Arial,
         Helvetica,
         sans-serif;
@@ -35,6 +35,13 @@
     box-sizing: border-box;
 }
 
+@font-face {
+    font-family: 'Telegraf';
+    src: url('../fonts/Telegraf-Font-Family/PPTelegraf-Regular.otf') format('opentype');
+    font-weight: normal;
+    font-style: normal;
+}
+
 html {
     margin: 0;
     padding: 0;
@@ -52,7 +59,8 @@ body {
     background: var(--color-background);
 
     font-family:
-        Arial, 
+        'Telegraf',
+        serif, 
         Helvetica, 
         sans-serif;
 
