@@ -51,23 +51,25 @@ function App() {
 
           <div className="toc-section">Instruments</div>
 
-          <a className="active-page-link"
-          href="#agm-test-box"
-          >AGMTestBox</a>
+          <div class = "toc_items">
+            <a className="active-page-link"
+            href="#agm-test-box"
+            >AGMTestBox</a>
+            <a className = "item", href="#chroma2238">Chroma2238</a>
+            <a href="#daq">DAQ</a>
+            <a href="#dmm">DMM</a>
+            <a href="#graphics-discrete-io">GraphicsDiscreteIO</a>
+            <a href="#interface-box">InterfaceBox</a>
+            <a href="#mux">MUX</a>
+            <a href="#mx-foundation">MxFoundation</a>
+            <a href="#photometer">Photometer</a>
+            <a href="#pickering-relay">PickeringRealy</a>
+            <a href="#power-supply">PowerSupply</a>
+            <a href="#relay">Relay</a>
+            <a href="#serial-uart">SerialUART</a>
 
-          <a href="#chroma2238">Chroma2238</a>
-          <a href="#daq">DAQ</a>
-          <a href="#dmm">DMM</a>
-          <a href="#graphics-discrete-io">GraphicsDiscreteIO</a>
-          <a href="#interface-box">InterfaceBox</a>
-          <a href="#mux">MUX</a>
-          <a href="#mx-foundation">MxFoundation</a>
-          <a href="#photometer">Photometer</a>
-          <a href="#pickering-relay">PickeringRealy</a>
-          <a href="#power-supply">PowerSupply</a>
-          <a href="#relay">Relay</a>
-          <a href="#serial-uart">SerialUART</a>
-
+            <div class = "slider-line"></div>
+          </div>
           
          </nav>
         </aside>
