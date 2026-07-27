@@ -58,6 +58,28 @@
     font-weight: 600;
     color: var(--color-primary);
 }
+.toc-items {
+    display: flex;
+    flex-direction: column;
+    gap: 0.45rem;
+}
+
+.toc.items a {
+    display: block;
+    line-height: 1.35;
+    padding: 0.12rem 0;
+    color: var(--color-text);
+    text-decoration: none;
+}
+
+.toc-items a:hover {
+    background: #f5f5f5;
+}
+
+.toc-items .active-page-link {
+    color: #ff4400;
+    font-weight: 600;
+}
 
 /*TOC LINKS*/
 .table-of-contents a{

@@ -1,0 +1,75 @@
+# PickeringRelay
+
+## Overview
+The **PickeringRealy** module provides an interface for controlling a Pickering relay card through the Pickering PXI driver library. It supports initializing the relay card, changing the state of individual relay channels, and closing the relay session after operations are complete. The module uses the Pickering PXI driver to communicate wih the relay hardware.
+
+## PickeringRelayInitialize
+### Header
+
+`int DLLEXPORT  __stdcall PickeringRelayInitialize(char *visa_resource_name, ViSession *session_handle, ViBoolean *test_result, char *status_message);`
+
+### Purpose
+
+Initializes the Pickering relay card and creates a communication session using the specified VISA resource.
+
+### Parameter
+
+| Parameter | Type | Description |
+|----|----|----|
+| `visa_resource_name` | `char *` | visa resource name |
+| `session_handle` | `ViSession` | Returns the created session handle. |
+| `test_result` | `ViSession` | Either VI_TRUE or VI_FALSE to indicate initialization output. |
+| `status_message` | `char *` | Stores the initialization status and error message. |
+
+### Return Value
+
+| Error | Description                          |
+|-------|--------------------------------------|
+| `0`   | Relay card initialized successfully. |
+
+## PickeringRelayAction
+### Header
+
+`int DLLEXPORT  __stdcall PickeringRelayAction(ViSession *session_handle, char *action, int channel_id, char *status_message);`
+
+### Purpose
+
+Sets channel state based on specified action.
+
+### Parameter
+
+| Parameter | Type | Description |
+|----|----|----|
+| `session_handle` | `ViSession` | Handle to the initialized Pickering relay session. |
+| `action` | `char *` | Requested relay action |
+| `channel_id` | `int` | Relay channel number to control. |
+| `status_message` | `char *` | Stores status or error message. |
+
+### Return Value
+
+| Error | Description                             |
+|-------|-----------------------------------------|
+| `0`   | Relay operation completed successfully. |
+| `-1`  | Failed to change the relay state.       |
+
+## PickeringRelayClose
+### Header
+
+`int DLLEXPORT  __stdcall PickeringRelayClose(ViSession *session_handle, char *status_message);`
+
+### Purpose
+
+Closes the Pickering relay session and releases the associated hardware resources.
+
+### Parameter
+
+| Parameter        | Type        | Description                                   |
+|------------------|-------------|-----------------------------------------------|
+| `session_handle` | `ViSession` | Handle of the active Pickering relay session. |
+| `status_message` | `char *`    | Stores status or error message.               |
+
+### Return Value
+
+| Error | Description                        |
+|-------|------------------------------------|
+| `0`   | Relay session closed successfully. |
