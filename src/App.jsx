@@ -1,5 +1,5 @@
-import {Children, useEffect, useMemo, useState } from 'react' 
-import {Navigate, NavLink, Route, Routes, useLocation, } from "react-router-dom" 
+import {useEffect, useMemo, useRef, useState } from 'react' 
+import {NavLink, Route, Routes, useLocation, } from "react-router-dom" 
 
 
 import Header from './components/Header'
@@ -30,16 +30,34 @@ import "./styles/globals.css"
 function App() {
   const [isDarkMode, setIsDarkMode] = useState(false)
   const [searchValue, setSearchValue] = useState("")
+  const [activeHeadingId, setActiveHeadingId] = useState("")
+
+  const contentRef = useRef(null)
 
   const location = useLocation()
   const currentOutline = pageOutlines[location.pathname] ?? []
-  const [activeHeadingId, setActiveHeadingId] = useState("")
 
   const handleThemeToggle = () => {setIsDarkMode((currentMode) => !currentMode)  }
 
   const handleSearchChange = (event) => {setSearchValue(event.target.value)  }
 
   const handleMenuClick = () => {console.log("Menu button clicked")  }
+
+  const scrollToHeading = (headingId) => {
+      const heading = document.getElementById(headingId)
+
+      if (!heading) {
+        console.warn(`Heading not found: ${headingId}`)
+        return
+      }
+
+      heading.scrollIntoView({
+        behavior: "smooth",
+        block: "start",
+      })
+
+      setActiveHeadingId(headingId)
+  }
 
   const outlineSections = useMemo(() => {
     const sections = []
@@ -79,40 +97,45 @@ function App() {
     return outlineSections[0]?.id ?? ""  }, [activeHeadingId, outlineSections])
 
   useEffect(() => {setActiveHeadingId("")
+    const contentElement = contentRef.current
 
-  const timer = window.setTimeout(() => {
-    const headings = currentOutline
-    .filter((item) => item.level === 2 || item.level === 3)
-    .map((item) => document.getElementById(item.id))
-    .filter(Boolean)
+    if (!contentElement) {return undefined }
 
-  if (headings.length === 0) {return}
+    contentElement.scrollTo({
+      top: 0,
+      behavior: "auto",
+})
 
-  setActiveHeadingId(headings[0].id)
+    let observer = null
 
-  const observer = new IntersectionObserver( (entries) => {
-    const visibleEntries = entries
-      .filter((entry) => entry.isIntersecting)
-      .sort(
-        (firstEntry, secondEntry) => firstEntry.boundingClientRect.top - secondEntry.boundingClientRect.top, )
+    const timer = window.setTimeout(() => {
+      const headings = currentOutline.filter((item) => item.level === 2 || item.level === 3,)
+        .map((item) => document.getElementById(item.id),)
+      .filter(Boolean)
 
-    if (visibleEntries.length > 0) {setActiveHeadingId(visibleEntries[0].target.id)} },
-  {
-    root: null,
-    rootMargin: "-18% 0px -68% 0px",
+    if (headings.length === 0) {
+      return
+}
+
+    setActiveHeadingId(headings[0].id)
+
+    observer = new IntersectionObserver((entries) => {const visibleEntries = entries.filter((entry) => entry.isIntersecting,)
+      .sort((firstEntry, secondEntry) => firstEntry.boundingClientRect.top - secondEntry.boundingClientRect.top,)
+
+    if (visibleEntries.length > 0) {
+      setActiveHeadingId(visibleEntries[0].target.id,)}
+},
+{
+    root: contentElement,
+    rootMargin: "-10% 0px -70% 0px",
     threshold: 0,
-  },)
+},
+)
 
-  headings.forEach((heading) => {observer.observe(heading) })
+  headings.forEach((heading) => {observer.observe(heading)})}, 0)
 
-  window.documentationHeadingObserver = observer}, 0)
-
-  return () => {
-    window.clearTimeout(timer)
-
-    if (window.documentationHeadingObserver) {
-      window.documentationHeadingObserver.disconnect()
-      window.documentationHeadingObserver = null }
+return () => {window.clearTimeout(timer)
+observer?.disconnect()
 }
 }, [location.pathname, currentOutline])
 
@@ -186,7 +209,9 @@ function App() {
         </aside>
           
 
-        <main className="content">
+        <main 
+          ref={contentRef}
+          className="content">
           <Routes>
             <Route path="/" element={<Home />}  />
 
