@@ -1,5 +1,5 @@
-import {Children, useEffect, useMemo, useState } from 'react' 
-import {Navigate, NavLink, Route, Routes, useLocation, } from "react-router-dom" 
+import {useEffect, useMemo, useRef, useState } from 'react' 
+import {NavLink, Route, Routes, useLocation, } from "react-router-dom" 
 
 
 import Header from './components/Header'
@@ -30,16 +30,34 @@ import "./styles/globals.css"
 function App() {
   const [isDarkMode, setIsDarkMode] = useState(false)
   const [searchValue, setSearchValue] = useState("")
+  const [activeHeadingId, setActiveHeadingId] = useState("")
+
+  const contentRef = useRef(null)
 
   const location = useLocation()
   const currentOutline = pageOutlines[location.pathname] ?? []
-  const [activeHeadingId, setActiveHeadingId] = useState("")
 
   const handleThemeToggle = () => {setIsDarkMode((currentMode) => !currentMode)  }
 
   const handleSearchChange = (event) => {setSearchValue(event.target.value)  }
 
   const handleMenuClick = () => {console.log("Menu button clicked")  }
+
+  const scrollToHeading = (headingId) => {
+    const heading = document.getElementById(headingId)
+
+    if (!headingElement) {
+      console.warn(`Unable to find heading:: ${headingId}`)
+      return
+      }
+
+    headingElement.scrollIntoView({
+      behavior: "smooth",
+      block: "start",
+    })
+    
+    setActiveHeadingId(headingId)
+  }
 
   const outlineSections = useMemo(() => {
     const sections = []
@@ -78,42 +96,50 @@ function App() {
     }
     return outlineSections[0]?.id ?? ""  }, [activeHeadingId, outlineSections])
 
-  useEffect(() => {setActiveHeadingId("")
+  useEffect(() => {
+    const contentElement = contentRef.current
 
-  const timer = window.setTimeout(() => {
-    const headings = currentOutline
-    .filter((item) => item.level === 2 || item.level === 3)
-    .map((item) => document.getElementById(item.id))
-    .filter(Boolean)
+    if (!contentElement || currentOutline.length === 0) {
+      setActiveHeadingId("")
+      return undefined
+    }
 
-  if (headings.length === 0) {return}
+    const updateActiveHeading = () => {
+      const headings = currentOutline.filter(
+        (item) => item.level === 2 || item.level === 3,)
+      .map((item) => document.getElementById(item.id),)
+      .filter(Boolean)
 
-  setActiveHeadingId(headings[0].id)
+      if (headings.length === 0) {setActiveHeadingId("")
+        return
+      }
 
-  const observer = new IntersectionObserver( (entries) => {
-    const visibleEntries = entries
-      .filter((entry) => entry.isIntersecting)
-      .sort(
-        (firstEntry, secondEntry) => firstEntry.boundingClientRect.top - secondEntry.boundingClientRect.top, )
+    const contentTop = contentElement.getBoundingClientRect().top
 
-    if (visibleEntries.length > 0) {setActiveHeadingId(visibleEntries[0].target.id)} },
-  {
-    root: null,
-    rootMargin: "-18% 0px -68% 0px",
-    threshold: 0,
-  },)
+/* A heading becomes active when it reaches approximately 120px below the top of content.*/
+    const activationLine = contentTop + 120
 
-  headings.forEach((heading) => {observer.observe(heading) })
+    let activeHeading = headings[0]
 
-  window.documentationHeadingObserver = observer}, 0)
+    for (const heading of headings) {
+      const headingTop = heading.getBoundingClientRect().top
 
-  return () => {
-    window.clearTimeout(timer)
+    if (headingTop <= activationLine) {activeHeading = heading} else {break}
+  }
 
-    if (window.documentationHeadingObserver) {
-      window.documentationHeadingObserver.disconnect()
-      window.documentationHeadingObserver = null }
-}
+    setActiveHeadingId(activeHeading.id)
+  }
+
+    const frameId = window.requestAnimationFrame(updateActiveHeading,)
+
+    contentElement.addEventListener("scroll", updateActiveHeading, { passive: true }, )
+
+    window.addEventListener("resize", updateActiveHeading, )
+
+    return () => {window.cancelAnimationFrame(frameId)
+      contentElement.removeEventListener("scroll", updateActiveHeading,)
+      window.removeEventListener("resize", updateActiveHeading,)
+    }
 }, [location.pathname, currentOutline])
 
 
@@ -178,7 +204,9 @@ function App() {
         </aside>
           
 
-        <main className="content">
+        <main 
+          ref={contentRef}
+          className="content">
           <Routes>
             <Route path="/" element={<Home />}  />
 
