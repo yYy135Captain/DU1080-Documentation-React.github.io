@@ -118,8 +118,7 @@ function App() {
 
 
   return (
-    <div className={`site-shell ${isDarkMode ? "dark" : "light"} `}
-    >
+    <div className={`site-shell ${isDarkMode ? "dark" : "light"} `}>
 
       <Header
         isDarkMode={isDarkMode}
@@ -128,16 +127,9 @@ function App() {
         onSearchChange={handleSearchChange}
         onMenuClick={handleMenuClick}
       />
-
+      
       <div className='app'>
         <aside className="left-sidebar">
-          <div className="brand">
-            <div className="brand-title">
-              <h2>
-                  DU1080 HW4 API
-              </h2>
-            </div>
-          </div>
 
         <nav
           className="table-of-contents"
