@@ -81,30 +81,38 @@ cleaned = cleaned.replace( /\n{4,}/g, "\n\n\n", )
 return `${cleaned.trim()}\n`
 }
 
-function extractOutline(mdxContent) {
+function addHeadingIdsAndExtractOutline(mdxContent) {
     const slugger = new GithubSlugger()
     const outline = []
-    const headingPattern = /^(#{1,3})\s+(.+?)\s*$/gm
 
-    let match
+    const headingPattern = /^(#{1,3})[ \t]+(.+?)[ \t]*$/gm
 
-    while (
-        (match = headingPattern.exec(mdxContent)) !== null
-) {
-    const level = match[1].length
-    const rawLabel = match[2]
+    const contentWithIds = mdxContent.replace(
+        headingPattern,
+        (fullMatch, hashMarks, rawLabel) => {
+        const level = hashMarks.length
+        const label = removeMarkdownFormatting(rawLabel)
 
-    const label = removeMarkdownFormatting(rawLabel)
+        if (!label) {return fullMatch}
 
-    if (!label) { continue }
+        const id = slugger.slug(label)
 
-    const id = slugger.slug(label)
+        outline.push({
+            label,
+            id,
+            level,
+        })
 
-    outline.push({ label, id, level, })
+/* Explicit JSX heading ensures that: pageOutlines.json ID and rendered HTML heading ID are exactly the same. */
+        return `<h${level} id="${id}">${label}</h${level}>`},
+)
+
+    return {
+        contentWithIds,
+        outline,
+    }
 }
 
-return outline
-}
 
 function createRoutePath(relativeRmdPath) {
     const parsedPath = path.parse(relativeRmdPath)
@@ -129,9 +137,9 @@ function convertFile(sourceFile, pageOutlines) {
         throw new Error( `Pandoc failed for ${relativePath}:\n${errorMessage}`, ) }
 
     const cleanedMdx = cleanMdx(convertedMarkdown)
-    fs.writeFileSync( outputFile, cleanedMdx, "utf8", )
+    const {contentWithIds, outline, } = addHeadingIdsAndExtractOutline(cleanedMdx)
+    fs.writeFileSync( outputFile, contentWithIds, "utf8", )
     const routePath = createRoutePath(relativePath)
-    const outline = extractOutline(cleanedMdx)
     pageOutlines[routePath] = outline
 
     console.log(`Created ${path.relative(projectRoot, outputFile)}`, )

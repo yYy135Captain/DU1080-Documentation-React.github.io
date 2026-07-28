@@ -1193,6 +1193,11 @@
       "level": 3
     },
     {
+      "label": "Parameter",
+      "id": "parameter-1",
+      "level": 3
+    },
+    {
       "label": "Return Value",
       "id": "return-value-1",
       "level": 3
@@ -1214,7 +1219,7 @@
     },
     {
       "label": "Parameter",
-      "id": "parameter-1",
+      "id": "parameter-2",
       "level": 3
     },
     {
@@ -1239,7 +1244,7 @@
     },
     {
       "label": "Parameter",
-      "id": "parameter-2",
+      "id": "parameter-3",
       "level": 3
     },
     {
@@ -1264,7 +1269,7 @@
     },
     {
       "label": "Parameter",
-      "id": "parameter-3",
+      "id": "parameter-4",
       "level": 3
     },
     {
@@ -1680,6 +1685,11 @@
       "level": 3
     },
     {
+      "label": "Parameter",
+      "id": "parameter-14",
+      "level": 3
+    },
+    {
       "label": "Return Value",
       "id": "return-value-14",
       "level": 3
@@ -1701,7 +1711,7 @@
     },
     {
       "label": "Parameter",
-      "id": "parameter-14",
+      "id": "parameter-15",
       "level": 3
     },
     {

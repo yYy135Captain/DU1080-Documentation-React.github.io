@@ -1,4 +1,4 @@
-import {useEffect, useMemo, useState } from 'react' 
+import {useEffect, useMemo, useRef, useState } from 'react' 
 import {NavLink, Route, Routes, useLocation, } from "react-router-dom" 
 
 
@@ -32,6 +32,8 @@ function App() {
   const [searchValue, setSearchValue] = useState("")
   const [activeHeadingId, setActiveHeadingId] = useState("")
 
+  const contentRef = useRef(null)
+
   const location = useLocation()
   const currentOutline = pageOutlines[location.pathname] ?? []
 
@@ -42,20 +44,28 @@ function App() {
   const handleMenuClick = () => {console.log("Menu button clicked")  }
 
   const scrollToHeading = (headingId) => {
-    const heading = document.getElementById(headingId)
+    const contentElement = contentRef.current
+    const headingElement = document.getElementById(headingId)
 
-    if (!headingElement) {
-      console.warn(`Unable to find heading:: ${headingId}`)
+    if (!contentElement || !headingElement) {
+      console.warn(`Unable to find heading: ${headingId}`)
       return
-      }
+}
 
-    headingElement.scrollIntoView({
+    const contentTop = contentElement.getBoundingClientRect().top
+
+    const headingTop = headingElement.getBoundingClientRect().top
+
+    const targetPosition = contentElement.scrollTop + headingTop - contentTop - 24
+
+    contentElement.scrollTo({
+      top: targetPosition,
       behavior: "smooth",
-      block: "start",
-    })
+})
 
     setActiveHeadingId(headingId)
-  }
+}
+
 
   const outlineSections = useMemo(() => {
     const sections = []
@@ -95,57 +105,63 @@ function App() {
     return outlineSections[0]?.id ?? ""  }, [activeHeadingId, outlineSections])
 
   useEffect(() => {
-    if (currentOutline.length === 0) {setActiveHeadingId("")
+    const contentElement = contentRef.current
+
+    if (!contentElement || currentOutline.length === 0) {
+      setActiveHeadingId("")
       return undefined
-}
+    }
 
     let ticking = false
 
     const updateActiveHeading = () => {
-      const headings = currentOutline.filter((item) => item.level === 2 || item.level === 3,)
-      .map((item) => document.getElementById(item.id),) 
-      .filter(Boolean)
+      const headings = currentOutline
+        .filter((item) => item.level === 2 || item.level === 3)
+        .map((item) => document.getElementById(item.id))
+        .filter(Boolean)
 
-    if (headings.length === 0) {setActiveHeadingId("")
-      return
-}
-
-    const activationLine = 140
-
-    let activeHeading = headings[0]
-
-    for (const heading of headings) {const headingTop = heading.getBoundingClientRect().top
-
-      if (headingTop <= activationLine) {activeHeading = heading} else {break}
-}
-
-    setActiveHeadingId(activeHeading.id)
-}
-
-    const handleScroll = () => {
-      if (ticking) {
+      if (headings.length === 0) {
+        setActiveHeadingId("")
         return
-}
+      }
 
-      ticking = true
+      const contentTop = contentElement.getBoundingClientRect().top
+      const activationLine = contentTop + 140
 
-      window.requestAnimationFrame(() => {updateActiveHeading() 
-        ticking = false
+      let activeHeading = headings[0]
+
+      for (const heading of headings) {
+        const headingTop = heading.getBoundingClientRect().top
+
+        if (headingTop <= activationLine) {activeHeading = heading} else {break}
+      }
+    setActiveHeadingId(activeHeading.id)
+  }
+
+  const handleScroll = () => {
+    if (ticking) {
+      return
+    }
+
+    ticking = true
+
+    window.requestAnimationFrame(() => {updateActiveHeading()
+      ticking = false
     })
-}
+  }
 
-    const initialFrame = window.requestAnimationFrame(updateActiveHeading,)
+  const initialFrame = window.requestAnimationFrame(updateActiveHeading)
 
-    window.addEventListener("scroll", handleScroll, { passive: true },)
+  contentElement.addEventListener("scroll", handleScroll, { passive: true },  )
 
-    window.addEventListener("resize", handleScroll,)
+  window.addEventListener("resize", handleScroll,)
 
-    return () => {window.cancelAnimationFrame(initialFrame)
+  return () => {window.cancelAnimationFrame(initialFrame)
 
-    window.removeEventListener("scroll", handleScroll,)
+  contentElement.removeEventListener("scroll", handleScroll,)
 
-    window.removeEventListener("resize", handleScroll,)
-}
+  window.removeEventListener("resize", handleScroll,)
+  }
 }, [location.pathname, currentOutline])
 
   return (
@@ -218,6 +234,7 @@ function App() {
           
 
         <main 
+          ref={contentRef}
           className="content">
           <Routes>
             <Route path="/" element={<Home />}  />
