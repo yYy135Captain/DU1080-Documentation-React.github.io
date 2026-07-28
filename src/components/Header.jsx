@@ -19,13 +19,13 @@ function Header({ searchValue, onSearchChange, onMenuClick }) {
             
             <div className = "header-controls">
                 <SearchBar
-                    value={searchValue}
-                    onChange={onSearchChange}
-                    onMenuClick={onMenuClick}
-                />
-            </div>
+                        value={searchValue}
+                        onChange={onSearchChange}
+                        onMenuClick={onMenuClick}
+                    />
 
-            <ThemeToggle />
+                <ThemeToggle />
+            </div>
         </header>
     )
 }
