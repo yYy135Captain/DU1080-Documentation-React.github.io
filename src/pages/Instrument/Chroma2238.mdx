@@ -1,15 +1,15 @@
-# Chroma2238.c
+<h1 id="chroma2238c">Chroma2238.c</h1>
 
-## Overview
-### Header
+<h2 id="overview">Overview</h2>
+<h3 id="header">Header</h3>
 
 `int DLLEXPORT __stdcall Chroma2238Initialize(char *port_name, long baud_rate, ViBoolean *test_result, char *status_message)`
 
-### Purpose
+<h3 id="purpose">Purpose</h3>
 
 Initialize a VISA session on Chroma2238.
 
-### Parameters
+<h3 id="parameters">Parameters</h3>
 
 | Name             | Type          | Purpose                         |
 |------------------|---------------|---------------------------------|
@@ -18,7 +18,7 @@ Initialize a VISA session on Chroma2238.
 | `test_result`    | `ViBoolean *` | either VI_TRUE or VI_FALSE      |
 | `status_message` | `char *`      | string error message            |
 
-### Return Values
+<h3 id="return-values">Return Values</h3>
 
 | Error Code | Error Description                    |
 |------------|--------------------------------------|
@@ -26,155 +26,155 @@ Initialize a VISA session on Chroma2238.
 | `-1`       | Chroma2238 VISA failed to initialize |
 | \`-2       | Chroma2238 failed to initialize      |
 
-## Chroma2238Command
-### Header
+<h2 id="chroma2238command">Chroma2238Command</h2>
+<h3 id="header-1">Header</h3>
 
 `int DLLEXPORT __stdcall Chroma2238Command(char *command, char *status_message)`
 
-### Purpose
+<h3 id="purpose-1">Purpose</h3>
 
 Writes a command to a device in a session and checks that it was the correct command.
 
-### Parameters
+<h3 id="parameters-1">Parameters</h3>
 
 | Name             | Type     | Purpose                           |
 |------------------|----------|-----------------------------------|
 | `command`        | `char *` | String VISA command to be written |
 | `status_message` | `char *` | string error message              |
 
-### Return Values
+<h3 id="return-values-1">Return Values</h3>
 
 | Error Code | Error Description             |
 |------------|-------------------------------|
 | `0`        | Command writing was a success |
 | `-1`       | Command failed                |
 
-## Chroma2238LoadTimingSetting
-### Header
+<h2 id="chroma2238loadtimingsetting">Chroma2238LoadTimingSetting</h2>
+<h3 id="header-2">Header</h3>
 
 `int DLLEXPORT __stdcall Chroma2238LoadTimingSetting(int timing_setting, char *status_message)`
 
-### Purpose
+<h3 id="purpose-2">Purpose</h3>
 
 Send timing setting command to the chroma.
 
-### Parameters
+<h3 id="parameters-2">Parameters</h3>
 
 | Name             | Type     | Purpose              |
 |------------------|----------|----------------------|
 | `timing_setting` | `int`    | timing setting (int) |
 | `status_message` | `char *` | string error message |
 
-### Return Values
+<h3 id="return-values-2">Return Values</h3>
 
 | Error Code | Error Description                         |
 |------------|-------------------------------------------|
 | `0`        | Load timing setting command was a success |
 | `-1`       | Command failed                            |
 
-## Chroma2238LoadPatternSetting
-### Header
+<h2 id="chroma2238loadpatternsetting">Chroma2238LoadPatternSetting</h2>
+<h3 id="header-3">Header</h3>
 
 `int DLLEXPORT __stdcall Chroma2238LoadPatternSetting(int pattern_setting, char *status_message)`
 
-### Purpose
+<h3 id="purpose-3">Purpose</h3>
 
 Send pattern setting command to Chroma.
 
-### Parameters
+<h3 id="parameters-3">Parameters</h3>
 
 | Name              | Type     | Purpose               |
 |-------------------|----------|-----------------------|
 | `pattern_setting` | `int`    | pattern setting (int) |
 | `status_message`  | `char *` | string error message  |
 
-### Return Values
+<h3 id="return-values-3">Return Values</h3>
 
 | Error Code | Error Description                          |
 |------------|--------------------------------------------|
 | `0`        | Load pattern setting command was a success |
 | `-1`       | Command failed                             |
 
-## Chroma2238Run
-### Header
+<h2 id="chroma2238run">Chroma2238Run</h2>
+<h3 id="header-4">Header</h3>
 
 `int DLLEXPORT __stdcall Chroma2238Run(char *status_message)`
 
-### Purpose
+<h3 id="purpose-4">Purpose</h3>
 
 Send run command to Chroma.
 
-### Parameters
+<h3 id="parameters-4">Parameters</h3>
 
 | Name             | Type     | Purpose              |
 |------------------|----------|----------------------|
 | `status_message` | `char *` | string error message |
 
-### Return Values
+<h3 id="return-values-4">Return Values</h3>
 
 | Error Code | Error Description         |
 |------------|---------------------------|
 | `0`        | Run command was a success |
 | `-1`       | Command failed            |
 
-## Chroma2238Disable
-### Header
+<h2 id="chroma2238disable">Chroma2238Disable</h2>
+<h3 id="header-5">Header</h3>
 
 `int DLLEXPORT __stdcall Chroma2238Disable(char *status_message)`
 
-### Purpose
+<h3 id="purpose-5">Purpose</h3>
 
 Send disable command to Chroma.
 
-### Parameters
+<h3 id="parameters-5">Parameters</h3>
 
 | Name             | Type     | Purpose              |
 |------------------|----------|----------------------|
 | `status_message` | `char *` | string error message |
 
-### Return Values
+<h3 id="return-values-5">Return Values</h3>
 
 | Error Code | Error Description             |
 |------------|-------------------------------|
 | `0`        | Disable command was a success |
 | `-1`       | Command failed                |
 
-## Chroma2238Close
-### Header
+<h2 id="chroma2238close">Chroma2238Close</h2>
+<h3 id="header-6">Header</h3>
 
 `int DLLEXPORT __stdcall Chroma2238Close()`
 
-### Purpose
+<h3 id="purpose-6">Purpose</h3>
 
 Close vi session.
 
-### Parameters
+<h3 id="parameters-6">Parameters</h3>
 
 Void
 
-### Return Values
+<h3 id="return-values-6">Return Values</h3>
 
 | Error Code | Error Description              |
 |------------|--------------------------------|
 | `0`        | Vi session closed successfully |
 
-## VISAInitialize
-### Header
+<h2 id="visainitialize">VISAInitialize</h2>
+<h3 id="header-7">Header</h3>
 
 `int VISAInitialize(char *visa_name, long baud_rate)`
 
-### Purpose
+<h3 id="purpose-7">Purpose</h3>
 
 Initializes visa session with baud rate.
 
-### Parameters
+<h3 id="parameters-7">Parameters</h3>
 
 | Name        | Type     | Purpose                         |
 |-------------|----------|---------------------------------|
 | `visa_name` | `char *` | string resource name            |
 | `baud_rate` | `long`   | rate of bit transmission (long) |
 
-### Return Values
+<h3 id="return-values-7">Return Values</h3>
 
 | Error Code | Error Description             |
 |------------|-------------------------------|
@@ -182,23 +182,23 @@ Initializes visa session with baud rate.
 | `-1`       | viOpen was a fail             |
 | \`-2       | viSetAttribute was a fail     |
 
-## Chroma2238PortToVisaName
-### Header
+<h2 id="chroma2238porttovisaname">Chroma2238PortToVisaName</h2>
+<h3 id="header-8">Header</h3>
 
 `int Chroma2238PortToVisaName(char *port_name, char *visa_name)`
 
-### Purpose
+<h3 id="purpose-8">Purpose</h3>
 
 Converts port to VISA name.
 
-### Parameters
+<h3 id="parameters-8">Parameters</h3>
 
 | Name        | Type     | Purpose                   |
 |-------------|----------|---------------------------|
 | `port_name` | `char *` | port name to be converted |
 | `visa_name` | `char *` | string resource name      |
 
-### Return Values
+<h3 id="return-values-8">Return Values</h3>
 
 | Error Code | Error Description         |
 |------------|---------------------------|

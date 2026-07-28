@@ -1,16 +1,16 @@
-# DMM.c
+<h1 id="dmmc">DMM.c</h1>
 
-## Overview
-## DMMInitialize
-### Header
+<h2 id="overview">Overview</h2>
+<h2 id="dmminitialize">DMMInitialize</h2>
+<h3 id="header">Header</h3>
 
 `int DLLEXPORT __stdcall DMMInitialize(char *resource_name, ViSession *dmm_handle, ViBoolean *test_result, char *status_message)`
 
-### Purpose
+<h3 id="purpose">Purpose</h3>
 
 Initializes the digital multimeter.
 
-### Parameters
+<h3 id="parameters">Parameters</h3>
 
 | Name             | Type          | Purpose                    |
 |------------------|---------------|----------------------------|
@@ -19,46 +19,46 @@ Initializes the digital multimeter.
 | `test_result`    | `ViBoolean *` | either VI_TRUE or VI_FALSE |
 | `status_message` | `char *`      | string error message       |
 
-### Return Values
+<h3 id="return-values">Return Values</h3>
 
 | Error Code | Error Description |
 |----|----|
 | `VI_SUCCESS` | niDMM initialized successfully |
 | `!= VI_SUCCESS` | Error when calling InitWithOptions() or ConfigurePowerLineFrequency() |
 
-## DMMClose
-### Header
+<h2 id="dmmclose">DMMClose</h2>
+<h3 id="header-1">Header</h3>
 
 `int DLLEXPORT __stdcall DMMClose(ViSession dmm_handle, char *status_message)`
 
-### Purpose
+<h3 id="purpose-1">Purpose</h3>
 
 Closes digital multimeter.
 
-### Parameters
+<h3 id="parameters-1">Parameters</h3>
 
 | Name             | Type        | Purpose               |
 |------------------|-------------|-----------------------|
 | `dmm_handle`     | `ViSession` | address of dmm device |
 | `status_message` | `char *`    | string error message  |
 
-### Return Values
+<h3 id="return-values-1">Return Values</h3>
 
 | Error Code      | Error Description       |
 |-----------------|-------------------------|
 | `VI_SUCCESS`    | DMM closed successfully |
 | `!= VI_SUCCESS` | DMM failed to close     |
 
-## DMMMeasure
-### Header
+<h2 id="dmmmeasure">DMMMeasure</h2>
+<h3 id="header-2">Header</h3>
 
 `int DLLEXPORT __stdcall DMMMeasure(ViSession dmm_handle, MeasurementType measurement_type, ViReal64 range, ViReal64 *reading, char *status_message)`
 
-### Purpose
+<h3 id="purpose-2">Purpose</h3>
 
 Reads the DC Voltage at the given UUT pins with DMM and stores read value in Reading.
 
-### Parameters
+<h3 id="parameters-2">Parameters</h3>
 
 | Name | Type | Purpose |
 |----|----|----|
@@ -68,7 +68,7 @@ Reads the DC Voltage at the given UUT pins with DMM and stores read value in Rea
 | `reading` | `ViReal64 *` | measurement reading of dmm |
 | `status_message` | `char *` | string error message |
 
-### Return Values
+<h3 id="return-values-2">Return Values</h3>
 
 | Error Code      | Error Description             |
 |-----------------|-------------------------------|

@@ -310,6 +310,7 @@ This function does not return a value.
 
 ### Purpose {-}
 Displays the contents of one or more ARINC 708 data records for debugging and verification.
+
 ### Parameter {-}
 |     Parameter     |     Type    | Description |
 |------------------|-------------|-------------|

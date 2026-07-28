@@ -1,18 +1,18 @@
-# MUX
+<h1 id="mux">MUX</h1>
 
-## Overview
+<h2 id="overview">Overview</h2>
 The **MUX** module controls the NI Switch hardware used in DU1080 HW4 ATP system. It manages switch initialization, relay control, signal routing, and session cleanup. The module provides a software interface for connecting and disconnecting signal paths required during automated testing.
 
-## MUXInitialize
-### Header
+<h2 id="muxinitialize">MUXInitialize</h2>
+<h3 id="header">Header</h3>
 
 `int DLLEXPORT __stdcall MUXInitialize(char *resource_name, char *topology, ViSession *session, ViBoolean *test_result, char *status_message);`
 
-### Purpose
+<h3 id="purpose">Purpose</h3>
 
 Initializes a NI Switch MUX device using the specified resource name and topology. The function returns the initialized switch session, reports whether initialization succeeded, and generates a status message describing the result.
 
-### Parameter
+<h3 id="parameter">Parameter</h3>
 
 | Parameter        | Type          | Description                          |
 |------------------|---------------|--------------------------------------|
@@ -22,97 +22,98 @@ Initializes a NI Switch MUX device using the specified resource name and topolog
 | `test_result`    | `ViBoolean *` | test result.                         |
 | `status_message` | `char *`      | status of task message.              |
 
-### Return Value
+<h3 id="return-value">Return Value</h3>
 
 | Error        | Description               |
 |--------------|---------------------------|
 | `VI_SUCCESS` | initialized successfully. |
 
-## MUXSet
-### Header
+<h2 id="muxset">MUXSet</h2>
+<h3 id="header-1">Header</h3>
 
 `int DLLEXPORT __stdcall MUXSet(ViSession session, char *channel_1, char *channel_2, int operation);`
 
-### Purpose
+<h3 id="purpose-1">Purpose</h3>
 
-This function controls the open or close state of the switch. 
+This function controls the open or close state of the switch.
 
-### Parameter 
-|    Parameter     |     Type    | Description |
-|------------------|-------------|-------------|
-|    `session`     | `ViSession` | NI Switch session|
-| `*channel_1`     |    `char`   |First channel|
-| `*channel_2`     |    `char`   |Second channel|
-|   `operation`    |    `int`    |operation in execution|
+<h3 id="parameter-1">Parameter</h3>
 
-### Return Value
+| Parameter    | Type        | Description            |
+|--------------|-------------|------------------------|
+| `session`    | `ViSession` | NI Switch session      |
+| `*channel_1` | `char`      | First channel          |
+| `*channel_2` | `char`      | Second channel         |
+| `operation`  | `int`       | operation in execution |
+
+<h3 id="return-value-1">Return Value</h3>
 
 | Error | Description |
 |-------|-------------|
 | `-0`  | Open        |
 | `-1`  | Close       |
 
-## MUXClose
-### Header
+<h2 id="muxclose">MUXClose</h2>
+<h3 id="header-2">Header</h3>
 
 `int DLLEXPORT __stdcall MUXClose(ViSession session, char *status_message);`
 
-### Purpose
+<h3 id="purpose-2">Purpose</h3>
 
 Resets the NI Switch device and closes the switch session.
 
-### Parameter
+<h3 id="parameter-2">Parameter</h3>
 
 | Parameter        | Type        | Description           |
 |------------------|-------------|-----------------------|
 | `session`        | `ViSession` | NI Switch Session     |
 | `status_message` | `char *`    | Status message buffer |
 
-### Return Value
+<h3 id="return-value-2">Return Value</h3>
 
 | Error        | Description                  |
 |--------------|------------------------------|
 | `VI_SUCCESS` | session closed successfully. |
 
-## MUXOpenAllRelays
-### Header
+<h2 id="muxopenallrelays">MUXOpenAllRelays</h2>
+<h3 id="header-3">Header</h3>
 
 `int DLLEXPORT __stdcall MUXOpenAllRelays(ViSession session);`
 
-### Purpose
+<h3 id="purpose-3">Purpose</h3>
 
 Open all relays on the NI Switch module and resets the switch.
 
-### Parameter
+<h3 id="parameter-3">Parameter</h3>
 
 | Parameter | Type        | Description       |
 |-----------|-------------|-------------------|
 | `session` | `ViSession` | NI Switch Session |
 
-### Return Value
+<h3 id="return-value-3">Return Value</h3>
 
 | Error        | Description                       |
 |--------------|-----------------------------------|
 | `VI_SUCCESS` | Operation completed successfully. |
 | Other value  | NI Switch error code.             |
 
-## MUXSignalSet
-### Header
+<h2 id="muxsignalset">MUXSignalSet</h2>
+<h3 id="header-4">Header</h3>
 
 `int DLLEXPORT __stdcall MUXSignalSet(ViSession session, char *signal_name, void **signal_list, char *status_message);`
 
-### Purpose
+<h3 id="purpose-4">Purpose</h3>
 
 Searches the signal list for the specified signal and executes the corresponding MUX switching operation.
 
-### Parameter
+<h3 id="parameter-4">Parameter</h3>
 
 | Parameter | Type | Description |
 |----|----|----|
 | `session` | `ViSession` | NI Switch session |
 | `signal_name    |`char \*`| Signal to execute | |`signal_list`|`void \*\*`| Signal list | |`status_message`|`char \*\` | Status message buffer. |  |
 
-### Return Value
+<h3 id="return-value-4">Return Value</h3>
 
 | Error | Description                               |
 |-------|-------------------------------------------|
