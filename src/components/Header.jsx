@@ -2,7 +2,7 @@ import SearchBar from './SearchBar'
 import ThemeToggle from './ThemeToggle'
 import '../styles/Header.css'
 
-function Header({ searchValue, onSearchChange, onMenuClick }) {
+function Header({isDarkMode, onThemeToggle, searchValue, onSearchChange, onMenuClick }) {
     return (
         <header className="documentation-header">
 
@@ -25,7 +25,10 @@ function Header({ searchValue, onSearchChange, onMenuClick }) {
                 />
             </div>
 
-            <ThemeToggle />
+            <ThemeToggle 
+                isDarkMode={isDarkMode}
+                onThemeToggle={onThemeToggle}
+            />
         </header>
     )
 }

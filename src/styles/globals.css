@@ -1,6 +1,6 @@
 :root {
     font-family:
-        Telegraf,
+        "Telegraf",
         Arial,
         Helvetica,
         sans-serif;
@@ -18,7 +18,7 @@
     --color-subtext: #626262;
 
     --color-border: #d5d5d5;
-    --color-soft-boder: #eeeeee;
+    --color-soft-border: #eeeeee;
 
     --color-code-background: #f5f5f5;
     --color-input-background: #ffffff;
@@ -73,17 +73,32 @@ body {
     background: var(--color-background);
 
     font-family:
-        'Telegraf',
+        "Telegraf",
         serif, 
         Helvetica, 
         sans-serif;
 
     font-size: var(--paragraph-size);
     line-height: 1.4;
+
+    transition:
+        background-color 0.25s ease,
+        color 0.25s ease;
 }
 
 #root {
     min-height: 100vh;
+}
+
+.site-shell {
+    min-height: 100vh;
+
+    color: var(--color-text);
+    background-color: var(--color-background);
+
+    transition:
+        background-color 0.25s ease,
+        color 0.25s ease;
 }
 
 button,
@@ -107,8 +122,8 @@ For Overview, Table of Contents, DU1080 HW4 API
 */
 html h2 {
     font-size: 2rem;
-    color: black;
-    font-family: 'Telegraf-light', serif;
+    color: var(--color-text);
+    font-family: "Telegraf-light", serif;
 }
 
 /*
@@ -139,6 +154,9 @@ svg {
 .light {
     color-scheme: light;
 
+    --color-primary: #ff4400;
+    --color-primary-hover: #bd2f27;
+
     --color-background: #ffffff;
     --color-surface: #ffffff;
     --color-surface-soft: #e5e5e5; 
@@ -147,7 +165,7 @@ svg {
     --color-subtext: #626262;
 
     --color-border: #d5d5d5;
-    --color-soft-boder: #eeeeee;
+    --color-soft-border: #eeeeee;
 
     --color-code-background: #f5f5f5;
     --color-input-background: #ffffff;
@@ -156,9 +174,12 @@ svg {
 .dark {
     color-scheme: dark;
 
-    --color-background: #151515;
-    --color-surface: #1d1d1d;
-    --color-surface-soft: #2c2c30;
+    --color-primary: #ff5a36;
+    --color-primary-hover: #ff795c;
+
+    --color-background: #17171c;
+    --color-surface: #1e1e24;
+    --color-surface-soft: #292930;
 
     --color-text: #f2f2f2;
     --color-subtext: #b9b9bd;
@@ -169,6 +190,11 @@ svg {
     --color-code-background: #303035;
     --color-input-background: #29292d;    
  }
+
+.light.dark {
+    color: var(--color-text);
+    background-color: var(--color-background)
+}
 
 ::selection {
     color: #ffffff;

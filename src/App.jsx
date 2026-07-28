@@ -28,7 +28,9 @@ import "./styles/Content.css"
 import "./styles/globals.css"
 
 function App() {
-  const [isDarkMode, setIsDarkMode] = useState(false)
+  const [isDarkMode, setIsDarkMode] = useState(() => {
+    return localStorage.getItem("du1080-theme") === "dark"
+  })
   const [searchValue, setSearchValue] = useState("")
   const [activeHeadingId, setActiveHeadingId] = useState("")
 
@@ -37,7 +39,14 @@ function App() {
   const location = useLocation()
   const currentOutline = pageOutlines[location.pathname] ?? []
 
-  const handleThemeToggle = () => {setIsDarkMode((currentMode) => !currentMode)  }
+  const handleThemeToggle = () => {setIsDarkMode((currentMode) => {
+    const nextMode = !currentMode
+    localStorage.setItem(
+      "du1080-theme",
+      nextMode ? "dark" : "light"
+    )
+    return nextMode
+  })  }
 
   const handleSearchChange = (event) => {setSearchValue(event.target.value)  }
 
