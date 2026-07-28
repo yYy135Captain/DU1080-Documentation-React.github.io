@@ -44,22 +44,19 @@ function App() {
   const handleMenuClick = () => {console.log("Menu button clicked")  }
 
   const scrollToHeading = (headingId) => {
-    const contentElement = contentRef.current
     const heading = document.getElementById(headingId)
 
-    if (!contentElement || !headingElement) {
+    if (!headingElement) {
       console.warn(`Unable to find heading:: ${headingId}`)
       return
       }
 
-    const contentTop = contentElement.getBoundingClientRect().top
-    const headingTop = headingElement.getBoundingClientRect().top
-    const targetPosition = contentElement.scrollTop + headingTop - contentTop - 24
-    contentElement.scrollTo({
-      top: targetPosition,
+    headingElement.scrollIntoView({
       behavior: "smooth",
+      block: "start",
     })
-      setActiveHeadingId(headingId)
+    
+    setActiveHeadingId(headingId)
   }
 
   const outlineSections = useMemo(() => {
