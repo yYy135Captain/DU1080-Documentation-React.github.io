@@ -76,13 +76,12 @@ function App() {
         return section.id
       }
     }
-    return outlineSections[0]?.id ?? ""
-  }, [activeHeadingId, outlineSections])
+    return outlineSections[0]?.id ?? ""  }, [activeHeadingId, outlineSections])
 
   useEffect(() => {setActiveHeadingId("")
 
   const timer = window.setTimeout(() => {
-  const headings = currentOutline
+    const headings = currentOutline
     .filter((item) => item.level === 2 || item.level === 3)
     .map((item) => document.getElementById(item.id))
     .filter(Boolean)
@@ -106,16 +105,14 @@ function App() {
 
   headings.forEach((heading) => {observer.observe(heading) })
 
-  window.documentationHeadingObserver = observer
-}, 0)
+  window.documentationHeadingObserver = observer}, 0)
 
   return () => {
     window.clearTimeout(timer)
 
     if (window.documentationHeadingObserver) {
       window.documentationHeadingObserver.disconnect()
-      window.documentationHeadingObserver = null
-}
+      window.documentationHeadingObserver = null }
 }
 }, [location.pathname, currentOutline])
 
@@ -210,58 +207,50 @@ function App() {
           </Routes>          
         </main>
 
-        <aside className="right-sidebar">
-          {outlineSections.length > 0 && (
-            <>
+        <aside className="right-sidebar"> {outlineSections.length > 0 && (
+        <>
               <h2>On this page</h2>
 
               <nav
                 className="page-outline"
                 aria-label="On this page"
               >
-                {outlineSections.map((section) => {
-                  const isSectionActive =
-                    section.id === activeSectionId
+                {outlineSections.map((section) => { const isSectionActive = section.id === activeSectionId
+                return (
+                  <div
+                    key={section.id}
+                    className={`outline-section ${isSectionActive ? "outline-section-active" : "" }`}
+                >
+                  <button
+                    type="button"
+                    className="outline-section-link"
+                    onClick={() =>
+                      scrollToHeading(section.id)}
+                >
+                  {section.label}
+                  </button>
 
-                  return (
-                    <div
-                      key={section.id}
-                      className={`outline-section ${isSectionActive ? "outline-section-active" : "" }`}
-                  >
-                    <a
-                      href={`#${section.id}`}
-                      className="outline-section-link"
-                      onClick={() => {
-                        setActiveHeadingId(section.id)
-                      }}
-                    >
-                      {section.label}
-                    </a>
-
-                    {isSectionActive && section.children.length > 0 && (
-                      <div className="outline-children">
-                        {section.children.map((child) => (
-                          <a
-                            key={child.id}
-                            href={`#${child.id}`}
-                            className={`outline-child-link ${
-                              activeHeadingId === child.id ? "active" : "" }`}
-                            onClick={() => {
-                              setActiveHeadingId(child.id)
-                            }}
-                          >
-                            {child.label}
-                          </a>
-                        ))}
-                      </div>
-                    )}
-                  </div>
-                )
-              })}
-            </nav>
-        </>
-      )}
-    </aside>
+                  {isSectionActive && section.children.length > 0 && (
+                    <div className="outline-children"> {section.children.map((child) => (
+                  <button
+                    type="button"
+                    key={child.id}
+                    className={`outline-child-link ${activeHeadingId === child.id ? "active" : "" }`}
+                    onClick={() => scrollToHeading(child.id, )}
+                >
+                    {child.label}
+                  </button>
+                  ),
+                )}
+              </div>
+              )}
+            </div>
+          )
+        })}
+      </nav>
+    </>
+  )}
+</aside>
 
         </div>
       </div>
