@@ -33,7 +33,7 @@
 
 .header-controls {
     display: flex;
-    align-items: center;
+    align-items: right;
     gap: 1rem;
 }
 
