@@ -103,13 +103,17 @@ h1 {
 }
 
 /*
-For Overview, Table of Contents, 
+For Overview, Table of Contents, DU1080 HW4 API
 */
-h2 {
+html h2 {
     font-size: 2rem;
+    color: black;
     font-family: 'Telegraf-light', serif;
 }
 
+/*
+
+*/
 h3 {
     margin-top: 1.5rem;
     font-family: 'Telegraf-bold', serif;
@@ -119,10 +123,6 @@ h3 {
     margin-bottom: 0.2rem;
     font-weight: 700;
     font-size: 1.4rem;
-}
-
-h4 {
-    
 }
 
 a {

@@ -25,6 +25,7 @@ import './styles/App.css'
 import './styles/Header.css'
 import "./styles/Sidebar.css"
 import "./styles/Content.css" 
+import "./styles/globals.css"
 
 function App() {
   const [isDarkMode, setIsDarkMode] = useState(false)
