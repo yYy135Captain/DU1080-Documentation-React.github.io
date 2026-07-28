@@ -32,8 +32,6 @@ function App() {
   const [searchValue, setSearchValue] = useState("")
   const [activeHeadingId, setActiveHeadingId] = useState("")
 
-  const contentRef = useRef(null)
-
   const location = useLocation()
   const currentOutline = pageOutlines[location.pathname] ?? []
 
@@ -55,7 +53,7 @@ function App() {
       behavior: "smooth",
       block: "start",
     })
-    
+
     setActiveHeadingId(headingId)
   }
 
@@ -97,51 +95,58 @@ function App() {
     return outlineSections[0]?.id ?? ""  }, [activeHeadingId, outlineSections])
 
   useEffect(() => {
-    const contentElement = contentRef.current
-
-    if (!contentElement || currentOutline.length === 0) {
-      setActiveHeadingId("")
+    if (currentOutline.length === 0) {setActiveHeadingId("")
       return undefined
-    }
+}
+
+    let ticking = false
 
     const updateActiveHeading = () => {
-      const headings = currentOutline.filter(
-        (item) => item.level === 2 || item.level === 3,)
-      .map((item) => document.getElementById(item.id),)
+      const headings = currentOutline.filter((item) => item.level === 2 || item.level === 3,)
+      .map((item) => document.getElementById(item.id),) 
       .filter(Boolean)
 
-      if (headings.length === 0) {setActiveHeadingId("")
-        return
-      }
+    if (headings.length === 0) {setActiveHeadingId("")
+      return
+}
 
-    const contentTop = contentElement.getBoundingClientRect().top
-
-/* A heading becomes active when it reaches approximately 120px below the top of content.*/
-    const activationLine = contentTop + 120
+    const activationLine = 140
 
     let activeHeading = headings[0]
 
-    for (const heading of headings) {
-      const headingTop = heading.getBoundingClientRect().top
+    for (const heading of headings) {const headingTop = heading.getBoundingClientRect().top
 
-    if (headingTop <= activationLine) {activeHeading = heading} else {break}
-  }
+      if (headingTop <= activationLine) {activeHeading = heading} else {break}
+}
 
     setActiveHeadingId(activeHeading.id)
-  }
+}
 
-    const frameId = window.requestAnimationFrame(updateActiveHeading,)
+    const handleScroll = () => {
+      if (ticking) {
+        return
+}
 
-    contentElement.addEventListener("scroll", updateActiveHeading, { passive: true }, )
+      ticking = true
 
-    window.addEventListener("resize", updateActiveHeading, )
+      window.requestAnimationFrame(() => {updateActiveHeading() 
+        ticking = false
+    })
+}
 
-    return () => {window.cancelAnimationFrame(frameId)
-      contentElement.removeEventListener("scroll", updateActiveHeading,)
-      window.removeEventListener("resize", updateActiveHeading,)
-    }
+    const initialFrame = window.requestAnimationFrame(updateActiveHeading,)
+
+    window.addEventListener("scroll", handleScroll, { passive: true },)
+
+    window.addEventListener("resize", handleScroll,)
+
+    return () => {window.cancelAnimationFrame(initialFrame)
+
+    window.removeEventListener("scroll", handleScroll,)
+
+    window.removeEventListener("resize", handleScroll,)
+}
 }, [location.pathname, currentOutline])
-
 
   return (
     <div className={`site-shell ${isDarkMode ? "dark" : "light"} `}
@@ -213,7 +218,6 @@ function App() {
           
 
         <main 
-          ref={contentRef}
           className="content">
           <Routes>
             <Route path="/" element={<Home />}  />
