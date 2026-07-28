@@ -16,7 +16,7 @@ HW_BOX_Slot 1 HDLC wrap back.
 |------|------|-----|
 |`vid`|`int`|HID device vid|
 |`pid`|`int`|HID device pid|
-|`value`|`int`|value must from 1 of {HS_TX_HS0, HS_TX_HS1, HS_TX_HS2, HS_TX_HS3}|
+|`value`|`int`|value must from 1 of (HS_TX_HS0, HS_TX_HS1, HS_TX_HS2, HS_TX_HS3)|
 |`status_message`|`char *`|status msg|
 
 ### Return Values {-}
@@ -37,7 +37,7 @@ HW_BOX_Slot 2 HDLC wrap back.
 |------|------|-----|
 |`vid`|`int`|HID device vid|
 |`pid`|`int`|HID device pid|
-|`value`|`int`|value must from one item of {HS_TX_HS0, HS_TX_HS1, HS_TX_HS2, HS_TX_HS3}|
+|`value`|`int`|value must from one item of (HS_TX_HS0, HS_TX_HS1, HS_TX_HS2, HS_TX_HS3)|
 |`status_message`|`char *`|status msg|
 
 ### Return Values {-}
@@ -58,7 +58,7 @@ For Analog Video Seletion.
 |------|------|-----|
 |`vid`|`int`|HID device vid|
 |`pid`|`int`|HID device pid|
-|`value`|`int`|value must from one item of {CVBS_ANA_VID_1, COM_VIDEO, S_VIDEO, RGB, CVBS_ANA_VID_2, CVBS_ANA_VID_3}|
+|`value`|`int`|value must from one item of (CVBS_ANA_VID_1, COM_VIDEO, S_VIDEO, RGB, CVBS_ANA_VID_2, CVBS_ANA_VID_3)|
 |`status_message`|`char *`|status msg|
 
 ### Return Values {-}
