@@ -30,9 +30,15 @@
 /*Brand*/
 .brand {
   margin-bottom: 2rem;
+  display: flex;
+}
+
+.logo {
+  width: 5%;
 }
 
 .brand-title {
+  padding-left: 1%;
   font-size: 1.35rem;
   font-weight: 600;
   color: var(--color-primary);
