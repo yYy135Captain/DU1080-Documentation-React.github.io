@@ -99,47 +99,50 @@ function App() {
     }
     return outlineSections[0]?.id ?? ""  }, [activeHeadingId, outlineSections])
 
-  useEffect(() => {setActiveHeadingId("")
+  useEffect(() => {
     const contentElement = contentRef.current
 
-    if (!contentElement) {return undefined }
+    if (!contentElement || currentOutline.length === 0) {
+      setActiveHeadingId("")
+      return undefined
+    }
 
-    contentElement.scrollTo({
-      top: 0,
-      behavior: "auto",
-})
-
-    let observer = null
-
-    const timer = window.setTimeout(() => {
-      const headings = currentOutline.filter((item) => item.level === 2 || item.level === 3,)
-        .map((item) => document.getElementById(item.id),)
+    const updateActiveHeading = () => {
+      const headings = currentOutline.filter(
+        (item) => item.level === 2 || item.level === 3,)
+      .map((item) => document.getElementById(item.id),)
       .filter(Boolean)
 
-    if (headings.length === 0) {
-      return
-}
+      if (headings.length === 0) {setActiveHeadingId("")
+        return
+      }
 
-    setActiveHeadingId(headings[0].id)
+    const contentTop = contentElement.getBoundingClientRect().top
 
-    observer = new IntersectionObserver((entries) => {const visibleEntries = entries.filter((entry) => entry.isIntersecting,)
-      .sort((firstEntry, secondEntry) => firstEntry.boundingClientRect.top - secondEntry.boundingClientRect.top,)
+/* A heading becomes active when it reaches approximately 120px below the top of content.*/
+    const activationLine = contentTop + 120
 
-    if (visibleEntries.length > 0) {
-      setActiveHeadingId(visibleEntries[0].target.id,)}
-},
-{
-    root: contentElement,
-    rootMargin: "-10% 0px -70% 0px",
-    threshold: 0,
-},
-)
+    let activeHeading = headings[0]
 
-  headings.forEach((heading) => {observer.observe(heading)})}, 0)
+    for (const heading of headings) {
+      const headingTop = heading.getBoundingClientRect().top
 
-return () => {window.clearTimeout(timer)
-observer?.disconnect()
-}
+    if (headingTop <= activationLine) {activeHeading = heading} else {break}
+  }
+
+    setActiveHeadingId(activeHeading.id)
+  }
+
+    const frameId = window.requestAnimationFrame(updateActiveHeading,)
+
+    contentElement.addEventListener("scroll", updateActiveHeading, { passive: true }, )
+
+    window.addEventListener("resize", updateActiveHeading, )
+
+    return () => {window.cancelAnimationFrame(frameId)
+      contentElement.removeEventListener("scroll", updateActiveHeading,)
+      window.removeEventListener("resize", updateActiveHeading,)
+    }
 }, [location.pathname, currentOutline])
 
 

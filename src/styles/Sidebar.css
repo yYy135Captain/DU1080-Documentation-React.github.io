@@ -118,6 +118,7 @@ LEFT NAVIGATION ITEMS
 
     gap: 0.2rem;
     min-width: 0;
+    padding-left: 1rem;
 }
 
 .toc-items a {
@@ -126,7 +127,7 @@ LEFT NAVIGATION ITEMS
     width: 100%;
     min-width: 0;
 
-    padding: 0.27rem 0.35rem;
+    padding: 0.12rem 0;
 
     color: var(--color-text);
 
