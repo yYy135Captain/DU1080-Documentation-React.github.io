@@ -133,11 +133,3 @@
     }
 }
 
-.table-of-contents a, .right-sidebar a{
-    box-sizing: border-box;
-    width: auto;
-    line-height: .6;
-    padding-left: 30%;
-    padding-bottom: auto;
-    font-size: 1.2rem;
-}
