@@ -46,16 +46,22 @@ function App() {
 * Level 1 is the page title and is not displayed as a collapsible
 * function section in the right sidebar.
 */
+
   const outlineSections = useMemo(() => {
     const sections = [];
     let currentSection = null;
 
     currentOutline.forEach((item) => {
-      if (item.level === 2) { currentSection = { ...item, children: [], };
+      // if (item.level === 1) {
+      //   currentSection = {...item};
+      //   sections.push(currentSection);
+      // }
+      if (item.level === 2) { 
+        currentSection = { ...item, children: [], };
 
-    sections.push(currentSection);
-    return;
-  }
+        sections.push(currentSection);
+        return;
+      }
 
   if ( item.level === 3 && currentSection ) { currentSection.children.push(item); } 
 });
@@ -111,7 +117,7 @@ useEffect(() => {
 
   let animationFrameId = null;
 
-  const getRenderedHeadings = () => currentOutline.filter((item) => item.level === 2 || item.level === 3, )
+  const getRenderedHeadings = () => currentOutline.filter((item) => item.level === 1 || item.level === 2 || item.level === 3, )
     .map((item) => document.getElementById(item.id), )
     .filter(Boolean);
 
@@ -130,7 +136,7 @@ useEffect(() => {
     let nextActiveHeading = headings[0];
 
     for (const heading of headings) {
-    const headingTop = heading .getBoundingClientRect() .top;
+    const headingTop = heading.getBoundingClientRect() .top;
 
     if ( headingTop <= activationLine ) { nextActiveHeading = heading; } else { break; }
   }

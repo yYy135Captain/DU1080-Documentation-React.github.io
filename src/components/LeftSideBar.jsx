@@ -33,6 +33,7 @@ function LeftSideBar() {
                 aria-label="Documentation pages"
             >
                 <h2>Table of Contents</h2>
+                <div className = "line"></div>
 
                 <NavLink 
                     to="/" 

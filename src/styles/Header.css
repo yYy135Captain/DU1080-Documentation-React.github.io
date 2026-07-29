@@ -48,10 +48,9 @@ BRAND AND LOGO
 
 .documentation-header .logo img,
 .documentation-header .header-logo {
-    display: block;
+    display: flex;
 
-    width: 100%;
-    height: 100%;
+    width: 10%;
 
     object-fit: contain;
 }
@@ -134,17 +133,17 @@ SEARCH INPUT
 ========================================================= */
 
 .search-bar input {
-width: 100%;
-min-width: 0;
-height: 100%;
+    width: 100%;
+    min-width: 0;
+    height: 100%;
 
-padding: 0.7rem 0.25rem;
+    padding: 0.7rem 0.25rem;
 
-color: var(--color-text);
-background: transparent;
+    color: var(--color-text);
+    background: transparent;
 
-border: 0;
-outline: 0;
+    border: 0;
+    outline: 0;
 
     font-size: var(--paragraph-size);
     line-height: 1.4; 

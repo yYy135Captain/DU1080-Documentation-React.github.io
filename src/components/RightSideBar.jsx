@@ -1,3 +1,4 @@
+import "../styles/globals.css"
 function RightSideBar({ outlineSections, activeSectionId, activeHeadingId, onHeadingClick, }) {
     const hasOutline = Array.isArray(outlineSections) && outlineSections.length > 0;
 
@@ -6,7 +7,7 @@ function RightSideBar({ outlineSections, activeSectionId, activeHeadingId, onHea
             {hasOutline && (
                 <>
                     <h2>On this page</h2>
-
+                    <div className = "line"></div>
                 <nav
                     className="page-outline"
                     aria-label="On this page"
@@ -26,6 +27,7 @@ function RightSideBar({ outlineSections, activeSectionId, activeHeadingId, onHea
                                 onClick={() => onHeadingClick(section.id) }
                             >
                                 {section.label}
+
                             </button>
 
                             {isSectionActive && hasChildren && (
@@ -41,6 +43,7 @@ function RightSideBar({ outlineSections, activeSectionId, activeHeadingId, onHea
                                                 onClick={() => onHeadingClick(child.id) }
                                             >
                                                 {child.label}
+                                                
                                             </button>
                                         );
                                     })}

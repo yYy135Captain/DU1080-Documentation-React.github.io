@@ -33,6 +33,9 @@ HEADING 1 — PAGE TITLE
     line-height: 1.2;
 }
 
+.line {
+    background-color: var(--color-primary);
+}
 
 /* ========================================
 HEADING 2 — OVERVIEW / FUNCTION NAME
@@ -45,8 +48,8 @@ HEADING 2 — OVERVIEW / FUNCTION NAME
     margin-bottom: 1rem;
     padding-bottom: 0.35rem;
 
-    /* border-bottom: 2px solid var(--color-primary); */
-
+    border-bottom: 2px solid var(--color-primary);
+    
     font-size: 2rem;
     font-weight: 600;
     line-height: 1.25;
