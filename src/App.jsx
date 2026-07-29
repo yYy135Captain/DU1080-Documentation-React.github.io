@@ -268,11 +268,12 @@ function App() {
         <aside className="right-sidebar"> {outlineSections.length > 0 && (
         <>
               <h2>On this page</h2>
-
+              <div className = "line"></div>
               <nav
                 className="page-outline"
                 aria-label="On this page"
               >
+                <div id = "line"></div>
                 {outlineSections.map((section) => { const isSectionActive = section.id === activeSectionId
                 return (
                   <div

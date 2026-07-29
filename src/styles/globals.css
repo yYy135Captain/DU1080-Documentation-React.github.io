@@ -190,6 +190,22 @@ svg {
     --color-input-background: #29292d;    
  }
 
+.line {
+    width: auto;
+    height: .1rem;
+    /* border-inline-end: 0px solid var(--color-primary);  */
+    animation: extendLine 2s 1;
+}
+
+@keyframes extendLine {
+    0% {
+        width: 0%
+    }
+    100% {
+        width: 100%;
+    }
+} 
+
 .light.dark {
     color: var(--color-text);
     background-color: var(--color-background)
