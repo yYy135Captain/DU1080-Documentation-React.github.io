@@ -1,319 +1,228 @@
-import {useEffect, useMemo, useRef, useState } from 'react' 
-import {NavLink, Route, Routes, useLocation, } from "react-router-dom" 
+import { useEffect, useMemo, useRef, useState, } from "react";
+import { useLocation } from "react-router-dom";
 
+import Header from "./components/Header";
+import Layout from "./components/Layout";
+import LeftSideBar from "./components/LeftSideBar";
+import RightSideBar from "./components/RightSideBar";
 
-import Header from './components/Header'
-import Home from "./pages/Home.jsx"
+import DocumentationRoutes from "./routes/DocumentationRoutes";
 
-import AGMTestBox from "./pages/Instrument/AGMTestBox.mdx"
-import Chroma2238 from "./pages/Instrument/Chroma2238.mdx"
-import DAQ from "./pages/Instrument/DAQ.mdx"
-import DMM from "./pages/Instrument/DMM.mdx"
-import GraphicsDiscreteIO from "./pages/Instrument/GraphicsDiscreteIO.mdx"
-import InterfaceBox from "./pages/Instrument/InterfaceBox.mdx"
-import MUX from "./pages/Instrument/MUX.mdx"
-import MxFoundation from "./pages/Instrument/MxFoundation.mdx"
-import Photometer from "./pages/Instrument/Photometer.mdx"
-import PickeringRelay from "./pages/Instrument/PickeringRelay.mdx"
-import PowerSupply from "./pages/Instrument/PowerSupply.mdx"
-import Relay from "./pages/Instrument/Relay.mdx"
-import SerialUART from "./pages/Instrument/SerialUART.mdx"
+import pageOutlines from "./data/pageOutlines.json";
 
-import pageOutlines from "./data/pageOutlines.json"
+import "./styles/App.css";
+import "./styles/Header.css";
+import "./styles/Sidebar.css";
+import "./styles/Content.css";
+import "./styles/globals.css";
 
-import './styles/App.css'
-import './styles/Header.css'
-import "./styles/Sidebar.css"
-import "./styles/Content.css" 
-import "./styles/globals.css"
+function getInitialDarkMode() {
+  try {
+    return ( localStorage.getItem("du1080-theme") === "dark" );
+  } catch {
+    return false;
+  }
+}
 
 function App() {
-  const [isDarkMode, setIsDarkMode] = useState(() => {
-    return localStorage.getItem("du1080-theme") === "dark"
-  })
-  const [searchValue, setSearchValue] = useState("")
-  const [activeHeadingId, setActiveHeadingId] = useState("")
+  const [isDarkMode, setIsDarkMode] = useState(getInitialDarkMode);
 
-  const contentRef = useRef(null)
+  const [searchValue, setSearchValue] = useState("");
 
-  const location = useLocation()
-  const currentOutline = pageOutlines[location.pathname] ?? []
+  const [activeHeadingId, setActiveHeadingId] = useState("");
 
-  const handleThemeToggle = () => {setIsDarkMode((currentMode) => {
-    const nextMode = !currentMode
-    localStorage.setItem(
-      "du1080-theme",
-      nextMode ? "dark" : "light"
-    )
-    return nextMode
-  })  }
+  const contentRef = useRef(null);
 
-  const handleSearchChange = (event) => {setSearchValue(event.target.value)  }
+  const location = useLocation();
 
-  const handleMenuClick = () => {console.log("Menu button clicked")  }
+  const currentOutline = pageOutlines[location.pathname] ?? [];
 
-  const scrollToHeading = (headingId) => {
-    const contentElement = contentRef.current
-    const headingElement = document.getElementById(headingId)
-
-    if (!contentElement || !headingElement) {
-      console.warn(`Unable to find heading: ${headingId}`)
-      return
-}
-
-    const contentTop = contentElement.getBoundingClientRect().top
-
-    const headingTop = headingElement.getBoundingClientRect().top
-
-    const targetPosition = contentElement.scrollTop + headingTop - contentTop - 24
-
-    contentElement.scrollTo({
-      top: targetPosition,
-      behavior: "smooth",
-})
-
-    setActiveHeadingId(headingId)
-}
-
-
+/*
+* Convert the flat pageOutlines.json array into:
+*
+* level 2 function
+* └── level 3 Header / Purpose / Parameter / Return Value
+*
+* Level 1 is the page title and is not displayed as a collapsible
+* function section in the right sidebar.
+*/
   const outlineSections = useMemo(() => {
-    const sections = []
-    let currentSection = null
+    const sections = [];
+    let currentSection = null;
 
     currentOutline.forEach((item) => {
-      if (item.level === 1) {
-        return
-      }
-      if (item.level === 2) {
-        currentSection = {
-          ...item,
-          children: [],
-        }
-        sections.push(currentSection)
-        return
-      }
-      if (item.level === 3 && currentSection) {
-        currentSection.children.push(item)
-      }
-    })
-    return sections
-  }, [currentOutline])
+      if (item.level === 2) { currentSection = { ...item, children: [], };
 
-  const activeSectionId = useMemo(() => {
-    for (const section of outlineSections) {
-      if (section.id === activeHeadingId) {
-        return section.id
-      }
-      const containActiveChild = section.children.some(
-        (child) => child.id === activeHeadingId,
-      )
-      if (containActiveChild) {
-        return section.id
-      }
-    }
-    return outlineSections[0]?.id ?? ""  }, [activeHeadingId, outlineSections])
-
-  useEffect(() => {
-    const contentElement = contentRef.current
-
-    if (!contentElement || currentOutline.length === 0) {
-      setActiveHeadingId("")
-      return undefined
-    }
-
-    let ticking = false
-
-    const updateActiveHeading = () => {
-      const headings = currentOutline
-        .filter((item) => item.level === 2 || item.level === 3)
-        .map((item) => document.getElementById(item.id))
-        .filter(Boolean)
-
-      if (headings.length === 0) {
-        setActiveHeadingId("")
-        return
-      }
-
-      const contentTop = contentElement.getBoundingClientRect().top
-      const activationLine = contentTop + 140
-
-      let activeHeading = headings[0]
-
-      for (const heading of headings) {
-        const headingTop = heading.getBoundingClientRect().top
-
-        if (headingTop <= activationLine) {activeHeading = heading} else {break}
-      }
-    setActiveHeadingId(activeHeading.id)
+    sections.push(currentSection);
+    return;
   }
 
-  const handleScroll = () => {
-    if (ticking) {
-      return
-    }
+  if ( item.level === 3 && currentSection ) { currentSection.children.push(item); } 
+});
 
-    ticking = true
+return sections;
+}, [currentOutline]);
 
-    window.requestAnimationFrame(() => {updateActiveHeading()
-      ticking = false
-    })
+/*
+* Find the level 2 function containing the currently active
+* level 3 heading.
+*/
+const activeSectionId = useMemo(() => { for (const section of outlineSections) { if (section.id === activeHeadingId) { return section.id; }
+
+const hasActiveChild = section.children.some( (child) => child.id === activeHeadingId, );
+
+if (hasActiveChild) {
+  return section.id; }
+}
+
+return outlineSections[0]?.id ?? ""; }, [ activeHeadingId, outlineSections, ]);
+
+/* Synchronize the CSS class and data-theme attribute. */
+useEffect(() => {
+  const themeName = isDarkMode ? "dark" : "light";
+
+  document.documentElement.setAttribute( "data-theme", themeName, );
+
+  document.documentElement.classList.remove( "light", "dark", );
+
+  document.documentElement.classList.add( themeName, );
+
+try { localStorage.setItem( "du1080-theme", themeName, );
+} catch {
+// The website can still function if localStorage is unavailable.
+}
+}, [isDarkMode]);
+
+/* Reset the content scroll position and active heading whenever, the React Router pathname changes. */
+useEffect(() => {
+  const contentElement = contentRef.current;
+
+  if (contentElement) { contentElement.scrollTo({ top: 0, behavior: "auto", }); }
+
+  const firstSection = outlineSections[0];
+
+  setActiveHeadingId( firstSection?.id ?? "", ); }, [ location.pathname, outlineSections, ]);
+
+/* Track the heading currently visible inside the center content, scrolling container. */
+useEffect(() => {
+  const contentElement = contentRef.current;
+
+  if ( !contentElement || currentOutline.length === 0 ) { return undefined; }
+
+  let animationFrameId = null;
+
+  const getRenderedHeadings = () => currentOutline.filter((item) => item.level === 2 || item.level === 3, )
+    .map((item) => document.getElementById(item.id), )
+    .filter(Boolean);
+
+  const updateActiveHeading = () => {
+    const headings = getRenderedHeadings();
+
+    if (headings.length === 0) {
+    return;
   }
 
-  const initialFrame = window.requestAnimationFrame(updateActiveHeading)
+    const contentTop = contentElement .getBoundingClientRect() .top;
 
-  contentElement.addEventListener("scroll", handleScroll, { passive: true },  )
+/* A heading becomes active shortly after it reaches the upper area of the center content column. */
+    const activationLine = contentTop + 140;
 
-  window.addEventListener("resize", handleScroll,)
+    let nextActiveHeading = headings[0];
 
-  return () => {window.cancelAnimationFrame(initialFrame)
+    for (const heading of headings) {
+    const headingTop = heading .getBoundingClientRect() .top;
 
-  contentElement.removeEventListener("scroll", handleScroll,)
-
-  window.removeEventListener("resize", handleScroll,)
+    if ( headingTop <= activationLine ) { nextActiveHeading = heading; } else { break; }
   }
-}, [location.pathname, currentOutline])
 
-  return (
-    <div className={`site-shell ${isDarkMode ? "dark" : "light"} `}
-    >
+  setActiveHeadingId( nextActiveHeading.id, );
+};
 
-      <Header
-        isDarkMode={isDarkMode}
-        onThemeToggle={handleThemeToggle}
-        searchValue={searchValue}
-        onSearchChange={handleSearchChange}
-        onMenuClick={handleMenuClick}
-      />
+  const handleContentScroll = () => { if (animationFrameId !== null) { return; }
 
-      <div className='app'>
-        <aside className="left-sidebar">
-          <div className="brand">
-            <div className="brand-title">
-              <h2>
-                  DU1080 HW4 API
-              </h2>
-            </div>
-          </div>
+    animationFrameId = window.requestAnimationFrame( () => { updateActiveHeading(); animationFrameId = null; }, );
+  };
 
-        <nav
-          className="table-of-contents"
-          aria-label="Documentation pages"
-        >
+  const initialFrameId = window.requestAnimationFrame( updateActiveHeading, );
 
-          <h2>Table of Contents</h2>
+  contentElement.addEventListener( "scroll", handleContentScroll, { passive: true }, );
 
-          <NavLink to="/" end className={({ isActive }) => isActive ? "active-page-link" : ""} > Welcome </NavLink>
+  window.addEventListener( "resize", handleContentScroll, );
 
+  return () => { window.cancelAnimationFrame( initialFrameId, );
 
-          <div className="toc-section">Instruments</div>
+    if (animationFrameId !== null) { window.cancelAnimationFrame( animationFrameId, ); }
 
-          <div className="toc-items">
+    contentElement.removeEventListener( "scroll", handleContentScroll, );
 
-            <NavLink to="/instrument/agm-test-box" className={({ isActive }) => isActive ? "active-page-link" : ""} >AGMTestBox</NavLink>
+    window.removeEventListener( "resize", handleContentScroll, );
+  }; 
+}, [currentOutline, location.pathname, ]);
 
-            <NavLink to="/instrument/chroma2238" className={({ isActive }) => isActive ? "active-page-link" : ""} >Chroma2238</NavLink>
+const handleThemeToggle = () => { setIsDarkMode( (currentMode) => !currentMode, ); };
 
-            <NavLink to="/instrument/daq" className={({ isActive }) => isActive ? "active-page-link" : ""} >DAQ</NavLink>
+const handleSearchChange = (event) => { setSearchValue(event.target.value); };
 
-            <NavLink to="/instrument/dmm" className={({ isActive }) => isActive ? "active-page-link" : ""} >DMM</NavLink>
+const handleMenuClick = () => { console.log( "Menu button clicked", ); };
 
-            <NavLink to="/instrument/graphics-discrete-io" className={({ isActive }) => isActive ? "active-page-link" : ""} >GraphicsDiscreteIO</NavLink>
+/*Scroll inside the center .content container instead of scrolling the entire browser window. */
+const scrollToHeading = (headingId) => { const contentElement = contentRef.current; 
+  const headingElement = document.getElementById( headingId, );
 
-            <NavLink to="/instrument/interface-box" className={({ isActive }) => isActive ? "active-page-link" : ""} >InterfaceBox</NavLink>
+  if ( !contentElement || !headingElement ) {
+    console.warn( `Unable to find heading: ${headingId}`, );
+    return;
+  }
 
-            <NavLink to="/instrument/mux" className={({ isActive }) => isActive ? "active-page-link" : ""} >MUX</NavLink>
+  const contentTop = contentElement
+    .getBoundingClientRect()
+    .top;
 
-            <NavLink to="/instrument/mx-foundation" className={({ isActive }) => isActive ? "active-page-link" : ""} >MxFoundation</NavLink>
+  const headingTop = headingElement
+    .getBoundingClientRect()
+    .top;
 
-            <NavLink to="/instrument/photometer" className={({ isActive }) => isActive ? "active-page-link" : ""} >Photometer</NavLink>
+  const targetPosition = contentElement.scrollTop + headingTop - contentTop - 24;
 
-            <NavLink to="/instrument/pickering-relay" className={({ isActive }) => isActive ? "active-page-link" : ""} >PickeringRelay</NavLink>
+  contentElement.scrollTo({ top: Math.max( targetPosition, 0, ), behavior: "smooth", });
 
-            <NavLink to="/instrument/power-supply" className={({ isActive }) => isActive ? "active-page-link" : ""} >PowerSupply</NavLink>
+  setActiveHeadingId( headingId, );
+};
 
-            <NavLink to="/instrument/relay" className={({ isActive }) => isActive ? "active-page-link" : ""} >Relay</NavLink>
+return (
+  <Layout
+    isDarkMode={isDarkMode}
+    header={
+  <Header
+    isDarkMode={isDarkMode}
+    onThemeToggle={
+  handleThemeToggle
+}
+    searchValue={searchValue} onSearchChange={ handleSearchChange } onMenuClick={ handleMenuClick }
+  />
+}
 
-            <NavLink to="/instrument/serial-uart" className={({ isActive }) => isActive ? "active-page-link" : ""} >SerialUART</NavLink>
+leftSidebar={ <LeftSideBar /> }
+rightSidebar={ 
+  <RightSideBar 
+    outlineSections={
+    outlineSections
+}
 
-            <div className = "slider-line"></div>
-          </div>
-          
-         </nav>
-        </aside>
-          
+    activeSectionId={ activeSectionId }
+    activeHeadingId={ activeHeadingId }
+    onHeadingClick={ scrollToHeading }
+  />
+}
+  >
+<main
+  ref={contentRef}
+  className="content"
+>
+<DocumentationRoutes />
+</main>
+</Layout>
+);
+}
 
-        <main 
-          ref={contentRef}
-          className="content">
-          <Routes>
-            <Route path="/" element={<Home />}  />
-
-            <Route path="/instrument/agm-test-box" element={<AGMTestBox />}  />
-            <Route path="/instrument/chroma2238" element={<Chroma2238 />} />
-            <Route path="/instrument/daq" element={<DAQ />} />
-            <Route path="/instrument/dmm" element={<DMM />} />
-            <Route path="/instrument/graphics-discrete-io" element={<GraphicsDiscreteIO />} />
-            <Route path="/instrument/interface-box" element={<InterfaceBox />} />
-            <Route path="/instrument/mux" element={<MUX />} />
-            <Route path="/instrument/mx-foundation" element={<MxFoundation />} />
-            <Route path="/instrument/photometer" element={<Photometer />} />
-            <Route path="/instrument/pickering-relay" element={<PickeringRelay />} />
-            <Route path="/instrument/power-supply" element={<PowerSupply />} />
-            <Route path="/instrument/relay" element={<Relay />} />
-            <Route path="/instrument/serial-uart" element={<SerialUART />} />
-           
-          </Routes>          
-        </main>
-
-        <aside className="right-sidebar"> {outlineSections.length > 0 && (
-        <>
-              <h2>On this page</h2>
-
-              <nav
-                className="page-outline"
-                aria-label="On this page"
-              >
-                {outlineSections.map((section) => { const isSectionActive = section.id === activeSectionId
-                return (
-                  <div
-                    key={section.id}
-                    className={`outline-section ${isSectionActive ? "outline-section-active" : "" }`}
-                >
-                  <button
-                    type="button"
-                    className="outline-section-link"
-                    onClick={() =>
-                      scrollToHeading(section.id)}
-                >
-                  {section.label}
-                  </button>
-
-                  {isSectionActive && section.children.length > 0 && (
-                    <div className="outline-children"> {section.children.map((child) => (
-                  <button
-                    type="button"
-                    key={child.id}
-                    className={`outline-child-link ${activeHeadingId === child.id ? "active" : "" }`}
-                    onClick={() => scrollToHeading(child.id, )}
-                >
-                    {child.label}
-                  </button>
-                  ),
-                )}
-              </div>
-              )}
-            </div>
-          )
-        })}
-      </nav>
-    </>
-  )}
-</aside>
-
-        </div>
-      </div>
-  )
-} 
-
-
-export default App 
+export default App;

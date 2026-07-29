@@ -207,13 +207,13 @@ RIGHT SIDEBAR
     /* transition-property: border-bottom; */
 }
 
-.right-sidebar:hover {
+/* .right-sidebar:hover {
     border-bottom: 2px solid var(--color-primary)
 }
 
 .right-sidebar > h2:hover::after {
     width:100%;
-}
+} */
 
 /* ====================
 RIGHT PAGE OUTLINE
