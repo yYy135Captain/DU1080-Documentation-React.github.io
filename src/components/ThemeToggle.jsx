@@ -4,23 +4,25 @@ function SunIcon() {
             viewBox="0 0 24 24"
             aria-hidden="true"
             className="theme-icon"
-            fill="none"
-            stroke="currentColor"
-            strokeWidth="2"
-            strokeLinecap="round"
-            strokeLinejoin="round"
         >
-            <circle cx="12" cy="12" r="4" />
-            <path d="M12 2v2" />
-            <path d="M12 20v2" />
-            <path d="M4.93 4.93l1.42 1.42" />
-            <path d="M17.66 17.66l1.41 1.41" />
-            <path d="M2 12h2" />
-            <path d="M20 12h2" />
-            <path d="M6.34 17.66l-1.41 1.41" />
-            <path d="M19.07 4.93l-1.41 1.42" />
+            <circle
+                cx="12"
+                cy="12"
+                r="4"
+                fill="none"
+                stroke="currentColor"
+                strokeWidth="2"
+            />
+
+            <path
+                d="M12 2v2M12 20v2M4.93 4.93l1.42 1.42M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.42-1.42M17.66 6.34l1.41-1.41"
+                fill="none"
+                stroke="currentColor"
+                strokeWidth="2"
+                strokeLinecap="round"
+            />
         </svg>
-    )
+    );
 }
 
 function MoonIcon() {
@@ -29,29 +31,33 @@ function MoonIcon() {
             viewBox="0 0 24 24"
             aria-hidden="true"
             className="theme-icon"
-            fill="none"
-            stroke="currentColor"
-            strokeWidth="2"
-            strokeLinecap="round"
-            strokeLinejoin="round"
         >
-            <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79Z" />
+            <path
+                d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79Z"
+                fill="none"
+                stroke="currentColor"
+                strokeWidth="2"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+            />
         </svg>
-    )
+    );
 }
 
-function ThemeToggle({ isDarkMode, onThemeToggle }) {
+function ThemeToggle({ isDarkMode, onToggle, }) {
+    const accessibleLabel = isDarkMode ? "Switch to light mode" : "Switch to dark mode";
+
     return (
         <button
             type="button"
             className="theme-toggle"
-            onClick={onThemeToggle}
-            aria-label={isDarkMode ? "Switch to light mode" : "Switch to dark mode"}
-            title={isDarkMode ? "Switch to light mode" : "Switch to dark mode" }
+            onClick={onToggle}
+            aria-label={accessibleLabel}
+            title={accessibleLabel}
         >
-            {isDarkMode ? <SunIcon /> : <MoonIcon />}
+            {isDarkMode ? <MoonIcon /> : <SunIcon />}
         </button>
-    )
+    );
 }
 
-export default ThemeToggle
+export default ThemeToggle;
