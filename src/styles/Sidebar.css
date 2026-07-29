@@ -204,9 +204,16 @@ RIGHT SIDEBAR
     font-weight: 700;
     line-height: 1.3;
 
-    border-bottom: 2px solid var(--color-primary);
+    /* transition-property: border-bottom; */
 }
 
+.right-sidebar:hover {
+    border-bottom: 2px solid var(--color-primary)
+}
+
+.right-sidebar > h2:hover::after {
+    width:100%;
+}
 
 /* ====================
 RIGHT PAGE OUTLINE

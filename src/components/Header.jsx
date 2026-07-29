@@ -23,12 +23,10 @@ function Header({isDarkMode, onThemeToggle, searchValue, onSearchChange, onMenuC
                     onChange={onSearchChange}
                     onMenuClick={onMenuClick}
                 />
-            </div>
-
-            <ThemeToggle 
+                <ThemeToggle 
                 isDarkMode={isDarkMode}
-                onThemeToggle={onThemeToggle}
-            />
+                onThemeToggle={onThemeToggle}/>
+            </div>
         </header>
     )
 }
