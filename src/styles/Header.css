@@ -26,7 +26,7 @@ DOCUMENTATION HEADER
 BRAND AND LOGO
 =============== */
 
-.documentation-header .brand {
+.header-brand {
     display: flex;
     align-items: center;
     gap: 0.75rem;
@@ -35,34 +35,17 @@ BRAND AND LOGO
     flex: 0 0 auto;
 }
 
-.documentation-header .logo {
-    display: flex;
-    align-items: center;
-    justify-content: center;
+.header-logo {
+    display: block;
 
     width: 3rem;
     height: 3rem;
 
+    object-fit: contain;
     flex: 0 0 3rem;
 }
 
-.documentation-header .logo img,
-.documentation-header .header-logo {
-    display: block;
-
-    width: 10%;
-    height: 100%;
-
-    object-fit: contain;
-}
-
-.documentation-header .brand-title {
-    display: flex;
-    align-items: center;
-    min-width: 0;
-}
-
-.documentation-header .brand-title h2 {
+.header-brand-name {
     margin: 0;
 
     color: var(--color-text);
@@ -73,6 +56,7 @@ BRAND AND LOGO
 
     white-space: nowrap;
 }
+
 
 
 /* ===============
