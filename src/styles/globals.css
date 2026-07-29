@@ -90,16 +90,7 @@ body {
     min-height: 100vh;
 }
 
-.site-shell {
-    min-height: 100vh;
 
-    color: var(--color-text);
-    background-color: var(--color-background);
-
-    transition:
-        background-color 0.25s ease,
-        color 0.25s ease;
-}
 
 button,
 input,

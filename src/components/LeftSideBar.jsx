@@ -24,7 +24,7 @@ function LeftSideBar() {
         <aside className="left-sidebar">
             <div className="brand">
                 <div className="brand-title">
-                    <h2>DU1080 HW4 API</h2>
+                    <h2></h2>
                 </div>
             </div>
 

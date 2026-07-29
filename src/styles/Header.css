@@ -26,7 +26,7 @@ DOCUMENTATION HEADER
 BRAND AND LOGO
 =============== */
 
-.documentation-header .brand {
+.header-brand {
     display: flex;
     align-items: center;
     gap: 0.75rem;
@@ -35,102 +35,85 @@ BRAND AND LOGO
     flex: 0 0 auto;
 }
 
-.documentation-header .logo {
-    display: flex;
-    align-items: center;
-    justify-content: center;
+.header-logo {
+    display: block;
 
     width: 3rem;
     height: 3rem;
 
+    object-fit: contain;
     flex: 0 0 3rem;
 }
 
-.documentation-header .logo img,
-.documentation-header .header-logo {
-    display: flex;
+.header-brand-name {
+    margin: 0;
 
-    width: 10%;
+    color: var(--color-text);
+    font-family: "Telegraf", Arial, sans-serif;
+    font-size: 1rem;
+    font-weight: 600;
+    line-height: 1.2;
 
-    object-fit: contain;
-}
-
-.documentation-header .brand-title {
-    display: flex;
-    align-items: center;
-    min-width: 0;
-}
-
-.documentation-header .brand-title h2 {
-margin: 0;
-
-color: var(--color-text);
-font-family: "Telegraf", Arial, sans-serif;
-font-size: 1rem;
-font-weight: 600;
-line-height: 1.2;
-
-white-space: nowrap;
+    white-space: nowrap;
 }
 
 
-/* =========================================================
+
+/* ===============
 HEADER CONTROLS
-========================================================= */
+================= */
 
 .header-controls {
-display: flex;
-align-items: center;
-justify-content: flex-end;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
 
-gap: 0.75rem;
-min-width: 0;
-margin-left: auto;
+    gap: 0.75rem;
+    min-width: 0;
+    margin-left: auto;
 }
 
 
-/* =========================================================
+/* ====================
 SEARCH BAR CONTAINER
-========================================================= */
+======================= */
 
 .search-bar {
-display: grid;
-grid-template-columns: 2.5rem minmax(0, 1fr) 2.5rem;
-align-items: center;
+    position: relative;
 
-width: min(100%, 22rem);
-min-height: 2.75rem;
+    display: grid;
+    grid-template-columns: 2.5rem minmax(0, 1fr) 2.5rem;
+    align-items: center;
 
-color: var(--color-text);
-background: var(--color-input-background);
+    width: min(100%, 22rem);
+    min-height: 2.75rem;
 
-border: 1px solid var(--color-border);
-border-radius: 999px;
+    color: var(--color-text);
+    background: var(--color-input-background);
 
-overflow: hidden;
+    border: 1px solid var(--color-border);
+    border-radius: 999px;
 
-transition:
-border-color 160ms ease,
-box-shadow 160ms ease,
-background-color 160ms ease;
+    overflow: visible;
+
+    transition:
+        border-color 160ms ease,
+        box-shadow 160ms ease,
+        background-color 160ms ease;
 }
+
 
 .search-bar:focus-within {
-border-color: var(--color-primary);
+    border-color: var(--color-primary);
 
-box-shadow:
-0 0 0 3px
-color-mix(
-in srgb,
-var(--color-primary) 18%,
-transparent
-);
+    box-shadow:
+        0 0 0 3px
+        color-mix(in srgb, var(--color-primary) 18%, transparent );
 }
 
-
-/* =========================================================
+/* =================
 SEARCH INPUT
-========================================================= */
+==================== */
 
 .search-bar input {
     width: 100%;
@@ -150,194 +133,287 @@ SEARCH INPUT
 }
 
 .search-bar input::placeholder {
-color: var(--color-subtext);
-opacity: 1;
+    color: var(--color-subtext);
+    opacity: 1;
 }
 
 .search-bar input::-webkit-search-cancel-button {
-display: none;
+    display: none;
 }
 
 
-/* =========================================================
+/* =================
+SEARCH RESULT - control the whole drop-down box
+==================== */
+.search-results {
+    position: absolute;
+    top: calc(100% + 0.5rem);
+    left: 0;
+    right: 0;
+    z-index: 300;
+
+    display: flex;
+    flex-direction: column;
+    gap: 0.2rem;
+
+    max-height: 18rem;
+    overflow-y: auto;
+
+    padding: 0.4rem;
+
+    background: var(--color-surface);
+    border: 1px solid var(--color-border);
+    border-radius: 0.75rem;
+
+    box-shadow: 0 0.75rem 2rem rgba(0, 0, 0, 0.15);
+}
+
+/* search-result-item - control each result*/
+.search-result-item {
+    appearance: none;
+
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) auto;
+    align-items: center;
+    gap: 0.75rem;
+
+    width: 100%;
+    padding: 0.65rem 0.75rem;
+
+    color: var(--color-text);
+    background: transparent;
+    border: 0;
+    border-radius: 0.55rem;
+
+    font: inherit;
+    text-align: left;
+    cursor: pointer;
+}
+
+.search-result-item:hover,
+.search-result-item:focus-visible {
+    color: var(--color-primary);
+    background: var(--color-surface-soft);
+    outline: none;
+}
+
+/* search-result-label - control the page name*/
+.search-result-label {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+
+    font-size: 0.95rem;
+    font-weight: 600;
+}
+
+/* search-result-group - control the classification*/
+.search-result-group {
+    padding: 0.15rem 0.45rem;
+
+    color: var(--color-subtext);
+    background: var(--color-surface-soft);
+    border-radius: 999px;
+
+    font-size: 0.72rem;
+    white-space: nowrap;
+}
+
+.search-submit-button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    width: 2.5rem;
+    height: 2.5rem;
+    padding: 0;
+
+    color: var(--color-text);
+    background: transparent;
+    border: none;
+    outline: none;
+    box-shadow: none;
+    
+    border-radius: 50%;
+
+    cursor: pointer;
+}
+
+/* ==============================
 MENU BUTTON AND THEME BUTTON
-========================================================= */
+================================= */
 
 .search-menu-button,
 .theme-toggle {
-display: inline-flex;
-align-items: center;
-justify-content: center;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
 
-width: 2.5rem;
-height: 2.5rem;
-padding: 0;
+    width: 2.5rem;
+    height: 2.5rem;
+    padding: 0;
 
-color: var(--color-text);
-background: transparent;
+    color: var(--color-text);
+    background: transparent;
 
-border: 0;
-border-radius: 50%;
+    border: 0;
+    border-radius: 50%;
 
-cursor: pointer;
+    cursor: pointer;
 
-transition:
-color 160ms ease,
-background-color 160ms ease,
-transform 160ms ease;
+    transition:
+        color 160ms ease,
+        background-color 160ms ease,
+        transform 160ms ease;
 }
 
 .search-menu-button:hover,
 .theme-toggle:hover {
-color: var(--color-primary);
+    color: var(--color-primary);
 
 background:
-color-mix(
-in srgb,
-var(--color-primary) 10%,
-transparent
-);
+    color-mix(in srgb, var(--color-primary) 10%, transparent );
 }
 
 .search-menu-button:active,
 .theme-toggle:active {
-transform: scale(0.94);
+    transform: scale(0.94);
 }
 
 .search-menu-button:focus-visible,
 .theme-toggle:focus-visible {
-outline: 2px solid var(--color-primary);
-outline-offset: 2px;
+    outline: 2px solid var(--color-primary);
+    outline-offset: 2px;
 }
 
 
-/* =========================================================
+/* ==============
 SEARCH ICON
-========================================================= */
+================= */
 
 .search-icon-container {
-display: flex;
-align-items: center;
-justify-content: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 
-width: 2.5rem;
-height: 100%;
+    width: 2.5rem;
+    height: 100%;
 
-color: var(--color-subtext);
+    color: var(--color-subtext);
 
-pointer-events: none;
+    pointer-events: none;
 }
 
 
-/* =========================================================
+/* ==============
 ICON STYLING
-========================================================= */
+================ */
 
 .menu-icon,
 .search-icon,
 .theme-icon {
-display: block;
+    display: block;
 
-fill: none;
-stroke: currentColor;
+    fill: none;
+    stroke: currentColor;
 
-stroke-width: 1.8;
-stroke-linecap: round;
-stroke-linejoin: round;
+    stroke-width: 1.8;
+    stroke-linecap: round;
+    stroke-linejoin: round;
 }
 
 .menu-icon,
 .search-icon {
-width: 1.2rem;
-height: 1.2rem;
+    width: 1.2rem;
+    height: 1.2rem;
 }
 
 .theme-toggle {
-flex: 0 0 auto;
-color: var(--color-primary);
+    flex: 0 0 auto;
+    color: var(--color-primary);
 }
 
 .theme-icon {
-width: 1.5rem;
-height: 1.5rem;
+    width: 1.5rem;
+    height: 1.5rem;
 }
 
 
-/* =========================================================
+/* ========
 TABLET
-========================================================= */
+=========== */
 
 @media (max-width: 70rem) {
 .documentation-header {
-padding: 0.75rem 1.25rem;
+    padding: 0.75rem 1.25rem;
 }
 
 .search-bar {
-width: min(100%, 19rem);
+    width: min(100%, 19rem);
 }
 }
 
 
-/* =========================================================
+/* =====
 MOBILE
-========================================================= */
+======== */
 
 @media (max-width: 48rem) {
 .documentation-header {
-flex-wrap: wrap;
+    flex-wrap: wrap;
 
-min-height: auto;
-padding: 0.75rem 1rem;
-gap: 0.75rem;
+    min-height: auto;
+    padding: 0.75rem 1rem;
+    gap: 0.75rem;
 }
 
 .documentation-header .brand {
-flex: 1 1 auto;
+    flex: 1 1 auto;
 }
 
 .documentation-header .logo {
-width: 2.5rem;
-height: 2.5rem;
+    width: 2.5rem;
+    height: 2.5rem;
 
-flex-basis: 2.5rem;
+    flex-basis: 2.5rem;
 }
 
 .documentation-header .brand-title h2 {
-font-size: 0.95rem;
+    font-size: 0.95rem;
 }
 
 .header-controls {
-width: 100%;
-margin-left: 0;
+    width: 100%;
+    margin-left: 0;
 }
 
 .search-bar {
-flex: 1 1 auto;
-width: 100%;
+    flex: 1 1 auto;
+    width: 100%;
 }
 }
 
 
-/* =========================================================
+/* ===============
 SMALL MOBILE
-========================================================= */
+============== */
 
 @media (max-width: 30rem) {
 .documentation-header .brand-title h2 {
-font-size: 0.875rem;
+    font-size: 0.875rem;
 }
 
 .search-bar {
-grid-template-columns: 2.25rem minmax(0, 1fr) 2.25rem;
+    grid-template-columns: 2.25rem minmax(0, 1fr) 2.25rem;
 }
 
 .search-menu-button,
 .search-icon-container {
-width: 2.25rem;
+    width: 2.25rem;
 }
 
 .theme-toggle {
-width: 2.4rem;
-height: 2.4rem;
+    width: 2.4rem;
+    height: 2.4rem;
 }
 }
