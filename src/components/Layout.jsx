@@ -6,6 +6,8 @@ return (
     <div className={`site-shell ${isDarkMode ? "dark" : "light"} `}>
         {header}
 
+        <div className="page-body">
+
         <div className='app'>
             {leftSidebar}
             {children}
@@ -13,6 +15,7 @@ return (
         </div>
 
         {footer}
+    </div>
     </div>
     );
 }
