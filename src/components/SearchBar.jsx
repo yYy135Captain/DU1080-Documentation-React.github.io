@@ -96,7 +96,7 @@ function SearchBar({value, onChange, onMenuClick, }) {
 
     {showResults && (<div className="search-results"> {results.length > 0 ? (results.map((result) => (
         <button
-            key={result.path}
+            key={`${result.path}-${result.label}`}
             type="button"
             className="search-result-item"
             onMouseDown={(event) => {event.preventDefault(); openResult(result.path); }}
