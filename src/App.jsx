@@ -5,6 +5,7 @@ import Header from "./components/Header";
 import Layout from "./components/Layout";
 import LeftSideBar from "./components/LeftSideBar";
 import RightSideBar from "./components/RightSideBar";
+import Footer from "./components/Footer"
 
 import DocumentationRoutes from "./routes/DocumentationRoutes";
 
@@ -57,7 +58,7 @@ function App() {
     return;
   }
 
-  if ( item.level === 3 && currentSection ) { currentSection.children.push(item); } 
+      if ( item.level === 3 && currentSection ) { currentSection.children.push(item); } 
 });
 
 return sections;
@@ -214,6 +215,7 @@ rightSidebar={
     onHeadingClick={ scrollToHeading }
   />
 }
+footer={<Footer />}
   >
 <main
   ref={contentRef}

@@ -9,6 +9,8 @@
 
   background: var(--color-background);
   color: var(--color-text);
+
+  flex: 1;
 }
 
 /*left-sidebar*/
@@ -171,11 +173,7 @@
 }
 
 
-.site-shell {
-  --header-height: 88px;
-  min-height: 100vh;
-  background: var(--color-background);
-}
+
 .sitr-shell.dark{
   --color-background:#151515;
   --color-text: #eeeeee;

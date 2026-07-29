@@ -1,0 +1,35 @@
+.documentation-footer {
+    width: 100%;
+    padding: 1rem 2rem;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 0.5rem 2rem;
+
+    color: #ffffff;
+    background: var(--color-primary);
+
+    border-top: 1px solid var(--color-border);
+
+    font-size: 0.82rem;
+    line-height: 1.4;
+    text-align: center;
+}
+
+.documentation-footer p {
+    margin: 0;
+}
+
+.documentation-footer strong {
+    font-weight: 700;
+}
+
+@media (max-width: 48rem) {
+.documentation-footer {
+    padding: 1rem;
+    flex-direction: column;
+    gap: 0.3rem;
+}
+}

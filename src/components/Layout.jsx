@@ -1,4 +1,6 @@
-function Layout({header, leftSidebar, children, rightSidebar, isDarkMode}) {
+import Footer from "./Footer"
+
+function Layout({header, leftSidebar, children, rightSidebar, footer, isDarkMode}) {
 
 return (
     <div className={`site-shell ${isDarkMode ? "dark" : "light"} `}>
@@ -9,6 +11,8 @@ return (
             {children}
             {rightSidebar}
         </div>
+
+        {footer}
     </div>
     );
 }
