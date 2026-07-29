@@ -141,9 +141,8 @@ SEARCH INPUT
     border: 0;
     outline: 0;
 
-    font: inherit;
     font-size: var(--paragraph-size);
-    line-height: 1.4;
+    line-height: 1.4; 
 }
 
 .search-bar input::placeholder {
