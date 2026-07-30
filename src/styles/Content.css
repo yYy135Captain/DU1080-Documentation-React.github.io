@@ -228,38 +228,3 @@ SCROLL TARGET OFFSET
 }
 
 
-/* ========================================
-RESPONSIVE
-======================================== */
-
-@media (max-width: 70rem) {
-    .content {
-        max-width: none;
-        padding: 2.5rem 2rem;
-    }
-}
-
-@media (max-width: 48rem) {
-    .content {
-        height: auto;
-        overflow-y: visible;
-        padding: 2rem 1.5rem;
-    }
-
-    .content h1 {
-        font-size: 2.1rem;
-    }
-
-    .content h2 {
-        font-size: 1.6rem;
-    }
-
-    .content h3 {
-        font-size: 1.25rem;
-    }
-
-    .content table {
-        display: block;
-        overflow-x: auto;
-    }
-}

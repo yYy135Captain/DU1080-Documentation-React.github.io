@@ -1,0 +1,248 @@
+/*  ========================================
+             DU1080 RESPONSIVE STYLES
+    ========================================
+
+Desktop: > 70rem
+Tablet: 48rem to 70rem
+Mobile: < 48rem
+Small Mobile: < 30rem
+*/
+
+
+/*
+========================================
+TABLET
+========================================
+*/
+
+@media (max-width: 70rem) {
+
+/* Overall layout */
+
+.app {
+    grid-template-columns:
+    var(--left-sidebar-width)
+    minmax(0, 1fr);
+}
+
+/* Hide right page outline on tablet */
+
+.right-sidebar {
+    display: none;
+}
+
+/* Main content */
+
+.content {
+    max-width: none;
+    padding: 2.5rem 2rem;
+}
+
+/* Header */
+
+.documentation-header {
+    padding: 0.75rem 1.25rem;
+}
+
+.search-container {
+    width: min(100%, 19rem);
+    flex-basis: 19rem;
+}
+
+.search-bar {
+    width: 100%;
+}
+
+/* Left sidebar */
+
+.left-sidebar {
+    padding: 1.5rem 0.9rem;
+}
+}
+
+
+/*  ========================================
+                      MOBILE
+    ======================================== */
+
+@media (max-width: 48rem) {
+
+/* Overall layout */
+
+.app {
+    display: block;
+}
+
+/* Header */
+
+.documentation-header {
+    flex-wrap: wrap;
+
+    min-height: auto;
+    padding: 0.75rem 1rem;
+    gap: 0.75rem;
+}
+
+.documentation-header .brand {
+    flex: 1 1 auto;
+}
+
+.documentation-header .logo {
+    width: 2.5rem;
+    height: 2.5rem;
+    flex-basis: 2.5rem;
+}
+
+.documentation-header .brand-title h2 {
+    font-size: 0.95rem;
+}
+
+.header-controls {
+    width: 100%;
+    margin-left: 0;
+}
+
+.search-container {
+    width: auto;
+    min-width: 0;
+    flex: 1 1 auto;
+}
+
+.search-bar {
+    width: 100%;
+    min-height: 2.5rem;
+
+grid-template-columns:
+    2.25rem
+    minmax(0, 1fr)
+    2.25rem;
+}
+
+.search-results {
+    width: 100%;
+    max-height: 60vh;
+}
+
+.theme-toggle {
+    width: 2.5rem;
+    height: 2.5rem;
+    flex: 0 0 2.5rem;
+}
+
+/* Main content */
+
+.content {
+    width: 100%;
+    height: auto;
+
+    padding: 2rem 1.5rem;
+
+    overflow-y: visible;
+}
+
+.content h1 {
+    font-size: 2.1rem;
+}
+
+.content h2 {
+    font-size: 1.6rem;
+}
+
+.content h3 {
+    font-size: 1.25rem;
+}
+
+/* Tables */
+
+.content table {
+    display: block;
+
+    width: 100%;
+    max-width: 100%;
+
+    overflow-x: auto;
+}
+
+/* Code */
+
+.content pre {
+    width: 100%;
+    max-width: 100%;
+
+    overflow-x: auto;
+}
+
+/* Images */
+
+.content img {
+    max-width: 100%;
+    height: auto;
+}
+
+/* Sidebars */
+
+.right-sidebar {
+    display: none;
+}
+
+/* Footer */
+
+.documentation-footer {
+    padding: 1rem;
+
+    flex-direction: column;
+    gap: 0.3rem;
+
+    text-align: center;
+}
+}
+
+
+/*  ========================================
+                SMALL MOBILE
+    ======================================== */
+
+@media (max-width: 30rem) {
+
+.documentation-header .brand-title h2 {
+    font-size: 0.875rem;
+}
+
+.search-bar {
+    grid-template-columns:
+    2.25rem
+    minmax(0, 1fr)
+    2.25rem;
+}
+
+.search-menu-button,
+.search-submit-button {
+    width: 2.25rem;
+    height: 2.25rem;
+}
+
+.theme-toggle {
+    width: 2.4rem;
+    height: 2.4rem;
+}
+
+.content {
+    padding: 1.5rem 1rem;
+}
+
+.content h1 {
+    font-size: 1.8rem;
+}
+
+.content h2 {
+    font-size: 1.45rem;
+}
+
+.content h3 {
+    font-size: 1.15rem;
+}
+
+.search-result-group {
+    display: none;
+}
+}
