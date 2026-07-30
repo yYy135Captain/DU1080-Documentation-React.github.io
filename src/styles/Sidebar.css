@@ -195,7 +195,7 @@ RIGHT SIDEBAR
 /* Right sidebar heading */
 
 .right-sidebar > h2 {
-    margin: 0 0 1.25rem;
+    /* margin: 0 0 1.25rem; */
     padding-bottom: 0.7rem;
 
     color: var(--color-text);
