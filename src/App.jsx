@@ -55,8 +55,10 @@ function App() {
     currentOutline.forEach((item) => {
       // if (item.level === 1) {
       //   currentSection = {...item};
+      //   print(...item);
       //   sections.push(currentSection);
       // }
+    
       if (item.level === 2) { 
         currentSection = { ...item, children: [], };
 

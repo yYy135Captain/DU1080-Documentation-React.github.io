@@ -106,6 +106,8 @@ button {
 h1 {
     font-size: 1.2rem;
     font-family: 'Telegraf-light', serif;
+    border-bottom: 2px solid var(--color-line-gray);
+    animation: extendLine 2s 1;
 }
 
 /*
