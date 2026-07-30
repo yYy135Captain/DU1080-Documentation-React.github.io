@@ -1,4 +1,5 @@
 import "../styles/globals.css"
+
 function RightSideBar({ outlineSections, activeSectionId, activeHeadingId, onHeadingClick, }) {
     const hasOutline = Array.isArray(outlineSections) && outlineSections.length > 0;
 

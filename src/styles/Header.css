@@ -78,14 +78,19 @@ HEADER CONTROLS
 SEARCH BAR CONTAINER
 ======================= */
 
-.search-bar {
+.search-container {
     position: relative;
 
+    width: min(100%, 22rem);
+    flex: 0 1 22rem;
+}
+
+.search-bar {
     display: grid;
     grid-template-columns: 2.5rem minmax(0, 1fr) 2.5rem;
     align-items: center;
 
-    width: min(100%, 22rem);
+    width: 100%;
     min-height: 2.75rem;
 
     color: var(--color-text);
