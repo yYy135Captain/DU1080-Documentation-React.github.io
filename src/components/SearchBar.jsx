@@ -29,7 +29,7 @@ function SearchIcon() {
     );
 }
 
-function SearchBar({value, onChange, onMenuClick, }) {
+function SearchBar({value, onChange, /*onMenuClick, */}) {
     const navigate = useNavigate();
     const [isFocused, setIsFocused] = useState(false);
 

@@ -5,7 +5,7 @@ import honeywellLogo from "../assets/circlehoneywell.png";
 
 import "../styles/Header.css";
 
-function Header({ isDarkMode, onThemeToggle, searchValue, onSearchChange, onMenuClick, }) {
+function Header({ isDarkMode, onThemeToggle, searchValue, onSearchChange, /*onMenuClick,*/ }) {
     return (
         <header className="documentation-header">
             <div className="header-brand">
@@ -24,7 +24,7 @@ function Header({ isDarkMode, onThemeToggle, searchValue, onSearchChange, onMenu
                 <SearchBar
                     value={searchValue}
                     onChange={onSearchChange}
-                    onMenuClick={onMenuClick}
+                    /*onMenuClick={onMenuClick}*/
                 />
 
                 <ThemeToggle

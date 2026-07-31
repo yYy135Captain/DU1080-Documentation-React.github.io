@@ -26,10 +26,4 @@
     font-weight: 700;
 }
 
-@media (max-width: 48rem) {
-.documentation-footer {
-    padding: 1rem;
-    flex-direction: column;
-    gap: 0.3rem;
-}
-}
+

@@ -5,17 +5,19 @@ import Header from "./components/Header";
 import Layout from "./components/Layout";
 import LeftSideBar from "./components/LeftSideBar";
 import RightSideBar from "./components/RightSideBar";
-import Footer from "./components/Footer"
+import Footer from "./components/Footer";
 
 import DocumentationRoutes from "./routes/DocumentationRoutes";
 
 import pageOutlines from "./data/pageOutlines.json";
 
+import "./styles/globals.css";
 import "./styles/App.css";
 import "./styles/Header.css";
 import "./styles/Sidebar.css";
 import "./styles/Content.css";
-import "./styles/globals.css";
+import "./styles/Footer.css";
+import "./styles/Responsive.css";
 
 function getInitialDarkMode() {
   try {
@@ -207,7 +209,7 @@ return (
     onThemeToggle={
   handleThemeToggle
 }
-    searchValue={searchValue} onSearchChange={ handleSearchChange } onMenuClick={ handleMenuClick }
+    searchValue={searchValue} onSearchChange={ handleSearchChange } /*onMenuClick={ handleMenuClick }*/
   />
 }
 
