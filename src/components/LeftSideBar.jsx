@@ -1,3 +1,5 @@
+// Displays the main documentation navigation
+
 import {NavLink } from "react-router-dom" 
 import SidebarGroup from "./SidebarGroup";
 

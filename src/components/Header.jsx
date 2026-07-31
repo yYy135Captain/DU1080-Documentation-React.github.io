@@ -1,3 +1,5 @@
+// Defines the rop website header.
+
 import SearchBar from "./SearchBar";
 import ThemeToggle from "./ThemeToggle";
 

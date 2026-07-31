@@ -1,3 +1,5 @@
+// Displays the "On this page" outline: the current page outline and provides links to heading within the page/
+
 import "../styles/globals.css"
 
 function RightSideBar({ outlineSections, activeSectionId, activeHeadingId, onHeadingClick, }) {

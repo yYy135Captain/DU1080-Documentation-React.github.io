@@ -1,3 +1,5 @@
+// Defines the shared page layout and arranges the header, sidebar, main content and footer.
+
 function Layout({header, leftSidebar, children, rightSidebar, footer, /*isDarkMode*/}) {
 
 return (
