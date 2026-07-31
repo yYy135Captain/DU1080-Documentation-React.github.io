@@ -2,19 +2,20 @@ import { useMemo, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import navigation from "../data/navigation";
 
-function MenuIcon() {
-    return (
-        <svg
-            viewBox="0 0 24 24"
-            aria-hidden="true"
-            className="menu-icon"
-        >
-            <path d="M4 7h16" />
-            <path d="M4 12h16" />
-            <path d="M4 17h16" />
-        </svg>
-    );
-}
+// "hamburger"
+// function MenuIcon() {
+//     return (
+//         <svg
+//             viewBox="0 0 24 24"
+//             aria-hidden="true"
+//             className="menu-icon"
+//         >
+//             <path d="M4 7h16" />
+//             <path d="M4 12h16" />
+//             <path d="M4 17h16" />
+//         </svg>
+//     );
+// }
 
 function SearchIcon() {
     return (
