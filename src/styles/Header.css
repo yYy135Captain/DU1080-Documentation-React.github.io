@@ -79,17 +79,16 @@ SEARCH BAR CONTAINER
 ======================= */
 
 .search-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
     position: relative;
-
-    width: min(100%, 22rem);
-    flex: 0 1 22rem;
 }
 
-.search-bar {
-    display: grid;
-    grid-template-columns: 2.5rem minmax(0, 1fr) 2.5rem;
-    align-items: center;
-
+form.search-bar {
+    grid-template-columns: /*2.5rem*/ minmax(0, 1fr) 2.5rem;
+    display: flex;
     width: 100%;
     min-height: 2.75rem;
 
@@ -107,7 +106,6 @@ SEARCH BAR CONTAINER
         background-color 160ms ease;
 }
 
-
 .search-bar:focus-within {
     border-color: var(--color-primary);
 
@@ -120,12 +118,14 @@ SEARCH BAR CONTAINER
 SEARCH INPUT
 ==================== */
 
-.search-bar input {
+.search-bar-input {
     width: 100%;
     min-width: 0;
     height: 100%;
+    text-align: left;
+    margin-left: 1rem;
 
-    padding: 0.7rem 0.25rem;
+    /*padding: 0.7rem 0.25rem;*/
 
     color: var(--color-text);
     background: transparent;
@@ -139,7 +139,11 @@ SEARCH INPUT
 
 .search-bar input::placeholder {
     color: var(--color-subtext);
+    margin: 0;
     opacity: 1;
+    justify-content: center;
+
+    text-align: inherit;
 }
 
 .search-bar input::-webkit-search-cancel-button {
@@ -225,13 +229,8 @@ SEARCH RESULT - control the whole drop-down box
 }
 
 .search-submit-button {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-
     width: 2.5rem;
     height: 2.5rem;
-    padding: 0;
 
     color: var(--color-text);
     background: transparent;
@@ -248,7 +247,7 @@ SEARCH RESULT - control the whole drop-down box
 MENU BUTTON AND THEME BUTTON
 ================================= */
 
-.search-menu-button,
+/* .search-menu-button, */
 .theme-toggle {
     display: inline-flex;
     align-items: center;
@@ -272,7 +271,7 @@ MENU BUTTON AND THEME BUTTON
         transform 160ms ease;
 }
 
-.search-menu-button:hover,
+/* .search-menu-button:hover, */
 .theme-toggle:hover {
     color: var(--color-primary);
 
@@ -280,12 +279,12 @@ background:
     color-mix(in srgb, var(--color-primary) 10%, transparent );
 }
 
-.search-menu-button:active,
+/* .search-menu-button:active, */
 .theme-toggle:active {
     transform: scale(0.94);
 }
 
-.search-menu-button:focus-visible,
+/* .search-menu-button:focus-visible, */
 .theme-toggle:focus-visible {
     outline: 2px solid var(--color-primary);
     outline-offset: 2px;
@@ -302,7 +301,6 @@ SEARCH ICON
     justify-content: center;
 
     width: 2.5rem;
-    height: 100%;
 
     color: var(--color-subtext);
 
@@ -314,7 +312,6 @@ SEARCH ICON
 ICON STYLING
 ================ */
 
-.menu-icon,
 .search-icon,
 .theme-icon {
     display: block;
@@ -327,7 +324,6 @@ ICON STYLING
     stroke-linejoin: round;
 }
 
-.menu-icon,
 .search-icon {
     width: 1.2rem;
     height: 1.2rem;
@@ -371,7 +367,6 @@ TABLET
 }
 }
 
-
 /* =====
 MOBILE
 ======== */
@@ -405,10 +400,10 @@ MOBILE
     margin-left: 0;
 }
 
-.search-bar {
+/* .search-bar {
     flex: 1 1 auto;
     width: 100%;
-}
+} */
 }
 
 
@@ -422,13 +417,12 @@ SMALL MOBILE
 }
 
 .search-bar {
-    grid-template-columns: 2.25rem minmax(0, 1fr) 2.25rem;
+    grid-template-columns: minmax(0, 1fr) 2.25rem;
 }
 
-.search-menu-button,
-.search-icon-container {
+/* .search-menu-button {
     width: 2.25rem;
-}
+} */
 
 .theme-toggle {
     width: 2.4rem;

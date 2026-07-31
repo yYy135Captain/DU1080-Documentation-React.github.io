@@ -57,20 +57,19 @@ function SearchBar({value, onChange, onMenuClick, }) {
     const showResults = isFocused && value.trim().length > 0;
 
     return (
-        <div className="search-container">
         <form
             className="search-bar"
             role="search"
             onSubmit={handleSubmit}
         >
-            <button
+            {/* <button
                 type="button"
                 className="search-menu-button"
                 onClick={onMenuClick}
                 aria-label="Open navigation menu"
             >
             <MenuIcon />
-            </button>
+            </button> */}
 
             <input
                 type="search"
