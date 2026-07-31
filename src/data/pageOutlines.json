@@ -1,6 +1,11 @@
 {
   "/instrument/agm-test-box": [
     {
+      "label": "(PART\\*) Instruments",
+      "id": "part-instruments",
+      "level": 1
+    },
+    {
       "label": "AGMTestBox",
       "id": "agmtestbox",
       "level": 1
@@ -1315,11 +1320,6 @@
       "level": 3
     },
     {
-      "label": "Example",
-      "id": "example",
-      "level": 3
-    },
-    {
       "label": "MxFoundationClose",
       "id": "mxfoundationclose",
       "level": 2
@@ -1342,11 +1342,6 @@
     {
       "label": "Return Value",
       "id": "return-value-1",
-      "level": 3
-    },
-    {
-      "label": "Example",
-      "id": "example-1",
       "level": 3
     },
     {
@@ -1450,11 +1445,6 @@
       "level": 3
     },
     {
-      "label": "Example",
-      "id": "example-2",
-      "level": 3
-    },
-    {
       "label": "Arinc429FreeBuffers",
       "id": "arinc429freebuffers",
       "level": 2
@@ -1477,11 +1467,6 @@
     {
       "label": "Return Value",
       "id": "return-value-6",
-      "level": 3
-    },
-    {
-      "label": "Example",
-      "id": "example-3",
       "level": 3
     },
     {
@@ -1535,11 +1520,6 @@
       "level": 3
     },
     {
-      "label": "Example",
-      "id": "example-4",
-      "level": 3
-    },
-    {
       "label": "Arinc708SetupReceiveData",
       "id": "arinc708setupreceivedata",
       "level": 2
@@ -1562,11 +1542,6 @@
     {
       "label": "Return Value",
       "id": "return-value-9",
-      "level": 3
-    },
-    {
-      "label": "Example",
-      "id": "example-5",
       "level": 3
     },
     {

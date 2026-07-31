@@ -95,7 +95,7 @@ Set the relay state for a specified signal in the signal list.
 | -----------|-------------|-------------|
 |  `session` | `ViSession` | Active switch session. |
 | `signal_name` | `char *` | Name of the signal to change.|
-| `signal_list` |`void **` | List of available relay signals.|
+| `signal_list` |`void *` | List of available relay signals.|
 | `status_message` | `char *` | Stores the operation status message.|
 
 ### Return Value {-}
@@ -158,7 +158,7 @@ Configures PROC discrete signals using the input data.
 | -----------|-------------|-------------|
 |  `session` | `ViSession` | Active switch session. |
 | `data` | `unit32_t *` | Input data for PROC DISCRETE SIGNALS.|
-| `signal_list` | `void **` | List of relay signals. |
+| `signal_list` | `void *` | List of relay signals. |
 | `status_message` | `char *` | Stores status message.|
 
 ### Return Value {-}

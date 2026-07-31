@@ -2,10 +2,6 @@
 ## **Overview** {-}
 This module is designed to drive ARINC429 and ARINC708 functions in MaxT FM429 Device.
 
-```{r}
-# MxFoundation Functions
-```
-
 ## **MxFoundationInitialize** {-}
 ### Header {-}
 `int DLLEXPORT __stdcall MxFoundationInitialize(void);`
@@ -22,10 +18,6 @@ This function has no parameters.
 | `0` | Initialization completed successfully.|
 | Non-zero | An MxFoundation, device, ARINC 429, OR ARINC 708 initialization operation failed.|
 
-### Example {-}
-`int32 error = 0;`
-`error = ARINC429ChannelInitialize();`
-
 ## **MxFoundationClose** {-}
 ### Header {-}
 `void DLLEXPORT __stdcall MxFoundationClose(void);`
@@ -38,13 +30,6 @@ This function has no parameters.
 
 ### Return Value {-}
 This function does not return a value.
-
-### Example {-}
-`MxFoundationClose();`
-
-```{r}
-# ARINC429 Functions
-```
 
 ## **ARINC429ChannelInitialize** {-}
 ### Header {-}
@@ -129,13 +114,6 @@ Reads ARINC 429 records from a receive a acquisition buffer and returns the data
 |     `0`      | The receive-buffer read completed successfully.|
 |   Non-Zero   | Memory allocation or an ARINC 429 receive operation failed.|
 
-### Example {-}
-```c
-uint32 received_data = 0;
-HMXF_BUFFER receive_buffer = 0;
-arinc429_error = Arinc429SetupReceiveData(receive_channel, 0, 0, 1, &receive_buffer);
-```
-
 ## **Arinc429FreeBuffers** {-}
 ### Header {-}
 `void DLLEXPORT __stdcall Arinc429FreeBuffers(HMXF_BUFFER arinc429_transmit_buffer, HMXF_BUFFER arinc429_receive_buffer, HMXF_SCHED arinc429_schedule_handle);`
@@ -152,11 +130,6 @@ Releases the ARINC 429 periodic transmission schedule and transmit buffer. It al
 
 ### Return Value {-}
 This function does not return a value.
-
-### Example {-}
-```c
-Arinc429FreeBuffers(transmit_buffer, receive_buffer, schedule_buffer);
-```
 
 ## **Arinc429SelfTest** {-}
 ### Header {-}
@@ -178,10 +151,6 @@ Performs an ARINC 429 loopback self-test by transmitting a data word, receiving 
 |   `0`   | The ARINC 429 self-test completed successfully. |
 | Non-Zero| One or more ARINC 429 data word transmitted during the self-test. |
 
-```{r} 
-# ARINC708 Functions 
-```
-
 ## **ARINC708ChannelInitialize** {-}
 ### Header {-}
 `int DLLEXPORT __stdcall ARINC708ChannelInitialize(void);`
@@ -197,11 +166,6 @@ This function has no parameters.
 |--------------|-------------|
 |     `0`      | ARINC 708 modules and channels were initialized successfully. |
 |   Non-Zero   | An ARINC 708 module or channel initialization operation failed. |
-
-### Example {-}
-```c
-error = ARINC708ChannelInitialize();
-```
 
 ## **Arinc708SetupReceiveData** {-}
 ### Header {-}
@@ -221,12 +185,6 @@ Configures and ARINC 708 receive channel by allocating a receive acquisition buf
 |--------------|-------------|
 |     `0`      | The receive channel was configured successfully. |
 |   Non-Zero   | Failed to allocate or start the receive acquisition buffer. |
-
-### Example {-}
-```c
-HMXF_BUFFER  receive_buffer = 0;
-arinc708_error = Arinc708SetupReceiveData(receive_channel, &receive_buffer);
-```
 
 ## **Arinc708SendData** {-}
 ### Header {-}
@@ -319,10 +277,6 @@ Displays the contents of one or more ARINC 708 data records for debugging and ve
 
 ### Return Value {-}
 This function doesn't return a value.
-
-```{r}
-# MISC Helper
-```
 
 ## **SetParityBit** {-}
 ### Header {-}

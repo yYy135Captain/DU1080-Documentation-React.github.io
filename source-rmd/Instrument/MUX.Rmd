@@ -91,8 +91,8 @@ Searches the signal list for the specified signal and executes the corresponding
 |    Parameter     |     Type    | Description |
 |------------------|-------------|-------------|
 |   `session`     |  `ViSession`   | NI Switch session |
-| `signal_name    |    `char *`    | Signal to execute |
-|  `signal_list`  |    `void **`   | Signal list |
+| `signal_name`    |    `char *`    | Signal to execute |
+|  `signal_list`  |    `void *`   | Signal list |
 | `status_message`|    `char *`    | Status message buffer. |
 
 ### Return Value {-}
