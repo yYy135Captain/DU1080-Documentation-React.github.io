@@ -108,17 +108,14 @@ h1 {
     font-family: 'Telegraf-light', serif;
 }
 
-/*
-For Overview, Table of Contents, DU1080 HW4 API
-*/
+/* For Overview, Table of Contents, DU1080 HW4 API */
 html h2 {
     font-size: 2rem;
     color: var(--color-text);
     font-family: "Telegraf-light", serif;
 }
-/*
 
-*/
+
 h3 {
     margin-top: 1.5rem;
     font-family: 'Telegraf-bold', serif;
