@@ -125,7 +125,7 @@ SEARCH INPUT
     min-width: 0;
     height: 100%;
 
-    padding: 0 0.75rem;
+    padding: 0.55rem 0.75rem 0.75rem 2.25rem;
 
     color: var(--color-text);
     background: transparent;
@@ -134,7 +134,7 @@ SEARCH INPUT
     outline: 0;
 
     font-size: var(--paragraph-size);
-    line-height: 1; 
+    line-height: normal; 
 
     text-align: left;
     margin-left: 1.5rem;

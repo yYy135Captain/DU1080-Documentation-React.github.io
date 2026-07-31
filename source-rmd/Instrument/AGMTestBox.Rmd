@@ -1,3 +1,4 @@
+# (PART\*) Instruments
 # AGMTestBox {-}
 ## **Overview** {-}
 Controls communication with the AGM DU Test Box.
@@ -12,11 +13,11 @@ Send a control packet to the AGM Test Box through an RS-232 COM port and reads t
 ### Parameters {-}
 |     Parameter     |     Type    | Description |
 | ------------------|-------------|-------------|
-|     ` * port`     |    `char`   | COM port name.
+|     ` port`     |    `char *`   | COM port name.
 |       `baud`      |    `int`    | Communicating baud rate.
-|   ` *command`     |  `char * `  | Command sent to the AGM Test Box.
+|   `command`     |  `char * `  | Command sent to the AGM Test Box.
 |   `command_size`  |    `int `   | Number of bytes in the command.
-|` *status_message` |   ` char *` | Stores the device response or error message.|
+|`status_message` |   ` char *` | Stores the device response or error message.|
 
 ### Return Value {-}
 |            Error           |                    Description                  |

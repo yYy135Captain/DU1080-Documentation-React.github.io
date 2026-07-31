@@ -3,8 +3,6 @@
 <h2 id="overview">Overview</h2>
 This module is designed to drive ARINC429 and ARINC708 functions in MaxT FM429 Device.
 
-`{r} # MxFoundation Functions`
-
 <h2 id="mxfoundationinitialize">MxFoundationInitialize</h2>
 <h3 id="header">Header</h3>
 
@@ -25,10 +23,6 @@ This function has no parameters.
 | `0` | Initialization completed successfully. |
 | Non-zero | An MxFoundation, device, ARINC 429, OR ARINC 708 initialization operation failed. |
 
-<h3 id="example">Example</h3>
-
-`int32 error = 0;` `error = ARINC429ChannelInitialize();`
-
 <h2 id="mxfoundationclose">MxFoundationClose</h2>
 <h3 id="header-1">Header</h3>
 
@@ -45,12 +39,6 @@ This function has no parameters.
 <h3 id="return-value-1">Return Value</h3>
 
 This function does not return a value.
-
-<h3 id="example-1">Example</h3>
-
-`MxFoundationClose();`
-
-`{r} # ARINC429 Functions`
 
 <h2 id="arinc429channelinitialize">ARINC429ChannelInitialize</h2>
 <h3 id="header-2">Header</h3>
@@ -151,14 +139,6 @@ Reads ARINC 429 records from a receive a acquisition buffer and returns the data
 | `0`      | The receive-buffer read completed successfully.             |
 | Non-Zero | Memory allocation or an ARINC 429 receive operation failed. |
 
-<h3 id="example-2">Example</h3>
-
-``` c
-uint32 received_data = 0;
-HMXF_BUFFER receive_buffer = 0;
-arinc429_error = Arinc429SetupReceiveData(receive_channel, 0, 0, 1, &receive_buffer);
-```
-
 <h2 id="arinc429freebuffers">Arinc429FreeBuffers</h2>
 <h3 id="header-6">Header</h3>
 
@@ -179,12 +159,6 @@ Releases the ARINC 429 periodic transmission schedule and transmit buffer. It al
 <h3 id="return-value-6">Return Value</h3>
 
 This function does not return a value.
-
-<h3 id="example-3">Example</h3>
-
-``` c
-Arinc429FreeBuffers(transmit_buffer, receive_buffer, schedule_buffer);
-```
 
 <h2 id="arinc429selftest">Arinc429SelfTest</h2>
 <h3 id="header-7">Header</h3>
@@ -210,8 +184,6 @@ Performs an ARINC 429 loopback self-test by transmitting a data word, receiving 
 | `0` | The ARINC 429 self-test completed successfully. |
 | Non-Zero | One or more ARINC 429 data word transmitted during the self-test. |
 
-`{r}  # ARINC708 Functions`
-
 <h2 id="arinc708channelinitialize">ARINC708ChannelInitialize</h2>
 <h3 id="header-8">Header</h3>
 
@@ -231,12 +203,6 @@ This function has no parameters.
 |----------|-----------------------------------------------------------------|
 | `0`      | ARINC 708 modules and channels were initialized successfully.   |
 | Non-Zero | An ARINC 708 module or channel initialization operation failed. |
-
-<h3 id="example-4">Example</h3>
-
-``` c
-error = ARINC708ChannelInitialize();
-```
 
 <h2 id="arinc708setupreceivedata">Arinc708SetupReceiveData</h2>
 <h3 id="header-9">Header</h3>
@@ -260,13 +226,6 @@ Configures and ARINC 708 receive channel by allocating a receive acquisition buf
 |----------|-------------------------------------------------------------|
 | `0`      | The receive channel was configured successfully.            |
 | Non-Zero | Failed to allocate or start the receive acquisition buffer. |
-
-<h3 id="example-5">Example</h3>
-
-``` c
-HMXF_BUFFER  receive_buffer = 0;
-arinc708_error = Arinc708SetupReceiveData(receive_channel, &receive_buffer);
-```
 
 <h2 id="arinc708senddata">Arinc708SendData</h2>
 <h3 id="header-10">Header</h3>
@@ -379,8 +338,6 @@ Displays the contents of one or more ARINC 708 data records for debugging and ve
 <h3 id="return-value-14">Return Value</h3>
 
 This function doesn’t return a value.
-
-`{r} # MISC Helper`
 
 <h2 id="setparitybit">SetParityBit</h2>
 <h3 id="header-15">Header</h3>
