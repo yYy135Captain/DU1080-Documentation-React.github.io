@@ -103,31 +103,7 @@ button {
     cursor: pointer;
 }
 
-h1 {
-    font-size: 1.2rem;
-    font-family: 'Telegraf-light', serif;
-    border-bottom: 2px solid var(--color-line-gray);
-    animation: extendLine 2s 1;
-}
 
-/* For Overview, Table of Contents, DU1080 HW4 API */
-html h2 {
-    font-size: 2rem;
-    color: var(--color-text);
-    font-family: "Telegraf-light", serif;
-}
-
-
-h3 {
-    margin-top: 1.5rem;
-    font-family: 'Telegraf-bold', serif;
-    font-size: 1rem;
-    color: var(--color-text);
-    display: flex;
-    margin-bottom: 0.2rem;
-    font-weight: 700;
-    font-size: 1.4rem;
-}
 
 a {
     color: inherit;
@@ -190,14 +166,18 @@ svg {
 }
 
 @keyframes extendLine {
-    from {
+    0% { width: 0% }
+    100% { width: 100%; }
+} 
+
+/* @keyframes extendLine {
+ from {
         transform: scaleX(0);
     }
     to {
         transform: scaleX(1);
     }
-} 
-
+} */
 
 ::selection {
     color: #ffffff;
