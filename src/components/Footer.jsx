@@ -1,3 +1,5 @@
+// Defines the content displayed at the bottom of every page
+
 import "../styles/Footer.css"
 
 function Footer() {
@@ -10,7 +12,7 @@ function Footer() {
             </p>
 
             <p>
-                Last updated: {currentDate}
+                Viewed on: {currentDate}
             </p>
 
             <p>
@@ -20,4 +22,4 @@ function Footer() {
     )
 }
 
-export default Footer
+export default Footer;

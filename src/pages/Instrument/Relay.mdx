@@ -53,7 +53,7 @@ Changes the state of a specified relay channel.
 | Error | Description                       |
 |-------|-----------------------------------|
 | 0     | Relay state changed successfully. |
-| < 0   | NI Switch API error.              |
+| \< ;0   | NI Switch API error.              |
 
 <h2 id="relayclose">RelayClose</h2>
 <h3 id="header-2">Header</h3>
@@ -76,7 +76,7 @@ Resets the switch module and closes the active session.
 | Error | Description                           |
 |-------|---------------------------------------|
 | 0     | Session closed successfully.          |
-| < 0   | Failed to reset or close the session. |
+| \< ;0   | Failed to reset or close the session. |
 
 <h2 id="replayopenall">ReplayOpenAll</h2>
 <h3 id="header-3">Header</h3>
@@ -98,7 +98,7 @@ Disconnects all relay paths on the active switch module.
 | Error | Description                     |
 |-------|---------------------------------|
 | 0     | All relays opened successfully. |
-| < 0   | Failed to open all relays.      |
+| \< ;0   | Failed to open all relays.      |
 
 <h2 id="relaysignalset">RelaySignalSet</h2>
 <h3 id="header-4">Header</h3>
@@ -115,7 +115,7 @@ Set the relay state for a specified signal in the signal list.
 |------------------|-------------|--------------------------------------|
 | `session`        | `ViSession` | Active switch session.               |
 | `signal_name`    | `char *`    | Name of the signal to change.        |
-| `signal_list`    | `void *`   | List of available relay signals.     |
+| `signal_list`    | `void *`    | List of available relay signals.     |
 | `status_message` | `char *`    | Stores the operation status message. |
 
 <h3 id="return-value-4">Return Value</h3>
@@ -149,7 +149,7 @@ Configures relay settings for NIC ID.
 | Error | Description                                |
 |-------|--------------------------------------------|
 | 0     | NIC discrete configured successfully.      |
-| < 0   | Failed to configure NIC discrete settings. |
+| \< ;0   | Failed to configure NIC discrete settings. |
 
 <h2 id="setnicdiscretebydata">SetNICDiscreteByData</h2>
 <h3 id="header-6">Header</h3>
@@ -173,7 +173,7 @@ Sets the NIC discrete signals based on the input data.
 | Error | Description                                   |
 |-------|-----------------------------------------------|
 | 0     | NIC discrete signals configured successfully. |
-| < 0   | Failed to configure NIC discrete signals.     |
+| \< ;0   | Failed to configure NIC discrete signals.     |
 
 <h2 id="setprocdiscretebydata">SetProcDiscreteByData</h2>
 <h3 id="header-7">Header</h3>
@@ -190,7 +190,7 @@ Configures PROC discrete signals using the input data.
 |------------------|--------------|---------------------------------------|
 | `session`        | `ViSession`  | Active switch session.                |
 | `data`           | `unit32_t *` | Input data for PROC DISCRETE SIGNALS. |
-| `signal_list`    | `void *`    | List of relay signals.                |
+| `signal_list`    | `void *`     | List of relay signals.                |
 | `status_message` | `char *`     | Stores status message.                |
 
 <h3 id="return-value-7">Return Value</h3>
@@ -198,4 +198,4 @@ Configures PROC discrete signals using the input data.
 | Error | Description                                    |
 |-------|------------------------------------------------|
 | 0     | PROC discrete signals configured successfully. |
-| < 0   | Failed to configure PROC discrete signals.     |
+| \< ;0   | Failed to configure PROC discrete signals.     |

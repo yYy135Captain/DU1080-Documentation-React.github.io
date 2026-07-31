@@ -13,7 +13,6 @@ import pageOutlines from "./data/pageOutlines.json";
 
 import "./styles/globals.css";
 import "./styles/App.css";
-import "./styles/Header.css";
 import "./styles/Sidebar.css";
 import "./styles/Content.css";
 import "./styles/Footer.css";
@@ -44,7 +43,7 @@ function App() {
 * Convert the flat pageOutlines.json array into:
 *
 * level 2 function
-* └── level 3 Header / Purpose / Parameter / Return Value
+* level 3 Header / Purpose / Parameter / Return Value
 *
 * Level 1 is the page title and is not displayed as a collapsible
 * function section in the right sidebar.
@@ -92,7 +91,7 @@ return outlineSections[0]?.id ?? ""; }, [ activeHeadingId, outlineSections, ]);
 useEffect(() => {
   const themeName = isDarkMode ? "dark" : "light";
 
-  document.documentElement.setAttribute( "data-theme", themeName, );
+  // document.documentElement.setAttribute( "data-theme", themeName, );
 
   document.documentElement.classList.remove( "light", "dark", );
 
@@ -174,7 +173,7 @@ const handleThemeToggle = () => { setIsDarkMode( (currentMode) => !currentMode, 
 
 const handleSearchChange = (event) => { setSearchValue(event.target.value); };
 
-const handleMenuClick = () => { console.log( "Menu button clicked", ); };
+// const handleMenuClick = () => { console.log( "Menu button clicked", ); };
 
 /*Scroll inside the center .content container instead of scrolling the entire browser window. */
 const scrollToHeading = (headingId) => { const contentElement = contentRef.current; 
@@ -202,7 +201,6 @@ const scrollToHeading = (headingId) => { const contentElement = contentRef.curre
 
 return (
   <Layout
-    isDarkMode={isDarkMode}
     header={
   <Header
     isDarkMode={isDarkMode}

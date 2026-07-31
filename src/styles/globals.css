@@ -162,7 +162,7 @@ svg {
  }
 
 .line {
-    width: auto;
+    width: 100%;
     height: .15rem;
     /* border-inline-end: 0px solid var(--color-primary);  */
     animation: extendLine 2s 1;
@@ -171,18 +171,18 @@ svg {
 }
 
 @keyframes extendLine {
-    0% {
-        width: 0%
-    }
-    100% {
-        width: 100%;
-    }
+    0% { width: 0% }
+    100% { width: 100%; }
 } 
 
-.light.dark {
-    color: var(--color-text);
-    background-color: var(--color-background)
-}
+/* @keyframes extendLine {
+ from {
+        transform: scaleX(0);
+    }
+    to {
+        transform: scaleX(1);
+    }
+} */
 
 ::selection {
     color: #ffffff;

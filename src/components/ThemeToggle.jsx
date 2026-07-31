@@ -1,3 +1,5 @@
+// Controls light mode and dark mode
+
 function SunIcon() {
     return (
         <svg

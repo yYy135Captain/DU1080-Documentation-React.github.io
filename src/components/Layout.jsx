@@ -1,9 +1,9 @@
-import Footer from "./Footer"
+// Defines the shared page layout and arranges the header, sidebar, main content and footer.
 
-function Layout({header, leftSidebar, children, rightSidebar, footer, isDarkMode}) {
+function Layout({header, leftSidebar, children, rightSidebar, footer, /*isDarkMode*/}) {
 
 return (
-    <div className={`site-shell ${isDarkMode ? "dark" : "light"} `}>
+    <div className={`site-shell `}> 
         {header}
 
         <div className="page-body">

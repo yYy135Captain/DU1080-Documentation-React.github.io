@@ -1,11 +1,6 @@
 {
   "/instrument/agm-test-box": [
     {
-      "label": "(PART\\*) Instruments",
-      "id": "part-instruments",
-      "level": 1
-    },
-    {
       "label": "AGMTestBox",
       "id": "agmtestbox",
       "level": 1
