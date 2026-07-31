@@ -12,7 +12,7 @@ function Footer() {
             </p>
 
             <p>
-                Viewws on: {currentDate}
+                Viewed on: {currentDate}
             </p>
 
             <p>
