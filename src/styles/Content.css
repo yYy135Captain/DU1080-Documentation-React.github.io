@@ -10,6 +10,7 @@ CENTER DOCUMENT CONTENT
     margin: 0 auto;
     padding: 3rem;
 
+    background: var(--color-background);
     color: var(--color-text);
 
     height: calc(100vh - var(--header-height));
@@ -19,7 +20,14 @@ CENTER DOCUMENT CONTENT
     scroll-behavior: smooth;
 }
 
+.brand {
+  margin-bottom: 2rem;
+  display: flex;
+}
 
+.logo {
+  width: 5%;
+}
 /* ========================================
 HEADING 1 — PAGE TITLE
 ======================================== */

@@ -46,8 +46,6 @@ BRAND AND LOGO
 }
 
 .header-brand-name {
-    margin: 0;
-
     color: var(--color-text);
     font-family: "Telegraf", Arial, sans-serif;
     font-size: 1rem;
@@ -135,11 +133,7 @@ SEARCH INPUT
     border: 0;
     outline: 0;
 
-    font-size: var(--paragraph-size);
-    line-height: 1; 
-
-    text-align: left;
-    margin-left: 1.5rem;
+    font-size: var(--paragraph-size); 
 }
 
 .search-bar-input::placeholder {

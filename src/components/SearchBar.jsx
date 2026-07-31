@@ -29,7 +29,7 @@ function SearchIcon() {
     );
 }
 
-function SearchBar({value, onChange, /*onMenuClick, */}) {
+function SearchBar({value, onChange, onMenuClick, }) {
     const navigate = useNavigate();
     const [isFocused, setIsFocused] = useState(false);
 
@@ -57,6 +57,7 @@ function SearchBar({value, onChange, /*onMenuClick, */}) {
     const showResults = isFocused && value.trim().length > 0;
 
     return (
+        <div className="search-container">
         <form
             className="search-bar"
             role="search"
