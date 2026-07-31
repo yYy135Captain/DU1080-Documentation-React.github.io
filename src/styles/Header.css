@@ -125,7 +125,7 @@ SEARCH INPUT
     min-width: 0;
     height: 100%;
 
-    padding: 0.7rem 0.75rem;
+    padding: 0 0.75rem;
 
     color: var(--color-text);
     background: transparent;
@@ -134,16 +134,17 @@ SEARCH INPUT
     outline: 0;
 
     font-size: var(--paragraph-size);
-    line-height: 1.4; 
+    line-height: 1; 
 
     text-align: left;
+    margin-left: 1.5rem;
 }
 
-.search-bar input::placeholder {
+.search-bar-input::placeholder {
     color: var(--color-subtext);
     opacity: 1;
 
-    text-align: center;
+    text-align: inherit;
 }
 
 .search-bar input::-webkit-search-cancel-button {
