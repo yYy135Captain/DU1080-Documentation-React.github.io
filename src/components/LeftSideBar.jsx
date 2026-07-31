@@ -22,12 +22,6 @@ function getLinkClass({ isActive }) { return isActive ? "active-page-link" : "";
 function LeftSideBar() {
     return (
         <aside className="left-sidebar">
-            <div className="brand">
-                <div className="brand-title">
-                    <h2></h2>
-                </div>
-            </div>
-
             <nav
                 className="table-of-contents"
                 aria-label="Documentation pages"

@@ -3,6 +3,8 @@
 
 ## **Overview** 
 
+## **Chroma2238Initialize**
+
 ### Header  
 `int DLLEXPORT __stdcall Chroma2238Initialize(char *port_name, long baud_rate, ViBoolean *test_result, char *status_message)`
 

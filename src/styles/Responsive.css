@@ -243,3 +243,16 @@ grid-template-columns:
     display: none;
 }
 }
+
+/* ========
+TV
+=========== */
+@media (min-width: 1280px) {
+    .documentation-header {
+        padding: 0.75rem 1.25rem;
+    }
+
+    .search-bar {
+        width: min(100%, 25rem);
+    }
+}
