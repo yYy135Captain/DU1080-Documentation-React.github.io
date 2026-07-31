@@ -29,7 +29,7 @@ function SearchIcon() {
     );
 }
 
-function SearchBar({value, onChange, onMenuClick, }) {
+function SearchBar({value, onChange, /*onMenuClick, */}) {
     const navigate = useNavigate();
     const [isFocused, setIsFocused] = useState(false);
 
@@ -63,14 +63,14 @@ function SearchBar({value, onChange, onMenuClick, }) {
             role="search"
             onSubmit={handleSubmit}
         >
-            <button
+            {/* <button
                 type="button"
                 className="search-menu-button"
                 onClick={onMenuClick}
                 aria-label="Open navigation menu"
             >
             <MenuIcon />
-            </button>
+            </button> */}
 
             <input
                 type="search"

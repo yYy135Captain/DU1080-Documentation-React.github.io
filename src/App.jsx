@@ -207,7 +207,7 @@ return (
     onThemeToggle={
   handleThemeToggle
 }
-    searchValue={searchValue} onSearchChange={ handleSearchChange } onMenuClick={ handleMenuClick }
+    searchValue={searchValue} onSearchChange={ handleSearchChange } /*onMenuClick={ handleMenuClick }*/
   />
 }
 

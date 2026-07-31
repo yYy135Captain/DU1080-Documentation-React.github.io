@@ -113,7 +113,7 @@ TABLET
     min-height: 2.5rem;
 
 grid-template-columns:
-    2.25rem
+    /* 2.25rem */
     minmax(0, 1fr)
     2.25rem;
 }
@@ -209,13 +209,10 @@ grid-template-columns:
 }
 
 .search-bar {
-    grid-template-columns:
-    2.25rem
-    minmax(0, 1fr)
-    2.25rem;
+    grid-template-columns: /* 2.25rem */ minmax(0, 1fr) 2.25rem;
 }
 
-.search-menu-button,
+/* .search-menu-button, */
 .search-submit-button {
     width: 2.25rem;
     height: 2.25rem;

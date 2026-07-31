@@ -85,9 +85,9 @@ SEARCH BAR CONTAINER
     flex: 0 1 22rem;
 }
 
-.search-bar {
+form.search-bar {
     display: grid;
-    grid-template-columns: 2.5rem minmax(0, 1fr) 2.5rem;
+    grid-template-columns: /*2.5rem*/ minmax(0, 1fr) 2.5rem;
     align-items: center;
 
     width: 100%;
@@ -120,12 +120,12 @@ SEARCH BAR CONTAINER
 SEARCH INPUT
 ==================== */
 
-.search-bar input {
+.search-bar-input {
     width: 100%;
     min-width: 0;
     height: 100%;
 
-    padding: 0.7rem 0.25rem;
+    padding: 0.7rem 0.75rem;
 
     color: var(--color-text);
     background: transparent;
@@ -135,11 +135,15 @@ SEARCH INPUT
 
     font-size: var(--paragraph-size);
     line-height: 1.4; 
+
+    text-align: left;
 }
 
 .search-bar input::placeholder {
     color: var(--color-subtext);
     opacity: 1;
+
+    text-align: center;
 }
 
 .search-bar input::-webkit-search-cancel-button {
@@ -248,7 +252,7 @@ SEARCH RESULT - control the whole drop-down box
 MENU BUTTON AND THEME BUTTON
 ================================= */
 
-.search-menu-button,
+/* .search-menu-button, */
 .theme-toggle {
     display: inline-flex;
     align-items: center;
@@ -272,7 +276,7 @@ MENU BUTTON AND THEME BUTTON
         transform 160ms ease;
 }
 
-.search-menu-button:hover,
+/* .search-menu-button:hover, */
 .theme-toggle:hover {
     color: var(--color-primary);
 
@@ -280,12 +284,12 @@ background:
     color-mix(in srgb, var(--color-primary) 10%, transparent );
 }
 
-.search-menu-button:active,
+/* .search-menu-button:active, */
 .theme-toggle:active {
     transform: scale(0.94);
 }
 
-.search-menu-button:focus-visible,
+/* .search-menu-button:focus-visible, */
 .theme-toggle:focus-visible {
     outline: 2px solid var(--color-primary);
     outline-offset: 2px;
