@@ -1,4 +1,4 @@
-# DMM.c {-} 
+# DMM {-} 
 
 ## **Overview** {-}
 
@@ -11,7 +11,7 @@
 Initializes the digital multimeter.
 
 ### Parameters{-}
-| Name | Type | Purpose |
+| Name | Type | Description |
 |------|------|-----|
 |`resource_name`|`char *`|resource name|
 |`dmm_handle`|`ViSession *`|address of dmm session|
@@ -33,7 +33,7 @@ Initializes the digital multimeter.
 Closes digital multimeter.
 
 ### Parameters{-}
-| Name | Type | Purpose |
+| Name | Type | Description |
 |------|------|-----|
 |`dmm_handle`|`ViSession`|address of dmm device|
 |`status_message`|`char *`|string error message|
@@ -54,7 +54,7 @@ Closes digital multimeter.
 Reads the DC Voltage at the given UUT pins with DMM and stores read value in Reading.
 
 ### Parameters{-}
-| Name | Type | Purpose |
+| Name | Type | Description |
 |------|------|-----|
 |`dmm_handle`|`ViSession`|address of dmm device|
 |`measurement_type`|`MeasurementType`|enum that specifies measurement type|
