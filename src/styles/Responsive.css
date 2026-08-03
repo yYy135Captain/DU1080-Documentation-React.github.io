@@ -232,11 +232,19 @@ MOBILE
 @media (max-width: 48rem) {
 /* Single-column layout */
 .app {
-    display: block;
+    grid-template-columns:
+        9rem minmax(0, 1fr);
 }
 
-/* Hide both sidebars on mobile */
-.left-sidebar,
+.left-sidebar {
+    display: block;
+    position: sticky;
+    top: var(--header-height);
+    height: calc(100vh - var(--header-height));
+    padding-top: 1rem 0.75rem;
+    overflow-y: auto;
+}
+/* Hide right-side-bar on mobile */
 .right-sidebar {
     display: none;
 }
