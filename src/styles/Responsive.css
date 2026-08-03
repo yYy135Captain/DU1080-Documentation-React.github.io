@@ -236,14 +236,14 @@ MOBILE
         9rem minmax(0, 1fr);
 }
 
-.left-sidebar {
+/* .left-sidebar {
     display: block;
     position: sticky;
     top: 4rem;
     height: calc(100vh - 4rem);
     padding-top: 1rem 0.75rem;
     overflow-y: auto;
-}
+} */
 /* Hide right-side-bar on mobile */
 .right-sidebar {
     display: none;
