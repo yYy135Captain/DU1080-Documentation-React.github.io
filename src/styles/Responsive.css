@@ -1,128 +1,320 @@
-/*  ========================================
-             DU1080 RESPONSIVE STYLES
-    ========================================
+/*
+==================================================
+DU1080 RESPONSIVE STYLES
+==================================================
 
-Desktop: > 70rem
-Tablet: 48rem to 70rem
-Mobile: < 48rem
-Small Mobile: < 30rem
+Default desktop styles are defined in:
+- App.css
+- Header.css
+- Sidebar.css
+- Content.css
+- Footer.css
+
+Large Desktop: >= 90rem 
+TV Screen: >= 120rem 
+Tablet: <= 70rem 
+Mobile: <= 48rem 
+Small Mobile: <= 30rem 
 */
 
+/*
+==================================================
+LARGE DESKTOP
+90rem and above
+==================================================
+*/
+
+@media (min-width: 90rem) {
+/* Overall page layout */
+.app {
+    grid-template-columns:
+        var(--left-sidebar-width)
+        minmax(0, 1fr)
+        var(--right-sidebar-width);
+}
+
+/* Header */
+.documentation-header {
+    padding: 0.875rem 2rem;
+}
+.header-controls {
+    gap: 1rem;
+}
+
+/* Search area */
+.search-container {
+    width: min(100%, 26rem);
+    flex: 0 1 26rem;
+}
+form.search-bar {
+    width: 100%;
+}
+
+/* Main content */
+.content {
+    max-width: 76rem;
+    padding: 3rem 3.5rem;
+}
+
+/* Sidebars */
+.left-sidebar,
+.right-sidebar {
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+}
+}
 
 /*
-========================================
+==================================================
+TV / VERY LARGE DISPLAY
+120rem and above
+==================================================
+*/
+
+@media (min-width: 120rem) {
+/* Header */
+
+.documentation-header {
+    padding: 1rem 2.5rem;
+}
+.header-logo {
+    width: 3rem;
+    height: 3rem;
+}
+.header-brand-name {
+    font-size: 1.125rem;
+}
+
+/* Search area */
+.search-container {
+    width: min(100%, 30rem);
+    flex: 0 1 30rem;
+}
+form.search-bar {
+    min-height: 3rem;
+}
+.search-bar-input {
+    font-size: 1.125rem;
+}
+.search-submit-button {
+    width: 3rem;
+    height: 3rem;
+}
+.theme-toggle {
+    width: 3rem;
+    height: 3rem;
+}
+
+/* Three-column layout */
+.app {
+    grid-template-columns:
+        18rem
+        minmax(0, 1fr)
+        18rem;
+}
+
+/* Main content */
+.content {
+    width: 100%;
+    max-width: 90rem;
+    padding: 4rem 5rem;
+}
+.content h1 {
+    font-size: 3rem;
+}
+.content h2 {
+    font-size: 2rem;
+}
+.content h3 {
+    font-size: 1.5rem;
+}
+.content p,
+.content li {
+    font-size: 1.125rem;
+    line-height: 1.75;
+}
+.content table {
+    font-size: 1.05rem;
+}
+
+/* Sidebar text */
+.left-sidebar,
+.right-sidebar {
+    font-size: 1rem;
+}
+.table-of-contents h2,
+.right-sidebar h2 {
+    font-size: 1.25rem;
+}
+
+/* Footer */
+.documentation-footer {
+    padding: 1.25rem 3rem;
+    font-size: 0.95rem;
+}
+}
+
+/*
+==================================================
 TABLET
-========================================
+70rem and below
+==================================================
 */
 
 @media (max-width: 70rem) {
-
-/* Overall layout */
+/* Change from three columns to two columns.
+Left sidebar remains visible.
+Right sidebar is hidden. */
 
 .app {
     grid-template-columns:
-    var(--left-sidebar-width)
-    minmax(0, 1fr);
+        var(--left-sidebar-width)
+        minmax(0, 1fr);
 }
 
-/* Hide right page outline on tablet */
+/* Hide right-side page outline */
 
 .right-sidebar {
     display: none;
 }
 
-/* Main content */
+/* Header */
+.documentation-header {
+    padding: 0.75rem 1.25rem;
+}
+.header-controls {
+    gap: 0.75rem;
+}
 
+/* Search area */
+.search-container {
+    width: min(100%, 20rem);
+    flex: 0 1 20rem;
+}
+form.search-bar {
+    width: 100%;
+}
+
+/* Main content */
 .content {
+    width: 100%;
     max-width: none;
     padding: 2.5rem 2rem;
 }
 
-/* Header */
-
-.documentation-header {
-    padding: 0.75rem 1.25rem;
-}
-
-.search-container {
-    width: min(100%, 19rem);
-    flex-basis: 19rem;
-}
-
-.search-bar {
+/* Prevent tables from breaking the layout */
+.content table {
+    display: block;
     width: 100%;
+    overflow-x: auto;
 }
 
-/* Left sidebar */
+/* Images should remain inside the content column */
+.content img {
+    max-width: 100%;
+    height: auto;
+}
 
-.left-sidebar {
-    padding: 1.5rem 0.9rem;
+/* Code blocks can scroll horizontally */
+.content pre {
+    max-width: 100%;
+    overflow-x: auto;
 }
 }
 
-
-/*  ========================================
-                      MOBILE
-    ======================================== */
+/*
+==================================================
+MOBILE
+<= 48rem and below
+==================================================
+*/
 
 @media (max-width: 48rem) {
-
-/* Overall layout */
-
+/* Single-column layout */
 .app {
     display: block;
 }
 
-/* Header */
+/* Hide both sidebars on mobile */
+.left-sidebar,
+.right-sidebar {
+    display: none;
+}
 
+/* Header wraps onto multiple rows */
 .documentation-header {
     flex-wrap: wrap;
-
     min-height: auto;
     padding: 0.75rem 1rem;
     gap: 0.75rem;
 }
 
-.documentation-header .brand {
+/* Header brand */
+.header-brand {
     flex: 1 1 auto;
+    min-width: 0;
 }
-
-.documentation-header .logo {
+.header-logo {
     width: 2.5rem;
     height: 2.5rem;
-    flex-basis: 2.5rem;
+    flex: 0 0 2.5rem;
 }
-
-.documentation-header .brand-title h2 {
+.header-brand-name {
     font-size: 0.95rem;
 }
 
+/* Search and theme controls move below the brand */
 .header-controls {
     width: 100%;
     margin-left: 0;
+    gap: 0.625rem;
 }
 
+/* Search container fills available space */
 .search-container {
     width: auto;
     min-width: 0;
     flex: 1 1 auto;
 }
 
-.search-bar {
+/* Search bar contains two columns:
+1. text input
+2. search button */
+form.search-bar {
     width: 100%;
     min-height: 2.5rem;
 
-grid-template-columns:
-    /* 2.25rem */
-    minmax(0, 1fr)
-    2.25rem;
+    grid-template-columns:
+        minmax(0, 1fr)
+        2.5rem;
 }
 
+/* Search input */
+.search-bar-input {
+    width: 100%;
+    min-width: 0;
+    height: 100%;
+
+    padding: 0 0.75rem;
+
+    font-size: 0.95rem;
+    line-height: 1.2;
+}
+
+/* Search button */
+.search-submit-button {
+    width: 2.5rem;
+    height: 2.5rem;
+}
+
+/* Search dropdown */
 .search-results {
     width: 100%;
     max-height: 60vh;
+    overflow-y: auto;
 }
 
+/* Theme button */
 .theme-toggle {
     width: 2.5rem;
     height: 2.5rem;
@@ -130,41 +322,50 @@ grid-template-columns:
 }
 
 /* Main content */
-
 .content {
     width: 100%;
     height: auto;
+    max-width: none;
 
     padding: 2rem 1.5rem;
 
+    overflow-x: hidden;
     overflow-y: visible;
 }
 
+/* Heading sizes */
 .content h1 {
     font-size: 2.1rem;
+    line-height: 1.2;
 }
 
 .content h2 {
     font-size: 1.6rem;
+    line-height: 1.3;
 }
 
 .content h3 {
     font-size: 1.25rem;
+    line-height: 1.35;
+}
+
+/* Body text */
+.content p,
+.content li {
+    overflow-wrap: anywhere;
 }
 
 /* Tables */
-
 .content table {
     display: block;
-
     width: 100%;
     max-width: 100%;
 
     overflow-x: auto;
+    white-space: nowrap;
 }
 
-/* Code */
-
+/* Code blocks */
 .content pre {
     width: 100%;
     max-width: 100%;
@@ -172,57 +373,80 @@ grid-template-columns:
     overflow-x: auto;
 }
 
-/* Images */
+.content code {
+    overflow-wrap: break-word;
+}
 
+/* Images */
 .content img {
+    display: block;
     max-width: 100%;
     height: auto;
 }
 
-/* Sidebars */
-
-.right-sidebar {
-    display: none;
-}
-
 /* Footer */
-
 .documentation-footer {
     padding: 1rem;
-
     flex-direction: column;
     gap: 0.3rem;
-
     text-align: center;
 }
 }
 
-
-/*  ========================================
-                SMALL MOBILE
-    ======================================== */
+/*
+==================================================
+SMALL MOBILE
+<= 30rem and below
+==================================================
+*/
 
 @media (max-width: 30rem) {
+/* Header */
+.documentation-header {
+    padding: 0.625rem 0.75rem;
+}
 
-.documentation-header .brand-title h2 {
+.header-logo {
+    width: 2.25rem;
+    height: 2.25rem;
+    flex-basis: 2.25rem;
+}
+
+.header-brand-name {
     font-size: 0.875rem;
 }
 
-.search-bar {
-    grid-template-columns: /* 2.25rem */ minmax(0, 1fr) 2.25rem;
+.header-controls {
+gap: 0.5rem;
 }
 
-/* .search-menu-button, */
+/* Search bar */
+form.search-bar {
+    min-height: 2.25rem;
+
+    grid-template-columns:
+        minmax(0, 1fr)
+        2.25rem;
+}
+
+.search-bar-input {
+    padding: 0 0.625rem;
+    font-size: 0.875rem;
+}
+
 .search-submit-button {
     width: 2.25rem;
     height: 2.25rem;
 }
 
+/* Theme toggle */
 .theme-toggle {
     width: 2.4rem;
     height: 2.4rem;
+    flex-basis: 2.4rem;
 }
 
+/* Content */
 .content {
     padding: 1.5rem 1rem;
 }
@@ -232,27 +456,45 @@ grid-template-columns:
 }
 
 .content h2 {
-    font-size: 1.45rem;
+    font-size: 1.4rem;
 }
 
 .content h3 {
     font-size: 1.15rem;
 }
 
-.search-result-group {
-    display: none;
+.content p,
+.content li {
+    font-size: 0.95rem;
+    line-height: 1.6;
+}
+
+/* Smaller code blocks */
+.content pre,
+.content code {
+    font-size: 0.85rem;
+}
+
+/* Footer */
+.documentation-footer {
+    font-size: 0.75rem;
 }
 }
 
-/* ========
-TV
-=========== */
-@media (min-width: 1280px) {
-    .documentation-header {
-        padding: 0.75rem 1.25rem;
-    }
+/*
+==================================================
+TOUCH DEVICES
+Increase clickable areas
+==================================================
+*/
 
-    .search-bar {
-        width: min(100%, 25rem);
-    }
+@media (hover: none) and (pointer: coarse) {
+.search-submit-button,
+.theme-toggle,
+.toc-items a,
+.outline-section-link,
+.outline-child-link {
+    min-height: 2.75rem;
 }
+}
+

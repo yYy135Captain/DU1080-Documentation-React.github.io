@@ -1,6 +1,6 @@
 import { useMemo, useState } from "react";
 import { useNavigate } from "react-router-dom";
-import navigation from "../data/navigation";
+import navigation from "../data/TableOfContent";
 
 // "hamburger"
 // function MenuIcon() {
