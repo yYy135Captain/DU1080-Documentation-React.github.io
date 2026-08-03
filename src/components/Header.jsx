@@ -18,7 +18,7 @@ function Header({ isDarkMode, onThemeToggle, searchValue, onSearchChange, /*onMe
                 />
 
                 <span className="header-brand-name">
-                    DU1080 HW4 API
+                    API Documentation
                 </span>
             </div>
 
