@@ -11,7 +11,6 @@ DOCUMENTATION HEADER
     align-items: center;
     justify-content: space-between;
 
-    width: 100%;
     min-height: var(--header-height);
     padding: 0.75rem 1.5rem;
     gap: 1.5rem;

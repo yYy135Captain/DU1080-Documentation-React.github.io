@@ -1,5 +1,4 @@
 /* ========================================
-APP.CSS
 organizes the site into 3 columns: table of contents,
 main content, function names and descriptions
 ======================================== */
@@ -30,4 +29,3 @@ main content, function names and descriptions
   --color-background:#151515;
   --color-text: #eeeeee;
 }
-
