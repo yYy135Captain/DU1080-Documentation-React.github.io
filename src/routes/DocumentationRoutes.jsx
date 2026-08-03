@@ -1,6 +1,6 @@
 import { Route, Routes } from "react-router-dom";
 
-import Home from "../pages/Home.jsx";
+import Home from "../components/Home.jsx";
 
 import AGMTestBox from "../pages/Instrument/AGMTestBox.mdx";
 import Chroma2238 from "../pages/Instrument/Chroma2238.mdx";

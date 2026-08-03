@@ -1,6 +1,7 @@
 <h1 id="interfaceboxc">InterfaceBox.c</h1>
 
 <h2 id="overview">Overview</h2>
+Interface Box Overview
 <h2 id="interfaceboxslot1hdlcwrapback">InterfaceBoxSlot1HDLCWrapBack</h2>
 <h3 id="header">Header</h3>
 
@@ -23,6 +24,10 @@ HW_BOX_Slot 1 HDLC wrap back.
 
 | Error Code | Error Description |
 |------------|-------------------|
+| `0` | Success |
+| `-1` | Interface Box Slot 1HDLC Wrap Back initialization fail |
+| `-2` | Interface Box Slot 1HDLC Wrap Back read failed |
+| `-3` | Interface Box Slot 1HDLC Close DU Interface Box failed |
 
 <h2 id="interfaceboxslot2hdlcwrapback">InterfaceBoxSlot2HDLCWrapBack</h2>
 <h3 id="header-1">Header</h3>
@@ -46,6 +51,11 @@ HW_BOX_Slot 2 HDLC wrap back.
 
 | Error Code | Error Description |
 |------------|-------------------|
+| `0` | Success |
+| `-1` | Interface Box Slot 2 HDLC Wrap Back initialization fail |
+| `-2` | Interface Box Slot 2 HDLC Wrap Back interface box write fail |
+| `-3` | Interface Box Slot 2 HDLC Wrap Back interface box read fail |
+| `-4` | Interface Box Slot 2 HDLC Wrap Back close DU interface box fail |
 
 <h2 id="interfaceboxanalogvideoset">InterfaceBoxAnalogVideoSet</h2>
 <h3 id="header-2">Header</h3>
@@ -69,6 +79,10 @@ For Analog Video Seletion.
 
 | Error Code | Error Description |
 |------------|-------------------|
+| `0` | Success |
+| `-1` | Interface Box Analog Video Set initialization fail |
+| `-2` | Interface Box Analog Video Set read fail | 
+| `-3` | Interface Box Analog Video Set close fail |
 
 <h2 id="interfaceboxcommandtest">InterfaceBoxCommandTest</h2>
 <h3 id="header-3">Header</h3>
@@ -91,6 +105,9 @@ For HW command test.
 
 | Error Code | Error Description |
 |------------|-------------------|
+| `0` | Success |
+| `-1` | Interface Box Command Test initialization fail |
+| `-2` | Interface Box Command Test close fail | 
 
 <h2 id="interfaceboxfirmwareversion">InterfaceBoxFirmwareVersion</h2>
 <h3 id="header-4">Header</h3>

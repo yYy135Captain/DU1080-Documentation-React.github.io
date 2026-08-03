@@ -1,3 +1,7 @@
+ /* ====================
+MAIN ROOT OF FILE 
+======================= */
+
 :root {
     font-family:
         "Telegraf",
@@ -29,11 +33,16 @@
     --header-height: 5rem;
     --left-sidebar-width: 14rem;
     --right-sidebar-width: 14rem;
+
+    font-synthesis: none;
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
 }
 
-* {
-    box-sizing: border-box;
-}
+ /* ====================
+FONT FACE 
+======================= */
 
 @font-face {
     font-family: 'Telegraf';
@@ -56,16 +65,15 @@
     font-style: normal;
 }
 
+ /* ====================
+MAIN COMPONENTS OF FILE
+======================= */
+
 html {
-    margin: 0;
-    padding: 0;
     scroll-behavior: smooth;
 }
 
 body {
-    margin: 0;
-    padding: 0;
-
     min-width: 20rem;;
     min-height: 100vh;
    
@@ -88,6 +96,16 @@ body {
 
 #root {
     min-height: 100vh;
+    width: 100%;
+    height: 100%;
+}
+
+html,
+body {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 100%;
 }
 
 button,
@@ -101,14 +119,6 @@ button {
     cursor: pointer;
 }
 
-/*For file name (Ex: Chroma2238.c, DAQ.c)*/
-/* h1 {
-    font-size: 3rem;
-    font-family: 'Telegraf-light', serif;
-    border-bottom: 2px solid var(--color-line-gray);
-    animation: extendLine 2s 1;
-} */
-
 a {
     color: inherit;
     text-decoration: none;
@@ -119,6 +129,15 @@ svg {
     display: block;
     max-width: 100%;
 }
+
+::before,
+::after {
+  box-sizing: border-box;
+}
+
+ /* ====================
+LIGHT VS DARK MODE GLOBAL VARIABLES
+======================= */
 
 .light {
     color-scheme: light;
@@ -146,6 +165,7 @@ svg {
 
     --color-primary: #ff5a36;
     --color-primary-hover: #ff795c;
+    --color-line-gray: #A9ADAE;
 
     --color-background: #17171c;
     --color-surface: #1e1e24;
@@ -161,6 +181,10 @@ svg {
     --color-input-background: #29292d;    
  }
 
+ /* ====================
+LINE ANIMATION
+======================= */
+
 .line {
     width: 100%;
     height: .15rem;
@@ -175,15 +199,9 @@ svg {
     100% { width: 100%; }
 } 
 
-/* @keyframes extendLine {
- from {
-        transform: scaleX(0);
-    }
-    to {
-        transform: scaleX(1);
-    }
-} */
-
+/* ====================
+SCROLL BAR CUSTOMIZATION
+======================= */
 ::selection {
     color: #ffffff;
     background: var(--color-primary);
@@ -205,23 +223,4 @@ svg {
 ::-webkit-scroller-thumb:hover {
     background: var(--color-subtext);
 }
-
-/* For Overview, Table of Contents, DU1080 HW4 API
-h2 {
-    font-size: 2rem;
-    color: var(--color-text);
-    font-family: "Telegraf-light", serif;
-}
-
-/* For Header, Purpose, Parameters, Return Values
-h3 {
-    margin-top: 1.5rem;
-    font-family: 'Telegraf-bold', serif;
-    font-size: 1rem;
-    color: var(--color-text);
-    display: flex;
-    margin-bottom: 0.2rem;
-    font-weight: 700;
-    font-size: 1.4rem;
-} */
 

@@ -193,7 +193,7 @@ RIGHT SIDEBAR
 /* Right sidebar heading */
 /* On this page */
 .right-sidebar > h2 {
-    margin:0;
+    margin: 0;
     padding-bottom: 0.7rem;
     color: var(--color-primary);
     text-decoration: none;

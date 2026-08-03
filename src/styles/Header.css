@@ -21,7 +21,6 @@ DOCUMENTATION HEADER
     border-bottom: 1px solid var(--color-soft-border);
 }
 
-
 /* ==============
 BRAND AND LOGO
 =============== */
@@ -55,8 +54,6 @@ BRAND AND LOGO
     white-space: nowrap;
 }
 
-
-
 /* ===============
 HEADER CONTROLS
 ================= */
@@ -70,7 +67,6 @@ HEADER CONTROLS
     min-width: 0;
     margin-left: auto;
 }
-
 
 /* ====================
 SEARCH BAR CONTAINER
@@ -149,10 +145,10 @@ SEARCH INPUT
     display: none;
 }
 
-
 /* =================
 SEARCH RESULT - control the whole drop-down box
 ==================== */
+
 .search-results {
     position: absolute;
     top: calc(100% + 0.5rem);
@@ -311,7 +307,6 @@ SEARCH ICON
 ICON STYLING
 ================ */
 
-/* .menu-icon, */
 .search-icon,
 .theme-icon {
     display: block;
