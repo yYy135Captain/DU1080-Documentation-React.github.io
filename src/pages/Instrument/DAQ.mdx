@@ -14,17 +14,17 @@ Initializes a DAQ analog output channel and writes an initial voltage value to v
 
 <h3 id="parameter">Parameter</h3>
 
-| Parameter        | Type          | Description                       |
-|------------------|---------------|-----------------------------------|
-| `resource_name`  | `char *`      | DAQ card resource name.           |
-| `test_result`    | `ViBoolean *` | Stores the initialization result. |
-| `status_message` | `char *`      | Stores status or error message.   |
+| Parameter        | Type          | Description                      |
+|------------------|---------------|----------------------------------|
+| `resource_name`  | `char *`      | DAQ card resource name.          |
+| `test_result`    | `ViBoolean *` | Stores the initialization result |
+| `status_message` | `char *`      | Stores status or error message   |
 
 <h3 id="return-value">Return Value</h3>
 
-| Error | Description                                |
-|-------|--------------------------------------------|
-| `0`   | DAQ initialization completed successfully. |
+| Error Code | Description                                |
+|------------|--------------------------------------------|
+| `0`        | DAQ initialization completed successfully. |
 
 <h2 id="daqsetvoltage">DAQSetVoltage</h2>
 <h3 id="header-1">Header</h3>
@@ -37,17 +37,17 @@ Sets the specified analog output voltage on a DAQ channel.
 
 <h3 id="parameter-1">Parameter</h3>
 
-| Parameter        | Type      | Description                                     |
-|------------------|-----------|-------------------------------------------------|
-| `resource_name`  | `char *`  | DAQ card resource name.                         |
-| `voltage_level`  | `float64` | voltage level to be set represented as float64. |
-| `status_message` | `char *`  | Stores status or error message.                 |
+| Parameter        | Type      | Description                                    |
+|------------------|-----------|------------------------------------------------|
+| `resource_name`  | `char *`  | DAQ card resource name                         |
+| `voltage_level`  | `float64` | Voltage level to be set represented as float64 |
+| `status_message` | `char *`  | Stores status or error message                 |
 
 <h3 id="return-value-1">Return Value</h3>
 
-| Error | Description                   |
-|-------|-------------------------------|
-| `0`   | Voltage was set successfully. |
+| Error Code | Description                  |
+|------------|------------------------------|
+| `0`        | Voltage was set successfully |
 
 <h2 id="daqclose">DAQClose</h2>
 <h3 id="header-2">Header</h3>
@@ -60,16 +60,16 @@ Closes the DAQ analog output channel by writing a zero voltage to the specified 
 
 <h3 id="parameter-2">Parameter</h3>
 
-| Parameter        | Type     | Description                     |
-|------------------|----------|---------------------------------|
-| `resource_name`  | `char *` | DAQ card resource name.         |
-| `status_message` | `char *` | Stores status or error message. |
+| Parameter        | Type     | Description                    |
+|------------------|----------|--------------------------------|
+| `resource_name`  | `char *` | DAQ card resource name         |
+| `status_message` | `char *` | Stores status or error message |
 
 <h3 id="return-value-2">Return Value</h3>
 
-| Error | Description                       |
-|-------|-----------------------------------|
-| `0`   | DAQ task was closed successfully. |
+| Error | Description                      |
+|-------|----------------------------------|
+| `0`   | DAQ task was closed successfully |
 
 <h2 id="daqcounterpulsegeneration">DAQCounterPulseGeneration</h2>
 <h3 id="header-3">Header</h3>
@@ -82,19 +82,19 @@ Generates a finite counter pulse using the specified initial delay, ON time, and
 
 <h3 id="parameter-3">Parameter</h3>
 
-| Parameter        | Type     | Description                     |
-|------------------|----------|---------------------------------|
-| `resource_name`  | `char *` | DAQ card resource name.         |
-| `intial_delay`   | `float`  | Delay before pulse generation.  |
-| `on`             | `float`  | Pulse ON duration in seconds.   |
-| `off`            | `float`  | Pulse OFF duration in seconds.  |
-| `status_message` | `char *` | Stores status or error message. |
+| Parameter        | Type     | Description                    |
+|------------------|----------|--------------------------------|
+| `resource_name`  | `char *` | DAQ card resource name         |
+| `intial_delay`   | `float`  | Delay before pulse generation  |
+| `on`             | `float`  | Pulse ON duration in seconds   |
+| `off`            | `float`  | Pulse OFF duration in seconds  |
+| `status_message` | `char *` | Stores status or error message |
 
 <h3 id="return-value-3">Return Value</h3>
 
-| Error | Description                              |
-|-------|------------------------------------------|
-| `0`   | Pulse generation completed successfully. |
+| Error Code | Description                             |
+|------------|-----------------------------------------|
+| `0`        | Pulse generation completed successfully |
 
 <h2 id="daqcounterpulseconfigstart">DAQCounterPulseConfigStart</h2>
 <h3 id="header-4">Header</h3>
@@ -109,19 +109,19 @@ Creates and starts a continuous counter pulse output task using the specified fr
 
 | Parameter | Type | Description |
 |----|----|----|
-| `resource_name` | `char *` | DAQ card resource name. |
-| `daq_handle` | `TaskHandle *` | Returns the created DAQ task handle. |
-| `intial_delay` | `float` | Delay before pulse generation starts (seconds). |
-| `initial_state` | `int` | Initial output state. |
-| `frequency` | `float` | Pulse frequency in Hz. |
-| `duty_cycle` | `float` | width of the pulse / pulse period (seconds/pulse) in float. |
-| `status_message` | `char *` | Stores status or error message. |
+| `resource_name` | `char *` | DAQ card resource name |
+| `daq_handle` | `TaskHandle *` | Returns the created DAQ task handle |
+| `intial_delay` | `float` | Delay before pulse generation starts (seconds) |
+| `initial_state` | `int` | Initial output state |
+| `frequency` | `float` | Pulse frequency in Hz |
+| `duty_cycle` | `float` | Width of the pulse / pulse period (seconds/pulse) in float |
+| `status_message` | `char *` | Stores status or error message |
 
 <h3 id="return-value-4">Return Value</h3>
 
-| Error | Description                              |
-|-------|------------------------------------------|
-| `0`   | Counter pulse task created successfully. |
+| Error Code | Description                             |
+|------------|-----------------------------------------|
+| `0`        | Counter pulse task created successfully |
 
 <h2 id="daqcountpulseclearoff">DAQCountPulseClearOff</h2>
 <h3 id="header-5">Header</h3>
@@ -134,16 +134,16 @@ Clear off pulse count for daq_task_handle.
 
 <h3 id="parameter-5">Parameter</h3>
 
-| Parameter         | Type         | Description             |
-|-------------------|--------------|-------------------------|
-| `status_message`  | `char *`     | DAQ card resource name. |
-| `dap_task_handle` | `TaskHandle` |                         |
+| Parameter | Type | Description |
+|----|----|----|
+| `status_message` | `char *` | DAQ card resource name. |
+| `dap_task_handle` | `TaskHandle` | Address of task represented as TaskHandle pointer |
 
 <h3 id="return-value-5">Return Value</h3>
 
-| Error | Description                            |
-|-------|----------------------------------------|
-| `0`   | Task stopped and cleared successfully. |
+| Error Code | Description                           |
+|------------|---------------------------------------|
+| `0`        | Task stopped and cleared successfully |
 
 <h2 id="daqcounterstategeneration">DAQCounterStateGeneration</h2>
 <h3 id="header-6">Header</h3>
@@ -158,13 +158,13 @@ Generates a counter output with a specified default idle state after an initial 
 
 | Parameter | Type | Description |
 |----|----|----|
-| `resource_name` | `char *` | DAQ card resource name. |
-| `initial_delay` | `float` | Delay before the counter output is generated (seconds). |
-| `default_state` | `int` | Specifies the default output state. `0` = Low (Powered On), `1` = High (Powered Off). |
-| `status_message` | `char *` | Stores status or error message. |
+| `resource_name` | `char *` | DAQ card resource name |
+| `initial_delay` | `float` | Delay before the counter output is generated (seconds) |
+| `default_state` | `int` | Specifies the default output state. `0` = Low (Powered On), `1` = High (Powered Off) |
+| `status_message` | `char *` | Stores status or error message |
 
 <h3 id="return-value-6">Return Value</h3>
 
-| Error | Description                           |
-|-------|---------------------------------------|
-| `0`   | Counter state generated successfully. |
+| Error Code | Description                          |
+|------------|--------------------------------------|
+| `0`        | Counter state generated successfully |

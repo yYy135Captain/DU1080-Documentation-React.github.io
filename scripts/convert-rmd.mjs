@@ -70,7 +70,7 @@ cleaned = cleaned.replace( /\s*\{(?:-?|#[^}]+|\.[^}]+)\}\s*$/gm, "", )
 cleaned = cleaned.replace( /^(#{1,6})\s+\*\*(.+?)\*\*\s*$/gm, "$1 $2", )
 
 /* <0 in the table will change into * &lt;0 */
-cleaned = cleaned.replace( /<(?=\s*-?\d)/g, "< ;",)
+cleaned = cleaned.replace( /<(?=\s*-?\d)/g, "< ",)
 
 /* clean space end of each line */
 cleaned = cleaned .split(/\r?\n/) .map((line) => line.trimEnd()) .join("\n")

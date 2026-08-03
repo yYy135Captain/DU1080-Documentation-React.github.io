@@ -18,10 +18,10 @@ This function has no parameters.
 
 <h3 id="return-value">Return Value</h3>
 
-| Error | Description |
+| Error Code | Description |
 |----|----|
-| `0` | Initialization completed successfully. |
-| Non-zero | An MxFoundation, device, ARINC 429, OR ARINC 708 initialization operation failed. |
+| `0` | Initialization completed successfully |
+| Non-zero | An MxFoundation, device, ARINC 429, OR ARINC 708 initialization operation failed |
 
 <h2 id="mxfoundationclose">MxFoundationClose</h2>
 <h3 id="header-1">Header</h3>
@@ -55,10 +55,10 @@ This function has no parameter.
 
 <h3 id="return-value-2">Return Value</h3>
 
-| Error    | Description                                             |
-|----------|---------------------------------------------------------|
-| `0`      | All ARINC 429 channels were initialized successfully.   |
-| Non-zero | One or more ARINC 429 initialization operations failed. |
+| Error    | Description                                            |
+|----------|--------------------------------------------------------|
+| `0`      | All ARINC 429 channels were initialized successfully   |
+| Non-zero | One or more ARINC 429 initialization operations failed |
 
 <h2 id="arinc429setupreceivedata">Arinc429SetupReceiveData</h2>
 <h3 id="header-3">Header</h3>
@@ -73,18 +73,18 @@ Configures an ARINC 429 receive channel by setting the receive speed and parity,
 
 | Parameter | Type | Description |
 |----|----|----|
-| `receive_channel` | `uint64` | Receive channel index to configure. |
-| `speed` | `BOOL` | Receive speed selection (`0` = 12.5 kbps, non-zero = 100 kbps). |
-| `parity` | `int` | Parity mode (`0` = even, `1` = odd). |
-| `count` | `uint64` | Number of ARINC 429 data records to allocate. |
-| `*receive_buffer` | `HMXF_BUFFER` | Pointer that receives the allocated receive buffer handle. |
+| `receive_channel` | `uint64` | Receive channel index to configure |
+| `speed` | `BOOL` | Receive speed selection (`0` = 12.5 kbps, non-zero = 100 kbps) |
+| `parity` | `int` | Parity mode (`0` = even, `1` = odd) |
+| `count` | `uint64` | Number of ARINC 429 data records to allocate |
+| `*receive_buffer` | `HMXF_BUFFER` | Pointer that receives the allocated receive buffer handle |
 
 <h3 id="return-value-3">Return Value</h3>
 
-| Error | Description |
+| Error Code | Description |
 |----|----|
-| `0` | Receive channel configured successfully. |
-| Non-Zero | Failed to configure the receive channel or allocate/start the receive buffer. |
+| `0` | Receive channel configured successfully |
+| Non-Zero | Failed to configure the receive channel or allocate/start the receive buffer |
 
 <h2 id="arinc429senddata">Arinc429SendData</h2>
 <h3 id="header-4">Header</h3>
@@ -99,21 +99,21 @@ Configures an ARINC 429 transmit channel and sends data using a periodic transmi
 
 | Parameter | Type | Description |
 |----|----|----|
-| `*arinc429_transmit_buffer` | `HMXF_BUFFER` | Stores the transmit buffer handle. |
-| `*arinc429_schedule_handle` | `HMXF_SCHED` | Stores the periodic schedule handle. |
-| `*transmit_channel` | `uint64` | Selects the ARINC 429 transmit channel. |
-| `send_rate` | `int` | Sets the periodic transmission rate. |
-| `speed` | `BOOL` | Selects transmit speed. |
-| `parity` | `int` | Selects Parity. |
-| `transmit_data` | `unsigned int` | Data word to transmit. |
-| `delay` | `unsigned int` | Delay applied after starting transmission. |
+| `*arinc429_transmit_buffer` | `HMXF_BUFFER` | Stores the transmit buffer handle |
+| `*arinc429_schedule_handle` | `HMXF_SCHED` | Stores the periodic schedule handle |
+| `*transmit_channel` | `uint64` | Selects the ARINC 429 transmit channel |
+| `send_rate` | `int` | Sets the periodic transmission rate |
+| `speed` | `BOOL` | Selects transmit speed |
+| `parity` | `int` | Selects Parity |
+| `transmit_data` | `unsigned int` | Data word to transmit |
+| `delay` | `unsigned int` | Delay applied after starting transmission |
 
 <h3 id="return-value-4">Return Value</h3>
 
-| Error    | Description                                                   |
-|----------|---------------------------------------------------------------|
-| `0`      | Data transmission setup completed successfully.               |
-| Non-Zero | An error occurred while configuring or starting transmission. |
+| Error Code | Description                                                  |
+|------------|--------------------------------------------------------------|
+| `0`        | Data transmission setup completed successfully               |
+| Non-Zero   | An error occurred while configuring or starting transmission |
 
 <h2 id="arinc429receivedata">Arinc429ReceiveData</h2>
 <h3 id="header-5">Header</h3>
@@ -128,16 +128,16 @@ Reads ARINC 429 records from a receive a acquisition buffer and returns the data
 
 | Parameter | Type | Description |
 |----|----|----|
-| `count` | `uint64` | Number of ARINC 429 records for which host-buffer space is allocated. |
-| `receive_buffer` | `HMXF_BUFFER` | Handle of the receive acquisition buffer to read. |
-| `*received_data` | `uint32` | Pointer that receives the data word from the first ARINC 429 record. |
+| `count` | `uint64` | Number of ARINC 429 records for which host-buffer space is allocated |
+| `receive_buffer` | `HMXF_BUFFER` | Handle of the receive acquisition buffer to read |
+| `*received_data` | `uint32` | Pointer that receives the data word from the first ARINC 429 record |
 
 <h3 id="return-value-5">Return Value</h3>
 
-| Error    | Description                                                 |
-|----------|-------------------------------------------------------------|
-| `0`      | The receive-buffer read completed successfully.             |
-| Non-Zero | Memory allocation or an ARINC 429 receive operation failed. |
+| Error Code | Description                                                |
+|------------|------------------------------------------------------------|
+| `0`        | The receive-buffer read completed successfully             |
+| Non-Zero   | Memory allocation or an ARINC 429 receive operation failed |
 
 <h2 id="arinc429freebuffers">Arinc429FreeBuffers</h2>
 <h3 id="header-6">Header</h3>
@@ -152,9 +152,9 @@ Releases the ARINC 429 periodic transmission schedule and transmit buffer. It al
 
 | Parameter | Type | Description |
 |----|----|----|
-| `arinc429_transmit_buffer` | `HMXF_BUFFER` | Handle of the periodic transmit buffer to release. |
-| `arinc429_receive_buffer` | `HMXF_BUFFER` | Handle of the receive acquisition buffer to stop and close. |
-| `arinc429_schedule_handle` | `HMXF_SCHED` | Handle of the periodic transmission schedule to release. |
+| `arinc429_transmit_buffer` | `HMXF_BUFFER` | Handle of the periodic transmit buffer to release |
+| `arinc429_receive_buffer` | `HMXF_BUFFER` | Handle of the receive acquisition buffer to stop and close |
+| `arinc429_schedule_handle` | `HMXF_SCHED` | Handle of the periodic transmission schedule to release |
 
 <h3 id="return-value-6">Return Value</h3>
 
@@ -173,16 +173,16 @@ Performs an ARINC 429 loopback self-test by transmitting a data word, receiving 
 
 | Parameter | Type | Description |
 |----|----|----|
-| `transmit_channel` | `uint64` | ARINC 429 transmit channel used for the self-test. |
-| `receive_channel` | `uint64` | ARINC 429 receive channel used for the self-test. |
-| `data` | `unsigned int` | ARINC 429 data word transmitted during the self-test. |
+| `transmit_channel` | `uint64` | ARINC 429 transmit channel used for the self-test |
+| `receive_channel` | `uint64` | ARINC 429 receive channel used for the self-test |
+| `data` | `unsigned int` | ARINC 429 data word transmitted during the self-test |
 
 <h3 id="return-value-7">Return Value</h3>
 
-| Error | Description |
+| Error Code | Description |
 |----|----|
-| `0` | The ARINC 429 self-test completed successfully. |
-| Non-Zero | One or more ARINC 429 data word transmitted during the self-test. |
+| `0` | The ARINC 429 self-test completed successfully |
+| Non-Zero | One or more ARINC 429 data word transmitted during the self-test |
 
 <h2 id="arinc708channelinitialize">ARINC708ChannelInitialize</h2>
 <h3 id="header-8">Header</h3>
@@ -199,10 +199,10 @@ This function has no parameters.
 
 <h3 id="return-value-8">Return Value</h3>
 
-| Error    | Description                                                     |
-|----------|-----------------------------------------------------------------|
-| `0`      | ARINC 708 modules and channels were initialized successfully.   |
-| Non-Zero | An ARINC 708 module or channel initialization operation failed. |
+| Error Code | Description                                                    |
+|------------|----------------------------------------------------------------|
+| `0`        | ARINC 708 modules and channels were initialized successfully   |
+| Non-Zero   | An ARINC 708 module or channel initialization operation failed |
 
 <h2 id="arinc708setupreceivedata">Arinc708SetupReceiveData</h2>
 <h3 id="header-9">Header</h3>
@@ -217,15 +217,15 @@ Configures and ARINC 708 receive channel by allocating a receive acquisition buf
 
 | Parameter | Type | Description |
 |----|----|----|
-| `receive_channel` | `uint64` | Index of the ARINC 708 receive channel to configure. |
-| `receive_buffer` | `HMXF_BUFFER *` | Pointer that receives the allocated receive buffer handle. |
+| `receive_channel` | `uint64` | Index of the ARINC 708 receive channel to configure |
+| `receive_buffer` | `HMXF_BUFFER *` | Pointer that receives the allocated receive buffer handle |
 
 <h3 id="return-value-9">Return Value</h3>
 
-| Error    | Description                                                 |
-|----------|-------------------------------------------------------------|
-| `0`      | The receive channel was configured successfully.            |
-| Non-Zero | Failed to allocate or start the receive acquisition buffer. |
+| Error Code | Description                                                |
+|------------|------------------------------------------------------------|
+| `0`        | The receive channel was configured successfully            |
+| Non-Zero   | Failed to allocate or start the receive acquisition buffer |
 
 <h2 id="arinc708senddata">Arinc708SendData</h2>
 <h3 id="header-10">Header</h3>
@@ -240,18 +240,18 @@ Configures an ARINC 708 transmit channel, creates a periodic transmission schedu
 
 | Parameter | Type | Description |
 |----|----|----|
-| `arinc708_transmit_buffer` | `HMXF_BUFFER *` | Pointer that receive the transmit buffer handle. |
-| `arinc708_schedule_handle` | `HMXF_SCHED *` | Pointer the receives the periodic schedule handle. |
-| `transmit_channel` | `uint64` | Index of the ARINC 708 transmit channel. |
-| `send_rate` | `int` | Periodic transmission rate. |
-| `transmit_data` | `unsigned int` | Data value written into the transmit records. |
+| `arinc708_transmit_buffer` | `HMXF_BUFFER *` | Pointer that receive the transmit buffer handle |
+| `arinc708_schedule_handle` | `HMXF_SCHED *` | Pointer the receives the periodic schedule handle |
+| `transmit_channel` | `uint64` | Index of the ARINC 708 transmit channel |
+| `send_rate` | `int` | Periodic transmission rate |
+| `transmit_data` | `unsigned int` | Data value written into the transmit records |
 
 <h3 id="return-value-10">Return Value</h3>
 
-| Error    | Description                                              |
-|----------|----------------------------------------------------------|
-| `0`      | Periodic transmission was configured successfully.       |
-| Non-Zero | Failed to configure or start the ARINC 708 transmission. |
+| Error Code | Description                                             |
+|------------|---------------------------------------------------------|
+| `0`        | Periodic transmission was configured successfully       |
+| Non-Zero   | Failed to configure or start the ARINC 708 transmission |
 
 <h2 id="arinc708receivedata">Arinc708ReceiveData</h2>
 <h3 id="header-11">Header</h3>
@@ -272,10 +272,10 @@ Reads ARINC 708 records from a receive acquisition buffer and returns a data val
 
 <h3 id="return-value-11">Return Value</h3>
 
-| Error    | Description                                                 |
-|----------|-------------------------------------------------------------|
-| `0`      | The receive-buffer read completed successfully.             |
-| Non-Zero | Memory allocation or an ARINC 708 receive operation failed. |
+| Error Code | Description                                                |
+|------------|------------------------------------------------------------|
+| `0`        | The receive-buffer read completed successfully             |
+| Non-Zero   | Memory allocation or an ARINC 708 receive operation failed |
 
 <h2 id="arinc708freebuffers">Arinc708FreeBuffers</h2>
 <h3 id="header-12">Header</h3>
@@ -290,9 +290,9 @@ Releases the ARINC 708 periodic transmission schedule and transmit buffer. It al
 
 | Parameter | Type | Description |
 |----|----|----|
-| `arinc708_transmit_buffer` | `HMXF_BUFFER` | Handle of the periodic transmit buffer to release. |
-| `arinc708_receive_buffer` | `HMXF_BUFFER` | Handle of the receive acquisition buffer to stop and close. |
-| `arinc708_schedule_handle` | `HMXF_SCHED` | Handle of the periodic transmission schedule to release. |
+| `arinc708_transmit_buffer` | `HMXF_BUFFER` | Handle of the periodic transmit buffer to release |
+| `arinc708_receive_buffer` | `HMXF_BUFFER` | Handle of the receive acquisition buffer to stop and close |
+| `arinc708_schedule_handle` | `HMXF_SCHED` | Handle of the periodic transmission schedule to release |
 
 <h3 id="return-value-12">Return Value</h3>
 
@@ -309,15 +309,15 @@ This function does not return a value.
 
 | Parameter | Type | Description |
 |----|----|----|
-| `transmit_channel` | `uint64` | ARINC 708 transmit channel used for the self-test. |
-| `receive_channel` | `uint64` | ARINC 708 receive channel used for the self-test. |
-| `data` | `unsigned int` | Data value transmitted during the self-test. |
+| `transmit_channel` | `uint64` | ARINC 708 transmit channel used for the self-test |
+| `receive_channel` | `uint64` | ARINC 708 receive channel used for the self-test |
+| `data` | `unsigned int` | Data value transmitted during the self-test |
 
 <h3 id="return-value-13">Return Value</h3>
 
-| Error | Description                                     |
-|-------|-------------------------------------------------|
-| `0`   | The ARINC 708 self-test completed successfully. |
+| Error Code | Description                                    |
+|------------|------------------------------------------------|
+| `0`        | The ARINC 708 self-test completed successfully |
 
 <h2 id="arinc708displaydataarray">Arinc708DisplayDataArray</h2>
 <h3 id="header-14">Header</h3>
@@ -332,12 +332,12 @@ Displays the contents of one or more ARINC 708 data records for debugging and ve
 
 | Parameter | Type | Description |
 |----|----|----|
-| `record_number` | `uint64` | Number of ARINC 708 records to display. |
-| `rec` | `MXF_A708_DATAREC *` | Pointer to the first ARINC 708 data record. |
+| `record_number` | `uint64` | Number of ARINC 708 records to display |
+| `rec` | `MXF_A708_DATAREC *` | Pointer to the first ARINC 708 data record |
 
 <h3 id="return-value-14">Return Value</h3>
 
-This function doesn’t return a value.
+This function does not return a value.
 
 <h2 id="setparitybit">SetParityBit</h2>
 <h3 id="header-15">Header</h3>
@@ -352,12 +352,12 @@ Calculates and sets the Most Significant Bit (MSB) parity bit for a 32-bit ARINC
 
 | Parameter | Type | Description |
 |----|----|----|
-| `arinc_word` | `unsigned int` | The 32-bit input word (with or without a pre-existing parity bit). |
-| `*result` | `unsigned int` | The expected ARINC word with parity. |
-| `parity` | `int` | The parity type selection (ARINC_PARITY_EVEN, ODD, or NONE). |
+| `arinc_word` | `unsigned int` | The 32-bit input word (with or without a pre-existing parity bit) |
+| `result` | `unsigned int *` | The expected ARINC word with parity |
+| `parity` | `int` | The parity type selection (ARINC_PARITY_EVEN, ODD, or NONE) |
 
 <h3 id="return-value-15">Return Value</h3>
 
-| Error | Description                                 |
-|-------|---------------------------------------------|
-| `0`   | The parity bit was calculated successfully. |
+| Error Code | Description                                |
+|------------|--------------------------------------------|
+| `0`        | The parity bit was calculated successfully |

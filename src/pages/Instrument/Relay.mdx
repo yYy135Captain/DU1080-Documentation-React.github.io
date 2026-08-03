@@ -1,9 +1,7 @@
 <h1 id="relay">Relay</h1>
 
 <h2 id="overview">Overview</h2>
-The Relay library provides functions for controlling NI switch hardware used in the DU1080 HW4 ATP system.
-
-It supports initialization, relay switching, signal routing, and discuss signal control.
+The Relay library provides functions for controlling NI switch hardware used in the DU1080 HW4 ATP system. It supports initialization, relay switching, signal routing, and discuss signal control.
 
 <h2 id="relayinitialize">RelayInitialize</h2>
 <h3 id="header">Header</h3>
@@ -16,20 +14,20 @@ Creates a switch session and initializes the relay module.
 
 <h3 id="parameter">Parameter</h3>
 
-| Parameter        | Type        | Purpose                       |
-|------------------|-------------|-------------------------------|
-| `resource_name`  | `char *`    | Switch resource name.         |
-| `session`        | `ViSession` | Returns the switch session.   |
-| `test_result`    | `ViBoolean` | Indicates success or failure. |
-| `status_message` | `char *`    | Returns status messages.      |
+| Parameter        | Type        | Purpose                      |
+|------------------|-------------|------------------------------|
+| `resource_name`  | `char *`    | Switch resource name         |
+| `session`        | `ViSession` | Returns the switch session   |
+| `test_result`    | `ViBoolean` | Indicates success or failure |
+| `status_message` | `char *`    | Returns status messages      |
 
 <h3 id="return-value">Return Value</h3>
 
-| Error | Description                            |
-|-------|----------------------------------------|
-| 0     | Initialization completed successfully. |
-| 1     | Failed to open VISA resource manager.  |
-| 2     | Failed to open VISA resource.          |
+| Error Code | Description                           |
+|------------|---------------------------------------|
+| 0          | Initialization completed successfully |
+| 1          | Failed to open VISA resource manager  |
+| 2          | Failed to open VISA resource          |
 
 <h2 id="relayset">RelaySet</h2>
 <h3 id="header-1">Header</h3>
@@ -42,18 +40,18 @@ Changes the state of a specified relay channel.
 
 <h3 id="parameters">Parameters</h3>
 
-| Parameter   | Type        | Purpose                 |
-|-------------|-------------|-------------------------|
-| `session`   | `ViSession` | Active switch session.  |
-| `channel`   | `char[]`    | Relay channel number.   |
-| `operation` | `int`       | Relay state (NC OR NO). |
+| Parameter   | Type        | Purpose                |
+|-------------|-------------|------------------------|
+| `session`   | `ViSession` | Active switch session  |
+| `channel`   | `char[]`    | Relay channel number   |
+| `operation` | `int`       | Relay state (NC OR NO) |
 
 <h3 id="return-value-1">Return Value</h3>
 
-| Error | Description                       |
-|-------|-----------------------------------|
-| 0     | Relay state changed successfully. |
-| \< ;0   | NI Switch API error.              |
+| Error Code | Description                       |
+|------------|-----------------------------------|
+| 0          | Relay state changed successfully. |
+| \<  0       | NI Switch API error.              |
 
 <h2 id="relayclose">RelayClose</h2>
 <h3 id="header-2">Header</h3>
@@ -66,19 +64,19 @@ Resets the switch module and closes the active session.
 
 <h3 id="parameters-1">Parameters</h3>
 
-| Parameter        | Type        | Purpose                                |
-|------------------|-------------|----------------------------------------|
-| `session`        | `ViSession` | Active NI Switch session to be closed. |
-| `status_message` | `char *`    | status message represented by string.  |
+| Parameter        | Type        | Purpose                               |
+|------------------|-------------|---------------------------------------|
+| `session`        | `ViSession` | Active NI Switch session to be closed |
+| `status_message` | `char *`    | status message represented by string  |
 
 <h3 id="return-value-2">Return Value</h3>
 
-| Error | Description                           |
-|-------|---------------------------------------|
-| 0     | Session closed successfully.          |
-| \< ;0   | Failed to reset or close the session. |
+| Error Code | Description                           |
+|------------|---------------------------------------|
+| 0          | Session closed successfully.          |
+| \<  0       | Failed to reset or close the session. |
 
-<h2 id="replayopenall">ReplayOpenAll</h2>
+<h2 id="relayopenall">RelayOpenAll</h2>
 <h3 id="header-3">Header</h3>
 
 `int DLLEXPORT _stdcall RelayOpenAll(ViSession session);`
@@ -89,16 +87,16 @@ Disconnects all relay paths on the active switch module.
 
 <h3 id="parameters-2">Parameters</h3>
 
-| Parameter | Type        | Description            |
-|-----------|-------------|------------------------|
-| `session` | `ViSession` | Active switch session. |
+| Parameter | Type        | Description           |
+|-----------|-------------|-----------------------|
+| `session` | `ViSession` | Active switch session |
 
 <h3 id="return-value-3">Return Value</h3>
 
-| Error | Description                     |
-|-------|---------------------------------|
-| 0     | All relays opened successfully. |
-| \< ;0   | Failed to open all relays.      |
+| Error Code | Description                    |
+|------------|--------------------------------|
+| 0          | All relays opened successfully |
+| \< 0        | Failed to open all relays      |
 
 <h2 id="relaysignalset">RelaySignalSet</h2>
 <h3 id="header-4">Header</h3>
@@ -111,21 +109,21 @@ Set the relay state for a specified signal in the signal list.
 
 <h3 id="parameters-3">Parameters</h3>
 
-| Parameter        | Type        | Description                          |
-|------------------|-------------|--------------------------------------|
-| `session`        | `ViSession` | Active switch session.               |
-| `signal_name`    | `char *`    | Name of the signal to change.        |
-| `signal_list`    | `void *`    | List of available relay signals.     |
-| `status_message` | `char *`    | Stores the operation status message. |
+| Parameter        | Type        | Description                         |
+|------------------|-------------|-------------------------------------|
+| `session`        | `ViSession` | Active switch session               |
+| `signal_name`    | `char *`    | Name of the signal to change        |
+| `signal_list`    | `void *`    | List of available relay signals     |
+| `status_message` | `char *`    | Stores the operation status message |
 
 <h3 id="return-value-4">Return Value</h3>
 
-| Error | Description                        |
-|-------|------------------------------------|
-| 0     | Signal state updated successfully. |
-| -1    | Signal list has not been loaded.   |
-| -2    | Invalid relay operation.           |
-| -3    | Signal was not found.              |
+| Error Code | Description                       |
+|------------|-----------------------------------|
+| 0          | Signal state updated successfully |
+| -1         | Signal list has not been loaded   |
+| -2         | Invalid relay operation           |
+| -3         | Signal was not found              |
 
 <h2 id="setnicdiscrete">SetNICDiscrete</h2>
 <h3 id="header-5">Header</h3>
@@ -138,18 +136,18 @@ Configures relay settings for NIC ID.
 
 <h3 id="parameters-4">Parameters</h3>
 
-| Parameter        | Type          | Description            |
-|------------------|---------------|------------------------|
-| `session`        | `ViSession`   | Active switch session. |
-| `test_result`    | `ViBoolean *` | Return test status.    |
-| `status_message` | `char *`      | Stores status message. |
+| Parameter        | Type          | Description           |
+|------------------|---------------|-----------------------|
+| `session`        | `ViSession`   | Active switch session |
+| `test_result`    | `ViBoolean *` | Return test status    |
+| `status_message` | `char *`      | Stores status message |
 
 <h3 id="return-value-5">Return Value</h3>
 
-| Error | Description                                |
-|-------|--------------------------------------------|
-| 0     | NIC discrete configured successfully.      |
-| \< ;0   | Failed to configure NIC discrete settings. |
+| Error | Description                               |
+|-------|-------------------------------------------|
+| 0     | NIC discrete configured successfully      |
+| \< 0   | Failed to configure NIC discrete settings |
 
 <h2 id="setnicdiscretebydata">SetNICDiscreteByData</h2>
 <h3 id="header-6">Header</h3>
@@ -164,16 +162,16 @@ Sets the NIC discrete signals based on the input data.
 
 | Parameter | Type | Description |
 |----|----|----|
-| `session` | `ViSession` | Active switch session. |
-| `data` | `char *` | Input data used to configure NIC discrete signals. |
-| `status_message` | `char *` | Stores status message. |
+| `session` | `ViSession` | Active switch session |
+| `data` | `char *` | Input data used to configure NIC discrete signals |
+| `status_message` | `char *` | Stores status message |
 
 <h3 id="return-value-6">Return Value</h3>
 
-| Error | Description                                   |
-|-------|-----------------------------------------------|
-| 0     | NIC discrete signals configured successfully. |
-| \< ;0   | Failed to configure NIC discrete signals.     |
+| Error Code | Description                                  |
+|------------|----------------------------------------------|
+| 0          | NIC discrete signals configured successfully |
+| \< 0        | Failed to configure NIC discrete signals     |
 
 <h2 id="setprocdiscretebydata">SetProcDiscreteByData</h2>
 <h3 id="header-7">Header</h3>
@@ -186,16 +184,16 @@ Configures PROC discrete signals using the input data.
 
 <h3 id="parameters-6">Parameters</h3>
 
-| Parameter        | Type         | Description                           |
-|------------------|--------------|---------------------------------------|
-| `session`        | `ViSession`  | Active switch session.                |
-| `data`           | `unit32_t *` | Input data for PROC DISCRETE SIGNALS. |
-| `signal_list`    | `void *`     | List of relay signals.                |
-| `status_message` | `char *`     | Stores status message.                |
+| Parameter        | Type         | Description                          |
+|------------------|--------------|--------------------------------------|
+| `session`        | `ViSession`  | Active switch session                |
+| `data`           | `unit32_t *` | Input data for PROC DISCRETE SIGNALS |
+| `signal_list`    | `void *`     | List of relay signals                |
+| `status_message` | `char *`     | Stores status message                |
 
 <h3 id="return-value-7">Return Value</h3>
 
-| Error | Description                                    |
-|-------|------------------------------------------------|
-| 0     | PROC discrete signals configured successfully. |
-| \< ;0   | Failed to configure PROC discrete signals.     |
+| Error | Description                                   |
+|-------|-----------------------------------------------|
+| 0     | PROC discrete signals configured successfully |
+| \< 0   | Failed to configure PROC discrete signals     |

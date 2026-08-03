@@ -1,7 +1,7 @@
 <h1 id="pickeringrelay">PickeringRelay</h1>
 
 <h2 id="overview">Overview</h2>
-The **PickeringRealy** module provides an interface for controlling a Pickering relay card through the Pickering PXI driver library. It supports initializing the relay card, changing the state of individual relay channels, and closing the relay session after operations are complete. The module uses the Pickering PXI driver to communicate wih the relay hardware.
+The **PickeringRelay** module provides an interface for controlling a Pickering relay card through the Pickering PXI driver library. It supports initializing the relay card, changing the state of individual relay channels, and closing the relay session after operations are complete. The module uses the Pickering PXI driver to communicate wih the relay hardware.
 
 <h2 id="pickeringrelayinitialize">PickeringRelayInitialize</h2>
 <h3 id="header">Header</h3>
@@ -16,16 +16,16 @@ Initializes the Pickering relay card and creates a communication session using t
 
 | Parameter | Type | Description |
 |----|----|----|
-| `visa_resource_name` | `char *` | visa resource name |
-| `session_handle` | `ViSession` | Returns the created session handle. |
-| `test_result` | `ViSession` | Either VI_TRUE or VI_FALSE to indicate initialization output. |
-| `status_message` | `char *` | Stores the initialization status and error message. |
+| `visa_resource_name` | `char *` | Visa resource name |
+| `session_handle` | `ViSession` | Returns the created session handle |
+| `test_result` | `ViSession` | Either VI_TRUE or VI_FALSE to indicate initialization output |
+| `status_message` | `char *` | Stores the initialization status and error message |
 
 <h3 id="return-value">Return Value</h3>
 
-| Error | Description                          |
-|-------|--------------------------------------|
-| `0`   | Relay card initialized successfully. |
+| Error Code | Description                         |
+|------------|-------------------------------------|
+| `0`        | Relay card initialized successfully |
 
 <h2 id="pickeringrelayaction">PickeringRelayAction</h2>
 <h3 id="header-1">Header</h3>
@@ -40,17 +40,17 @@ Sets channel state based on specified action.
 
 | Parameter | Type | Description |
 |----|----|----|
-| `session_handle` | `ViSession` | Handle to the initialized Pickering relay session. |
+| `session_handle` | `ViSession` | Handle to the initialized Pickering relay session |
 | `action` | `char *` | Requested relay action |
-| `channel_id` | `int` | Relay channel number to control. |
-| `status_message` | `char *` | Stores status or error message. |
+| `channel_id` | `int` | Relay channel number to control |
+| `status_message` | `char *` | Stores status or error message |
 
 <h3 id="return-value-1">Return Value</h3>
 
-| Error | Description                             |
-|-------|-----------------------------------------|
-| `0`   | Relay operation completed successfully. |
-| `-1`  | Failed to change the relay state.       |
+| Error Code | Description                            |
+|------------|----------------------------------------|
+| `0`        | Relay operation completed successfully |
+| `-1`       | Failed to change the relay state       |
 
 <h2 id="pickeringrelayclose">PickeringRelayClose</h2>
 <h3 id="header-2">Header</h3>
@@ -63,13 +63,13 @@ Closes the Pickering relay session and releases the associated hardware resource
 
 <h3 id="parameter-2">Parameter</h3>
 
-| Parameter        | Type        | Description                                   |
-|------------------|-------------|-----------------------------------------------|
-| `session_handle` | `ViSession` | Handle of the active Pickering relay session. |
-| `status_message` | `char *`    | Stores status or error message.               |
+| Parameter        | Type        | Description                                  |
+|------------------|-------------|----------------------------------------------|
+| `session_handle` | `ViSession` | Handle of the active Pickering relay session |
+| `status_message` | `char *`    | Stores status or error message               |
 
 <h3 id="return-value-2">Return Value</h3>
 
-| Error | Description                        |
-|-------|------------------------------------|
-| `0`   | Relay session closed successfully. |
+| Error Code | Description                       |
+|------------|-----------------------------------|
+| `0`        | Relay session closed successfully |

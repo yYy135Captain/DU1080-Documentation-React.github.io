@@ -14,22 +14,22 @@ Read the status of a graphics processor discrete input using the specified virtu
 
 <h3 id="parameter">Parameter</h3>
 
-| Parameter       | Type     | Description                      |
-|-----------------|----------|----------------------------------|
-| `telnet_handle` | `int`    | Telnet connection handle.        |
-| `pin`           | `char *` | Virtual pin name.                |
-| `data_out`      | `int *`  | Stores the discrete input value. |
+| Parameter       | Type     | Description                     |
+|-----------------|----------|---------------------------------|
+| `telnet_handle` | `int`    | Telnet connection handle        |
+| `pin`           | `char *` | Virtual pin name                |
+| `data_out`      | `int *`  | Stores the discrete input value |
 
 <h3 id="return-value">Return Value</h3>
 
-| Error | Description                                |
-|-------|--------------------------------------------|
-| `int` | Error code returned by the read operation. |
+| Error Code | Description                               |
+|------------|-------------------------------------------|
+| `int`      | Error code returned by the read operation |
 
 <h2 id="dsianalogresetlogictest">DSIAnalogResetLogicTest</h2>
 <h3 id="header-1">Header</h3>
 
-    int DLLEXPORT __stdcall DSIAnalogResetLogicTest(int telnet_handle, ViBoolean *bit_pass, char *status_message);
+`int DLLEXPORT __stdcall DSIAnalogResetLogicTest(int telnet_handle, ViBoolean *bit_pass, char *status_message);`
 
 <h3 id="purpose-1">Purpose</h3>
 
@@ -37,17 +37,17 @@ Performs the analog reset logic verification by controlling the AV reset signal 
 
 <h3 id="parameter-1">Parameter</h3>
 
-| Parameter        | Type          | Description                     |
-|------------------|---------------|---------------------------------|
-| `telnet_handle`  | `int`         | Telnet connection handle.       |
-| `vi_result`      | `ViBoolean *` | Stores the overall test result. |
-| `status_message` | `char *`      | Stores detailed test messages.  |
+| Parameter        | Type          | Description                    |
+|------------------|---------------|--------------------------------|
+| `telnet_handle`  | `int`         | Telnet connection handle       |
+| `vi_result`      | `ViBoolean *` | Stores the overall test result |
+| `status_message` | `char *`      | Stores detailed test messages  |
 
 <h3 id="return-value-1">Return Value</h3>
 
-| Error | Description                           |
-|-------|---------------------------------------|
-| `int` | Error code generated during the test. |
+| Error Code | Description                          |
+|------------|--------------------------------------|
+| `int`      | Error code generated during the test |
 
 <h2 id="nicexternaldsistatus">NICExternalDSIStatus</h2>
 <h3 id="header-2">Header</h3>
@@ -60,17 +60,17 @@ Reads the status of a NIC discrete input using the specified virtual pin name.
 
 <h3 id="parameter-2">Parameter</h3>
 
-| Parameter       | Type     | Description                      |
-|-----------------|----------|----------------------------------|
-| `telnet_handle` | `int`    | Telnet connection handle.        |
-| `pin`           | `char *` | Virtual pin name.                |
-| `data_out`      | `int *`  | Stores the discrete input value. |
+| Parameter       | Type     | Description                     |
+|-----------------|----------|---------------------------------|
+| `telnet_handle` | `int`    | Telnet connection handle        |
+| `pin`           | `char *` | Virtual pin name                |
+| `data_out`      | `int *`  | Stores the discrete input value |
 
 <h3 id="return-value-2">Return Value</h3>
 
-| Error | Description                                |
-|-------|--------------------------------------------|
-| `int` | Error code returned by the read operation. |
+| Error Code | Description                               |
+|------------|-------------------------------------------|
+| `int`      | Error code returned by the read operation |
 
 <h2 id="pinstringtopinindex">PinStringToPinIndex</h2>
 <h3 id="header-3">Header</h3>
@@ -83,21 +83,21 @@ Converts a virtual pin name into its corresponding pin index. The function valid
 
 <h3 id="parameter-3">Parameter</h3>
 
-| Parameter    | Type     | Description       |
-|--------------|----------|-------------------|
-| `pin_string` | `char *` | Virtual pin name. |
+| Parameter    | Type     | Description      |
+|--------------|----------|------------------|
+| `pin_string` | `char *` | Virtual pin name |
 
 <h3 id="return-value-3">Return Value</h3>
 
-| Error | Description                         |
-|-------|-------------------------------------|
-| `0`   | Parsed pin index.                   |
-| `-1`  | NULL pointer.                       |
-| `-2`  | Invalid string length.              |
-| `-3`  | Missing `"DIN` prefix.              |
-| `-4`  | Invalid numeric characters.         |
-| `-5`  | Invalid numeric format.             |
-| `-6`  | Parsed value exceeds integer range. |
+| Error Code | Description                        |
+|------------|------------------------------------|
+| `0`        | Parsed pin index                   |
+| `-1`       | NULL pointer                       |
+| `-2`       | Invalid string length              |
+| `-3`       | Missing `"DIN` prefix              |
+| `-4`       | Invalid numeric characters         |
+| `-5`       | Invalid numeric format             |
+| `-6`       | Parsed value exceeds integer range |
 
 <h2 id="retrievedata">RetrieveData</h2>
 <h3 id="header-4">Header</h3>
@@ -110,17 +110,17 @@ Applies a bit mask to the input data and converts the result into a binary discr
 
 <h3 id="parameter-4">Parameter</h3>
 
-| Parameter    | Type    | Description                                   |
-|--------------|---------|-----------------------------------------------|
-| `data`       | `int`   | Input register value.                         |
-| `bit_mask`   | `int`   | Bit mask used to evaluate the input.          |
-| `final_data` | `int *` | Stores the resulting discrete value (0 or 1). |
+| Parameter    | Type    | Description                                  |
+|--------------|---------|----------------------------------------------|
+| `data`       | `int`   | Input register value                         |
+| `bit_mask`   | `int`   | Bit mask used to evaluate the input          |
+| `final_data` | `int *` | Stores the resulting discrete value (0 or 1) |
 
 <h3 id="return-value-4">Return Value</h3>
 
-| Error | Description                      |
-|-------|----------------------------------|
-| `0`   | Function completed successfully. |
+| Error Code | Description                     |
+|------------|---------------------------------|
+| `0`        | Function completed successfully |
 
 <h2 id="writediscretedata">WriteDiscreteData</h2>
 <h3 id="header-5">Header</h3>
@@ -135,17 +135,17 @@ Writes bit-masked discrete data to the specified device register and verifies th
 
 | Parameter | Type | Description |
 |----|----|----|
-| `telnet_handle` | `int` | Telnet connection handle. |
-| `address` | `unsigned long` | Register address to write. |
-| `data` | `uint32_t` | Data to be written. |
-| `bit_mask` | `unsigned int` | Bit mask indicating which bits will be updated. |
+| `telnet_handle` | `int` | Telnet connection handle |
+| `address` | `unsigned long` | Register address to write |
+| `data` | `uint32_t` | Data to be written |
+| `bit_mask` | `unsigned int` | Bit mask indicating which bits will be updated |
 
 <h3 id="return-value-5">Return Value</h3>
 
-| Error | Description                        |
-|-------|------------------------------------|
-| `0`   | Write completed successfully.      |
-| `1`   | Verification failed after writing. |
+| Error Code | Description                       |
+|------------|-----------------------------------|
+| `0`        | Write completed successfully      |
+| `1`        | Verification failed after writing |
 
 <h2 id="readdiscretedata">ReadDiscreteData</h2>
 <h3 id="header-6">Header</h3>
@@ -158,19 +158,19 @@ Reads discrete register data from the specified address and applies a bit mask b
 
 <h3 id="parameter-6">Parameter</h3>
 
-| Parameter       | Type            | Description                        |
-|-----------------|-----------------|------------------------------------|
-| `telnet_handle` | `int`           | Telnet connection handle.          |
-| `address`       | `unsigned long` | Register address to write.         |
-| `final_data`    | `uint32_t *`    | Stores the masked register value.  |
-| `bit_mask`      | `int`           | Mask spplied to the returned data. |
+| Parameter       | Type            | Description                       |
+|-----------------|-----------------|-----------------------------------|
+| `telnet_handle` | `int`           | Telnet connection handle          |
+| `address`       | `unsigned long` | Register address to write         |
+| `final_data`    | `uint32_t *`    | Stores the masked register value  |
+| `bit_mask`      | `int`           | Mask spplied to the returned data |
 
 <h3 id="return-value-6">Return Value</h3>
 
-| Error | Description                  |
-|-------|------------------------------|
-| `0`   | Read completed successfully. |
-| `1`   | Read operation failed.       |
+| Error Code | Description                 |
+|------------|-----------------------------|
+| `0`        | Read completed successfully |
+| `1`        | Read operation failed       |
 
 <h2 id="readnicdiscretedata">ReadNICDiscreteData</h2>
 <h3 id="header-7">Header</h3>
@@ -185,14 +185,14 @@ Reads discrete data from the Network Interface Card (NIC), extracts the returned
 
 | Parameter | Type | Description |
 |----|----|----|
-| `telnet_handle` | `int` | Telnet connection handle. |
-| `address` | `unsigned long` | NIC register address to read. |
-| `final_data` | `uint32_t *` | Pointer used to stores the masked register value. |
-| `bit_mask` | `int` | Bit mask applied to the returned register value. |
+| `telnet_handle` | `int` | Telnet connection handle |
+| `address` | `unsigned long` | NIC register address to read |
+| `final_data` | `uint32_t *` | Pointer used to stores the masked register value |
+| `bit_mask` | `int` | Bit mask applied to the returned register value |
 
 <h3 id="return-value-7">Return Value</h3>
 
-| Error | Description                                           |
-|-------|-------------------------------------------------------|
-| `0`   | Read completed successfully.                          |
-| `-1`  | Failed to retrieve valid data from the HBIT response. |
+| Error Code | Description                                          |
+|------------|------------------------------------------------------|
+| `0`        | Read completed successfully                          |
+| `-1`       | Failed to retrieve valid data from the HBIT response |
