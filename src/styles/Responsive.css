@@ -331,11 +331,11 @@ form.search-bar {
 
 /* Main content */
 .content {
-    width: 100%;
+    min-width: 0;
     height: auto;
     max-width: none;
 
-    padding: 2rem 1.5rem;
+    padding: 1.5rem 1rem;
 
     overflow-x: hidden;
     overflow-y: visible;
