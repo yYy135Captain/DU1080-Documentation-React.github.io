@@ -1,286 +1,301 @@
 
-# InterfaceBox.c {-} 
+# InterfaceBox
 
-## **Overview** {-}
+## **Overview** 
 
-## **InterfaceBoxSlot1HDLCWrapBack** {-}
+Tests interface box slots 1 and 2 by initializing and closing them and testing different RGB and video modes. 
 
-### Header {-}
+## **InterfaceBoxSlot1HDLCWrapBack** 
+
+### Header 
 `int DLLEXPORT __stdcall InterfaceBoxSlot1HDLCWrapBack(int vid, int pid, int value, char *status_message)`
 
-### Purpose {-}
+### Purpose 
 HW_BOX_Slot 1 HDLC wrap back.
 
-### Parameters {-}
-| Name | Type | Purpose |
+### Parameters 
+| Parameter | Type | Description |
 |------|------|-----|
 |`vid`|`int`|HID device vid|
 |`pid`|`int`|HID device pid|
-|`value`|`int`|value must from 1 of (HS_TX_HS0, HS_TX_HS1, HS_TX_HS2, HS_TX_HS3)|
-|`status_message`|`char *`|status msg|
+|`value`|`int`|Value must from 1 of (HS_TX_HS0, HS_TX_HS1, HS_TX_HS2, HS_TX_HS3)|
+|`status_message`|`char *`|Status message|
 
-### Return Values {-}
-|Error Code|Error Description|
-|----------|-----------------|
+### Return Values 
+| Error Code | Description |
+|------------|-------------------|
+| `0` | Success |
+| `-1` | Interface Box Slot 1HDLC Wrap Back initialization fail |
+| `-2` | Interface Box Slot 1HDLC Wrap Back read failed |
+| `-3` | Interface Box Slot 1HDLC Close DU Interface Box failed |
 
+## **InterfaceBoxSlot2HDLCWrapBack** 
 
-## **InterfaceBoxSlot2HDLCWrapBack** {-}
-
-### Header {-}
+### Header 
 `int DLLEXPORT __stdcall InterfaceBoxSlot2HDLCWrapBack(int vid, int pid, int value, char *status_message)`
 
-### Purpose {-}
+### Purpose 
 HW_BOX_Slot 2 HDLC wrap back.
 
-### Parameters {-}
-| Name | Type | Purpose |
+### Parameters 
+| Parameter | Type | Description |
 |------|------|-----|
 |`vid`|`int`|HID device vid|
 |`pid`|`int`|HID device pid|
-|`value`|`int`|value must from one item of (HS_TX_HS0, HS_TX_HS1, HS_TX_HS2, HS_TX_HS3)|
-|`status_message`|`char *`|status msg|
+|`value`|`int`|Value must from one item of (HS_TX_HS0, HS_TX_HS1, HS_TX_HS2, HS_TX_HS3)|
+|`status_message`|`char *`|Status message|
 
-### Return Values {-}
-|Error Code|Error Description|
-|----------|-----------------|
+### Return Values 
+| Error Code | Description |
+|------------|-------------------|
+| `0` | Success |
+| `-1` | Interface Box Slot 2 HDLC Wrap Back initialization fail |
+| `-2` | Interface Box Slot 2 HDLC Wrap Back interface box write fail |
+| `-3` | Interface Box Slot 2 HDLC Wrap Back interface box read fail |
+| `-4` | Interface Box Slot 2 HDLC Wrap Back close DU interface box fail |
 
+## **InterfaceBoxAnalogVideoSet** 
 
-## **InterfaceBoxAnalogVideoSet** {-}
-
-### Header {-}
+### Header 
 `int DLLEXPORT __stdcall InterfaceBoxAnalogVideoSet(int vid, int pid, int value, char *status_message)`
 
-### Purpose {-}
+### Purpose 
 For Analog Video Seletion.
 
-### Parameters {-}
-| Name | Type | Purpose |
+### Parameters 
+| Parameter | Type | Description |
 |------|------|-----|
 |`vid`|`int`|HID device vid|
 |`pid`|`int`|HID device pid|
-|`value`|`int`|value must from one item of (CVBS_ANA_VID_1, COM_VIDEO, S_VIDEO, RGB, CVBS_ANA_VID_2, CVBS_ANA_VID_3)|
-|`status_message`|`char *`|status msg|
+|`value`|`int`|Value must from one item of (CVBS_ANA_VID_1, COM_VIDEO, S_VIDEO, RGB, CVBS_ANA_VID_2, CVBS_ANA_VID_3)|
+|`status_message`|`char *`|Status message|
 
-### Return Values {-}
-|Error Code|Error Description|
-|----------|-----------------|
+### Return Values 
+| Error Code | Description |
+|------------|-------------------|
+| `0` | Success |
+| `-1` | Interface Box Analog Video Set initialization fail |
+| `-2` | Interface Box Analog Video Set read fail | 
+| `-3` | Interface Box Analog Video Set close fail |
 
+## **InterfaceBoxCommandTest** 
 
-## **InterfaceBoxCommandTest** {-}
-
-### Header {-}
+### Header 
 `int DLLEXPORT __stdcall InterfaceBoxCommandTest(int vid, int pid, char *status_message)`
 
-### Purpose {-}
+### Purpose 
 For HW command test.
 
-### Parameters {-}
-| Name | Type | Purpose |
+### Parameters 
+| Parameter | Type | Description |
 |------|------|-----|
 |`vid`|`int`|HID device vid|
 |`pid`|`int`|HID device pid|
-|`status_message`|`char *`|status msg|
+|`status_message`|`char *`|Status message|
 
-### Return Values {-}
-|Error Code|Error Description|
-|----------|-----------------|
+### Return Values 
+| Error Code | Description |
+|------------|-------------------|
+| `0` | Success |
+| `-1` | Interface Box Command Test initialization fail |
+| `-2` | Interface Box Command Test close fail | 
 
 
-## **InterfaceBoxFirmwareVersion** {-}
+## **InterfaceBoxFirmwareVersion** 
 
-### Header {-}
+### Header 
 `int DLLEXPORT __stdcall InterfaceBoxFirmwareVersion(int vid, int pid, int target, ViBoolean *test_result, char *status_message)`
 
-### Purpose {-}
+### Purpose 
 Version confirmation.
 
-### Parameters {-}
-| Name | Type | Purpose |
+### Parameters 
+| Parameter | Type | Description |
 |------|------|-----|
 |`vid`|`int`|HID device vid|
 |`pid`|`int`|HID device pid|
-|`target`|`int`|the estimated correct firmware version|
+|`target`|`int`|The estimated correct firmware version|
 |`test_result`|`ViBoolean *`|1 for pass, 0 for fail|
-|`status_message`|`char *`|status msg|
+|`status_message`|`char *`|Status message|
 
-### Return Values {-}
-|Error Code|Error Description|
+### Return Values 
+|Error Code| Description|
 |----------|-----------------|
 |`0`|DU Interface Box successfully passed firmware version check and successfully closed|
 |`-1`|DU Interface Box failed to initialize|
 |`!=0`|DU interface Box failed to close
 
-## **InterfaceBoxInitialize** {-}
+## **InterfaceBoxInitialize** 
 
-### Header {-}
+### Header 
 `BOOL DLLEXPORT __stdcall InterfaceBoxInitialize(HANDLE *device_handle, int vid, int pid)`
 
-### Purpose {-}
+### Purpose 
 Initialize interface box.
 
-### Parameters {-}
-| Name | Type | Purpose |
+### Parameters 
+| Parameter | Type | Description |
 |------|------|-----|
-|`device_handle`|`HANDLE *`|device handle|
+|`device_handle`|`HANDLE *`|Device handle|
 |`vid`|`int`|HID device vid|
 |`pid`|`int`|HID device pid|
 
-### Return Values {-}
-|Error Code|Error Description|
+### Return Values 
+|Error Code|Description|
 |----------|-----------------|
 |`TRUE`|Found HID device|
 |`FALSE`|Did not find HID device|
 
 
-## **InterfaceBoxWrite** {-}
+## **InterfaceBoxWrite** 
 
-### Header {-}
+### Header 
 `int DLLEXPORT __stdcall InterfaceBoxWrite(HANDLE hid_device_handle, int device, int address, int data)`
 
-### Purpose {-}
+### Purpose 
 Write to interface box.
 
-### Parameters {-}
-| Name | Type | Purpose |
+### Parameters 
+| Parameter | Type | Description |
 |------|------|-----|
-|`hid_device_handle`|`HANDLE`|hid device handle|
-|`device`|`int`|device|
-|`address`|`int`|address|
-|`data`|`int`|data|
+|`hid_device_handle`|`HANDLE`|Hid device handle|
+|`device`|`int`|Device|
+|`address`|`int`|Address|
+|`data`|`int`|Data|
 
-### Return Values {-}
-|Error Code|Error Description|
+### Return Values 
+|Error Code|Description|
 |----------|-----------------|
 |`0`|Writing to interface box was a success|
 |`-1`|Function timed out|
 
-## **InterfaceBoxRead** {-}
+## **InterfaceBoxRead** 
 
-### Header {-}
+### Header 
 `int DLLEXPORT __stdcall InterfaceBoxRead(HANDLE hid_device_handle, int device, int address, int *data_response)`
 
-### Purpose {-}
+### Purpose 
 Read from interface box.
 
-### Parameters {-}
-| Name | Type | Purpose |
+### Parameters 
+| Parameter | Type | Description |
 |------|------|-----|
-|`hid_device_handle`|`HANDLE`|device handle for hid|
-|`device`|`int`|device|
-|`address`|`int`|address|
-|`data_response`|`int *`|data response|
+|`hid_device_handle`|`HANDLE`|Device handle for hid|
+|`device`|`int`|Device|
+|`address`|`int`|Address|
+|`data_response`|`int *`|Data response|
 
-### Return Values {-}
+### Return Values
 Returns the uintVal from the interface box
 Returns -1 if the function timed out
 
-## **SetCVBSMode** {-}
+## **SetCVBSMode** 
 
-### Header {-}
+### Header 
 `int DLLEXPORT __stdcall SetCVBSMode(int vid, int pid, char *status_message)`
 
-### Purpose {-}
+### Purpose 
 Set the CVBS mode.
 
-### Parameters {-}
-| Name | Type | Purpose |
+### Parameters
+| Parameter | Type | Description |
 |------|------|-----|
 |`vid`|`int`|HID device vid|
 |`pid`|`int`|HID device pid|
-|`status_message`|`char *`|status message|
+|`status_message`|`char *`|Status message|
 
-### Return Values {-}
-|Error Code|Error Description|
+### Return Values 
+|Error Code|Description|
 |----------|-----------------|
 |`0`|CVBS Mode set successfully|
 |`-1`|Interface Box did not initialize|
 |`-2`|Write to interface box failed|
 |`-3`|Verification failed|
 
-## **SetComponentVideoMode** {-}
+## **SetComponentVideoMode** 
 
-### Header {-}
+### Header 
 `int DLLEXPORT __stdcall SetComponentVideoMode(int vid, int pid, char *status_message)`
 
-### Purpose {-}
+### Purpose 
 Set video mode for component.
 
-### Parameters {-}
-| Name | Type | Purpose |
+### Parameters 
+| Parameter | Type | Description |
 |------|------|-----|
 |`vid`|`int`|HID device vid|
 |`pid`|`int`|HID device pid|
-|`status_message`|`char *`|status message|
+|`status_message`|`char *`|Status message|
 
-### Return Values {-}
-|Error Code|Error Description|
+### Return Values 
+|Error Code|Description|
 |----------|-----------------|
 |`0`|SetComponentVideoMode set successfully|
 |`-1`|Interface Box did not initialize|
 |`-2`|Write to interface box failed|
 |`-3`|Verification failed|
 
-## **SetSVideoYCMode** {-}
+## **SetSVideoYCMode** 
 
-### Header {-}
+### Header 
 `int DLLEXPORT __stdcall SetSVideoYCMode(int vid, int pid, char *status_message)`
 
-### Purpose {-}
+### Purpose 
 Set SV video to YC mode.
 
-### Parameters {-}
-| Name | Type | Purpose |
+### Parameters
+| Parameter | Type | Description |
 |------|------|-----|
 |`vid`|`int`|HID device vid|
 |`pid`|`int`|HID device pid|
-|`status_message`|`char *`|error message|
+|`status_message`|`char *`|Error message|
 
-### Return Values {-}
-|Error Code|Error Description|
+### Return Values
+|Error Code|Description|
 |----------|-----------------|
 |`0`|SetSVideoYCMode set successfully|
 |`-1`|Interface Box did not initialize|
 |`-2`|Write to interface box failed|
 |`-3`|Verification failed|
 
-## **SetRGBMode** {-}
+## **SetRGBMode** 
 
-### Header {-}
+### Header
 `int DLLEXPORT __stdcall SetRGBMode(int vid, int pid, char *status_message)`
 
-### Purpose {-}
+### Purpose 
 Set color mode.
 
-### Parameters {-}
-| Name | Type | Purpose |
+### Parameters 
+| Parameter | Type | Description |
 |------|------|-----|
 |`vid`|`int`|HID device vid|
 |`pid`|`int`|HID device pid|
-|`status_message`|`char *`|status message|
+|`status_message`|`char *`|Status message|
 
-### Return Values {-}
-|Error Code|Error Description|
+### Return Values 
+|Error Code|Description|
 |----------|-----------------|
 |`0`|SetRGBMode set successfully|
 |`-1`|Interface Box did not initialize|
 |`-2`|Write to interface box failed|
 |`-3`|Verification failed|
 
-## **CloseDUInterfaceBox** {-}
+## **CloseDUInterfaceBox** 
 
-### Header {-}
+### Header 
 `int DLLEXPORT __stdcall CloseDUInterfaceBox(HANDLE hid_device_handle)`
 
-### Purpose {-}
+### Purpose 
 Close DU Interface Box.
 
-### Parameters {-}
-| Name | Type | Purpose |
+### Parameters 
+| Parameter | Type | Description |
 |------|------|-----|
-|`hid_device_handle`|`HANDLE`|hid device handle|
+|`hid_device_handle`|`HANDLE`|Hid device handle|
 
-### Return Values {-}
-|Error Code|Error Description|
+### Return Values 
+|Error Code|Description|
 |----------|-----------------|
 |`0`|DU Interface Box closed successfully|
 

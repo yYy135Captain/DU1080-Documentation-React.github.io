@@ -1,7 +1,8 @@
 
-# Chroma2238.c  
+# Chroma2238  
 
 ## **Overview** 
+Test the Chroma2238 by running, disabling, and loading a command into it
 
 ## **Chroma2238Initialize**
 
@@ -12,15 +13,15 @@
 Initialize a VISA session on Chroma2238.
 
 ### Parameters  
-| Name | Type | Purpose |
+| Parameter | Type | Description |
 |------|------|-----|
-|`port_name`|`char *`|string resource name|
-|`baud_rate`|`long`|rate of bit transmission (long)|
-|`test_result`|`ViBoolean *`|either VI_TRUE or VI_FALSE|
-|`status_message`|`char *`|string error message|
+|`port_name`|`char *`|String resource name|
+|`baud_rate`|`long`|Rate of bit transmission (long)|
+|`test_result`|`ViBoolean *`|Either VI_TRUE or VI_FALSE|
+|`status_message`|`char *`|String error message|
 
 ### Return Values  
-|Error Code|Error Description|
+|Error Code| Description|
 |----------|-----------------|
 |`0`|Initialization was successful|
 |`-1`|Chroma2238 VISA failed to initialize|
@@ -36,13 +37,13 @@ Initialize a VISA session on Chroma2238.
 Writes a command to a device in a session and checks that it was the correct command.
 
 ### Parameters  
-| Name | Type | Purpose |
+| Parameter | Type | Description |
 |------|------|-----|
 |`command`|`char *`|String VISA command to be written|
-|`status_message`|`char *`|string error message|
+|`status_message`|`char *`|String error message|
 
 ### Return Values  
-|Error Code|Error Description|
+|Error Code| Description|
 |----------|-----------------|
 |`0`|Command writing was a success|
 |`-1`|Command failed|
@@ -57,13 +58,13 @@ Writes a command to a device in a session and checks that it was the correct com
 Send timing setting command to the chroma.
 
 ### Parameters  
-| Name | Type | Purpose |
+| Parameter | Type | Description |
 |------|------|-----|
-|`timing_setting`|`int`|timing setting (int)|
-|`status_message`|`char *`|string error message|
+|`timing_setting`|`int`|Timing setting (int)|
+|`status_message`|`char *`|String error message|
 
 ### Return Values  
-|Error Code|Error Description|
+|Error Code|Description|
 |----------|-----------------|
 |`0`|Load timing setting command was a success|
 |`-1`|Command failed|
@@ -78,13 +79,13 @@ Send timing setting command to the chroma.
 Send pattern setting command to Chroma.
 
 ### Parameters  
-| Name | Type | Purpose |
+| Parameter | Type | Description |
 |------|------|-----|
-|`pattern_setting`|`int`|pattern setting (int)|
-|`status_message`|`char *`|string error message|
+|`pattern_setting`|`int`|Pattern setting (int)|
+|`status_message`|`char *`|String error message|
 
 ### Return Values  
-|Error Code|Error Description|
+|Error Code|Description|
 |----------|-----------------|
 |`0`|Load pattern setting command was a success|
 |`-1`|Command failed|
@@ -98,12 +99,12 @@ Send pattern setting command to Chroma.
 Send run command to Chroma.
 
 ### Parameters  
-| Name | Type | Purpose |
+| Parameter | Type | Description |
 |------|------|-----|
-|`status_message`|`char *`|string error message|
+|`status_message`|`char *`|String error message|
 
 ### Return Values  
-|Error Code|Error Description|
+|Error Code| Description|
 |----------|-----------------|
 |`0`|Run command was a success|
 |`-1`|Command failed|
@@ -117,12 +118,12 @@ Send run command to Chroma.
 Send disable command to Chroma.
 
 ### Parameters  
-| Name | Type | Purpose |
+| Parameter | Type | Description |
 |------|------|-----|
-|`status_message`|`char *`|string error message|
+|`status_message`|`char *`|String error message|
 
 ### Return Values  
-|Error Code|Error Description|
+|Error Code|Description|
 |----------|-----------------|
 |`0`|Disable command was a success|
 |`-1`|Command failed|
@@ -136,7 +137,7 @@ Send disable command to Chroma.
 Close vi session.
 
 ### Parameters  
-Void
+This function does not have any parameters.
 
 ### Return Values  
 |Error Code|Error Description|
@@ -152,17 +153,17 @@ Void
 Initializes visa session with baud rate.
 
 ### Parameters  
-| Name | Type | Purpose |
+| Parameter | Type | Description |
 |------|------|-----|
-|`visa_name`|`char *`|string resource name|
-|`baud_rate`|`long`|rate of bit transmission (long)|
+|`visa_name`|`char *`|String resource name|
+|`baud_rate`|`long`|Rate of bit transmission (long)|
 
 ### Return Values  
-|Error Code|Error Description|
+|Error Code| Description|
 |----------|-----------------|
 |`0`|Initialization was successful|
-|`-1`|viOpen was a fail|
-|`-2|viSetAttribute was a fail|
+|`-1`|ViOpen was a fail|
+|`-2`|ViSetAttribute was a fail|
 
 ## **Chroma2238PortToVisaName**  
 
@@ -173,13 +174,13 @@ Initializes visa session with baud rate.
 Converts port to VISA name.
 
 ### Parameters  
-| Name | Type | Purpose |
+| Parameter | Type | Description |
 |------|------|-----|
-|`port_name`|`char *`|port name to be converted|
-|`visa_name`|`char *`|string resource name|
+|`port_name`|`char *`|Port name to be converted|
+|`visa_name`|`char *`|String resource name|
 
 ### Return Values  
-|Error Code|Error Description|
+|Error Code|Description|
 |----------|-----------------|
 |`0`|Conversion was successful|
 
