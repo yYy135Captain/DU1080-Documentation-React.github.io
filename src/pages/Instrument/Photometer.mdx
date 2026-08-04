@@ -1,38 +1,42 @@
 <h1 id="photometer">Photometer</h1>
 
+<h2 id="overview">Overview</h2>
+
+Test display unit using photometer
+
 <h2 id="photometermeasure">PhotometerMeasure</h2>
 
 <h3 id="header">Header</h3>
 
-    int DLLEXPORT __stdcall PhotometerMeasure(unsigned int com_port, double *luminance, double *chromaticity_x, double *chromaticity_y, double *u_prime, double *v_prime)
+    int DLLEXPORT __stdcall PhotometerMeasure(unsigned int com_port, double *luminance, double *chromaticity_x, double *chromaticity_y, double *u_prime, double *v_prime);
 
 <h3 id="purpose">Purpose</h3>
 
-Measure luminance, chromaticity x&y, u/v prime and display on photometer.
+Measures luminance, chromaticity x&y, u/v prime using photometer functions.
 
 <h3 id="parameters">Parameters</h3>
 
-| Parameter        | Type         | Purpose                         |
-|------------------|--------------|---------------------------------|
-| `com_part`       | unsigned int | port to measure from            |
-| `luminance`      | double \*    | luminance value (Lv)            |
-| `chromaticity_x` | double \*    | chromaticity x coordinate       |
-| `chromaticity_y` | double \*    | chromaticity y coordinate       |
-| `u_prime`        | double \*    | scaled factor of chromaticity_x |
-| `v_prime`        | double \*    | scaled factor of chromaticity_y |
+| Parameter        | Type           | Description                     |
+|------------------|----------------|---------------------------------|
+| `com_part`       | `unsigned int` | Port to measure from            |
+| `luminance`      | `double \*`    | Luminance value (Lv)            |
+| `chromaticity_x` | `double \*`    | Chromaticity x coordinate       |
+| `chromaticity_y` | `double \*`    | Chromaticity y coordinate       |
+| `u_prime`        | `double \*`    | Scaled factor of chromaticity_x |
+| `v_prime`        | `double \*`    | Scaled factor of chromaticity_y |
 
 <h3 id="return-value">Return Value</h3>
 
-| Error Code | Error   |
-|------------|---------|
-| `0`        | Success |
-| `!=0`      | Error   |
+| Error Code | Description |
+|------------|-------------|
+| `0`        | Success     |
+| `Other`    | Error       |
 
 <h2 id="photometerinitialize">PhotometerInitialize</h2>
 
 <h3 id="header-1">Header</h3>
 
-    int DLLEXPORT __stdcall PhotometerInitialize(unsigned int com_port, ViBoolean *test_result, char *status_message)
+    int DLLEXPORT __stdcall PhotometerInitialize(unsigned int com_port, ViBoolean *test_result, char *status_message);
 
 <h3 id="purpose-1">Purpose</h3>
 
@@ -40,14 +44,14 @@ Initialize photometer with parameter values
 
 <h3 id="parameters-1">Parameters</h3>
 
-| Parameter        | Type         | Purpose            |
-|------------------|--------------|--------------------|
-| `com_part`       | unsigned int | Communication port |
-| `test_result`    | ViBoolean \* | test result        |
-| `status_message` | char \*      | status message     |
+| Parameter        | Type           | Description        |
+|------------------|----------------|--------------------|
+| `com_part`       | `unsigned int` | Communication port |
+| `test_result`    | `ViBoolean \*` | Test result        |
+| `status_message` | `char \*`      | Status message     |
 
 <h3 id="return-value-1">Return Value</h3>
 
-| Error Code | Error   |
-|------------|---------|
-| `0`        | Success |
+| Error Code | Description |
+|------------|-------------|
+| `0`        | Success     |

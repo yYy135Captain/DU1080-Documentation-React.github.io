@@ -1,6 +1,8 @@
-<h1 id="dmmc">DMM.c</h1>
+<h1 id="dmm">DMM</h1>
 
 <h2 id="overview">Overview</h2>
+Tests if the DMM is working properly by initializing, closing, and reading DC Voltage/Current at given UUT Pins.
+
 <h2 id="dmminitialize">DMMInitialize</h2>
 <h3 id="header">Header</h3>
 
@@ -12,19 +14,19 @@ Initializes the digital multimeter.
 
 <h3 id="parameters">Parameters</h3>
 
-| Name             | Type          | Purpose                    |
+| Parameter        | Type          | Description                |
 |------------------|---------------|----------------------------|
-| `resource_name`  | `char *`      | resource name              |
-| `dmm_handle`     | `ViSession *` | address of dmm session     |
-| `test_result`    | `ViBoolean *` | either VI_TRUE or VI_FALSE |
-| `status_message` | `char *`      | string error message       |
+| `resource_name`  | `char *`      | Resource name              |
+| `dmm_handle`     | `ViSession *` | Address of dmm session     |
+| `test_result`    | `ViBoolean *` | Either VI_TRUE or VI_FALSE |
+| `status_message` | `char *`      | String error message       |
 
 <h3 id="return-values">Return Values</h3>
 
-| Error Code | Error Description |
+| Error Code | Description |
 |----|----|
-| `VI_SUCCESS` | niDMM initialized successfully |
-| `!= VI_SUCCESS` | Error when calling InitWithOptions() or ConfigurePowerLineFrequency() |
+| `VI_SUCCESS` | NiDMM initialized successfully |
+| `Other` | Error when calling InitWithOptions() or ConfigurePowerLineFrequency() |
 
 <h2 id="dmmclose">DMMClose</h2>
 <h3 id="header-1">Header</h3>
@@ -37,17 +39,17 @@ Closes digital multimeter.
 
 <h3 id="parameters-1">Parameters</h3>
 
-| Name             | Type        | Purpose               |
+| Parameter        | Type        | Description           |
 |------------------|-------------|-----------------------|
-| `dmm_handle`     | `ViSession` | address of dmm device |
-| `status_message` | `char *`    | string error message  |
+| `dmm_handle`     | `ViSession` | Address of dmm device |
+| `status_message` | `char *`    | String error message  |
 
 <h3 id="return-values-1">Return Values</h3>
 
-| Error Code      | Error Description       |
-|-----------------|-------------------------|
-| `VI_SUCCESS`    | DMM closed successfully |
-| `!= VI_SUCCESS` | DMM failed to close     |
+| Error Code   | Description             |
+|--------------|-------------------------|
+| `VI_SUCCESS` | DMM closed successfully |
+| `Other`      | DMM failed to close     |
 
 <h2 id="dmmmeasure">DMMMeasure</h2>
 <h3 id="header-2">Header</h3>
@@ -60,17 +62,17 @@ Reads the DC Voltage at the given UUT pins with DMM and stores read value in Rea
 
 <h3 id="parameters-2">Parameters</h3>
 
-| Name | Type | Purpose |
+| Parameter | Type | Description |
 |----|----|----|
-| `dmm_handle` | `ViSession` | address of dmm device |
-| `measurement_type` | `MeasurementType` | enum that specifies measurement type |
-| `range` | `ViReal64` | specifies minimum measurement val (frequency) or max measurement val (all other functions) |
-| `reading` | `ViReal64 *` | measurement reading of dmm |
-| `status_message` | `char *` | string error message |
+| `dmm_handle` | `ViSession` | Address of dmm device |
+| `measurement_type` | `MeasurementType` | Enum that specifies measurement type |
+| `range` | `ViReal64` | Specifies minimum measurement val (frequency) or max measurement val (all other functions) |
+| `reading` | `ViReal64 *` | Measurement reading of dmm |
+| `status_message` | `char *` | String error message |
 
 <h3 id="return-values-2">Return Values</h3>
 
-| Error Code      | Error Description             |
-|-----------------|-------------------------------|
-| `VI_SUCCESS`    | DMM was measured successfully |
-| `!= VI_SUCCESS` | DMM failed to measure         |
+| Error Code   | Description                   |
+|--------------|-------------------------------|
+| `VI_SUCCESS` | DMM was measured successfully |
+| `Other`      | DMM failed to measure         |

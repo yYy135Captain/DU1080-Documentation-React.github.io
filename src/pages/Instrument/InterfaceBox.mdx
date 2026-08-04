@@ -1,6 +1,8 @@
-<h1 id="interfaceboxc">InterfaceBox.c</h1>
+<h1 id="interfacebox">InterfaceBox</h1>
 
 <h2 id="overview">Overview</h2>
+Tests interface box slots 1 and 2 by initializing and closing them and testing different RGB and video modes.
+
 <h2 id="interfaceboxslot1hdlcwrapback">InterfaceBoxSlot1HDLCWrapBack</h2>
 <h3 id="header">Header</h3>
 
@@ -12,17 +14,21 @@ HW_BOX_Slot 1 HDLC wrap back.
 
 <h3 id="parameters">Parameters</h3>
 
-| Name | Type | Purpose |
+| Parameter | Type | Description |
 |----|----|----|
 | `vid` | `int` | HID device vid |
 | `pid` | `int` | HID device pid |
-| `value` | `int` | value must from 1 of (HS_TX_HS0, HS_TX_HS1, HS_TX_HS2, HS_TX_HS3) |
-| `status_message` | `char *` | status msg |
+| `value` | `int` | Value must from 1 of (HS_TX_HS0, HS_TX_HS1, HS_TX_HS2, HS_TX_HS3) |
+| `status_message` | `char *` | Status message |
 
 <h3 id="return-values">Return Values</h3>
 
-| Error Code | Error Description |
-|------------|-------------------|
+| Error Code | Description                                            |
+|------------|--------------------------------------------------------|
+| `0`        | Success                                                |
+| `-1`       | Interface Box Slot 1HDLC Wrap Back initialization fail |
+| `-2`       | Interface Box Slot 1HDLC Wrap Back read failed         |
+| `-3`       | Interface Box Slot 1HDLC Close DU Interface Box failed |
 
 <h2 id="interfaceboxslot2hdlcwrapback">InterfaceBoxSlot2HDLCWrapBack</h2>
 <h3 id="header-1">Header</h3>
@@ -35,17 +41,22 @@ HW_BOX_Slot 2 HDLC wrap back.
 
 <h3 id="parameters-1">Parameters</h3>
 
-| Name | Type | Purpose |
+| Parameter | Type | Description |
 |----|----|----|
 | `vid` | `int` | HID device vid |
 | `pid` | `int` | HID device pid |
-| `value` | `int` | value must from one item of (HS_TX_HS0, HS_TX_HS1, HS_TX_HS2, HS_TX_HS3) |
-| `status_message` | `char *` | status msg |
+| `value` | `int` | Value must from one item of (HS_TX_HS0, HS_TX_HS1, HS_TX_HS2, HS_TX_HS3) |
+| `status_message` | `char *` | Status message |
 
 <h3 id="return-values-1">Return Values</h3>
 
-| Error Code | Error Description |
-|------------|-------------------|
+| Error Code | Description |
+|----|----|
+| `0` | Success |
+| `-1` | Interface Box Slot 2 HDLC Wrap Back initialization fail |
+| `-2` | Interface Box Slot 2 HDLC Wrap Back interface box write fail |
+| `-3` | Interface Box Slot 2 HDLC Wrap Back interface box read fail |
+| `-4` | Interface Box Slot 2 HDLC Wrap Back close DU interface box fail |
 
 <h2 id="interfaceboxanalogvideoset">InterfaceBoxAnalogVideoSet</h2>
 <h3 id="header-2">Header</h3>
@@ -58,17 +69,21 @@ For Analog Video Seletion.
 
 <h3 id="parameters-2">Parameters</h3>
 
-| Name | Type | Purpose |
+| Parameter | Type | Description |
 |----|----|----|
 | `vid` | `int` | HID device vid |
 | `pid` | `int` | HID device pid |
-| `value` | `int` | value must from one item of (CVBS_ANA_VID_1, COM_VIDEO, S_VIDEO, RGB, CVBS_ANA_VID_2, CVBS_ANA_VID_3) |
-| `status_message` | `char *` | status msg |
+| `value` | `int` | Value must from one item of (CVBS_ANA_VID_1, COM_VIDEO, S_VIDEO, RGB, CVBS_ANA_VID_2, CVBS_ANA_VID_3) |
+| `status_message` | `char *` | Status message |
 
 <h3 id="return-values-2">Return Values</h3>
 
-| Error Code | Error Description |
-|------------|-------------------|
+| Error Code | Description                                        |
+|------------|----------------------------------------------------|
+| `0`        | Success                                            |
+| `-1`       | Interface Box Analog Video Set initialization fail |
+| `-2`       | Interface Box Analog Video Set read fail           |
+| `-3`       | Interface Box Analog Video Set close fail          |
 
 <h2 id="interfaceboxcommandtest">InterfaceBoxCommandTest</h2>
 <h3 id="header-3">Header</h3>
@@ -81,16 +96,19 @@ For HW command test.
 
 <h3 id="parameters-3">Parameters</h3>
 
-| Name             | Type     | Purpose        |
+| Parameter        | Type     | Description    |
 |------------------|----------|----------------|
 | `vid`            | `int`    | HID device vid |
 | `pid`            | `int`    | HID device pid |
-| `status_message` | `char *` | status msg     |
+| `status_message` | `char *` | Status message |
 
 <h3 id="return-values-3">Return Values</h3>
 
-| Error Code | Error Description |
-|------------|-------------------|
+| Error Code | Description                                    |
+|------------|------------------------------------------------|
+| `0`        | Success                                        |
+| `-1`       | Interface Box Command Test initialization fail |
+| `-2`       | Interface Box Command Test close fail          |
 
 <h2 id="interfaceboxfirmwareversion">InterfaceBoxFirmwareVersion</h2>
 <h3 id="header-4">Header</h3>
@@ -103,17 +121,17 @@ Version confirmation.
 
 <h3 id="parameters-4">Parameters</h3>
 
-| Name             | Type          | Purpose                                |
+| Parameter        | Type          | Description                            |
 |------------------|---------------|----------------------------------------|
 | `vid`            | `int`         | HID device vid                         |
 | `pid`            | `int`         | HID device pid                         |
-| `target`         | `int`         | the estimated correct firmware version |
+| `target`         | `int`         | The estimated correct firmware version |
 | `test_result`    | `ViBoolean *` | 1 for pass, 0 for fail                 |
-| `status_message` | `char *`      | status msg                             |
+| `status_message` | `char *`      | Status message                         |
 
 <h3 id="return-values-4">Return Values</h3>
 
-| Error Code | Error Description |
+| Error Code | Description |
 |----|----|
 | `0` | DU Interface Box successfully passed firmware version check and successfully closed |
 | `-1` | DU Interface Box failed to initialize |
@@ -130,15 +148,15 @@ Initialize interface box.
 
 <h3 id="parameters-5">Parameters</h3>
 
-| Name            | Type       | Purpose        |
+| Parameter       | Type       | Description    |
 |-----------------|------------|----------------|
-| `device_handle` | `HANDLE *` | device handle  |
+| `device_handle` | `HANDLE *` | Device handle  |
 | `vid`           | `int`      | HID device vid |
 | `pid`           | `int`      | HID device pid |
 
 <h3 id="return-values-5">Return Values</h3>
 
-| Error Code | Error Description       |
+| Error Code | Description             |
 |------------|-------------------------|
 | `TRUE`     | Found HID device        |
 | `FALSE`    | Did not find HID device |
@@ -154,16 +172,16 @@ Write to interface box.
 
 <h3 id="parameters-6">Parameters</h3>
 
-| Name                | Type     | Purpose           |
+| Parameter           | Type     | Description       |
 |---------------------|----------|-------------------|
-| `hid_device_handle` | `HANDLE` | hid device handle |
-| `device`            | `int`    | device            |
-| `address`           | `int`    | address           |
-| `data`              | `int`    | data              |
+| `hid_device_handle` | `HANDLE` | Hid device handle |
+| `device`            | `int`    | Device            |
+| `address`           | `int`    | Address           |
+| `data`              | `int`    | Data              |
 
 <h3 id="return-values-6">Return Values</h3>
 
-| Error Code | Error Description                      |
+| Error Code | Description                            |
 |------------|----------------------------------------|
 | `0`        | Writing to interface box was a success |
 | `-1`       | Function timed out                     |
@@ -179,12 +197,12 @@ Read from interface box.
 
 <h3 id="parameters-7">Parameters</h3>
 
-| Name                | Type     | Purpose               |
+| Parameter           | Type     | Description           |
 |---------------------|----------|-----------------------|
-| `hid_device_handle` | `HANDLE` | device handle for hid |
-| `device`            | `int`    | device                |
-| `address`           | `int`    | address               |
-| `data_response`     | `int *`  | data response         |
+| `hid_device_handle` | `HANDLE` | Device handle for hid |
+| `device`            | `int`    | Device                |
+| `address`           | `int`    | Address               |
+| `data_response`     | `int *`  | Data response         |
 
 <h3 id="return-values-7">Return Values</h3>
 
@@ -201,15 +219,15 @@ Set the CVBS mode.
 
 <h3 id="parameters-8">Parameters</h3>
 
-| Name             | Type     | Purpose        |
+| Parameter        | Type     | Description    |
 |------------------|----------|----------------|
 | `vid`            | `int`    | HID device vid |
 | `pid`            | `int`    | HID device pid |
-| `status_message` | `char *` | status message |
+| `status_message` | `char *` | Status message |
 
 <h3 id="return-values-8">Return Values</h3>
 
-| Error Code | Error Description                |
+| Error Code | Description                      |
 |------------|----------------------------------|
 | `0`        | CVBS Mode set successfully       |
 | `-1`       | Interface Box did not initialize |
@@ -227,15 +245,15 @@ Set video mode for component.
 
 <h3 id="parameters-9">Parameters</h3>
 
-| Name             | Type     | Purpose        |
+| Parameter        | Type     | Description    |
 |------------------|----------|----------------|
 | `vid`            | `int`    | HID device vid |
 | `pid`            | `int`    | HID device pid |
-| `status_message` | `char *` | status message |
+| `status_message` | `char *` | Status message |
 
 <h3 id="return-values-9">Return Values</h3>
 
-| Error Code | Error Description                      |
+| Error Code | Description                            |
 |------------|----------------------------------------|
 | `0`        | SetComponentVideoMode set successfully |
 | `-1`       | Interface Box did not initialize       |
@@ -253,15 +271,15 @@ Set SV video to YC mode.
 
 <h3 id="parameters-10">Parameters</h3>
 
-| Name             | Type     | Purpose        |
+| Parameter        | Type     | Description    |
 |------------------|----------|----------------|
 | `vid`            | `int`    | HID device vid |
 | `pid`            | `int`    | HID device pid |
-| `status_message` | `char *` | error message  |
+| `status_message` | `char *` | Error message  |
 
 <h3 id="return-values-10">Return Values</h3>
 
-| Error Code | Error Description                |
+| Error Code | Description                      |
 |------------|----------------------------------|
 | `0`        | SetSVideoYCMode set successfully |
 | `-1`       | Interface Box did not initialize |
@@ -279,15 +297,15 @@ Set color mode.
 
 <h3 id="parameters-11">Parameters</h3>
 
-| Name             | Type     | Purpose        |
+| Parameter        | Type     | Description    |
 |------------------|----------|----------------|
 | `vid`            | `int`    | HID device vid |
 | `pid`            | `int`    | HID device pid |
-| `status_message` | `char *` | status message |
+| `status_message` | `char *` | Status message |
 
 <h3 id="return-values-11">Return Values</h3>
 
-| Error Code | Error Description                |
+| Error Code | Description                      |
 |------------|----------------------------------|
 | `0`        | SetRGBMode set successfully      |
 | `-1`       | Interface Box did not initialize |
@@ -305,12 +323,12 @@ Close DU Interface Box.
 
 <h3 id="parameters-12">Parameters</h3>
 
-| Name                | Type     | Purpose           |
+| Parameter           | Type     | Description       |
 |---------------------|----------|-------------------|
-| `hid_device_handle` | `HANDLE` | hid device handle |
+| `hid_device_handle` | `HANDLE` | Hid device handle |
 
 <h3 id="return-values-12">Return Values</h3>
 
-| Error Code | Error Description                    |
+| Error Code | Description                          |
 |------------|--------------------------------------|
 | `0`        | DU Interface Box closed successfully |

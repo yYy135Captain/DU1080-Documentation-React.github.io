@@ -88,8 +88,8 @@
   ],
   "/instrument/chroma2238": [
     {
-      "label": "Chroma2238.c",
-      "id": "chroma2238c",
+      "label": "Chroma2238",
+      "id": "chroma2238",
       "level": 1
     },
     {
@@ -512,8 +512,8 @@
   ],
   "/instrument/dmm": [
     {
-      "label": "DMM.c",
-      "id": "dmmc",
+      "label": "DMM",
+      "id": "dmm",
       "level": 1
     },
     {
@@ -811,8 +811,8 @@
   ],
   "/instrument/interface-box": [
     {
-      "label": "InterfaceBox.c",
-      "id": "interfaceboxc",
+      "label": "InterfaceBox",
+      "id": "interfacebox",
       "level": 1
     },
     {
@@ -1702,6 +1702,11 @@
       "level": 1
     },
     {
+      "label": "Overview",
+      "id": "overview",
+      "level": 2
+    },
+    {
       "label": "PhotometerMeasure",
       "id": "photometermeasure",
       "level": 2
@@ -1844,6 +1849,16 @@
       "label": "PowerSupply",
       "id": "powersupply",
       "level": 1
+    },
+    {
+      "label": "Overview",
+      "id": "overview",
+      "level": 2
+    },
+    {
+      "label": "Overview",
+      "id": "overview-1",
+      "level": 2
     },
     {
       "label": "PowerSupplyInitialize",
