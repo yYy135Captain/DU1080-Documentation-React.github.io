@@ -5,7 +5,7 @@ import remarkGfm from "remark-gfm"
 
 // https://vite.dev/config/
 export default defineConfig({
-  base: '/DU1080-Documentation-React.github.io/',
+  base: '/DU1080-Documentation-React/',
 
   plugins: [
     mdx({
