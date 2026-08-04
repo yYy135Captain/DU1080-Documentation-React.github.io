@@ -6,7 +6,7 @@ Controls communication with the AGM DU Test Box.
 <h2 id="sendagmpacket">SendAGMPacket</h2>
 <h3 id="header">Header</h3>
 
-`int DLLEXPORT __stdcall SendAGMPacket(char *port, int baud, char *command, int command_size, char *status_message)`
+`int DLLEXPORT __stdcall SendAGMPacket(char *port, int baud, char *command, int command_size, char *status_message);`
 
 <h3 id="purpose">Purpose</h3>
 
@@ -14,28 +14,28 @@ Send a control packet to the AGM Test Box through an RS-232 COM port and reads t
 
 <h3 id="parameters">Parameters</h3>
 
-| Parameter        | Type     | Description                                  |
-|------------------|----------|----------------------------------------------|
-| `port`           | `char *` | COM port name.                               |
-| `baud`           | `int`    | Communicating baud rate.                     |
-| `command`        | `char *` | Command sent to the AGM Test Box.            |
-| `command_size`   | `int`    | Number of bytes in the command.              |
-| `status_message` | `char *` | Stores the device response or error message. |
+| Parameter        | Type     | Description                                 |
+|------------------|----------|---------------------------------------------|
+| `port`           | `char *` | COM port name                               |
+| `baud`           | `int`    | Communicating baud rate                     |
+| `command`        | `char *` | Command sent to the AGM Test Box            |
+| `command_size`   | `int`    | Number of bytes in the command              |
+| `status_message` | `char *` | Stores the device response or error message |
 
 <h3 id="return-value">Return Value</h3>
 
-| Error | Description |
+| Error Code | Description |
 |----|----|
-| `AGM_SUCCESS` | command completed successfully. |
-| `AGM_ERR_INVALID_PARAMETER` | A parameter is invalid or missing. |
-| `AGM_ERR_OPEN_PORT` | The COM port could not be opened. |
-| `AGM_ERR_TIMEOUT` | No response was received before timeout. |
-| `AGM_ERR_READ_FAILURE` | The response could not be read from the COM port. |
+| `AGM_SUCCESS` | Command completed successfully |
+| `AGM_ERR_INVALID_PARAMETER` | A parameter is invalid or missing |
+| `AGM_ERR_OPEN_PORT` | The COM port could not be opened |
+| `AGM_ERR_TIMEOUT` | No response was received before timeout |
+| `AGM_ERR_READ_FAILURE` | The response could not be read from the COM port |
 
 <h2 id="ribvideocontrol">RIBVideoControl</h2>
 <h3 id="header-1">Header</h3>
 
-`int DLLEXPORT __stdcall RIBVideoControl(int enable, char *port, int baud, char *status_message)`
+`int DLLEXPORT __stdcall RIBVideoControl(int enable, char *port, int baud, char *status_message);`
 
 <h3 id="purpose-1">Purpose</h3>
 
@@ -45,22 +45,22 @@ Enables or disables the RIB video output on the AGM Test Box by sending the appr
 
 | Parameter | Type | Description |
 |----|----|----|
-| `enable` | `int` | Selects the video output state: `1` enables and `0` disables. |
-| `port` | `char *` | COM port name used to communicate with AGM Test Box. |
-| `baud` | `int` | Communication baud rate. |
-| `status_message` | `char *` | Stores the device response or error message. |
+| `enable` | `int` | Selects the video output state: `1` enables and `0` disables |
+| `port` | `char *` | COM port name used to communicate with AGM Test Box |
+| `baud` | `int` | Communication baud rate |
+| `status_message` | `char *` | Stores the device response or error message |
 
 <h3 id="return-value-1">Return Value</h3>
 
-| Error | Description |
+| Error Code | Description |
 |----|----|
-| `AGM_SUCCESS` | Video control command completed successfully. |
-| `AGM_ERR_INVALID_PARAMETER` | The `enable` value is not `0` or `1`, or another parameter is invalid. |
+| `AGM_SUCCESS` | Video control command completed successfully |
+| `AGM_ERR_INVALID_PARAMETER` | The `enable` value is not `0` or `1`, or another parameter is invalid |
 
 <h2 id="agmpowercontrol">AGMPowerControl</h2>
 <h3 id="header-2">Header</h3>
 
-`int DLLEXPORT __stdcall AGMPowerControl(char* state, int plug, char* IP_address, char *status_message)`
+`int DLLEXPORT __stdcall AGMPowerControl(char* state, int plug, char* IP_address, char *status_message);`
 
 <h3 id="purpose-2">Purpose</h3>
 
@@ -70,16 +70,16 @@ Controls the power state of the AGM Test Box through the WTI Power Plug using an
 
 | Parameter | Type | Description |
 |----|----|----|
-| `state` | `char*` | Power state. Valid values are `"ON"`, `"OFF"`, or `"BOOT"`. |
-| `plug` | `int` | Plug number. Valid values are ‘3’ (Top AGM) or `4` (Bottom AGM). |
-| `IP_address` | `char *` | IP address of the WTI Power Plug. |
-| `status_message` | `char *` | Stores the operation status or error message. |
+| `state` | `char*` | Power state. Valid values are `"ON"`, `"OFF"`, or `"BOOT"` |
+| `plug` | `int` | Plug number. Valid values are ‘3’ (Top AGM) or `4` (Bottom AGM) |
+| `IP_address` | `char *` | IP address of the WTI Power Plug |
+| `status_message` | `char *` | Stores the operation status or error message |
 
 <h3 id="return-value-2">Return Value</h3>
 
-| Error | Description                           |
-|-------|---------------------------------------|
-| `0`   | Power command completed successfully. |
-| `1`   | Invalid power state.                  |
-| `2`   | Invalid plug number.                  |
-| `3`   | Invalid IP address.                   |
+| Error Code | Description                          |
+|------------|--------------------------------------|
+| `0`        | Power command completed successfully |
+| `1`        | Invalid power state                  |
+| `2`        | Invalid plug number                  |
+| `3`        | Invalid IP address                   |

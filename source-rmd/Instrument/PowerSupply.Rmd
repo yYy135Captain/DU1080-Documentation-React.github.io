@@ -1,4 +1,6 @@
-# PowerSupply {.unnumbered}
+# PowerSupply 
+
+## **Overview** 
 
 ## **Overview** {.unnumbered}
 
@@ -14,7 +16,7 @@ int DLLEXPORT _stdcall PowerSupplyInitialize(char *resource_name, double voltage
 
 ### Purpose
 
-Initializes the DC Power Supply
+Initializes the DC Power Supply.
 
 ### Parameters
 
@@ -49,9 +51,9 @@ This function enable/disable the DC Power Supply output based on power_supply_ou
 
 | Parameter                 | Type         | Description                   |
 |---------------------------|--------------|---------------------------|
-| `power_supply_handle`       | `ViSession \*` | power supply address      |
-| `power_supply_output_state` | `int`          | power supply output state |
-| `status_message`            | `char \*`      | error message             |
+| `power_supply_handle`       | `ViSession \*` | Power supply address      |
+| `power_supply_output_state` | `int`          | Power supply output state |
+| `status_message`            | `char \*`      | Error message             |
 
 ### Return Value
 
@@ -210,16 +212,16 @@ Initializes and set voltage & current value to the power supply.
 
 | Parameter             | Type         | Description                   |
 |-----------------------|--------------|---------------------------|
-| `resource_name`       | `char \*`      | resource name             |
-| `voltage`             | `double`       | voltage to be initialized |
-| `current`             | `double`       | current to be initialized |
-| `power_supply_handle` | `ViSession \*` | power supply handle       |
-| `status_message`      | `char \*`      | status message            |
+| `resource_name`       | `char \*`      | Resource name             |
+| `voltage`             | `double`       | Voltage to be initialized |
+| `current`             | `double`       | Current to be initialized |
+| `power_supply_handle` | `ViSession \*` | Power supply handle       |
+| `status_message`      | `char \*`      | Status message            |
 
 ### Return Value
 
 | Error Code | Description                                |
 |------------|--------------------------------------|
 | `0`        | Success                              |
-| `!=0`      | Error in one of the called functions |
+| `Other`      | Error in one of the called functions |
 

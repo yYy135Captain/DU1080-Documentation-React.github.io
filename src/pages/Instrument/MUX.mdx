@@ -14,19 +14,19 @@ Initializes a NI Switch MUX device using the specified resource name and topolog
 
 <h3 id="parameter">Parameter</h3>
 
-| Parameter        | Type          | Description                          |
-|------------------|---------------|--------------------------------------|
-| `resource_name`  | `char *`      | resource name.                       |
-| `topology`       | `char *`      | topology to be set in switch module. |
-| `session`        | `ViSession *` | session.                             |
-| `test_result`    | `ViBoolean *` | test result.                         |
-| `status_message` | `char *`      | status of task message.              |
+| Parameter        | Type          | Description                         |
+|------------------|---------------|-------------------------------------|
+| `resource_name`  | `char *`      | Resource name                       |
+| `topology`       | `char *`      | Topology to be set in switch module |
+| `session`        | `ViSession *` | Session                             |
+| `test_result`    | `ViBoolean *` | Test result                         |
+| `status_message` | `char *`      | Status of task message              |
 
 <h3 id="return-value">Return Value</h3>
 
-| Error        | Description               |
+| Error Code   | Description               |
 |--------------|---------------------------|
-| `VI_SUCCESS` | initialized successfully. |
+| `VI_SUCCESS` | Initialized successfully. |
 
 <h2 id="muxset">MUXSet</h2>
 <h3 id="header-1">Header</h3>
@@ -39,19 +39,19 @@ This function controls the open or close state of the switch.
 
 <h3 id="parameter-1">Parameter</h3>
 
-| Parameter    | Type        | Description            |
-|--------------|-------------|------------------------|
-| `session`    | `ViSession` | NI Switch session      |
-| `*channel_1` | `char`      | First channel          |
-| `*channel_2` | `char`      | Second channel         |
-| `operation`  | `int`       | operation in execution |
+| Parameter   | Type        | Description            |
+|-------------|-------------|------------------------|
+| `session`   | `ViSession` | NI Switch session      |
+| `channel_1` | `char *`    | First channel          |
+| `channel_2` | `char *`    | Second channel         |
+| `operation` | `int`       | Operation in execution |
 
 <h3 id="return-value-1">Return Value</h3>
 
-| Error | Description |
-|-------|-------------|
-| `-0`  | Open        |
-| `-1`  | Close       |
+| Error Code | Description |
+|------------|-------------|
+| `0`        | Open        |
+| `-1`       | Close       |
 
 <h2 id="muxclose">MUXClose</h2>
 <h3 id="header-2">Header</h3>
@@ -71,9 +71,9 @@ Resets the NI Switch device and closes the switch session.
 
 <h3 id="return-value-2">Return Value</h3>
 
-| Error        | Description                  |
-|--------------|------------------------------|
-| `VI_SUCCESS` | session closed successfully. |
+| Error Code   | Description                 |
+|--------------|-----------------------------|
+| `VI_SUCCESS` | Session closed successfully |
 
 <h2 id="muxopenallrelays">MUXOpenAllRelays</h2>
 <h3 id="header-3">Header</h3>
@@ -92,10 +92,10 @@ Open all relays on the NI Switch module and resets the switch.
 
 <h3 id="return-value-3">Return Value</h3>
 
-| Error        | Description                       |
-|--------------|-----------------------------------|
-| `VI_SUCCESS` | Operation completed successfully. |
-| Other value  | NI Switch error code.             |
+| Error Code   | Description                      |
+|--------------|----------------------------------|
+| `VI_SUCCESS` | Operation completed successfully |
+| Other value  | NI Switch error code             |
 
 <h2 id="muxsignalset">MUXSignalSet</h2>
 <h3 id="header-4">Header</h3>
@@ -108,19 +108,19 @@ Searches the signal list for the specified signal and executes the corresponding
 
 <h3 id="parameter-4">Parameter</h3>
 
-| Parameter        | Type        | Description            |
-|------------------|-------------|------------------------|
-| `session`        | `ViSession` | NI Switch session      |
-| `signal_name`    | `char *`    | Signal to execute      |
-| `signal_list`    | `void *`    | Signal list            |
-| `status_message` | `char *`    | Status message buffer. |
+| Parameter        | Type        | Description           |
+|------------------|-------------|-----------------------|
+| `session`        | `ViSession` | NI Switch session     |
+| `signal_name`    | `char *`    | Signal to execute     |
+| `signal_list`    | `void *`    | Signal list           |
+| `status_message` | `char *`    | Status message buffer |
 
 <h3 id="return-value-4">Return Value</h3>
 
-| Error | Description                               |
-|-------|-------------------------------------------|
-| `0`   | Signal executed successfully              |
-| `-1`  | Signal list is not loaded                 |
-| `-2`  | Invalid signal action                     |
-| `-3`  | Signal not found or MUX operation failed. |
-| `-4`  | Invalid channel number                    |
+| Error | Description                              |
+|-------|------------------------------------------|
+| `0`   | Signal executed successfully             |
+| `-1`  | Signal list is not loaded                |
+| `-2`  | Invalid signal action                    |
+| `-3`  | Signal not found or MUX operation failed |
+| `-4`  | Invalid channel number                   |

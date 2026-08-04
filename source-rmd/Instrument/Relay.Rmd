@@ -1,8 +1,6 @@
 # Relay {-}
 ## **Overview** {-}
-  The Relay library provides functions for controlling NI switch hardware used in the DU1080 HW4 ATP system.
-  
-  It supports initialization, relay switching, signal routing, and discuss signal control.
+  The Relay library provides functions for controlling NI switch hardware used in the DU1080 HW4 ATP system. It supports initialization, relay switching, signal routing, and discuss signal control.
 
 ## **RelayInitialize** {-}
 ### Header {-}
@@ -14,17 +12,17 @@
 ### Parameter {-}
 |  Parameter |     Type    | Purpose |
 | -----------|-------------|-------------|
-|  `resource_name` | `char *` | Switch resource name.|
-|  `session` |   `ViSession`  | Returns the switch session. |
-| `test_result`|    `ViBoolean`    | Indicates success or failure.|
-|`status_message`| `char *` | Returns status messages. |
+|  `resource_name` | `char *` | Switch resource name|
+|  `session` |   `ViSession`  | Returns the switch session |
+| `test_result`|    `ViBoolean`    | Indicates success or failure|
+|`status_message`| `char *` | Returns status messages |
 
 ### Return Value {-}
-| Error | Description |
+| Error Code| Description |
 |--------------|-------------|
-| 0 | Initialization completed successfully.|
-| 1 | Failed to open VISA resource manager. |
-| 2 | Failed to open VISA resource.         |
+| 0 | Initialization completed successfully|
+| 1 | Failed to open VISA resource manager |
+| 2 | Failed to open VISA resource         |
 
 ## **RelaySet** {-}
 ### Header {-}
@@ -36,15 +34,15 @@
 ### Parameters {-}
 |  Parameter |     Type    | Purpose |
 | -----------|-------------|-------------|
-|  `session` | `ViSession` | Active switch session.|
-|  `channel` |   `char[]`  | Relay channel number. |
-| `operation`|    `int`    | Relay state (NC OR NO).|
+|  `session` | `ViSession` | Active switch session|
+|  `channel` |   `char[]`  | Relay channel number|
+| `operation`|    `int`    | Relay state (NC OR NO)|
   
 ### Return Value {-}
-| Error | Description |
+| Error Code | Description |
 |--------------|-------------|
 |  0 | Relay state changed successfully.|
-| <0 | NI Switch API error. |
+| < 0 | NI Switch API error. |
   
 ## **RelayClose** {-}
 ### Header {-}
@@ -56,16 +54,16 @@ Resets the switch module and closes the active session.
 ### Parameters {-}
 |  Parameter |     Type    | Purpose |
 | -----------|-------------|-------------|
-|  `session` | `ViSession` | Active NI Switch session to be closed. |
-|  `status_message` |   `char *`  | status message represented by string. |
+|  `session` | `ViSession` | Active NI Switch session to be closed |
+|  `status_message` |   `char *`  | status message represented by string |
 
 ### Return Value {-}
-| Error | Description |
+| Error Code | Description |
 |-------|-------------|
 |  0 | Session closed successfully.|
-| <0 | Failed to reset or close the session. |
+| < 0 | Failed to reset or close the session. |
 
-## **ReplayOpenAll** {-}
+## **RelayOpenAll** {-}
 ### Header {-}
 `int DLLEXPORT _stdcall RelayOpenAll(ViSession session);`
 
@@ -75,13 +73,13 @@ Resets the switch module and closes the active session.
 ### Parameters {-}
 |  Parameter |     Type    | Description |
 | -----------|-------------|-------------|
-|  `session` | `ViSession` | Active switch session. |
+|  `session` | `ViSession` | Active switch session |
 
 ### Return Value {-}
-| Error | Description |
+| Error Code | Description |
 |-------|-------------|
-|  0 | All relays opened successfully.|
-| <0 | Failed to open all relays. |
+|  0 | All relays opened successfully|
+| <0 | Failed to open all relays |
 
 ## **RelaySignalSet** {-}
 ### Header {-}
@@ -93,18 +91,18 @@ Set the relay state for a specified signal in the signal list.
 ### Parameters {-}
 |  Parameter |     Type    | Description |
 | -----------|-------------|-------------|
-|  `session` | `ViSession` | Active switch session. |
-| `signal_name` | `char *` | Name of the signal to change.|
-| `signal_list` |`void *` | List of available relay signals.|
-| `status_message` | `char *` | Stores the operation status message.|
+|  `session` | `ViSession` | Active switch session |
+| `signal_name` | `char *` | Name of the signal to change|
+| `signal_list` |`void *` | List of available relay signals|
+| `status_message` | `char *` | Stores the operation status message|
 
 ### Return Value {-}
-| Error | Description |
+| Error Code | Description |
 |-------|-------------|
-|  0  | Signal state updated successfully.|
-| -1  | Signal list has not been loaded. |
-| -2  | Invalid relay operation.|
-| -3  | Signal was not found.|
+|  0  | Signal state updated successfully|
+| -1  | Signal list has not been loaded|
+| -2  | Invalid relay operation|
+| -3  | Signal was not found|
 
 ## **SetNICDiscrete** {-}
 ### Header {-}
@@ -116,15 +114,15 @@ Configures relay settings for NIC ID.
 ### Parameters {-}
 |  Parameter |     Type    | Description |
 | -----------|-------------|-------------|
-|  `session` | `ViSession` | Active switch session. |
-| `test_result` | `ViBoolean *` | Return test status.|
-| `status_message` | `char *` | Stores status message.|
+|  `session` | `ViSession` | Active switch session |
+| `test_result` | `ViBoolean *` | Return test status|
+| `status_message` | `char *` | Stores status message|
 
 ### Return Value {-}
 | Error | Description |
 |-------|-------------|
-|  0 | NIC discrete configured successfully.|
-| <0 | Failed to configure NIC discrete settings. |
+|  0 | NIC discrete configured successfully|
+| <0 | Failed to configure NIC discrete settings |
 
 ## **SetNICDiscreteByData** {-}
 ### Header {-}
@@ -136,15 +134,15 @@ Sets the NIC discrete signals based on the input data.
 ### Parameters {-}
 |  Parameter |     Type    | Description |
 | -----------|-------------|-------------|
-|  `session` | `ViSession` | Active switch session. |
-| `data` | `char *` | Input data used to configure NIC discrete signals.|
-| `status_message` | `char *` | Stores status message.|
+|  `session` | `ViSession` | Active switch session |
+| `data` | `char *` | Input data used to configure NIC discrete signals|
+| `status_message` | `char *` | Stores status message|
 
 ### Return Value {-}
-| Error | Description |
+| Error Code| Description |
 |-------|-------------|
-|  0 | NIC discrete signals configured successfully.|
-| <0 | Failed to configure NIC discrete signals. |
+|  0 | NIC discrete signals configured successfully|
+| <0 | Failed to configure NIC discrete signals|
 
 ## **SetProcDiscreteByData** {-}
 ### Header {-}
@@ -156,13 +154,13 @@ Configures PROC discrete signals using the input data.
 ### Parameters {-}
 |  Parameter |     Type    | Description |
 | -----------|-------------|-------------|
-|  `session` | `ViSession` | Active switch session. |
-| `data` | `unit32_t *` | Input data for PROC DISCRETE SIGNALS.|
-| `signal_list` | `void *` | List of relay signals. |
-| `status_message` | `char *` | Stores status message.|
+|  `session` | `ViSession` | Active switch session |
+| `data` | `unit32_t *` | Input data for PROC DISCRETE SIGNALS|
+| `signal_list` | `void *` | List of relay signals |
+| `status_message` | `char *` | Stores status message|
 
 ### Return Value {-}
 | Error | Description |
 |-------|-------------|
-|  0 | PROC discrete signals configured successfully.|
-| <0 | Failed to configure PROC discrete signals. |
+|  0 | PROC discrete signals configured successfully|
+| <0 | Failed to configure PROC discrete signals |

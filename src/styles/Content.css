@@ -3,7 +3,7 @@ CENTER DOCUMENT CONTENT
 ======================================== */
 
 .content {
-    width: 100%;
+    width: 90%;
     height: calc(100vh - var(--header-height));
     min-width: 0;
     max-width: 60rem;
