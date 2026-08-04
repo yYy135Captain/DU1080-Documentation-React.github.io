@@ -1,6 +1,7 @@
 <h1 id="serialuart">SerialUART</h1>
 
 <h2 id="overview">Overview</h2>
+Initializes, opens, closes, sends data through unique ViSessions to manage SerialUART communication protocol between RS-232 and RS-422.
 
 <h2 id="initializeuart">InitializeUART</h2>
 
@@ -14,12 +15,12 @@ Initializes SerialUART communication between two serial ports that transmit data
 
 <h3 id="parameters">Parameters</h3>
 
-| Parameter         | Type          | Purpose                                 |
+| Parameter         | Type          | Description                             |
 |-------------------|---------------|-----------------------------------------|
-| `session_handle`  | ViSession \*  | session handle                          |
-| `resource_handle` | const char \* | resource handle                         |
-| `test_result`     | ViBoolean \*  | test result                             |
-| `status_message`  | char \*       | status message of VISA port and manager |
+| `session_handle`  | ViSession \*  | Session handle                          |
+| `resource_handle` | const char \* | Resource handle                         |
+| `test_result`     | ViBoolean \*  | Test result                             |
+| `status_message`  | char \*       | Status message of VISA port and manager |
 
 <h3 id="return-value">Return Value</h3>
 
@@ -33,7 +34,7 @@ Initializes SerialUART communication between two serial ports that transmit data
 
 <h3 id="header-1">Header</h3>
 
-    int DLLEXPORT __stdcall UARTSetting(ViSession *session_handle, ViUInt32 baud_rate, char *status_message)
+    int DLLEXPORT __stdcall UARTSetting(ViSession *session_handle, ViUInt32 baud_rate, char *status_message);
 
 <h3 id="purpose-1">Purpose</h3>
 
@@ -41,68 +42,68 @@ This function configures the port settings of a serial port given a session hand
 
 <h3 id="parameters-1">Parameters</h3>
 
-| Parameter        | Type         | Purpose                             |
-|------------------|--------------|-------------------------------------|
-| `session_handle` | ViSession \* | unique session handle               |
-| `baud_rate`      | ViUInt32     | baud rate transmission              |
-| `status_message` | char \*      | status of serial port configuration |
+| Parameter        | Type           | Description                         |
+|------------------|----------------|-------------------------------------|
+| `session_handle` | `ViSession \*` | Unique session handle               |
+| `baud_rate`      | `ViUInt32`     | Baud rate transmission              |
+| `status_message` | `char \*`      | Status of serial port configuration |
 
 <h3 id="return-value-1">Return Value</h3>
 
-| Error | Error Code                 |
-|-------|----------------------------|
-| `0`   | Success                    |
-| `-1`  | Serial port setting failed |
+| Error Code | Description                |
+|------------|----------------------------|
+| `0`        | Success                    |
+| `-1`       | Serial port setting failed |
 
 <h2 id="readuart">ReadUART</h2>
 
 <h3 id="header-2">Header</h3>
 
-    int DLLEXPORT __stdcall ReadUART(ViSession *session_handle, char *status_message)
+    int DLLEXPORT __stdcall ReadUART(ViSession *session_handle, char *status_message);
 
 <h3 id="purpose-2">Purpose</h3>
 
-Read UART data from session handle
+Read UART data from session handle.
 
 <h3 id="parameters-2">Parameters</h3>
 
-| Parameter        | Type         | Purpose               |
-|------------------|--------------|-----------------------|
-| `session_handle` | ViSession \* | unique session handle |
-| `status_message` | char \*      | VISA read status      |
+| Parameter        | Type           | Description           |
+|------------------|----------------|-----------------------|
+| `session_handle` | `ViSession \*` | Unique session handle |
+| `status_message` | `char \*`      | VISA read status      |
 
 <h3 id="return-value-2">Return Value</h3>
 
-| Error | Error Code     |
-|-------|----------------|
-| `0`   | Success        |
-| `-1`  | VISA read fail |
+| Error Code | Description    |
+|------------|----------------|
+| `0`        | Success        |
+| `-1`       | VISA read fail |
 
 <h2 id="replyuart">ReplyUART</h2>
 
 <h3 id="header-3">Header</h3>
 
-    int DLLEXPORT __stdcall ReplyUART(ViSession *session_handle, char *status_message, int time_out, int number_bytes)
+    int DLLEXPORT __stdcall ReplyUART(ViSession *session_handle, char *status_message, int time_out, int number_bytes);
 
 <h3 id="purpose-3">Purpose</h3>
 
-Read/write data until the amount is equal to number_bytes
+Read/write data until the amount is equal to number_bytes.
 
 <h3 id="parameters-3">Parameters</h3>
 
-| Parameter | Type | Purpose |
+| Parameter | Type | Description |
 |----|----|----|
-| `session_handle` | ViSession \* | unique session handle |
-| `status_message` | char \* | status of VISA |
-| `time_out` | int | amount of time (in seconds) the program waits for a return value before breaking out |
-| `number_bytes` | int | total number of bytes to read |
+| `session_handle` | `ViSession \*` | Unique session handle |
+| `status_message` | `char \*` | Status of VISA |
+| `time_out` | `int` | Amount of time (in seconds) the program waits for a return value before breaking out |
+| `number_bytes` | `int` | Total number of bytes to read |
 
 <h3 id="return-value-3">Return Value</h3>
 
-| Error | Error Code        |
-|-------|-------------------|
-| `0`   | Success           |
-| `-1`  | VISA write failed |
+| Error Code | Description       |
+|------------|-------------------|
+| `0`        | Success           |
+| `-1`       | VISA write failed |
 
 <h3 id="example">Example</h3>
 
@@ -110,29 +111,29 @@ Read/write data until the amount is equal to number_bytes
 
 <h3 id="header-4">Header</h3>
 
-    int DLLEXPORT __stdcall CloseUART(ViSession *session_handle)
+    int DLLEXPORT __stdcall CloseUART(ViSession *session_handle);
 
 <h3 id="purpose-4">Purpose</h3>
 
-Close UART through session handle
+Close UART through session handle.
 
 <h3 id="parameters-4">Parameters</h3>
 
-| Parameter        | Type         | Purpose               |
-|------------------|--------------|-----------------------|
-| `session_handle` | ViSession \* | unique session handle |
+| Parameter        | Type           | Description           |
+|------------------|----------------|-----------------------|
+| `session_handle` | `ViSession \*` | Unique session handle |
 
 <h3 id="return-value-4">Return Value</h3>
 
-| Error | Error Code |
-|-------|------------|
-| `0`   | Success    |
+| Error Code | Description |
+|------------|-------------|
+| `0`        | Success     |
 
 <h2 id="serialvisainit">SerialVISAInit</h2>
 
 <h3 id="header-5">Header</h3>
 
-    int DLLEXPORT __stdcall SerialVISAInit(const char *port_name, int baud_rate, int data_bits, int parity, int stop_bits, int flow_control, int time_out)
+    int DLLEXPORT __stdcall SerialVISAInit(const char *port_name, int baud_rate, int data_bits, int parity, int stop_bits, int flow_control, int time_out);
 
 <h3 id="purpose-5">Purpose</h3>
 
@@ -140,91 +141,91 @@ RS-232 and RS-422 send and read verification based on user configured serial set
 
 <h3 id="parameters-5">Parameters</h3>
 
-| Parameter      | Type    | Purpose                   |
-|----------------|---------|---------------------------|
-| `port_name`    | char \* | port name                 |
-| `baud_rate`    | int     | rate of byte transmission |
-| `data_bits`    | int     | data bits                 |
-| `parity`       | int     | parity                    |
-| `stop_bits`    | int     | stop bits                 |
-| `flow_control` | int     | flow control              |
-| `time_out`     | int     | time out in seconds       |
+| Parameter      | Type      | Description               |
+|----------------|-----------|---------------------------|
+| `port_name`    | `char \*` | Port name                 |
+| `baud_rate`    | `int`     | Rate of byte transmission |
+| `data_bits`    | `int`     | Data bits                 |
+| `parity`       | `int`     | Parity                    |
+| `stop_bits`    | `int`     | Stop bits                 |
+| `flow_control` | `int`     | Flow control              |
+| `time_out`     | `int`     | Time out in seconds       |
 
 <h3 id="return-value-5">Return Value</h3>
 
-| Error | Error Code                                  |
-|-------|---------------------------------------------|
-| `0`   | Success                                     |
-| `-1`  | Could not open VISA resource_handle manager |
-| `-2`  | Could not open VISA port                    |
+| Error Code | Description                                 |
+|------------|---------------------------------------------|
+| `0`        | Success                                     |
+| `-1`       | Could not open VISA resource_handle manager |
+| `-2`       | Could not open VISA port                    |
 
 <h2 id="serialvisawrite">SerialVISAWrite</h2>
 
 <h3 id="header-6">Header</h3>
 
-    int DLLEXPORT __stdcall SerialVISAWrite(const char *test_data)
+    int DLLEXPORT __stdcall SerialVISAWrite(const char *test_data);
 
 <h3 id="purpose-6">Purpose</h3>
 
-Write test_data into serial port
+Write test_data into serial port.
 
 <h3 id="parameters-6">Parameters</h3>
 
-| Parameter   | Type          | Purpose            |
-|-------------|---------------|--------------------|
-| `test_data` | const char \* | Data to be written |
+| Parameter   | Type            | Description        |
+|-------------|-----------------|--------------------|
+| `test_data` | `const char \*` | Data to be written |
 
 <h3 id="return-value-6">Return Value</h3>
 
-| Error | Error Code                                          |
-|-------|-----------------------------------------------------|
-| `0`   | Success                                             |
-| `-1`  | RS 232 is not initialized                           |
-| `-3`  | If test_data was not written to the serial properly |
+| Error Code | Description                                         |
+|------------|-----------------------------------------------------|
+| `0`        | Success                                             |
+| `-1`       | RS 232 is not initialized                           |
+| `-3`       | If test_data was not written to the serial properly |
 
 <h2 id="serialvisaread">SerialVISARead</h2>
 
 <h3 id="header-7">Header</h3>
 
-    int DLLEXPORT __stdcall SerialVISARead(char *receive_buffer, int buffer_size, int *bytes_received)
+    int DLLEXPORT __stdcall SerialVISARead(char *receive_buffer, int buffer_size, int *bytes_received);
 
 <h3 id="purpose-7">Purpose</h3>
 
-Read from receive_buffer
+Read from receive_buffer.
 
 <h3 id="parameters-7">Parameters</h3>
 
-| Parameter | Type | Purpose |
+| Parameter | Type | Description |
 |----|----|----|
-| `receive_buffer` | char \* | Buffer to receive |
-| `buffer_size` | int | Size of buffer |
-| `bytes_received` | int \* | How many bytes actually received by receive_buffer |
+| `receive_buffer` | `char \*` | Buffer to receive |
+| `buffer_size` | `int` | Size of buffer |
+| `bytes_received` | `int \*` | How many bytes actually received by receive_buffer |
 
 <h3 id="return-value-7">Return Value</h3>
 
-| Error | Error Code                                     |
-|-------|------------------------------------------------|
-| `0`   | Success                                        |
-| `-1`  | Rs232 did not initialize                       |
-| `-2`  | Chceks if the parameters have an invalid value |
+| Error Code | Description                                    |
+|------------|------------------------------------------------|
+| `0`        | Success                                        |
+| `-1`       | RS232 did not initialize                       |
+| `-2`       | Chceks if the parameters have an invalid value |
 
 <h2 id="serialvisacleanup">SerialVISACleanup</h2>
 
 <h3 id="header-8">Header</h3>
 
-    int DLLEXPORT __stdcall SerialVISACleanup(void)
+    int DLLEXPORT __stdcall SerialVISACleanup(void);
 
 <h3 id="purpose-8">Purpose</h3>
 
-Restart VISA serial port
+Restart VISA serial port.
 
 <h3 id="parameters-8">Parameters</h3>
 
-Void
+This function has no parameters.
 
 <h3 id="return-value-8">Return Value</h3>
 
-| Error Code | Error                                     |
+| Error Code | Description                               |
 |------------|-------------------------------------------|
 | `0`        | Success                                   |
 | `-1`       | RS232 port did not initialize             |

@@ -1,10 +1,12 @@
-<h1 id="chroma2238c">Chroma2238.c</h1>
+<h1 id="chroma2238">Chroma2238</h1>
 
 <h2 id="overview">Overview</h2>
+Test the Chroma2238 by running, disabling, and loading a command into it
+
 <h2 id="chroma2238initialize">Chroma2238Initialize</h2>
 <h3 id="header">Header</h3>
 
-`int DLLEXPORT __stdcall Chroma2238Initialize(char *port_name, long baud_rate, ViBoolean *test_result, char *status_message)`
+`int DLLEXPORT __stdcall Chroma2238Initialize(char *port_name, long baud_rate, ViBoolean *test_result, char *status_message);`
 
 <h3 id="purpose">Purpose</h3>
 
@@ -12,16 +14,16 @@ Initialize a VISA session on Chroma2238.
 
 <h3 id="parameters">Parameters</h3>
 
-| Name             | Type          | Purpose                         |
+| Parameter        | Type          | Description                     |
 |------------------|---------------|---------------------------------|
-| `port_name`      | `char *`      | string resource name            |
-| `baud_rate`      | `long`        | rate of bit transmission (long) |
-| `test_result`    | `ViBoolean *` | either VI_TRUE or VI_FALSE      |
-| `status_message` | `char *`      | string error message            |
+| `port_name`      | `char *`      | String resource name            |
+| `baud_rate`      | `long`        | Rate of bit transmission (long) |
+| `test_result`    | `ViBoolean *` | Either VI_TRUE or VI_FALSE      |
+| `status_message` | `char *`      | String error message            |
 
 <h3 id="return-values">Return Values</h3>
 
-| Error Code | Error Description                    |
+| Error Code | Description                          |
 |------------|--------------------------------------|
 | `0`        | Initialization was successful        |
 | `-1`       | Chroma2238 VISA failed to initialize |
@@ -30,7 +32,7 @@ Initialize a VISA session on Chroma2238.
 <h2 id="chroma2238command">Chroma2238Command</h2>
 <h3 id="header-1">Header</h3>
 
-`int DLLEXPORT __stdcall Chroma2238Command(char *command, char *status_message)`
+`int DLLEXPORT __stdcall Chroma2238Command(char *command, char *status_message);`
 
 <h3 id="purpose-1">Purpose</h3>
 
@@ -38,14 +40,14 @@ Writes a command to a device in a session and checks that it was the correct com
 
 <h3 id="parameters-1">Parameters</h3>
 
-| Name             | Type     | Purpose                           |
+| Parameter        | Type     | Description                       |
 |------------------|----------|-----------------------------------|
 | `command`        | `char *` | String VISA command to be written |
-| `status_message` | `char *` | string error message              |
+| `status_message` | `char *` | String error message              |
 
 <h3 id="return-values-1">Return Values</h3>
 
-| Error Code | Error Description             |
+| Error Code | Description                   |
 |------------|-------------------------------|
 | `0`        | Command writing was a success |
 | `-1`       | Command failed                |
@@ -53,7 +55,7 @@ Writes a command to a device in a session and checks that it was the correct com
 <h2 id="chroma2238loadtimingsetting">Chroma2238LoadTimingSetting</h2>
 <h3 id="header-2">Header</h3>
 
-`int DLLEXPORT __stdcall Chroma2238LoadTimingSetting(int timing_setting, char *status_message)`
+`int DLLEXPORT __stdcall Chroma2238LoadTimingSetting(int timing_setting, char *status_message);`
 
 <h3 id="purpose-2">Purpose</h3>
 
@@ -61,14 +63,14 @@ Send timing setting command to the chroma.
 
 <h3 id="parameters-2">Parameters</h3>
 
-| Name             | Type     | Purpose              |
+| Parameter        | Type     | Description          |
 |------------------|----------|----------------------|
-| `timing_setting` | `int`    | timing setting (int) |
-| `status_message` | `char *` | string error message |
+| `timing_setting` | `int`    | Timing setting (int) |
+| `status_message` | `char *` | String error message |
 
 <h3 id="return-values-2">Return Values</h3>
 
-| Error Code | Error Description                         |
+| Error Code | Description                               |
 |------------|-------------------------------------------|
 | `0`        | Load timing setting command was a success |
 | `-1`       | Command failed                            |
@@ -76,7 +78,7 @@ Send timing setting command to the chroma.
 <h2 id="chroma2238loadpatternsetting">Chroma2238LoadPatternSetting</h2>
 <h3 id="header-3">Header</h3>
 
-`int DLLEXPORT __stdcall Chroma2238LoadPatternSetting(int pattern_setting, char *status_message)`
+`int DLLEXPORT __stdcall Chroma2238LoadPatternSetting(int pattern_setting, char *status_message);`
 
 <h3 id="purpose-3">Purpose</h3>
 
@@ -84,14 +86,14 @@ Send pattern setting command to Chroma.
 
 <h3 id="parameters-3">Parameters</h3>
 
-| Name              | Type     | Purpose               |
+| Parameter         | Type     | Description           |
 |-------------------|----------|-----------------------|
-| `pattern_setting` | `int`    | pattern setting (int) |
-| `status_message`  | `char *` | string error message  |
+| `pattern_setting` | `int`    | Pattern setting (int) |
+| `status_message`  | `char *` | String error message  |
 
 <h3 id="return-values-3">Return Values</h3>
 
-| Error Code | Error Description                          |
+| Error Code | Description                                |
 |------------|--------------------------------------------|
 | `0`        | Load pattern setting command was a success |
 | `-1`       | Command failed                             |
@@ -99,7 +101,7 @@ Send pattern setting command to Chroma.
 <h2 id="chroma2238run">Chroma2238Run</h2>
 <h3 id="header-4">Header</h3>
 
-`int DLLEXPORT __stdcall Chroma2238Run(char *status_message)`
+`int DLLEXPORT __stdcall Chroma2238Run(char *status_message);`
 
 <h3 id="purpose-4">Purpose</h3>
 
@@ -107,13 +109,13 @@ Send run command to Chroma.
 
 <h3 id="parameters-4">Parameters</h3>
 
-| Name             | Type     | Purpose              |
+| Parameter        | Type     | Description          |
 |------------------|----------|----------------------|
-| `status_message` | `char *` | string error message |
+| `status_message` | `char *` | String error message |
 
 <h3 id="return-values-4">Return Values</h3>
 
-| Error Code | Error Description         |
+| Error Code | Description               |
 |------------|---------------------------|
 | `0`        | Run command was a success |
 | `-1`       | Command failed            |
@@ -121,7 +123,7 @@ Send run command to Chroma.
 <h2 id="chroma2238disable">Chroma2238Disable</h2>
 <h3 id="header-5">Header</h3>
 
-`int DLLEXPORT __stdcall Chroma2238Disable(char *status_message)`
+`int DLLEXPORT __stdcall Chroma2238Disable(char *status_message);`
 
 <h3 id="purpose-5">Purpose</h3>
 
@@ -129,13 +131,13 @@ Send disable command to Chroma.
 
 <h3 id="parameters-5">Parameters</h3>
 
-| Name             | Type     | Purpose              |
+| Parameter        | Type     | Description          |
 |------------------|----------|----------------------|
-| `status_message` | `char *` | string error message |
+| `status_message` | `char *` | String error message |
 
 <h3 id="return-values-5">Return Values</h3>
 
-| Error Code | Error Description             |
+| Error Code | Description                   |
 |------------|-------------------------------|
 | `0`        | Disable command was a success |
 | `-1`       | Command failed                |
@@ -143,7 +145,7 @@ Send disable command to Chroma.
 <h2 id="chroma2238close">Chroma2238Close</h2>
 <h3 id="header-6">Header</h3>
 
-`int DLLEXPORT __stdcall Chroma2238Close()`
+`int DLLEXPORT __stdcall Chroma2238Close();`
 
 <h3 id="purpose-6">Purpose</h3>
 
@@ -151,18 +153,18 @@ Close vi session.
 
 <h3 id="parameters-6">Parameters</h3>
 
-Void
+This function does not have any parameters.
 
 <h3 id="return-values-6">Return Values</h3>
 
-| Error Code | Error Description              |
+| Error Code | Description                    |
 |------------|--------------------------------|
 | `0`        | Vi session closed successfully |
 
 <h2 id="visainitialize">VISAInitialize</h2>
 <h3 id="header-7">Header</h3>
 
-`int VISAInitialize(char *visa_name, long baud_rate)`
+`int VISAInitialize(char *visa_name, long baud_rate);`
 
 <h3 id="purpose-7">Purpose</h3>
 
@@ -170,23 +172,23 @@ Initializes visa session with baud rate.
 
 <h3 id="parameters-7">Parameters</h3>
 
-| Name        | Type     | Purpose                         |
+| Parameter   | Type     | Description                     |
 |-------------|----------|---------------------------------|
-| `visa_name` | `char *` | string resource name            |
-| `baud_rate` | `long`   | rate of bit transmission (long) |
+| `visa_name` | `char *` | String resource name            |
+| `baud_rate` | `long`   | Rate of bit transmission (long) |
 
 <h3 id="return-values-7">Return Values</h3>
 
-| Error Code | Error Description             |
+| Error Code | Description                   |
 |------------|-------------------------------|
 | `0`        | Initialization was successful |
-| `-1`       | viOpen was a fail             |
-| \`-2       | viSetAttribute was a fail     |
+| `-1`       | ViOpen was a fail             |
+| `-2`       | ViSetAttribute was a fail     |
 
 <h2 id="chroma2238porttovisaname">Chroma2238PortToVisaName</h2>
 <h3 id="header-8">Header</h3>
 
-`int Chroma2238PortToVisaName(char *port_name, char *visa_name)`
+`int Chroma2238PortToVisaName(char *port_name, char *visa_name);`
 
 <h3 id="purpose-8">Purpose</h3>
 
@@ -194,13 +196,13 @@ Converts port to VISA name.
 
 <h3 id="parameters-8">Parameters</h3>
 
-| Name        | Type     | Purpose                   |
+| Parameter   | Type     | Description               |
 |-------------|----------|---------------------------|
-| `port_name` | `char *` | port name to be converted |
-| `visa_name` | `char *` | string resource name      |
+| `port_name` | `char *` | Port name to be converted |
+| `visa_name` | `char *` | String resource name      |
 
 <h3 id="return-values-8">Return Values</h3>
 
-| Error Code | Error Description         |
+| Error Code | Description               |
 |------------|---------------------------|
 | `0`        | Conversion was successful |
