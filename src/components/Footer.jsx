@@ -8,7 +8,7 @@ function Footer() {
     return (
         <footer className="documentation-footer">
             <p>
-                <strong>DU1080 HW4 API</strong> was developed by Yuxuan Sun / Tiffany Jia. 
+                <strong>DU1080 HW4 API Documentation</strong> was developed by Yuxuan Sun / Tiffany Jia. 
             </p>
 
             <p>
